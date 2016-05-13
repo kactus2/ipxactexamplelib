@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ipxact:design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
-	<ipxact:vendor>TUT.fi</ipxact:vendor>
+	<ipxact:vendor>tut.fi</ipxact:vendor>
 	<ipxact:library>product</ipxact:library>
 	<ipxact:name>SampleProduct.SampleHardware.design</ipxact:name>
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:componentInstances>
 		<ipxact:componentInstance>
 			<ipxact:instanceName>SampleIP_0</ipxact:instanceName>
-			<ipxact:componentRef vendor="TUT.fi" library="ip.hw" name="SampleIP" version="1.0"/>
+			<ipxact:componentRef vendor="tut.fi" library="ip.hw" name="SampleIP" version="1.0"/>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{93896ec9-6afa-4c74-9798-585cf2a4c822}</kactus2:uuid>
 				<kactus2:position x="160" y="60"/>
@@ -15,7 +15,7 @@
 		</ipxact:componentInstance>
 		<ipxact:componentInstance>
 			<ipxact:instanceName>SampleIP_1</ipxact:instanceName>
-			<ipxact:componentRef vendor="TUT.fi" library="ip.hw" name="SampleIP" version="1.0"/>
+			<ipxact:componentRef vendor="tut.fi" library="ip.hw" name="SampleIP" version="1.0"/>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{c1b13220-6458-4dfa-9218-fce0af3ba1ea}</kactus2:uuid>
 				<kactus2:position x="160" y="150"/>
@@ -23,7 +23,7 @@
 		</ipxact:componentInstance>
 		<ipxact:componentInstance>
 			<ipxact:instanceName>SampleIP_2</ipxact:instanceName>
-			<ipxact:componentRef vendor="TUT.fi" library="ip.hw" name="SampleIP" version="1.0"/>
+			<ipxact:componentRef vendor="tut.fi" library="ip.hw" name="SampleIP" version="1.0"/>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{4575acca-ffcd-4b17-a046-63066fa7a54c}</kactus2:uuid>
 				<kactus2:position x="160" y="240"/>

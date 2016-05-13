@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
-	<ipxact:vendor>TUT.fi</ipxact:vendor>
+	<ipxact:vendor>tut.fi</ipxact:vendor>
 	<ipxact:library>ip.sw</ipxact:library>
 	<ipxact:name>LoremIpsum</ipxact:name>
 	<ipxact:version>1.1</ipxact:version>
@@ -30,38 +30,6 @@
 		</ipxact:fileSet>
 	</ipxact:fileSets>
 	<ipxact:vendorExtensions>
-		<kactus2:fileDependencies>
-			<kactus2:fileDependency manual="false" bidirectional="false" locked="false">
-				<kactus2:fileRef1>Content/MidLevelA.txt</kactus2:fileRef1>
-				<kactus2:fileRef2>Content/MidLevelB.txt</kactus2:fileRef2>
-				<ipxact:description></ipxact:description>
-			</kactus2:fileDependency>
-			<kactus2:fileDependency manual="false" bidirectional="false" locked="false">
-				<kactus2:fileRef1>Content/MidLevelA.txt</kactus2:fileRef1>
-				<kactus2:fileRef2>Content/LoremIpsum.txt</kactus2:fileRef2>
-				<ipxact:description></ipxact:description>
-			</kactus2:fileDependency>
-			<kactus2:fileDependency manual="false" bidirectional="false" locked="false">
-				<kactus2:fileRef1>Content/MidLevelB.txt</kactus2:fileRef1>
-				<kactus2:fileRef2>Content/LoremIpsum.txt</kactus2:fileRef2>
-				<ipxact:description></ipxact:description>
-			</kactus2:fileDependency>
-			<kactus2:fileDependency manual="false" bidirectional="false" locked="false">
-				<kactus2:fileRef1>Content/MidLevelB.txt</kactus2:fileRef1>
-				<kactus2:fileRef2>Content/Bot.txt</kactus2:fileRef2>
-				<ipxact:description></ipxact:description>
-			</kactus2:fileDependency>
-			<kactus2:fileDependency manual="false" bidirectional="false" locked="false">
-				<kactus2:fileRef1>Content/TopDog.txt</kactus2:fileRef1>
-				<kactus2:fileRef2>Content/MidLevelA.txt</kactus2:fileRef2>
-				<ipxact:description></ipxact:description>
-			</kactus2:fileDependency>
-			<kactus2:fileDependency manual="false" bidirectional="false" locked="false">
-				<kactus2:fileRef1>Content/TopDog.txt</kactus2:fileRef1>
-				<kactus2:fileRef2>Content/MidLevelB.txt</kactus2:fileRef2>
-				<ipxact:description></ipxact:description>
-			</kactus2:fileDependency>
-		</kactus2:fileDependencies>
 		<kactus2:version>3,0,66,0</kactus2:version>
 		<kactus2:kts_attributes>
 			<kactus2:kts_implementation>SW</kactus2:kts_implementation>

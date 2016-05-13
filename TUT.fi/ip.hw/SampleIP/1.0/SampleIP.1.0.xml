@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
-	<ipxact:vendor>TUT.fi</ipxact:vendor>
+	<ipxact:vendor>tut.fi</ipxact:vendor>
 	<ipxact:library>ip.hw</ipxact:library>
 	<ipxact:name>SampleIP</ipxact:name>
 	<ipxact:version>1.0</ipxact:version>
