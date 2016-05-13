@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipxact:design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+	<ipxact:vendor>tut.fi</ipxact:vendor>
+	<ipxact:library>soc</ipxact:library>
+	<ipxact:name>hwp.memory.test.top.Parameters_are_propagated_from_top.design</ipxact:name>
+	<ipxact:version>param_propagation</ipxact:version>
+	<ipxact:componentInstances>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>master_0</ipxact:instanceName>
+			<ipxact:componentRef vendor="tut.fi" library="ip.testcomponents" name="master" version="1.0">
+				<ipxact:configurableElementValues>
+					<ipxact:configurableElementValue referenceId="uuid_6765d1ad_4446_4ec9_854a_2d2ad3c64ba8">uuid_1a68e0fd_d940_4d0e_9a8c_387334e7971e </ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_e7d9760a_ed37_436a_bed0_5eb6cd0167ba">uuid_1eae5bc3_6f0f_47a4_9863_356d7ef809a6 </ipxact:configurableElementValue>
+				</ipxact:configurableElementValues>
+			</ipxact:componentRef>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{89668611-bddd-4f44-901e-8d15ecacecc5}</kactus2:uuid>
+				<kactus2:position x="160" y="60"/>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="one_to_many_master" x="110" y="40"/>
+					<kactus2:portPosition busRef="one_to_one_master" x="110" y="60"/>
+				</kactus2:portPositions>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>amba.bus_0</ipxact:instanceName>
+			<ipxact:componentRef vendor="tut.fi" library="ip.testcomponents" name="amba.bus" version="1.0">
+				<ipxact:configurableElementValues>
+					<ipxact:configurableElementValue referenceId="uuid_4ebfa2bd_bec5_4499_aeff_0019954a27e8">uuid_6640ce41_e108_4e29_968c_2a362b0630bd </ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_63511a1d_2011_4429_b843_baabce6de4b3">uuid_04108b14_88df_4cf2_a287_97ea9ca5c192 </ipxact:configurableElementValue>
+				</ipxact:configurableElementValues>
+			</ipxact:componentRef>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{1ae11a79-6638-47e0-b6a3-f6128d9dc558}</kactus2:uuid>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="bus_slave" x="110" y="40"/>
+					<kactus2:portPosition busRef="bus_slave_1" x="110" y="130"/>
+					<kactus2:portPosition busRef="one_to_many_master" x="-110" y="40"/>
+				</kactus2:portPositions>
+				<kactus2:position x="480" y="60"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>direct_slave</ipxact:instanceName>
+			<ipxact:componentRef vendor="tut.fi" library="ip.testcomponents" name="directSlave" version="1.1"/>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{c52cc02c-3bc1-48bf-86e4-61a635e6f905}</kactus2:uuid>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="one_to_one_slave" x="-110" y="40"/>
+				</kactus2:portPositions>
+				<kactus2:position x="800" y="240"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>busSlave_0</ipxact:instanceName>
+			<ipxact:componentRef vendor="tut.fi" library="ip.testcomponents" name="busSlave" version="remap_parametrized">
+				<ipxact:configurableElementValues>
+					<ipxact:configurableElementValue referenceId="uuid_b1315ac1_ffb7_4ea1_8d6c_3ebf18bf896d">uuid_ca50bb31_3946_45f2_8b58_c0af9cda09f6 </ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_6d625720_0a09_4f0a_809a_e768334318d5">uuid_f0bc4440_424b_4b8d_a221_01de97dbab41 </ipxact:configurableElementValue>
+				</ipxact:configurableElementValues>
+			</ipxact:componentRef>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{cfebb8c2-5514-40e1-9829-8a0651b279cb}</kactus2:uuid>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="bus_slave" x="-110" y="40"/>
+				</kactus2:portPositions>
+				<kactus2:adHocVisibilities>
+					<kactus2:adHocVisible portName="config" x="110" y="30"/>
+				</kactus2:adHocVisibilities>
+				<kactus2:position x="800" y="60"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>hierarchicalSlave_0</ipxact:instanceName>
+			<ipxact:componentRef vendor="tut.fi" library="ip.testcomponents" name="hierarchicalSlave" version="Parameters_are_propagated">
+				<ipxact:configurableElementValues>
+					<ipxact:configurableElementValue referenceId="uuid_68891136_ed65_4463_ac89_c139776b578c">uuid_3ea3cb89_4514_4ff0_bae9_bd2d5e87bb4b </ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_fc73cdcd_e350_4ac4_91d4_b293317b9d64">uuid_16a4bc0d_9d8e_41b3_87cb_1540f9dac8f1 </ipxact:configurableElementValue>
+				</ipxact:configurableElementValues>
+			</ipxact:componentRef>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{6a1aaae9-f77b-46f2-8cb1-7e360dd18d47}</kactus2:uuid>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="bus_slave" x="-110" y="40"/>
+				</kactus2:portPositions>
+				<kactus2:position x="800" y="150"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+	</ipxact:componentInstances>
+	<ipxact:interconnections>
+		<ipxact:interconnection>
+			<ipxact:name>master_0_one_to_many_master_to_amba.bus_0_one_to_many_master</ipxact:name>
+			<ipxact:activeInterface componentRef="master_0" busRef="one_to_many_master"/>
+			<ipxact:activeInterface componentRef="amba.bus_0" busRef="one_to_many_master"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>master_0_one_to_one_master_to_direct_slave_one_to_one_slave</ipxact:name>
+			<ipxact:activeInterface componentRef="master_0" busRef="one_to_one_master"/>
+			<ipxact:activeInterface componentRef="direct_slave" busRef="one_to_one_slave"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>amba.bus_0_bus_slave_to_busSlave_0_bus_slave</ipxact:name>
+			<ipxact:activeInterface componentRef="amba.bus_0" busRef="bus_slave"/>
+			<ipxact:activeInterface componentRef="busSlave_0" busRef="bus_slave"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>amba.bus_0_bus_slave_1_to_hierarchicalSlave_0_bus_slave</ipxact:name>
+			<ipxact:activeInterface componentRef="amba.bus_0" busRef="bus_slave_1"/>
+			<ipxact:activeInterface componentRef="hierarchicalSlave_0" busRef="bus_slave"/>
+		</ipxact:interconnection>
+	</ipxact:interconnections>
+	<ipxact:vendorExtensions>
+		<kactus2:version>3,0,0,0</kactus2:version>
+		<kactus2:kts_attributes>
+			<kactus2:kts_implementation>HW</kactus2:kts_implementation>
+		</kactus2:kts_attributes>
+		<kactus2:columnLayout>
+			<kactus2:column name="Buses" contentType="1" allowedItems="12" minWidth="319" width="319" x="320"/>
+			<kactus2:column name="Master" contentType="2" allowedItems="2" minWidth="319" width="319" x="0"/>
+			<kactus2:column name="Slaves" contentType="2" allowedItems="2" minWidth="119" width="319" x="640"/>
+		</kactus2:columnLayout>
+		<kactus2:routes>
+			<kactus2:route kactus2:connRef="master_0_one_to_many_master_to_amba.bus_0_one_to_many_master" kactus2:offPage="false">
+				<kactus2:position x="390" y="100"/>
+				<kactus2:position x="490" y="100"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="amba.bus_0_bus_slave_to_busSlave_0_bus_slave" kactus2:offPage="false">
+				<kactus2:position x="710" y="100"/>
+				<kactus2:position x="810" y="100"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="amba.bus_0_bus_slave_1_to_hierarchicalSlave_0_bus_slave" kactus2:offPage="false">
+				<kactus2:position x="710" y="120"/>
+				<kactus2:position x="790" y="120"/>
+				<kactus2:position x="790" y="190"/>
+				<kactus2:position x="810" y="190"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="master_0_one_to_one_master_to_directSlave_0_one_to_one_slave" kactus2:offPage="false">
+				<kactus2:position x="270" y="120"/>
+				<kactus2:position x="290" y="120"/>
+				<kactus2:position x="290" y="280"/>
+				<kactus2:position x="690" y="280"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="master_0_one_to_one_master_to_direct_slave_one_to_one_slave" kactus2:offPage="false">
+				<kactus2:position x="270" y="120"/>
+				<kactus2:position x="300" y="120"/>
+				<kactus2:position x="300" y="280"/>
+				<kactus2:position x="690" y="280"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="amba.bus_0_bus_slave_to_busSlave_0_bus_slave" kactus2:offPage="false">
+				<kactus2:position x="590" y="100"/>
+				<kactus2:position x="690" y="100"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="amba.bus_0_bus_slave_1_to_hierarchicalSlave_0_bus_slave" kactus2:offPage="false">
+				<kactus2:position x="590" y="190"/>
+				<kactus2:position x="690" y="190"/>
+			</kactus2:route>
+		</kactus2:routes>
+		<kactus2:note>
+			<kactus2:position x="450" y="350"/>
+			<kactus2:content>X: Mapped to address 7 by top comp parameter (this is the address in which the master sees the slave: BASE+7</kactus2:content>
+			<kactus2:associations>
+				<kactus2:position x="640" y="100"/>
+			</kactus2:associations>
+			<kactus2:timestamp>27.4.2016 15:50:09</kactus2:timestamp>
+		</kactus2:note>
+		<kactus2:note>
+			<kactus2:position x="620" y="350"/>
+			<kactus2:content>Z: Mapped to address 15 by top comp parameter: BASE+15</kactus2:content>
+			<kactus2:associations>
+				<kactus2:position x="640" y="190"/>
+			</kactus2:associations>
+			<kactus2:timestamp>27.4.2016 15:38:26</kactus2:timestamp>
+		</kactus2:note>
+		<kactus2:note>
+			<kactus2:position x="170" y="350"/>
+			<kactus2:content>Y: Direct slave is mapped to address 19 by top comp parameter. Note: this should be defined as BASE+19 or otherwise make sure the memory maps seen from the two Master interfaces do not overlap</kactus2:content>
+			<kactus2:associations>
+				<kactus2:position x="300" y="200"/>
+			</kactus2:associations>
+			<kactus2:timestamp>27.4.2016 15:49:46</kactus2:timestamp>
+		</kactus2:note>
+		<kactus2:note>
+			<kactus2:position x="80" y="180"/>
+			<kactus2:content>B:The base address for the bus component is zero set by CEV in the top comp parameter. It also acts as the starting address for the whole map seen from Master: BASE=0</kactus2:content>
+			<kactus2:associations>
+				<kactus2:position x="320" y="100"/>
+			</kactus2:associations>
+			<kactus2:timestamp>27.4.2016 15:45:07</kactus2:timestamp>
+		</kactus2:note>
+	</ipxact:vendorExtensions>
+</ipxact:design>

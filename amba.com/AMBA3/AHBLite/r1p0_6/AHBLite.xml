@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+// =============================================================================
+// This confidential and proprietary software may be used only as
+// authorised by a licensing agreement from ARM Limited
+//   (C) COPYRIGHT 2006, 2007 ARM Limited
+//       ALL RIGHTS RESERVED
+// The entire notice above must be reproduced on all authorised
+// copies and copies may only be made to the extent permitted
+// by a licensing agreement from ARM Limited.
+//
+// =============================================================================
+//
+// Purpose :
+//           This defines the ARM High Speed Lite (AHBLite) Bus
+//
+// =============================================================================
+-->
+<ipxact:busDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014"
+                      xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014 http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+   <ipxact:vendor>amba.com</ipxact:vendor>
+   <ipxact:library>AMBA3</ipxact:library>
+   <ipxact:name>AHBLite</ipxact:name>
+   <ipxact:version>r1p0_6</ipxact:version>
+   <ipxact:directConnection>false</ipxact:directConnection>
+   <ipxact:isAddressable>true</ipxact:isAddressable>
+   <ipxact:maxMasters>1</ipxact:maxMasters>
+   <!--IP-XACT XSLT Warning#28: Removing signals element-->
+<!--IP-XACT XSLT Warning#29: Removing choices element-->
+<!--IP-XACT XSLT Warning#30: Removing busDefParameters element-->
+<ipxact:systemGroupNames>
+      <ipxact:systemGroupName>ahb_clk</ipxact:systemGroupName>
+      <ipxact:systemGroupName>ahb_reset</ipxact:systemGroupName>
+   </ipxact:systemGroupNames>
+</ipxact:busDefinition>

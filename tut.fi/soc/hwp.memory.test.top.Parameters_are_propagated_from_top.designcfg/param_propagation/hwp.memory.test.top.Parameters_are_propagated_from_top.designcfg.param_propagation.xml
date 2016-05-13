@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipxact:designConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+	<ipxact:vendor>tut.fi</ipxact:vendor>
+	<ipxact:library>soc</ipxact:library>
+	<ipxact:name>hwp.memory.test.top.Parameters_are_propagated_from_top.designcfg</ipxact:name>
+	<ipxact:version>param_propagation</ipxact:version>
+	<ipxact:designRef vendor="tut.fi" library="soc" name="hwp.memory.test.top.Parameters_are_propagated_from_top.design" version="param_propagation"/>
+	<ipxact:viewConfiguration>
+		<ipxact:instanceName>busSlave_0</ipxact:instanceName>
+		<ipxact:view viewRef="flat"/>
+	</ipxact:viewConfiguration>
+	<ipxact:viewConfiguration>
+		<ipxact:instanceName>hierarchicalSlave_0</ipxact:instanceName>
+		<ipxact:view viewRef="Params_propagated"/>
+	</ipxact:viewConfiguration>
+	<ipxact:vendorExtensions>
+		<kactus2:version>3,0,0,0</kactus2:version>
+		<kactus2:kts_attributes>
+			<kactus2:kts_implementation>HW</kactus2:kts_implementation>
+		</kactus2:kts_attributes>
+	</ipxact:vendorExtensions>
+</ipxact:designConfiguration>
