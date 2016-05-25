@@ -12,7 +12,7 @@
 				<ipxact:abstractionType>
 					<ipxact:abstractionRef vendor="librecores.org" library="wishbone" name="wishbone.absDef" version="b3"/>
 					<ipxact:portMaps>
-						<ipxact:portMap>
+						<ipxact:portMap invert="false">
 							<ipxact:logicalPort>
 								<ipxact:name>ack_i</ipxact:name>
 							</ipxact:logicalPort>
@@ -20,7 +20,7 @@
 								<ipxact:name>ack_i</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
-						<ipxact:portMap>
+						<ipxact:portMap invert="false">
 							<ipxact:logicalPort>
 								<ipxact:name>adr_o</ipxact:name>
 								<ipxact:range>
@@ -38,7 +38,7 @@
 								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
-						<ipxact:portMap>
+						<ipxact:portMap invert="false">
 							<ipxact:logicalPort>
 								<ipxact:name>bte_o</ipxact:name>
 								<ipxact:range>
@@ -56,7 +56,7 @@
 								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
-						<ipxact:portMap>
+						<ipxact:portMap invert="false">
 							<ipxact:logicalPort>
 								<ipxact:name>cti_o</ipxact:name>
 								<ipxact:range>
@@ -74,7 +74,7 @@
 								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
-						<ipxact:portMap>
+						<ipxact:portMap invert="false">
 							<ipxact:logicalPort>
 								<ipxact:name>cyc_o</ipxact:name>
 								<ipxact:range>
@@ -92,7 +92,7 @@
 								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
-						<ipxact:portMap>
+						<ipxact:portMap invert="false">
 							<ipxact:logicalPort>
 								<ipxact:name>dat_i</ipxact:name>
 								<ipxact:range>
@@ -110,7 +110,7 @@
 								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
-						<ipxact:portMap>
+						<ipxact:portMap invert="false">
 							<ipxact:logicalPort>
 								<ipxact:name>dat_o</ipxact:name>
 							</ipxact:logicalPort>
@@ -118,7 +118,7 @@
 								<ipxact:name>dat_o</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
-						<ipxact:portMap>
+						<ipxact:portMap invert="false">
 							<ipxact:logicalPort>
 								<ipxact:name>err_i</ipxact:name>
 								<ipxact:range>
@@ -136,7 +136,7 @@
 								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
-						<ipxact:portMap>
+						<ipxact:portMap invert="false">
 							<ipxact:logicalPort>
 								<ipxact:name>rty_i</ipxact:name>
 								<ipxact:range>
@@ -154,7 +154,7 @@
 								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
-						<ipxact:portMap>
+						<ipxact:portMap invert="false">
 							<ipxact:logicalPort>
 								<ipxact:name>sel_o</ipxact:name>
 								<ipxact:range>
@@ -172,7 +172,7 @@
 								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
-						<ipxact:portMap>
+						<ipxact:portMap invert="false">
 							<ipxact:logicalPort>
 								<ipxact:name>stb_o</ipxact:name>
 								<ipxact:range>
@@ -190,7 +190,7 @@
 								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
-						<ipxact:portMap>
+						<ipxact:portMap invert="false">
 							<ipxact:logicalPort>
 								<ipxact:name>we_o</ipxact:name>
 								<ipxact:range>
@@ -220,21 +220,12 @@
 				<ipxact:name>flat</ipxact:name>
 			</ipxact:view>
 			<ipxact:view>
-				<ipxact:name>hierarchical</ipxact:name>
-				<ipxact:envIdentifier>::</ipxact:envIdentifier>
-				<ipxact:designConfigurationInstantiationRef>hierarchicalSlave.hierarchical.designcfg_1.0</ipxact:designConfigurationInstantiationRef>
-			</ipxact:view>
-			<ipxact:view>
 				<ipxact:name>Params_propagated</ipxact:name>
 				<ipxact:envIdentifier></ipxact:envIdentifier>
 				<ipxact:designConfigurationInstantiationRef>Params_propagated</ipxact:designConfigurationInstantiationRef>
 			</ipxact:view>
 		</ipxact:views>
 		<ipxact:instantiations>
-			<ipxact:designConfigurationInstantiation>
-				<ipxact:name>hierarchicalSlave.hierarchical.designcfg_1.0</ipxact:name>
-				<ipxact:designConfigurationRef vendor="tut.fi" library="ip.testcomponents" name="hierarchicalSlave.hierarchical.designcfg" version="1.0"/>
-			</ipxact:designConfigurationInstantiation>
 			<ipxact:designConfigurationInstantiation>
 				<ipxact:name>Params_propagated</ipxact:name>
 				<ipxact:designConfigurationRef vendor="tut.fi" library="ip.testcomponents" name="hierarchicalSlave.Params_propagated.designcfg" version="params_propagated"/>
