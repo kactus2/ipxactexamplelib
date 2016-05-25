@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ipxact:busDefinition xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014 http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ipxact:vendor>librecores.org</ipxact:vendor>
+  <ipxact:library>wishbone</ipxact:library>
+  <ipxact:name>wishbone8</ipxact:name>
+  <ipxact:version>b3</ipxact:version>
+  <ipxact:directConnection>true</ipxact:directConnection>
+  <ipxact:isAddressable>true</ipxact:isAddressable>
+</ipxact:busDefinition>

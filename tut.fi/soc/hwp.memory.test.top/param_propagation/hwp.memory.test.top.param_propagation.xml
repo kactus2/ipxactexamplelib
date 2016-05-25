@@ -58,7 +58,7 @@
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>
-		<kactus2:version>3,0,0,0</kactus2:version>
+		<kactus2:version>3,0,79,0</kactus2:version>
 		<kactus2:kts_attributes>
 			<kactus2:kts_productHier>SoC</kactus2:kts_productHier>
 			<kactus2:kts_implementation>HW</kactus2:kts_implementation>
