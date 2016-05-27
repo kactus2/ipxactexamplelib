@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipxact:design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+	<ipxact:vendor>tut.fi</ipxact:vendor>
+	<ipxact:library>chip</ipxact:library>
+	<ipxact:name>SampleTB.design.design</ipxact:name>
+	<ipxact:version>1.0</ipxact:version>
+	<ipxact:componentInstances>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>SampleHW_0</ipxact:instanceName>
+			<ipxact:componentRef vendor="tut.fi" library="soc" name="SampleHW" version="1.0"/>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{60a7bc2e-175d-454f-bceb-27fb095c1052}</kactus2:uuid>
+				<kactus2:position x="160" y="60"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>TestIntitializer_0</ipxact:instanceName>
+			<ipxact:componentRef vendor="tut.fi" library="ip.hw" name="TestIntitializer" version="1.0"/>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{c63da2d4-b693-4c84-a32f-8b43cc25b3eb}</kactus2:uuid>
+				<kactus2:position x="160" y="180"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+	</ipxact:componentInstances>
+	<ipxact:adHocConnections>
+		<ipxact:adHocConnection>
+			<ipxact:name>SampleHW_0_rst_to_TestIntitializer_0_rst</ipxact:name>
+			<ipxact:portReferences>
+				<ipxact:internalPortReference componentRef="SampleHW_0" portRef="rst"/>
+				<ipxact:internalPortReference componentRef="TestIntitializer_0" portRef="rst"/>
+			</ipxact:portReferences>
+		</ipxact:adHocConnection>
+		<ipxact:adHocConnection>
+			<ipxact:name>TestIntitializer_0_clk_to_SampleHW_0_clk</ipxact:name>
+			<ipxact:portReferences>
+				<ipxact:internalPortReference componentRef="TestIntitializer_0" portRef="clk"/>
+				<ipxact:internalPortReference componentRef="SampleHW_0" portRef="clk"/>
+			</ipxact:portReferences>
+		</ipxact:adHocConnection>
+		<ipxact:adHocConnection>
+			<ipxact:name>SampleHW_0_done_to_TestIntitializer_0_done</ipxact:name>
+			<ipxact:portReferences>
+				<ipxact:internalPortReference componentRef="SampleHW_0" portRef="done"/>
+				<ipxact:internalPortReference componentRef="TestIntitializer_0" portRef="done"/>
+			</ipxact:portReferences>
+		</ipxact:adHocConnection>
+		<ipxact:adHocConnection>
+			<ipxact:name>TestIntitializer_0_start_to_SampleHW_0_start</ipxact:name>
+			<ipxact:portReferences>
+				<ipxact:internalPortReference componentRef="TestIntitializer_0" portRef="start"/>
+				<ipxact:internalPortReference componentRef="SampleHW_0" portRef="start"/>
+			</ipxact:portReferences>
+		</ipxact:adHocConnection>
+	</ipxact:adHocConnections>
+	<ipxact:vendorExtensions>
+		<kactus2:version>3,0,104,0</kactus2:version>
+		<kactus2:kts_attributes>
+			<kactus2:kts_implementation>HW</kactus2:kts_implementation>
+		</kactus2:kts_attributes>
+		<kactus2:columnLayout>
+			<kactus2:column name="Components" contentType="2" allowedItems="2" minWidth="319" width="319" x="0"/>
+		</kactus2:columnLayout>
+		<kactus2:routes>
+			<kactus2:route kactus2:connRef="SampleHW_0_rst_to_TestIntitializer_0_rst" kactus2:offPage="false">
+				<kactus2:position x="50" y="220"/>
+				<kactus2:position x="30" y="220"/>
+				<kactus2:position x="30" y="100"/>
+				<kactus2:position x="50" y="100"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="TestIntitializer_0_clk_to_SampleHW_0_clk" kactus2:offPage="false">
+				<kactus2:position x="270" y="100"/>
+				<kactus2:position x="290" y="100"/>
+				<kactus2:position x="290" y="220"/>
+				<kactus2:position x="270" y="220"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="SampleHW_0_done_to_TestIntitializer_0_done" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="TestIntitializer_0_start_to_SampleHW_0_start" kactus2:offPage="false"/>
+		</kactus2:routes>
+		<kactus2:adHocVisibilities/>
+	</ipxact:vendorExtensions>
+</ipxact:design>
