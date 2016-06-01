@@ -1,150 +1,46 @@
-module wb_master #(parameter DATA_WIDTH = 32, parameter ADDR_WIDTH = 32)(
-    input                               clk,
-    input                               rst,
-    
-    output reg                      cyc_o,
-    output reg                      stb_o,
-    input                               ack_i,
-    output reg                      we_o,
-    output reg [DATA_WIDTH-1:0]  dat_o,
-    input [DATA_WIDTH-1:0]           dat_i,
-    output reg [ADDR_WIDTH-1:0]  adr_o,
-   
-    input                               start,
-    output reg                      done
-    );
-  
-   localparam DATA_COUNT = 16;
-  
-    reg [DATA_WIDTH-1:0] dat [0:DATA_COUNT-1];
-    reg [3:0] iterator;
-  
-    reg [2:0] state;
- 
-    parameter [2:0]
-        S_WAIT_START            = 3'd0,
-        S_WRITE                     = 3'd1,
-        S_WAIT_WRITE_ACK    = 3'd2,
-        S_READ                      = 3'd3,
-        S_WAIT_READ_ACK     = 3'd4;
-   
-    always @(posedge clk or negedge rst) begin
-        if(rst == 1'b0) begin
-            dat_o <= 0;
-            cyc_o <= 0;
-            stb_o <= 0;
-            we_o <= 0;
-            state <= S_WAIT_START;
-            done <= 0;
-            iterator <= 0;
-            adr_o <= iterator % 2;
-            
-            dat[0] = 32'h00000000;
-            dat[1] = 32'h11111111;
-            dat[2] = 32'h22222222;
-            dat[3] = 32'h33333333;
-            dat[4] = 32'h44444444;
-            dat[5] = 32'h55555555;
-            dat[6] = 32'h66666666;
-            dat[7] = 32'h77777777;
-            dat[8] = 32'h88888888;
-            dat[9] = 32'h99999999;
-            dat[10] = 32'hAAAAAAAA;
-            dat[11] = 32'hBBBBBBBB;
-            dat[12] = 32'hCCCCCCCC;
-            dat[13] = 32'hDDDDDDDD;
-            dat[14] = 32'hEEEEEEEE;
-            dat[15] = 32'hFFFFFFFF;
-        end
-        else begin
-            if (state == S_WAIT_START) begin
-                if (start) begin
-                    state <= S_WRITE;
-                    done <= 0;
-                end
-            end
-            else if (state == S_WRITE) begin
-                cyc_o <= 1;
-                stb_o <= 1;
-                state <=  S_WAIT_WRITE_ACK;
-                we_o <= 1;
-                dat_o <= dat[iterator];
-            end
-            else if(state ==  S_WAIT_WRITE_ACK) begin
-                if (ack_i  == 1'b1) begin
-                    cyc_o <= 0;
-                    stb_o <= 0;
-                    we_o <= 0;
-                    state <=  S_READ;
-                end
-            end
-            else if(state ==  S_READ) begin
-                cyc_o <= 1;
-                stb_o <= 1;
-                we_o <= 0;
-                state <=  S_WAIT_READ_ACK;
-            end
-            else if(state ==  S_WAIT_READ_ACK) begin
-                if (ack_i  == 1'b1) begin
-                    cyc_o <= 0;
-                    stb_o <= 0;
-                    we_o <= 0;
-                    
-                    if (dat[iterator] != dat_i) begin
-                        $display("ERROR: Wrong answer from slave: %d", dat_i);
-                        $stop;
-                    end
-                    
-                    if (iterator == DATA_COUNT-1) begin
-                        done <= 1;
-                        adr_o <= 0;
-                        iterator <= 0;
-                        state <= S_WAIT_START;
-                    end
-                    else begin
-                        adr_o <= iterator + 1;
-                        iterator <= iterator + 1;
-                        state <= S_WRITE;
-                    end
-                end
-            end
-            else
-                $display("ERROR: Unkown state: %d", state);
-        end
-    end
-   
-endmodule
-
-module master #(parameter DATA_WIDTH = 32, parameter ADDR_WIDTH = 32)(
-    input                               clk,
-    input                                 rst,
-    input                               start,
-    output                             done,
+// General master module, used to instantiate two wish bone master interfaces.
+module master #(
+	parameter BASE_ADDRESS = 0, // The first referable address. Is substracted from input address.
+	parameter MASTER_1_BASE_ADDRESS = 64, // The first referable address. Is substracted from input address.
+	parameter DATA_WIDTH = 32, // The width of the both transferred and inputted data.
+	parameter ADDR_WIDTH = 32, // The width of the address.
+	parameter DATA_COUNT = 16 // How many values there are in the register array.
+	)(
+    input                               		clk, // The mandatory clock, as this is synchronous logic.
+    input                                 	rst, // The mandatory reset, as this is synchronous logic.
+    input                               		start, // Input used to signal that is is ok to start the masters.
+    output                             	done, // Output used to signal that the masters are done sending.
 
     // Interface: one_to_one_master
-    input                               ack_i_0,
-    input          [31:0]               dat_i_0,
-    output         [31:0]               adr_o_0,
-    output                              cyc_o_0,
-    output         [31:0]               dat_o_0,
-    output                              stb_o_0,
-    output                              we_o_0,
+    input									ack_i_0, // Slave asserts acknowledge.
+    input	[DATA_WIDTH-1:0]	dat_i_0, // Data from slave to master.
+    output	[ADDR_WIDTH-1:0]	adr_o_0, // The address of the data.
+    output  								cyc_o_0, // Asserted by master for transfer.
+    output	[DATA_WIDTH-1:0]	dat_o_0, // Data from master to slave.
+    output									stb_o_0, // Asserted by master for transfer.
+    output									we_o_0, // Write = 1, Read = 0.
     
     // Interface: one_to_many_master
-    input                               ack_i_1,
-    input          [31:0]               dat_i_1,
-    output         [31:0]               adr_o_1,
-    output                              cyc_o_1,
-    output         [31:0]               dat_o_1,
-    output                              stb_o_1,
-    output                              we_o_1
+    input									ack_i_1, // Slave asserts acknowledge.
+    input	[DATA_WIDTH-1:0]	dat_i_1, // Data from slave to master.
+    output	[ADDR_WIDTH-1:0]	adr_o_1, // The address of the data.
+    output                              	cyc_o_1, // Asserted by master for transfer.
+    output	[DATA_WIDTH-1:0]	dat_o_1, // Data from master to slave.
+    output                              	stb_o_1, // Asserted by master for transfer.
+    output                              	we_o_1 // Write = 1, Read = 0.
     );
     
+	// Needs "done" from both masters.
     wire done_0;
     wire done_1;
     assign done = done_0 & done_1;
 
-   wb_master #(.DATA_WIDTH(DATA_WIDTH), .ADDR_WIDTH(ADDR_WIDTH)) master_0 (
+    wb_master #(
+        .DATA_COUNT          (DATA_COUNT),
+        .BASE_ADDRESS        (BASE_ADDRESS),
+        .DATA_WIDTH          (DATA_WIDTH),
+        .ADDR_WIDTH          (ADDR_WIDTH))
+    wb_master_0(
       .clk(clk),
       .rst(rst),
       .cyc_o(cyc_o_0),
@@ -159,7 +55,12 @@ module master #(parameter DATA_WIDTH = 32, parameter ADDR_WIDTH = 32)(
       .done(done_0)
    );
 
-   wb_master #(.DATA_WIDTH(DATA_WIDTH), .ADDR_WIDTH(ADDR_WIDTH)) master_1 (
+    wb_master #(
+        .DATA_COUNT          (DATA_COUNT),
+        .BASE_ADDRESS        (MASTER_1_BASE_ADDRESS),
+        .DATA_WIDTH          (DATA_WIDTH),
+        .ADDR_WIDTH          (ADDR_WIDTH))
+    wb_master_1(
       .clk(clk),
       .rst(rst),
       .cyc_o(cyc_o_1),

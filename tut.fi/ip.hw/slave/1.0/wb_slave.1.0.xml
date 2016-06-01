@@ -6,7 +6,7 @@
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
-			<ipxact:name>one_to_one_slave</ipxact:name>
+			<ipxact:name>slave_interface</ipxact:name>
 			<ipxact:busType vendor="librecores.org" library="wishbone" name="wishbone" version="b3"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -124,44 +124,65 @@
 			<ipxact:slave/>
 		</ipxact:busInterface>
 	</ipxact:busInterfaces>
-	<ipxact:memoryMaps>
-		<ipxact:memoryMap>
-			<ipxact:name>directSlaveMap</ipxact:name>
-			<ipxact:addressBlock>
-				<ipxact:name>registers</ipxact:name>
-				<ipxact:baseAddress>'h0</ipxact:baseAddress>
-				<ipxact:range>4</ipxact:range>
-				<ipxact:width>32</ipxact:width>
-				<ipxact:register>
-					<ipxact:name>reg1</ipxact:name>
-					<ipxact:dim>0</ipxact:dim>
-					<ipxact:addressOffset>'h0</ipxact:addressOffset>
-					<ipxact:size>32</ipxact:size>
-					<ipxact:field>
-						<ipxact:name>data</ipxact:name>
-						<ipxact:bitOffset>0</ipxact:bitOffset>
-						<ipxact:bitWidth>32</ipxact:bitWidth>
-					</ipxact:field>
-				</ipxact:register>
-			</ipxact:addressBlock>
-			<ipxact:addressUnitBits>8</ipxact:addressUnitBits>
-		</ipxact:memoryMap>
-	</ipxact:memoryMaps>
 	<ipxact:model>
 		<ipxact:views>
 			<ipxact:view>
 				<ipxact:name>flat</ipxact:name>
 				<ipxact:envIdentifier>verilog:Kactus2:</ipxact:envIdentifier>
-				<ipxact:componentInstantiationRef>verilogSource_instantiation</ipxact:componentInstantiationRef>
+				<ipxact:componentInstantiationRef>flat_verilog_component</ipxact:componentInstantiationRef>
 			</ipxact:view>
 		</ipxact:views>
 		<ipxact:instantiations>
 			<ipxact:componentInstantiation>
-				<ipxact:name>verilogSource_instantiation</ipxact:name>
+				<ipxact:name>flat_verilog_component</ipxact:name>
 				<ipxact:language>verilog</ipxact:language>
-				<ipxact:fileSetRef>
-					<ipxact:localName>verilogSource</ipxact:localName>
-				</ipxact:fileSetRef>
+				<ipxact:moduleName>wb_slave</ipxact:moduleName>
+				<ipxact:moduleParameters>
+					<ipxact:moduleParameter parameterId="uuid_1588d50f_f139_4170_a517_1f1cd2af59e0" resolve="user" usageType="nontyped">
+						<ipxact:name>BASE_ADDRESS</ipxact:name>
+						<ipxact:description>The first referable address. Is substracted from input address.</ipxact:description>
+						<ipxact:arrays>
+							<ipxact:array>
+								<ipxact:left></ipxact:left>
+								<ipxact:right></ipxact:right>
+							</ipxact:array>
+						</ipxact:arrays>
+						<ipxact:value>0</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_1fb1e00c_22b1_4e2d_ac48_ea1a8661f968" resolve="user" usageCount="2" usageType="nontyped">
+						<ipxact:name>DATA_WIDTH</ipxact:name>
+						<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
+						<ipxact:arrays>
+							<ipxact:array>
+								<ipxact:left></ipxact:left>
+								<ipxact:right></ipxact:right>
+							</ipxact:array>
+						</ipxact:arrays>
+						<ipxact:value>32</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_893f25f8_325b_42db_9ecc_53d3b3879fb9" resolve="user" usageCount="1" usageType="nontyped">
+						<ipxact:name>ADDR_WIDTH</ipxact:name>
+						<ipxact:description>The width of the address.</ipxact:description>
+						<ipxact:arrays>
+							<ipxact:array>
+								<ipxact:left></ipxact:left>
+								<ipxact:right></ipxact:right>
+							</ipxact:array>
+						</ipxact:arrays>
+						<ipxact:value>32</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_29fbf007_8686_4e9c_a6e9_1379a1b41c3e" resolve="user" usageType="nontyped">
+						<ipxact:name>DATA_COUNT</ipxact:name>
+						<ipxact:description>How many values there are in the register array.</ipxact:description>
+						<ipxact:arrays>
+							<ipxact:array>
+								<ipxact:left></ipxact:left>
+								<ipxact:right></ipxact:right>
+							</ipxact:array>
+						</ipxact:arrays>
+						<ipxact:value>16</ipxact:value>
+					</ipxact:moduleParameter>
+				</ipxact:moduleParameters>
 				<ipxact:fileSetRef>
 					<ipxact:localName>verilogSource</ipxact:localName>
 				</ipxact:fileSetRef>
@@ -170,16 +191,18 @@
 		<ipxact:ports>
 			<ipxact:port>
 				<ipxact:name>ack_o</ipxact:name>
+				<ipxact:description>Slave asserts acknowledge.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>0</ipxact:left>
-							<ipxact:right>0</ipxact:right>
+							<ipxact:left></ipxact:left>
+							<ipxact:right></ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
+							<ipxact:typeName>reg</ipxact:typeName>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
 						</ipxact:wireTypeDef>
 					</ipxact:wireTypeDefs>
@@ -190,11 +213,12 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>adr_i</ipxact:name>
+				<ipxact:description>The address of the data.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>31</ipxact:left>
+							<ipxact:left>uuid_893f25f8_325b_42db_9ecc_53d3b3879fb9-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -210,12 +234,13 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>cyc_i</ipxact:name>
+				<ipxact:description>Asserted by master for transfer.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>0</ipxact:left>
-							<ipxact:right>0</ipxact:right>
+							<ipxact:left></ipxact:left>
+							<ipxact:right></ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
@@ -230,16 +255,18 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>dat_o</ipxact:name>
+				<ipxact:description>Data from master to slave.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>31</ipxact:left>
+							<ipxact:left>uuid_1fb1e00c_22b1_4e2d_ac48_ea1a8661f968-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
+							<ipxact:typeName>reg</ipxact:typeName>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
 						</ipxact:wireTypeDef>
 					</ipxact:wireTypeDefs>
@@ -250,11 +277,12 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>dat_i</ipxact:name>
+				<ipxact:description>Data from slave to master.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>31</ipxact:left>
+							<ipxact:left>uuid_1fb1e00c_22b1_4e2d_ac48_ea1a8661f968-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -270,12 +298,13 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>stb_i</ipxact:name>
+				<ipxact:description>Asserted, when this specific slave is selected.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>0</ipxact:left>
-							<ipxact:right>0</ipxact:right>
+							<ipxact:left></ipxact:left>
+							<ipxact:right></ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
@@ -290,12 +319,13 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>we_i</ipxact:name>
+				<ipxact:description>Write = 1, Read = 0.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>0</ipxact:left>
-							<ipxact:right>0</ipxact:right>
+							<ipxact:left></ipxact:left>
+							<ipxact:right></ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
@@ -310,6 +340,7 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>clk</ipxact:name>
+				<ipxact:description>The mandatory clock, as this is synchronous logic.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
@@ -318,6 +349,11 @@
 							<ipxact:right></ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
+					<ipxact:wireTypeDefs>
+						<ipxact:wireTypeDef>
+							<ipxact:typeDefinition></ipxact:typeDefinition>
+						</ipxact:wireTypeDef>
+					</ipxact:wireTypeDefs>
 				</ipxact:wire>
 				<ipxact:vendorExtensions>
 					<kactus2:adHocVisible/>
@@ -325,6 +361,7 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>rst</ipxact:name>
+				<ipxact:description>The mandatory reset, as this is synchronous logic.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
@@ -333,6 +370,11 @@
 							<ipxact:right></ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
+					<ipxact:wireTypeDefs>
+						<ipxact:wireTypeDef>
+							<ipxact:typeDefinition></ipxact:typeDefinition>
+						</ipxact:wireTypeDef>
+					</ipxact:wireTypeDefs>
 				</ipxact:wire>
 				<ipxact:vendorExtensions>
 					<kactus2:adHocVisible/>
@@ -346,6 +388,9 @@
 			<ipxact:file>
 				<ipxact:name>wb_slave.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
+				<ipxact:vendorExtensions>
+					<kactus2:hash>58a0412569dce61f9c0e536f05e09dac3bf7aba1</kactus2:hash>
+				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>

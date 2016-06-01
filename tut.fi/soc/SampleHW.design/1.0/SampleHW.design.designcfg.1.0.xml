@@ -23,7 +23,7 @@
 	</ipxact:viewConfiguration>
 	<ipxact:viewConfiguration>
 		<ipxact:instanceName>hierarchical_wb_slave_0</ipxact:instanceName>
-		<ipxact:view viewRef="flat"/>
+		<ipxact:view viewRef="design"/>
 	</ipxact:viewConfiguration>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,0,104,0</kactus2:version>

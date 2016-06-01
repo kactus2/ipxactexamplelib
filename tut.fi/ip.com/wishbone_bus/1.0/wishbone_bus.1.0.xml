@@ -384,31 +384,47 @@
 		</ipxact:views>
 		<ipxact:instantiations>
 			<ipxact:componentInstantiation>
-				<ipxact:name>verilogSource_instantiation</ipxact:name>
-				<ipxact:language>verilog</ipxact:language>
-				<ipxact:fileSetRef>
-					<ipxact:localName>verilogSource</ipxact:localName>
-				</ipxact:fileSetRef>
-				<ipxact:fileSetRef>
-					<ipxact:localName>verilogSource</ipxact:localName>
-				</ipxact:fileSetRef>
-			</ipxact:componentInstantiation>
-			<ipxact:componentInstantiation>
 				<ipxact:name>flat_verilog_component</ipxact:name>
 				<ipxact:language>verilog</ipxact:language>
 				<ipxact:moduleName>wishbone_bus</ipxact:moduleName>
 				<ipxact:moduleParameters>
-					<ipxact:moduleParameter parameterId="uuid_a54967e6_ad06_41df_83a1_1bcd6fcb483e" usageType="nontyped">
+					<ipxact:moduleParameter parameterId="uuid_a54967e6_ad06_41df_83a1_1bcd6fcb483e" resolve="user" usageType="nontyped">
 						<ipxact:name>SLAVE_SPLIT</ipxact:name>
+						<ipxact:description>The first address that goes to bus_slave_1</ipxact:description>
 						<ipxact:arrays>
 							<ipxact:array>
 								<ipxact:left></ipxact:left>
 								<ipxact:right></ipxact:right>
 							</ipxact:array>
 						</ipxact:arrays>
-						<ipxact:value>1</ipxact:value>
+						<ipxact:value>4</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_3f7c2e84_6e9a_4a0f_891d_9a0e42b30f8c" resolve="user" usageCount="6" usageType="nontyped">
+						<ipxact:name>DATA_WIDTH</ipxact:name>
+						<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
+						<ipxact:arrays>
+							<ipxact:array>
+								<ipxact:left></ipxact:left>
+								<ipxact:right></ipxact:right>
+							</ipxact:array>
+						</ipxact:arrays>
+						<ipxact:value>32</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_049a6e29_d7a0_4c40_a0d2_3fee71464846" resolve="user" usageCount="3" usageType="nontyped">
+						<ipxact:name>ADDR_WIDTH</ipxact:name>
+						<ipxact:description>The width of the address.</ipxact:description>
+						<ipxact:arrays>
+							<ipxact:array>
+								<ipxact:left></ipxact:left>
+								<ipxact:right></ipxact:right>
+							</ipxact:array>
+						</ipxact:arrays>
+						<ipxact:value>32</ipxact:value>
 					</ipxact:moduleParameter>
 				</ipxact:moduleParameters>
+				<ipxact:fileSetRef>
+					<ipxact:localName>verilogSource</ipxact:localName>
+				</ipxact:fileSetRef>
 			</ipxact:componentInstantiation>
 		</ipxact:instantiations>
 		<ipxact:ports>
@@ -435,7 +451,7 @@
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>31</ipxact:left>
+							<ipxact:left>uuid_3f7c2e84_6e9a_4a0f_891d_9a0e42b30f8c-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -452,7 +468,7 @@
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>31</ipxact:left>
+							<ipxact:left>uuid_049a6e29_d7a0_4c40_a0d2_3fee71464846-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -486,7 +502,7 @@
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>31</ipxact:left>
+							<ipxact:left>uuid_3f7c2e84_6e9a_4a0f_891d_9a0e42b30f8c-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -509,7 +525,6 @@
 					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
-							<ipxact:typeName>reg</ipxact:typeName>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
 						</ipxact:wireTypeDef>
 					</ipxact:wireTypeDefs>
@@ -555,7 +570,7 @@
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>31</ipxact:left>
+							<ipxact:left>uuid_3f7c2e84_6e9a_4a0f_891d_9a0e42b30f8c-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -572,7 +587,7 @@
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>31</ipxact:left>
+							<ipxact:left>uuid_049a6e29_d7a0_4c40_a0d2_3fee71464846-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -606,7 +621,7 @@
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>31</ipxact:left>
+							<ipxact:left>uuid_3f7c2e84_6e9a_4a0f_891d_9a0e42b30f8c-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -629,7 +644,6 @@
 					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
-							<ipxact:typeName>reg</ipxact:typeName>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
 						</ipxact:wireTypeDef>
 					</ipxact:wireTypeDefs>
@@ -675,13 +689,12 @@
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>31</ipxact:left>
+							<ipxact:left>uuid_3f7c2e84_6e9a_4a0f_891d_9a0e42b30f8c-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
-							<ipxact:typeName>reg</ipxact:typeName>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
 						</ipxact:wireTypeDef>
 					</ipxact:wireTypeDefs>
@@ -693,7 +706,7 @@
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>31</ipxact:left>
+							<ipxact:left>uuid_049a6e29_d7a0_4c40_a0d2_3fee71464846-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -727,7 +740,7 @@
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>31</ipxact:left>
+							<ipxact:left>uuid_3f7c2e84_6e9a_4a0f_891d_9a0e42b30f8c-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -783,18 +796,6 @@
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
-	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_c0c7753a_318c_4a35_b59b_fffde5f28709" resolve="user">
-			<ipxact:name>slave1_base_address</ipxact:name>
-			<ipxact:description>Base address for slave connected to bus_slave</ipxact:description>
-			<ipxact:value>0</ipxact:value>
-		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_6f502735_a5cf_4ae2_9dc9_e4da88f3068f" resolve="user">
-			<ipxact:name>slave2_base_address</ipxact:name>
-			<ipxact:description>Base address for slave connected to bus_slave_1</ipxact:description>
-			<ipxact:value>8</ipxact:value>
-		</ipxact:parameter>
-	</ipxact:parameters>
 	<ipxact:vendorExtensions>
 		<kactus2:kts_attributes>
 			<kactus2:kts_productHier>IP</kactus2:kts_productHier>

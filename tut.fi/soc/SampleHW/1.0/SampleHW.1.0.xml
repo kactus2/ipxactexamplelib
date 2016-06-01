@@ -13,6 +13,7 @@
 			<ipxact:view>
 				<ipxact:name>design</ipxact:name>
 				<ipxact:envIdentifier>::</ipxact:envIdentifier>
+				<ipxact:componentInstantiationRef>design_verilog_instantiation</ipxact:componentInstantiationRef>
 				<ipxact:designConfigurationInstantiationRef>SampleHW.design.designcfg_1.0</ipxact:designConfigurationInstantiationRef>
 			</ipxact:view>
 			<ipxact:view>
@@ -25,6 +26,36 @@
 			<ipxact:componentInstantiation>
 				<ipxact:name>design_verilog_instantiation</ipxact:name>
 				<ipxact:language>verilog</ipxact:language>
+				<ipxact:moduleParameters>
+					<ipxact:moduleParameter parameterId="uuid_9e2fdf12_765d_498f_9c98_afc100670b8a">
+						<ipxact:name>MasterBase</ipxact:name>
+						<ipxact:value>0</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_cd5ac20c_0953_48f1_bfc5_2a9e722bd258">
+						<ipxact:name>BusSlaveBase</ipxact:name>
+						<ipxact:value>0</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_17a43ae1_9737_4ab7_9cb8_5ea58767aa0e">
+						<ipxact:name>DirectSlaveBase</ipxact:name>
+						<ipxact:value>uuid_c69f4524_e5e3_4ea3_9eba_cd7c3099bfd0</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_f97f03d3_d52c_4f31_8274_15056d03ca0d">
+						<ipxact:name>HierSlaveBase</ipxact:name>
+						<ipxact:value>uuid_c69f4524_e5e3_4ea3_9eba_cd7c3099bfd0 / 2</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_72254c53_846d_4941_a4dd_b85ec82f6e41">
+						<ipxact:name>DATA_WIDTH</ipxact:name>
+						<ipxact:value>32</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_c69f4524_e5e3_4ea3_9eba_cd7c3099bfd0" usageCount="2">
+						<ipxact:name>TOTAL_MEMORY</ipxact:name>
+						<ipxact:value>16</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="uuid_4f5c977e_781c_4c2c_953f_e7f5c7998b21">
+						<ipxact:name>ADDR_WIDTH</ipxact:name>
+						<ipxact:value>32</ipxact:value>
+					</ipxact:moduleParameter>
+				</ipxact:moduleParameters>
 				<ipxact:fileSetRef>
 					<ipxact:localName>design_verilogSource</ipxact:localName>
 				</ipxact:fileSetRef>

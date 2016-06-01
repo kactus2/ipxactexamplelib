@@ -7,15 +7,22 @@
 	<ipxact:componentInstances>
 		<ipxact:componentInstance>
 			<ipxact:instanceName>wb_slave_0</ipxact:instanceName>
-			<ipxact:componentRef vendor="tut.fi" library="ip.hw" name="wb_slave" version="1.0"/>
+			<ipxact:componentRef vendor="tut.fi" library="ip.hw" name="wb_slave" version="1.0">
+				<ipxact:configurableElementValues>
+					<ipxact:configurableElementValue referenceId="uuid_29fbf007_8686_4e9c_a6e9_1379a1b41c3e">uuid_c6ae46c0_905a_4a77_ba9e_8a8cf89de81c</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_1588d50f_f139_4170_a517_1f1cd2af59e0">uuid_0cfd51dd_12ed_4175_8223_20187eff154b</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_1fb1e00c_22b1_4e2d_ac48_ea1a8661f968">uuid_b03feccc_6ad4_4d94_94b7_64cb5d46c48f</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_893f25f8_325b_42db_9ecc_53d3b3879fb9">uuid_d8ee4f97_8360_4d00_a499_e609469c9895</ipxact:configurableElementValue>
+				</ipxact:configurableElementValues>
+			</ipxact:componentRef>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{7e395ce5-991f-4a9c-af1a-28f76f90f85e}</kactus2:uuid>
 				<kactus2:portPositions>
-					<kactus2:portPosition busRef="one_to_one_slave" x="-110" y="80"/>
+					<kactus2:portPosition busRef="slave_interface" x="110" y="40"/>
 				</kactus2:portPositions>
 				<kactus2:adHocVisibilities>
-					<kactus2:adHocVisible portName="rst" x="-110" y="60"/>
 					<kactus2:adHocVisible portName="clk" x="-110" y="40"/>
+					<kactus2:adHocVisible portName="rst" x="-110" y="60"/>
 				</kactus2:adHocVisibilities>
 				<kactus2:position x="280" y="60"/>
 			</ipxact:vendorExtensions>
@@ -23,8 +30,8 @@
 	</ipxact:componentInstances>
 	<ipxact:interconnections>
 		<ipxact:interconnection>
-			<ipxact:name>wb_slave_0_one_to_one_slave_to_bus_slave</ipxact:name>
-			<ipxact:activeInterface componentRef="wb_slave_0" busRef="one_to_one_slave"/>
+			<ipxact:name>wb_slave_0_slave_interface_to_bus_slave</ipxact:name>
+			<ipxact:activeInterface componentRef="wb_slave_0" busRef="slave_interface"/>
 			<ipxact:hierInterface busRef="bus_slave"/>
 		</ipxact:interconnection>
 	</ipxact:interconnections>
@@ -54,16 +61,13 @@
 			<kactus2:column name="IO" contentType="0" allowedItems="1" minWidth="119" width="119" x="0"/>
 		</kactus2:columnLayout>
 		<kactus2:routes>
-			<kactus2:route kactus2:connRef="wb_slave_0_one_to_one_slave_to_bus_slave" kactus2:offPage="false">
-				<kactus2:position x="170" y="170"/>
-				<kactus2:position x="80" y="170"/>
-				<kactus2:position x="80" y="160"/>
-				<kactus2:position x="60" y="160"/>
-			</kactus2:route>
 			<kactus2:route kactus2:connRef="wb_slave_0_rst_to_rst" kactus2:offPage="false"/>
-			<kactus2:route kactus2:connRef="wb_slave_0_clk_to_clk" kactus2:offPage="false">
-				<kactus2:position x="170" y="100"/>
-				<kactus2:position x="60" y="100"/>
+			<kactus2:route kactus2:connRef="wb_slave_0_clk_to_clk" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="wb_slave_0_slave_interface_to_bus_slave" kactus2:offPage="false">
+				<kactus2:position x="390" y="100"/>
+				<kactus2:position x="410" y="100"/>
+				<kactus2:position x="410" y="160"/>
+				<kactus2:position x="60" y="160"/>
 			</kactus2:route>
 		</kactus2:routes>
 		<kactus2:adHocVisibilities>
