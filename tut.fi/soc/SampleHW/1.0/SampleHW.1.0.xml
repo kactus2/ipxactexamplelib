@@ -12,14 +12,9 @@
 			</ipxact:view>
 			<ipxact:view>
 				<ipxact:name>design</ipxact:name>
-				<ipxact:envIdentifier>::</ipxact:envIdentifier>
+				<ipxact:envIdentifier>Verilog:Kactus2:</ipxact:envIdentifier>
 				<ipxact:componentInstantiationRef>design_verilog_instantiation</ipxact:componentInstantiationRef>
 				<ipxact:designConfigurationInstantiationRef>SampleHW.design.designcfg_1.0</ipxact:designConfigurationInstantiationRef>
-			</ipxact:view>
-			<ipxact:view>
-				<ipxact:name>design_verilog</ipxact:name>
-				<ipxact:envIdentifier>verilog:Kactus2:</ipxact:envIdentifier>
-				<ipxact:componentInstantiationRef>design_verilog_instantiation</ipxact:componentInstantiationRef>
 			</ipxact:view>
 		</ipxact:views>
 		<ipxact:instantiations>
@@ -29,10 +24,6 @@
 				<ipxact:moduleParameters>
 					<ipxact:moduleParameter parameterId="uuid_9e2fdf12_765d_498f_9c98_afc100670b8a">
 						<ipxact:name>MasterBase</ipxact:name>
-						<ipxact:value>0</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_cd5ac20c_0953_48f1_bfc5_2a9e722bd258">
-						<ipxact:name>BusSlaveBase</ipxact:name>
 						<ipxact:value>0</ipxact:value>
 					</ipxact:moduleParameter>
 					<ipxact:moduleParameter parameterId="uuid_17a43ae1_9737_4ab7_9cb8_5ea58767aa0e">
@@ -137,6 +128,9 @@
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
+	<ipxact:description>A hardware component containing a hardware design, which has a master component, three slaves and a bus.
+
+This component also has a component instantiation, which provides parameters for the design.</ipxact:description>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,0,104,0</kactus2:version>
 		<kactus2:kts_attributes>

@@ -1,7 +1,7 @@
 // General master module, used to instantiate two wish bone master interfaces.
 module master #(
-	parameter BASE_ADDRESS = 0, // The first referable address. Is substracted from input address.
-	parameter MASTER_1_BASE_ADDRESS = 64, // The first referable address. Is substracted from input address.
+	parameter MASTER_0_BASE_ADDRESS = 0, // The first referable address of master0. Is substracted from input address.
+	parameter MASTER_1_BASE_ADDRESS = 64, // The first referable address of master1. Is substracted from input address.
 	parameter DATA_WIDTH = 32, // The width of the both transferred and inputted data.
 	parameter ADDR_WIDTH = 32, // The width of the address.
 	parameter DATA_COUNT = 16 // How many values there are in the register array.
@@ -37,7 +37,7 @@ module master #(
 
     wb_master #(
         .DATA_COUNT          (DATA_COUNT),
-        .BASE_ADDRESS        (BASE_ADDRESS),
+        .BASE_ADDRESS        (MASTER_0_BASE_ADDRESS),
         .DATA_WIDTH          (DATA_WIDTH),
         .ADDR_WIDTH          (ADDR_WIDTH))
     wb_master_0(

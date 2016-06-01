@@ -7,6 +7,7 @@
 	<ipxact:componentInstances>
 		<ipxact:componentInstance>
 			<ipxact:instanceName>wb_slave_0</ipxact:instanceName>
+			<ipxact:description>An instantiation of the same wish bone slave, as used in SampleHW design.</ipxact:description>
 			<ipxact:componentRef vendor="tut.fi" library="ip.hw" name="wb_slave" version="1.0">
 				<ipxact:configurableElementValues>
 					<ipxact:configurableElementValue referenceId="uuid_29fbf007_8686_4e9c_a6e9_1379a1b41c3e">uuid_c6ae46c0_905a_4a77_ba9e_8a8cf89de81c</ipxact:configurableElementValue>

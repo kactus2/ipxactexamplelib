@@ -12,14 +12,9 @@
 			</ipxact:view>
 			<ipxact:view>
 				<ipxact:name>design</ipxact:name>
-				<ipxact:envIdentifier>::</ipxact:envIdentifier>
+				<ipxact:envIdentifier>verilog:Kactus2:</ipxact:envIdentifier>
 				<ipxact:componentInstantiationRef>design_verilogSource_instantiation</ipxact:componentInstantiationRef>
 				<ipxact:designConfigurationInstantiationRef>SampleTB.design.designcfg_1.0</ipxact:designConfigurationInstantiationRef>
-			</ipxact:view>
-			<ipxact:view>
-				<ipxact:name>design_verilog</ipxact:name>
-				<ipxact:envIdentifier>verilog:Kactus2:</ipxact:envIdentifier>
-				<ipxact:componentInstantiationRef>design_verilog_instantiation</ipxact:componentInstantiationRef>
 			</ipxact:view>
 		</ipxact:views>
 		<ipxact:instantiations>
@@ -51,6 +46,7 @@
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
+	<ipxact:description>Contains TestInitializer connected to SampleHW.</ipxact:description>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,0,104,0</kactus2:version>
 		<kactus2:kts_attributes>

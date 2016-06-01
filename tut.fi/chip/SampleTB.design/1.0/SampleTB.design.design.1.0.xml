@@ -15,7 +15,11 @@
 		</ipxact:componentInstance>
 		<ipxact:componentInstance>
 			<ipxact:instanceName>TestIntitializer_0</ipxact:instanceName>
-			<ipxact:componentRef vendor="tut.fi" library="ip.hw" name="TestIntitializer" version="1.0"/>
+			<ipxact:componentRef vendor="tut.fi" library="ip.hw" name="TestIntitializer" version="1.0">
+				<ipxact:configurableElementValues>
+					<ipxact:configurableElementValue referenceId="uuid_be8aa64d_ce68_41ab_b683_ce5030823069">2100</ipxact:configurableElementValue>
+				</ipxact:configurableElementValues>
+			</ipxact:componentRef>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{c63da2d4-b693-4c84-a32f-8b43cc25b3eb}</kactus2:uuid>
 				<kactus2:position x="160" y="180"/>
@@ -61,18 +65,8 @@
 			<kactus2:column name="Components" contentType="2" allowedItems="2" minWidth="319" width="319" x="0"/>
 		</kactus2:columnLayout>
 		<kactus2:routes>
-			<kactus2:route kactus2:connRef="SampleHW_0_rst_to_TestIntitializer_0_rst" kactus2:offPage="false">
-				<kactus2:position x="50" y="220"/>
-				<kactus2:position x="30" y="220"/>
-				<kactus2:position x="30" y="100"/>
-				<kactus2:position x="50" y="100"/>
-			</kactus2:route>
-			<kactus2:route kactus2:connRef="TestIntitializer_0_clk_to_SampleHW_0_clk" kactus2:offPage="false">
-				<kactus2:position x="270" y="100"/>
-				<kactus2:position x="290" y="100"/>
-				<kactus2:position x="290" y="220"/>
-				<kactus2:position x="270" y="220"/>
-			</kactus2:route>
+			<kactus2:route kactus2:connRef="SampleHW_0_rst_to_TestIntitializer_0_rst" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="TestIntitializer_0_clk_to_SampleHW_0_clk" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="SampleHW_0_done_to_TestIntitializer_0_done" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="TestIntitializer_0_start_to_SampleHW_0_start" kactus2:offPage="false"/>
 		</kactus2:routes>

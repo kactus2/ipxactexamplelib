@@ -1,8 +1,8 @@
 //-----------------------------------------------------------------------------
 // File          : SampleTB.v
-// Creation date : 27.05.2016
-// Creation time : 11:18:19
-// Description   : 
+// Creation date : 01.06.2016
+// Creation time : 13:38:40
+// Description   : Contains TestInitializer connected to SampleHW.
 // Created by    : virtan39
 // This file was generated with Kactus2 verilog generator
 // based on IP-XACT component tut.fi:chip:SampleTB:1.0
@@ -25,7 +25,9 @@ module SampleTB();
         .done                (SampleHW_0_done_to_TestIntitializer_0_done));
 
     // IP-XACT VLNV: tut.fi:ip.hw:TestIntitializer:1.0
-    TestIntitializer TestIntitializer_0(
+    TestIntitializer #(
+        .WAIT_TIME           (2100))
+    TestIntitializer_0(
         // These ports are not in any interface
         .done                (SampleHW_0_done_to_TestIntitializer_0_done),
         .clk                 (TestIntitializer_0_clk_to_SampleHW_0_clk),

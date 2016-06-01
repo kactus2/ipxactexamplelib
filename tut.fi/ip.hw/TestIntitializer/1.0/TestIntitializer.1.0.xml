@@ -17,9 +17,13 @@
 			<ipxact:componentInstantiation>
 				<ipxact:name>verilogSource_instantiation</ipxact:name>
 				<ipxact:language>verilog</ipxact:language>
-				<ipxact:fileSetRef>
-					<ipxact:localName>verilogSource</ipxact:localName>
-				</ipxact:fileSetRef>
+				<ipxact:moduleParameters>
+					<ipxact:moduleParameter parameterId="uuid_be8aa64d_ce68_41ab_b683_ce5030823069" resolve="user">
+						<ipxact:name>WAIT_TIME</ipxact:name>
+						<ipxact:description>How long to wait after reset is deassereted.</ipxact:description>
+						<ipxact:value>100</ipxact:value>
+					</ipxact:moduleParameter>
+				</ipxact:moduleParameters>
 				<ipxact:fileSetRef>
 					<ipxact:localName>verilogSource</ipxact:localName>
 				</ipxact:fileSetRef>
@@ -102,6 +106,7 @@
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
+	<ipxact:description>A bare bones verilog test bench, which is used to assert reset, generate clock, give start signal and finally check after WAIT_TIME, if the done is asserted.</ipxact:description>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,0,111,0</kactus2:version>
 		<kactus2:kts_attributes>
@@ -109,5 +114,6 @@
 			<kactus2:kts_implementation>HW</kactus2:kts_implementation>
 			<kactus2:kts_firmness>Mutable</kactus2:kts_firmness>
 		</kactus2:kts_attributes>
+		<kactus2:author>Virtanen</kactus2:author>
 	</ipxact:vendorExtensions>
 </ipxact:component>

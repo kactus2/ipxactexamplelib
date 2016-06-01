@@ -6,13 +6,13 @@
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
-			<ipxact:name>one_to_many_master</ipxact:name>
+			<ipxact:name>master_0</ipxact:name>
 			<ipxact:busType vendor="librecores.org" library="wishbone" name="wishbone" version="b3"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
 					<ipxact:abstractionRef vendor="librecores.org" library="wishbone" name="wishbone.absDef" version="b3"/>
 					<ipxact:portMaps>
-						<ipxact:portMap>
+						<ipxact:portMap invert="false">
 							<ipxact:logicalPort>
 								<ipxact:name>ack_i</ipxact:name>
 							</ipxact:logicalPort>
@@ -20,7 +20,7 @@
 								<ipxact:name>ack_i_0</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
-						<ipxact:portMap>
+						<ipxact:portMap invert="false">
 							<ipxact:logicalPort>
 								<ipxact:name>adr_o</ipxact:name>
 								<ipxact:range>
@@ -38,7 +38,7 @@
 								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
-						<ipxact:portMap>
+						<ipxact:portMap invert="false">
 							<ipxact:logicalPort>
 								<ipxact:name>cyc_o</ipxact:name>
 								<ipxact:range>
@@ -56,7 +56,7 @@
 								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
-						<ipxact:portMap>
+						<ipxact:portMap invert="false">
 							<ipxact:logicalPort>
 								<ipxact:name>dat_i</ipxact:name>
 								<ipxact:range>
@@ -74,7 +74,7 @@
 								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
-						<ipxact:portMap>
+						<ipxact:portMap invert="false">
 							<ipxact:logicalPort>
 								<ipxact:name>dat_o</ipxact:name>
 							</ipxact:logicalPort>
@@ -82,7 +82,7 @@
 								<ipxact:name>dat_o_0</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
-						<ipxact:portMap>
+						<ipxact:portMap invert="false">
 							<ipxact:logicalPort>
 								<ipxact:name>stb_o</ipxact:name>
 								<ipxact:range>
@@ -100,7 +100,7 @@
 								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
-						<ipxact:portMap>
+						<ipxact:portMap invert="false">
 							<ipxact:logicalPort>
 								<ipxact:name>we_o</ipxact:name>
 								<ipxact:range>
@@ -124,13 +124,13 @@
 			<ipxact:master/>
 		</ipxact:busInterface>
 		<ipxact:busInterface>
-			<ipxact:name>one_to_one_master</ipxact:name>
+			<ipxact:name>master_1</ipxact:name>
 			<ipxact:busType vendor="librecores.org" library="wishbone" name="wishbone" version="b3"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
 					<ipxact:abstractionRef vendor="librecores.org" library="wishbone" name="wishbone.absDef" version="b3"/>
 					<ipxact:portMaps>
-						<ipxact:portMap>
+						<ipxact:portMap invert="false">
 							<ipxact:logicalPort>
 								<ipxact:name>ack_i</ipxact:name>
 							</ipxact:logicalPort>
@@ -138,7 +138,7 @@
 								<ipxact:name>ack_i_1</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
-						<ipxact:portMap>
+						<ipxact:portMap invert="false">
 							<ipxact:logicalPort>
 								<ipxact:name>adr_o</ipxact:name>
 								<ipxact:range>
@@ -156,7 +156,7 @@
 								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
-						<ipxact:portMap>
+						<ipxact:portMap invert="false">
 							<ipxact:logicalPort>
 								<ipxact:name>cyc_o</ipxact:name>
 								<ipxact:range>
@@ -174,7 +174,7 @@
 								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
-						<ipxact:portMap>
+						<ipxact:portMap invert="false">
 							<ipxact:logicalPort>
 								<ipxact:name>dat_i</ipxact:name>
 								<ipxact:range>
@@ -192,7 +192,7 @@
 								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
-						<ipxact:portMap>
+						<ipxact:portMap invert="false">
 							<ipxact:logicalPort>
 								<ipxact:name>dat_o</ipxact:name>
 							</ipxact:logicalPort>
@@ -200,7 +200,7 @@
 								<ipxact:name>dat_o_1</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
-						<ipxact:portMap>
+						<ipxact:portMap invert="false">
 							<ipxact:logicalPort>
 								<ipxact:name>stb_o</ipxact:name>
 								<ipxact:range>
@@ -218,7 +218,7 @@
 								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
-						<ipxact:portMap>
+						<ipxact:portMap invert="false">
 							<ipxact:logicalPort>
 								<ipxact:name>we_o</ipxact:name>
 								<ipxact:range>
@@ -290,13 +290,13 @@
 						<ipxact:value>16</ipxact:value>
 					</ipxact:moduleParameter>
 					<ipxact:moduleParameter parameterId="uuid_2e5f3824_7979_4c92_97f5_82a846bdb0e2" resolve="user" usageType="nontyped">
-						<ipxact:name>BASE_ADDRESS</ipxact:name>
-						<ipxact:description>The first referable address. Is substracted from input address.</ipxact:description>
+						<ipxact:name>MASTER_0_BASE_ADDRESS</ipxact:name>
+						<ipxact:description>The first referable address of master0. Is substracted from input address.</ipxact:description>
 						<ipxact:value>0</ipxact:value>
 					</ipxact:moduleParameter>
 					<ipxact:moduleParameter parameterId="uuid_708ec24d_ea9d_4fef_b5bb_8c2beb8241eb" resolve="user" usageType="nontyped">
 						<ipxact:name>MASTER_1_BASE_ADDRESS</ipxact:name>
-						<ipxact:description>The first referable address. Is substracted from input address.</ipxact:description>
+						<ipxact:description>The first referable address of master1. Is substracted from input address.</ipxact:description>
 						<ipxact:value>64</ipxact:value>
 					</ipxact:moduleParameter>
 				</ipxact:moduleParameters>
@@ -699,11 +699,13 @@
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
+	<ipxact:description>A component containing two wishbone master interfaces and thus two wishbone master module instantiations. Its operation is governed by external start signal, and will send a done signal after both master modules have sent and received everything.</ipxact:description>
 	<ipxact:vendorExtensions>
 		<kactus2:kts_attributes>
 			<kactus2:kts_productHier>IP</kactus2:kts_productHier>
 			<kactus2:kts_implementation>HW</kactus2:kts_implementation>
 			<kactus2:kts_firmness>Mutable</kactus2:kts_firmness>
 		</kactus2:kts_attributes>
+		<kactus2:author>Virtanen</kactus2:author>
 	</ipxact:vendorExtensions>
 </ipxact:component>
