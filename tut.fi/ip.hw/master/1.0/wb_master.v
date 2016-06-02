@@ -28,6 +28,9 @@ module wb_master #(
   
     // The state.
     reg [2:0] state;
+	
+	// Status of start during the last cycle.
+	reg start_old;
  
     parameter [2:0]
         S_WAIT_START            = 3'd0, // Waiting for start-signal
@@ -66,10 +69,15 @@ module wb_master #(
             done <= 0;
             iterator <= 0;
             adr_o <=  0;
+			start_old <= 0;
         end
         else begin
+			// Refresh the registers.
+			start_old <= start;
+		
             if (state == S_WAIT_START) begin
-                if (start) begin
+				// Wait for the falling edge of the start.
+                if (start == 1'b0 && start_old == 1'b1) begin
 					// Once it has started, initiate a write.
                     state <= S_WRITE_INIT;
 					// Nothing is done yet.

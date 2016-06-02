@@ -20,7 +20,9 @@ module TestIntitializer#(
       @(posedge rst); // wait for reset
       start = 1;
       @(posedge clk);
-      start =0;
+      @(posedge clk);
+      @(posedge clk);
+      start =0;  // generate the falling edge
       #WAIT_TIME
       if ( done == 1'b0 )
         $display("not done!");

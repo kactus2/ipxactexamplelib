@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 // File          : SampleHW.v
-// Creation date : 01.06.2016
-// Creation time : 13:35:37
+// Creation date : 02.06.2016
+// Creation time : 14:45:34
 // Description   : A hardware component containing a hardware design, which has a master component, three slaves and a bus.
 //                 
 //                 This component also has a component instantiation, which provides parameters for the design.
