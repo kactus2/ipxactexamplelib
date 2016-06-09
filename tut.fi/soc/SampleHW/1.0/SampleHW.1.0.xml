@@ -24,26 +24,32 @@
 				<ipxact:moduleParameters>
 					<ipxact:moduleParameter parameterId="uuid_9e2fdf12_765d_498f_9c98_afc100670b8a">
 						<ipxact:name>MasterBase</ipxact:name>
+						<ipxact:description>The base addresss of the master slave in the design.</ipxact:description>
 						<ipxact:value>0</ipxact:value>
 					</ipxact:moduleParameter>
 					<ipxact:moduleParameter parameterId="uuid_17a43ae1_9737_4ab7_9cb8_5ea58767aa0e">
 						<ipxact:name>DirectSlaveBase</ipxact:name>
+						<ipxact:description>The base addresss of the direct slave in the design.</ipxact:description>
 						<ipxact:value>uuid_c69f4524_e5e3_4ea3_9eba_cd7c3099bfd0</ipxact:value>
 					</ipxact:moduleParameter>
 					<ipxact:moduleParameter parameterId="uuid_f97f03d3_d52c_4f31_8274_15056d03ca0d">
 						<ipxact:name>HierSlaveBase</ipxact:name>
+						<ipxact:description>The base addresss of the hiearchical slave in the design.</ipxact:description>
 						<ipxact:value>uuid_c69f4524_e5e3_4ea3_9eba_cd7c3099bfd0 / 2</ipxact:value>
 					</ipxact:moduleParameter>
 					<ipxact:moduleParameter parameterId="uuid_72254c53_846d_4941_a4dd_b85ec82f6e41">
 						<ipxact:name>DATA_WIDTH</ipxact:name>
+						<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
 						<ipxact:value>32</ipxact:value>
 					</ipxact:moduleParameter>
 					<ipxact:moduleParameter parameterId="uuid_c69f4524_e5e3_4ea3_9eba_cd7c3099bfd0" usageCount="2">
 						<ipxact:name>TOTAL_MEMORY</ipxact:name>
+						<ipxact:description>How much memory in total is addressed by a single wb master.</ipxact:description>
 						<ipxact:value>16</ipxact:value>
 					</ipxact:moduleParameter>
 					<ipxact:moduleParameter parameterId="uuid_4f5c977e_781c_4c2c_953f_e7f5c7998b21">
 						<ipxact:name>ADDR_WIDTH</ipxact:name>
+						<ipxact:description>The width of the address.</ipxact:description>
 						<ipxact:value>32</ipxact:value>
 					</ipxact:moduleParameter>
 				</ipxact:moduleParameters>
@@ -59,6 +65,7 @@
 		<ipxact:ports>
 			<ipxact:port>
 				<ipxact:name>clk</ipxact:name>
+				<ipxact:description>The mandatory clock, as this is synchronous logic.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
@@ -74,6 +81,7 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>rst</ipxact:name>
+				<ipxact:description>The mandatory reset, as this is synchronous logic.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
@@ -89,6 +97,7 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>start</ipxact:name>
+				<ipxact:description>Input used to signal that is is ok to start the masters.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
@@ -104,6 +113,7 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>done</ipxact:name>
+				<ipxact:description>The mandatory reset, as this is synchronous logic.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>

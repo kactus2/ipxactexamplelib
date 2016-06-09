@@ -1,29 +1,29 @@
 //-----------------------------------------------------------------------------
 // File          : SampleHW.v
-// Creation date : 02.06.2016
-// Creation time : 14:45:34
+// Creation date : 09.06.2016
+// Creation time : 16:03:34
 // Description   : A hardware component containing a hardware design, which has a master component, three slaves and a bus.
 //                 
 //                 This component also has a component instantiation, which provides parameters for the design.
-// Created by    : virtan39
+// Created by    : TermosPullo
 // This file was generated with Kactus2 verilog generator
 // based on IP-XACT component tut.fi:soc:SampleHW:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/soc/SampleHW/1.0/SampleHW.1.0.xml
 //-----------------------------------------------------------------------------
 
 module SampleHW #(
-    parameter                              MasterBase       = 0,
-    parameter                              TOTAL_MEMORY     = 16,
-    parameter                              DirectSlaveBase  = TOTAL_MEMORY,
-    parameter                              HierSlaveBase    = TOTAL_MEMORY/2,
-    parameter                              DATA_WIDTH       = 32,
-    parameter                              ADDR_WIDTH       = 32
+    parameter                              MasterBase       = 0,    // The base addresss of the master slave in the design.
+    parameter                              TOTAL_MEMORY     = 16,    // How much memory in total is addressed by a single wb master.
+    parameter                              DirectSlaveBase  = TOTAL_MEMORY,    // The base addresss of the direct slave in the design.
+    parameter                              HierSlaveBase    = TOTAL_MEMORY/2,    // The base addresss of the hiearchical slave in the design.
+    parameter                              DATA_WIDTH       = 32,    // The width of the both transferred and inputted data.
+    parameter                              ADDR_WIDTH       = 32    // The width of the address.
 ) (
     // These ports are not in any interface
-    input                               clk,
-    input                               rst,
-    input                               start,
-    output                              done
+    input                               clk,    // The mandatory clock, as this is synchronous logic.
+    input                               rst,    // The mandatory reset, as this is synchronous logic.
+    input                               start,    // Input used to signal that is is ok to start the masters.
+    output                              done    // The mandatory reset, as this is synchronous logic.
 );
 
     wire        wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_ack_i;

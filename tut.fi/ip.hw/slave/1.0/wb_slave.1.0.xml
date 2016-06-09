@@ -389,11 +389,12 @@
 				<ipxact:name>wb_slave.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
 				<ipxact:vendorExtensions>
-					<kactus2:hash>58a0412569dce61f9c0e536f05e09dac3bf7aba1</kactus2:hash>
+					<kactus2:hash>d0245c311a5b5d8750795057349f7c961f1cc2d8</kactus2:hash>
 				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
+	<ipxact:description>A verilog slave that provides a write/write access to a verilog register array. Address space is assumed to be contiguous.</ipxact:description>
 	<ipxact:vendorExtensions>
 		<kactus2:kts_attributes>
 			<kactus2:kts_productHier>Flat</kactus2:kts_productHier>

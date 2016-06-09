@@ -7,23 +7,13 @@
 	<ipxact:model>
 		<ipxact:views>
 			<ipxact:view>
-				<ipxact:name>flat</ipxact:name>
-				<ipxact:envIdentifier>::</ipxact:envIdentifier>
-			</ipxact:view>
-			<ipxact:view>
 				<ipxact:name>design</ipxact:name>
 				<ipxact:envIdentifier>verilog:Kactus2:</ipxact:envIdentifier>
-				<ipxact:componentInstantiationRef>design_verilogSource_instantiation</ipxact:componentInstantiationRef>
+				<ipxact:componentInstantiationRef>design_verilog_instantiation</ipxact:componentInstantiationRef>
 				<ipxact:designConfigurationInstantiationRef>SampleTB.design.designcfg_1.0</ipxact:designConfigurationInstantiationRef>
 			</ipxact:view>
 		</ipxact:views>
 		<ipxact:instantiations>
-			<ipxact:componentInstantiation>
-				<ipxact:name>design_verilogSource_instantiation</ipxact:name>
-				<ipxact:fileSetRef>
-					<ipxact:localName>design_verilogSource</ipxact:localName>
-				</ipxact:fileSetRef>
-			</ipxact:componentInstantiation>
 			<ipxact:componentInstantiation>
 				<ipxact:name>design_verilog_instantiation</ipxact:name>
 				<ipxact:language>verilog</ipxact:language>

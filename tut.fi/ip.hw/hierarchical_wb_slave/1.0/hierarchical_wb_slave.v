@@ -1,9 +1,9 @@
 //-----------------------------------------------------------------------------
 // File          : hierarchical_wb_slave.v
-// Creation date : 30.05.2016
-// Creation time : 16:11:54
-// Description   : 
-// Created by    : virtan39
+// Creation date : 09.06.2016
+// Creation time : 16:08:16
+// Description   : A wishbone slave containing another wishbone slave, so now you can use a wishbone slave while using a wishbone slave.
+// Created by    : TermosPullo
 // This file was generated with Kactus2 verilog generator
 // based on IP-XACT component tut.fi:ip.hw:hierarchical_wb_slave:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.hw/hierarchical_wb_slave/1.0/hierarchical_wb_slave.1.0.xml
@@ -29,6 +29,7 @@ module hierarchical_wb_slave #(
     input                               rst    // The mandatory reset, as this is synchronous logic.
 );
 
+    // An instantiation of the same wish bone slave, as used in SampleHW design.
     // IP-XACT VLNV: tut.fi:ip.hw:wb_slave:1.0
     wb_slave #(
         .DATA_COUNT          (DATA_COUNT),

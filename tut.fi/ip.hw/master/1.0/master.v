@@ -1,36 +1,48 @@
-// General master module, used to instantiate two wish bone master interfaces.
-module master #(
-	parameter MASTER_0_BASE_ADDRESS = 0, // The first referable address of master0. Is substracted from input address.
-	parameter MASTER_1_BASE_ADDRESS = 64, // The first referable address of master1. Is substracted from input address.
-	parameter DATA_WIDTH = 32, // The width of the both transferred and inputted data.
-	parameter ADDR_WIDTH = 32, // The width of the address.
-	parameter DATA_COUNT = 16 // How many values there are in the register array.
-	)(
-    input                               		clk, // The mandatory clock, as this is synchronous logic.
-    input                                 	rst, // The mandatory reset, as this is synchronous logic.
-    input                               		start, // Input used to signal that is is ok to start the masters.
-    output                             	done, // Output used to signal that the masters are done sending.
+//-----------------------------------------------------------------------------
+// File          : master.v
+// Creation date : 09.06.2016
+// Creation time : 16:06:13
+// Description   : A component containing two wishbone master interfaces and thus two wishbone master module instantiations. Its operation is governed by external start signal, and will send a done signal after both master modules have sent and received everything.
+// Created by    : TermosPullo
+// This file was generated with Kactus2 verilog generator
+// based on IP-XACT component tut.fi:ip.hw:master:1.0
+// whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.hw/master/1.0/master.1.0.xml
+//-----------------------------------------------------------------------------
 
-    // Interface: one_to_one_master
-    input									ack_i_0, // Slave asserts acknowledge.
-    input	[DATA_WIDTH-1:0]	dat_i_0, // Data from slave to master.
-    output	[ADDR_WIDTH-1:0]	adr_o_0, // The address of the data.
-    output  								cyc_o_0, // Asserted by master for transfer.
-    output	[DATA_WIDTH-1:0]	dat_o_0, // Data from master to slave.
-    output									stb_o_0, // Asserted by master for transfer.
-    output									we_o_0, // Write = 1, Read = 0.
-    
-    // Interface: one_to_many_master
-    input									ack_i_1, // Slave asserts acknowledge.
-    input	[DATA_WIDTH-1:0]	dat_i_1, // Data from slave to master.
-    output	[ADDR_WIDTH-1:0]	adr_o_1, // The address of the data.
-    output                              	cyc_o_1, // Asserted by master for transfer.
-    output	[DATA_WIDTH-1:0]	dat_o_1, // Data from master to slave.
-    output                              	stb_o_1, // Asserted by master for transfer.
-    output                              	we_o_1 // Write = 1, Read = 0.
-    );
-    
-	// Needs "done" from both masters.
+module master #(
+    parameter                              DATA_WIDTH       = 32,    // The width of the both transferred and inputted data.
+    parameter                              ADDR_WIDTH       = 32,    // The width of the address.
+    parameter                              DATA_COUNT       = 16,    // How many values there are in the register array.
+    parameter                              MASTER_0_BASE_ADDRESS = 0,    // The first referable address of master0. Is substracted from input address.
+    parameter                              MASTER_1_BASE_ADDRESS = 64    // The first referable address of master1. Is substracted from input address.
+) (
+    // Interface: master_0
+    input                               ack_i_0,    // Slave asserts acknowledge.
+    input          [DATA_WIDTH-1:0]     dat_i_0,    // Data from slave to master.
+    output         [ADDR_WIDTH-1:0]     adr_o_0,    // The address of the data.
+    output                              cyc_o_0,    // Asserted by master for transfer.
+    output         [DATA_WIDTH-1:0]     dat_o_0,    // Data from master to slave.
+    output                              stb_o_0,    // Asserted by master for transfer.
+    output                              we_o_0,    // Write = 1, Read = 0.
+
+    // Interface: master_1
+    input                               ack_i_1,    // Slave asserts acknowledge.
+    input          [DATA_WIDTH-1:0]     dat_i_1,    // Data from slave to master.
+    output         [ADDR_WIDTH-1:0]     adr_o_1,    // The address of the data.
+    output                              cyc_o_1,    // Asserted by master for transfer.
+    output         [DATA_WIDTH-1:0]     dat_o_1,    // Data from master to slave.
+    output                              stb_o_1,    // Asserted by master for transfer.
+    output                              we_o_1,    // Write = 1, Read = 0.
+
+    // These ports are not in any interface
+    input                               clk,    // The mandatory clock, as this is synchronous logic.
+    input                               rst,    // The mandatory reset, as this is synchronous logic.
+    input                               start,    // Input used to signal that is is ok to start the masters.
+    output                              done    // Output used to signal that the masters are done sending.
+);
+
+// WARNING: EVERYTHING ON AND ABOVE THIS LINE MAY BE OVERWRITTEN BY KACTUS2!!!
+// Needs "done" from both masters.
     wire done_0;
     wire done_1;
     assign done = done_0 & done_1;
@@ -74,5 +86,4 @@ module master #(
       .start(start),
       .done(done_1)
    );
-
 endmodule

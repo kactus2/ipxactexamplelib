@@ -1,24 +1,36 @@
-// A verilog slave that provides a write/write access to a verilog register array.
-// Address space is assumed to be contiguous.
-module wb_slave #(
-    parameter BASE_ADDRESS = 0, // The first referable address. Is substracted from input address.
-    parameter DATA_WIDTH = 32, // The width of the both transferred and inputted data.
-    parameter ADDR_WIDTH = 32, // The width of the address.
-    parameter DATA_COUNT = 16 // How many values there are in the register array.
-    )(
-    input                                       		clk, // The mandatory clock, as this is synchronous logic.
-    input                                       		rst, // The mandatory reset, as this is synchronous logic.
-    
-    input                                       		cyc_i, // Asserted by master for transfer.
-    input                                       		stb_i, // Asserted, when this specific slave is selected.
-    output reg                              		ack_o, // Slave asserts acknowledge.
-    input                                       		we_i, // Write = 1, Read = 0.
-    output reg	[DATA_WIDTH-1:0]	dat_o, // Data from slave to master.
-    input			[DATA_WIDTH-1:0]	dat_i, // Data from master to slave.
-    input			[ADDR_WIDTH-1:0]	adr_i // The address of the data.
-    );
+//-----------------------------------------------------------------------------
+// File          : wb_slave.v
+// Creation date : 09.06.2016
+// Creation time : 16:07:40
+// Description   : A verilog slave that provides a write/write access to a verilog register array. Address space is assumed to be contiguous.
+// Created by    : TermosPullo
+// This file was generated with Kactus2 verilog generator
+// based on IP-XACT component tut.fi:ip.hw:wb_slave:1.0
+// whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.hw/slave/1.0/wb_slave.1.0.xml
+//-----------------------------------------------------------------------------
 
-    // We have as much memory as parameterized.
+module wb_slave #(
+    parameter                              BASE_ADDRESS     = 0,    // The first referable address. Is substracted from input address.
+    parameter                              DATA_WIDTH       = 32,    // The width of the both transferred and inputted data.
+    parameter                              ADDR_WIDTH       = 32,    // The width of the address.
+    parameter                              DATA_COUNT       = 16    // How many values there are in the register array.
+) (
+    // Interface: slave_interface
+    input          [ADDR_WIDTH-1:0]     adr_i,    // The address of the data.
+    input                               cyc_i,    // Asserted by master for transfer.
+    input          [DATA_WIDTH-1:0]     dat_i,    // Data from slave to master.
+    input                               stb_i,    // Asserted, when this specific slave is selected.
+    input                               we_i,    // Write = 1, Read = 0.
+    output reg                          ack_o,    // Slave asserts acknowledge.
+    output reg     [DATA_WIDTH-1:0]     dat_o,    // Data from master to slave.
+
+    // These ports are not in any interface
+    input                               clk,    // The mandatory clock, as this is synchronous logic.
+    input                               rst    // The mandatory reset, as this is synchronous logic.
+);
+
+// WARNING: EVERYTHING ON AND ABOVE THIS LINE MAY BE OVERWRITTEN BY KACTUS2!!!
+// We have as much memory as parameterized.
     reg [DATA_WIDTH-1:0] dat [0:DATA_COUNT-1];
     // The state.
     reg [0:0] state;
