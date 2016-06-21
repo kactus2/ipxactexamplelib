@@ -243,12 +243,12 @@
 				<kactus2:position x="1140" y="100"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="master_0_clk_to_clk" kactus2:offPage="true">
-				<kactus2:position x="140" y="140"/>
 				<kactus2:position x="1110" y="70"/>
+				<kactus2:position x="140" y="140"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="master_0_rst_to_rst" kactus2:offPage="true">
-				<kactus2:position x="140" y="160"/>
 				<kactus2:position x="1110" y="100"/>
+				<kactus2:position x="140" y="160"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="master_0_done_to_done" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="master_0_start_to_start" kactus2:offPage="false"/>
@@ -257,28 +257,28 @@
 				<kactus2:position x="810" y="100"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="wb_slave_1_clk_to_clk" kactus2:offPage="true">
-				<kactus2:position x="1060" y="300"/>
 				<kactus2:position x="1110" y="70"/>
+				<kactus2:position x="1060" y="300"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="wb_slave_1_rst_to_rst" kactus2:offPage="true">
-				<kactus2:position x="1060" y="320"/>
 				<kactus2:position x="1110" y="100"/>
+				<kactus2:position x="1060" y="320"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="wb_slave_0_clk_to_clk" kactus2:offPage="true">
-				<kactus2:position x="1060" y="90"/>
 				<kactus2:position x="1110" y="70"/>
+				<kactus2:position x="1060" y="90"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="wb_slave_0_rst_to_rst" kactus2:offPage="true">
-				<kactus2:position x="1060" y="110"/>
 				<kactus2:position x="1110" y="100"/>
+				<kactus2:position x="1060" y="110"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="hierarchical_wb_slave_0_clk_to_clk" kactus2:offPage="true">
-				<kactus2:position x="1060" y="200"/>
 				<kactus2:position x="1110" y="70"/>
+				<kactus2:position x="1060" y="200"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="hierarchical_wb_slave_0_rst_to_rst" kactus2:offPage="true">
-				<kactus2:position x="1060" y="220"/>
 				<kactus2:position x="1110" y="100"/>
+				<kactus2:position x="1060" y="220"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface" kactus2:offPage="false">
 				<kactus2:position x="710" y="100"/>

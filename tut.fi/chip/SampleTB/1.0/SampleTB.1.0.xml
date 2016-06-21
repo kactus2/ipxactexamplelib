@@ -35,6 +35,22 @@
 				<ipxact:fileType>verilogSource</ipxact:fileType>
 			</ipxact:file>
 		</ipxact:fileSet>
+		<ipxact:fileSet>
+			<ipxact:name>systemCSource</ipxact:name>
+			<ipxact:file>
+				<ipxact:name>header.hh</ipxact:name>
+				<ipxact:fileType>cppSource</ipxact:fileType>
+				<ipxact:isIncludeFile>true</ipxact:isIncludeFile>
+			</ipxact:file>
+			<ipxact:file>
+				<ipxact:name>main.cpp</ipxact:name>
+				<ipxact:fileType>cppSource</ipxact:fileType>
+			</ipxact:file>
+			<ipxact:file>
+				<ipxact:name>Makefile</ipxact:name>
+				<ipxact:fileType user="Makefile">user</ipxact:fileType>
+			</ipxact:file>
+		</ipxact:fileSet>
 	</ipxact:fileSets>
 	<ipxact:description>Contains TestInitializer connected to SampleHW.</ipxact:description>
 	<ipxact:vendorExtensions>

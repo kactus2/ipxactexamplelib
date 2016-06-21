@@ -122,6 +122,18 @@
 				<ipxact:fileType>verilogSource</ipxact:fileType>
 			</ipxact:file>
 		</ipxact:fileSet>
+		<ipxact:fileSet>
+			<ipxact:name>systemCSource</ipxact:name>
+			<ipxact:file>
+				<ipxact:name>TestIntitializer.hh</ipxact:name>
+				<ipxact:fileType>cppSource</ipxact:fileType>
+				<ipxact:isIncludeFile>true</ipxact:isIncludeFile>
+			</ipxact:file>
+			<ipxact:file>
+				<ipxact:name>TestIntitializer.cpp</ipxact:name>
+				<ipxact:fileType>cppSource</ipxact:fileType>
+			</ipxact:file>
+		</ipxact:fileSet>
 	</ipxact:fileSets>
 	<ipxact:description>A bare bones verilog test bench, which is used to assert reset, generate clock, give start signal and finally check after WAIT_TIME, if the done is asserted.</ipxact:description>
 	<ipxact:vendorExtensions>

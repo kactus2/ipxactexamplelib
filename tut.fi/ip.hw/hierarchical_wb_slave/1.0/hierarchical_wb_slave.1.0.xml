@@ -369,6 +369,14 @@
 				<ipxact:fileType>verilogSource</ipxact:fileType>
 			</ipxact:file>
 		</ipxact:fileSet>
+		<ipxact:fileSet>
+			<ipxact:name>systemCSource</ipxact:name>
+			<ipxact:file>
+				<ipxact:name>hier_slave.hh</ipxact:name>
+				<ipxact:fileType>cppSource</ipxact:fileType>
+				<ipxact:isIncludeFile>true</ipxact:isIncludeFile>
+			</ipxact:file>
+		</ipxact:fileSet>
 	</ipxact:fileSets>
 	<ipxact:description>A wishbone slave containing another wishbone slave, so now you can use a wishbone slave while using a wishbone slave.</ipxact:description>
 	<ipxact:vendorExtensions>

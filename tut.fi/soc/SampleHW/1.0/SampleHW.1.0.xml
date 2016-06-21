@@ -137,6 +137,14 @@
 				<ipxact:fileType>verilogSource</ipxact:fileType>
 			</ipxact:file>
 		</ipxact:fileSet>
+		<ipxact:fileSet>
+			<ipxact:name>systemCSource</ipxact:name>
+			<ipxact:file>
+				<ipxact:name>SampleHW.hh</ipxact:name>
+				<ipxact:fileType>cppSource</ipxact:fileType>
+				<ipxact:isIncludeFile>true</ipxact:isIncludeFile>
+			</ipxact:file>
+		</ipxact:fileSet>
 	</ipxact:fileSets>
 	<ipxact:description>A hardware component containing a hardware design, which has a master component, three slaves and a bus.
 

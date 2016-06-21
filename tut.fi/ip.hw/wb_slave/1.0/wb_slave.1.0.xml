@@ -393,6 +393,18 @@
 				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>
+		<ipxact:fileSet>
+			<ipxact:name>systemCSource</ipxact:name>
+			<ipxact:file>
+				<ipxact:name>wb_slave.cpp</ipxact:name>
+				<ipxact:fileType>cppSource</ipxact:fileType>
+			</ipxact:file>
+			<ipxact:file>
+				<ipxact:name>wb_slave.hh</ipxact:name>
+				<ipxact:fileType>cppSource</ipxact:fileType>
+				<ipxact:isIncludeFile>true</ipxact:isIncludeFile>
+			</ipxact:file>
+		</ipxact:fileSet>
 	</ipxact:fileSets>
 	<ipxact:description>A verilog slave that provides a write/write access to a verilog register array. Address space is assumed to be contiguous.</ipxact:description>
 	<ipxact:vendorExtensions>
