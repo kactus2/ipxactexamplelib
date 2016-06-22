@@ -8,9 +8,13 @@
 		<ipxact:views>
 			<ipxact:view>
 				<ipxact:name>flat</ipxact:name>
-				<ipxact:envIdentifier>::</ipxact:envIdentifier>
 				<ipxact:envIdentifier>verilog:Kactus2:</ipxact:envIdentifier>
 				<ipxact:componentInstantiationRef>verilogSource_instantiation</ipxact:componentInstantiationRef>
+			</ipxact:view>
+			<ipxact:view>
+				<ipxact:name>SystemC</ipxact:name>
+				<ipxact:envIdentifier>cppSource:Notepad++:</ipxact:envIdentifier>
+				<ipxact:componentInstantiationRef>systemC_instantiation</ipxact:componentInstantiationRef>
 			</ipxact:view>
 		</ipxact:views>
 		<ipxact:instantiations>
@@ -26,6 +30,13 @@
 				</ipxact:moduleParameters>
 				<ipxact:fileSetRef>
 					<ipxact:localName>verilogSource</ipxact:localName>
+				</ipxact:fileSetRef>
+			</ipxact:componentInstantiation>
+			<ipxact:componentInstantiation>
+				<ipxact:name>systemC_instantiation</ipxact:name>
+				<ipxact:language>cppSource</ipxact:language>
+				<ipxact:fileSetRef>
+					<ipxact:localName>systemCSource</ipxact:localName>
 				</ipxact:fileSetRef>
 			</ipxact:componentInstantiation>
 		</ipxact:instantiations>
@@ -125,13 +136,13 @@
 		<ipxact:fileSet>
 			<ipxact:name>systemCSource</ipxact:name>
 			<ipxact:file>
+				<ipxact:name>TestIntitializer.cpp</ipxact:name>
+				<ipxact:fileType>cppSource</ipxact:fileType>
+			</ipxact:file>
+			<ipxact:file>
 				<ipxact:name>TestIntitializer.hh</ipxact:name>
 				<ipxact:fileType>cppSource</ipxact:fileType>
 				<ipxact:isIncludeFile>true</ipxact:isIncludeFile>
-			</ipxact:file>
-			<ipxact:file>
-				<ipxact:name>TestIntitializer.cpp</ipxact:name>
-				<ipxact:fileType>cppSource</ipxact:fileType>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>

@@ -12,6 +12,12 @@
 				<ipxact:componentInstantiationRef>design_verilog_instantiation</ipxact:componentInstantiationRef>
 				<ipxact:designConfigurationInstantiationRef>SampleTB.design.designcfg_1.0</ipxact:designConfigurationInstantiationRef>
 			</ipxact:view>
+			<ipxact:view>
+				<ipxact:name>SystemC</ipxact:name>
+				<ipxact:envIdentifier>cppSource:Notepad++:</ipxact:envIdentifier>
+				<ipxact:componentInstantiationRef>systemC_instantiation</ipxact:componentInstantiationRef>
+				<ipxact:designConfigurationInstantiationRef>SystemC</ipxact:designConfigurationInstantiationRef>
+			</ipxact:view>
 		</ipxact:views>
 		<ipxact:instantiations>
 			<ipxact:componentInstantiation>
@@ -21,9 +27,20 @@
 					<ipxact:localName>design_verilogSource</ipxact:localName>
 				</ipxact:fileSetRef>
 			</ipxact:componentInstantiation>
+			<ipxact:componentInstantiation>
+				<ipxact:name>systemC_instantiation</ipxact:name>
+				<ipxact:language>cppSource</ipxact:language>
+				<ipxact:fileSetRef>
+					<ipxact:localName>systemCSource</ipxact:localName>
+				</ipxact:fileSetRef>
+			</ipxact:componentInstantiation>
 			<ipxact:designConfigurationInstantiation>
 				<ipxact:name>SampleTB.design.designcfg_1.0</ipxact:name>
 				<ipxact:designConfigurationRef vendor="tut.fi" library="chip" name="SampleTB.design.designcfg" version="1.0"/>
+			</ipxact:designConfigurationInstantiation>
+			<ipxact:designConfigurationInstantiation>
+				<ipxact:name>SystemC</ipxact:name>
+				<ipxact:designConfigurationRef vendor="tut.fi" library="chip" name="SampleTB.SystemC.designcfg" version="1.0"/>
 			</ipxact:designConfigurationInstantiation>
 		</ipxact:instantiations>
 	</ipxact:model>

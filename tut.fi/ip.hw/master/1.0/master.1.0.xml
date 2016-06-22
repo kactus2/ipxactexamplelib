@@ -249,6 +249,11 @@
 				<ipxact:envIdentifier>verilog:Kactus2:</ipxact:envIdentifier>
 				<ipxact:componentInstantiationRef>flat_verilog_component</ipxact:componentInstantiationRef>
 			</ipxact:view>
+			<ipxact:view>
+				<ipxact:name>SystemC</ipxact:name>
+				<ipxact:envIdentifier>cppSource:Notepad++:</ipxact:envIdentifier>
+				<ipxact:componentInstantiationRef>systemC_instantiation</ipxact:componentInstantiationRef>
+			</ipxact:view>
 		</ipxact:views>
 		<ipxact:instantiations>
 			<ipxact:componentInstantiation>
@@ -302,6 +307,13 @@
 				</ipxact:moduleParameters>
 				<ipxact:fileSetRef>
 					<ipxact:localName>verilogSource</ipxact:localName>
+				</ipxact:fileSetRef>
+			</ipxact:componentInstantiation>
+			<ipxact:componentInstantiation>
+				<ipxact:name>systemC_instantiation</ipxact:name>
+				<ipxact:language>cppSource</ipxact:language>
+				<ipxact:fileSetRef>
+					<ipxact:localName>systemCSource</ipxact:localName>
 				</ipxact:fileSetRef>
 			</ipxact:componentInstantiation>
 		</ipxact:instantiations>
