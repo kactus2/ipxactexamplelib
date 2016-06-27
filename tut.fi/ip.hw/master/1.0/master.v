@@ -1,10 +1,11 @@
 //-----------------------------------------------------------------------------
 // File          : master.v
-// Creation date : 09.06.2016
-// Creation time : 16:06:13
+// Creation date : 27.06.2016
+// Creation time : 13:37:36
 // Description   : A component containing two wishbone master interfaces and thus two wishbone master module instantiations. Its operation is governed by external start signal, and will send a done signal after both master modules have sent and received everything.
 // Created by    : TermosPullo
-// This file was generated with Kactus2 verilog generator
+// This file was generated with Kactus2 verilog generator version 1.2
+// Kactus2 version : 3.1.7 32-bit
 // based on IP-XACT component tut.fi:ip.hw:master:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.hw/master/1.0/master.1.0.xml
 //-----------------------------------------------------------------------------

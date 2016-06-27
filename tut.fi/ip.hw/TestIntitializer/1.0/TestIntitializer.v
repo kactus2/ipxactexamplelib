@@ -1,10 +1,11 @@
 //-----------------------------------------------------------------------------
 // File          : TestIntitializer.v
-// Creation date : 09.06.2016
-// Creation time : 16:11:31
+// Creation date : 27.06.2016
+// Creation time : 13:39:08
 // Description   : A bare bones verilog test bench, which is used to assert reset, generate clock, give start signal and finally check after WAIT_TIME, if the done is asserted.
 // Created by    : TermosPullo
-// This file was generated with Kactus2 verilog generator
+// This file was generated with Kactus2 verilog generator version 1.2
+// Kactus2 version : 3.1.7 32-bit
 // based on IP-XACT component tut.fi:ip.hw:TestIntitializer:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.hw/TestIntitializer/1.0/TestIntitializer.1.0.xml
 //-----------------------------------------------------------------------------

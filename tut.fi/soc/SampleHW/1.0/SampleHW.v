@@ -1,12 +1,13 @@
 //-----------------------------------------------------------------------------
 // File          : SampleHW.v
-// Creation date : 09.06.2016
-// Creation time : 16:03:34
+// Creation date : 27.06.2016
+// Creation time : 13:39:50
 // Description   : A hardware component containing a hardware design, which has a master component, three slaves and a bus.
 //                 
 //                 This component also has a component instantiation, which provides parameters for the design.
 // Created by    : TermosPullo
-// This file was generated with Kactus2 verilog generator
+// This file was generated with Kactus2 verilog generator version 1.2
+// Kactus2 version : 3.1.7 32-bit
 // based on IP-XACT component tut.fi:soc:SampleHW:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/soc/SampleHW/1.0/SampleHW.1.0.xml
 //-----------------------------------------------------------------------------

@@ -1,12 +1,13 @@
 //-----------------------------------------------------------------------------
 // File          : wb_slave.v
-// Creation date : 09.06.2016
-// Creation time : 16:07:40
-// Description   : A verilog slave that provides a write/write access to a verilog register array. Address space is assumed to be contiguous.
+// Creation date : 27.06.2016
+// Creation time : 13:37:07
+// Description   : A verilog slave that provides a read/write access to a verilog register array. Address space is assumed to be contiguous.
 // Created by    : TermosPullo
-// This file was generated with Kactus2 verilog generator
+// This file was generated with Kactus2 verilog generator version 1.2
+// Kactus2 version : 3.1.7 32-bit
 // based on IP-XACT component tut.fi:ip.hw:wb_slave:1.0
-// whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.hw/slave/1.0/wb_slave.1.0.xml
+// whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.hw/wb_slave/1.0/wb_slave.1.0.xml
 //-----------------------------------------------------------------------------
 
 module wb_slave #(

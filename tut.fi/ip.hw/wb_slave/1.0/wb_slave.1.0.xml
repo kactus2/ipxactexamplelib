@@ -418,7 +418,7 @@
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
-	<ipxact:description>A verilog slave that provides a write/write access to a verilog register array. Address space is assumed to be contiguous.</ipxact:description>
+	<ipxact:description>A verilog slave that provides a read/write access to a verilog register array. Address space is assumed to be contiguous.</ipxact:description>
 	<ipxact:vendorExtensions>
 		<kactus2:kts_attributes>
 			<kactus2:kts_productHier>Flat</kactus2:kts_productHier>
