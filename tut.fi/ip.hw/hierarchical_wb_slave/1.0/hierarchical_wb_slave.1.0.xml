@@ -24,18 +24,12 @@
 							<ipxact:logicalPort>
 								<ipxact:name>adr_o</ipxact:name>
 								<ipxact:range>
-									<ipxact:left>31</ipxact:left>
-									<ipxact:right>0</ipxact:right>
+									<ipxact:left></ipxact:left>
+									<ipxact:right></ipxact:right>
 								</ipxact:range>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
 								<ipxact:name>adr_i</ipxact:name>
-								<ipxact:partSelect>
-									<ipxact:range>
-										<ipxact:left>31</ipxact:left>
-										<ipxact:right>0</ipxact:right>
-									</ipxact:range>
-								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 						<ipxact:portMap>
@@ -68,18 +62,12 @@
 							<ipxact:logicalPort>
 								<ipxact:name>dat_i</ipxact:name>
 								<ipxact:range>
-									<ipxact:left>31</ipxact:left>
-									<ipxact:right>0</ipxact:right>
+									<ipxact:left></ipxact:left>
+									<ipxact:right></ipxact:right>
 								</ipxact:range>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
 								<ipxact:name>dat_o</ipxact:name>
-								<ipxact:partSelect>
-									<ipxact:range>
-										<ipxact:left>31</ipxact:left>
-										<ipxact:right>0</ipxact:right>
-									</ipxact:range>
-								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 						<ipxact:portMap>
@@ -143,7 +131,7 @@
 				<ipxact:name>design_verilog_instantiation</ipxact:name>
 				<ipxact:language>verilog</ipxact:language>
 				<ipxact:moduleParameters>
-					<ipxact:moduleParameter parameterId="uuid_d8ee4f97_8360_4d00_a499_e609469c9895" resolve="user">
+					<ipxact:moduleParameter parameterId="uuid_d8ee4f97_8360_4d00_a499_e609469c9895" resolve="user" usageCount="1">
 						<ipxact:name>ADDR_WIDTH</ipxact:name>
 						<ipxact:description>The width of the address.</ipxact:description>
 						<ipxact:value>32</ipxact:value>
@@ -158,10 +146,10 @@
 						<ipxact:description>How many values there are in the register array.</ipxact:description>
 						<ipxact:value>16</ipxact:value>
 					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_b03feccc_6ad4_4d94_94b7_64cb5d46c48f" resolve="user">
+					<ipxact:moduleParameter parameterId="uuid_b03feccc_6ad4_4d94_94b7_64cb5d46c48f" resolve="user" usageCount="2">
 						<ipxact:name>DATA_WIDTH</ipxact:name>
 						<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
-						<ipxact:value>32</ipxact:value>
+						<ipxact:value>16</ipxact:value>
 					</ipxact:moduleParameter>
 				</ipxact:moduleParameters>
 				<ipxact:fileSetRef>
@@ -213,7 +201,7 @@
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>31</ipxact:left>
+							<ipxact:left>uuid_d8ee4f97_8360_4d00_a499_e609469c9895-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -255,7 +243,7 @@
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>31</ipxact:left>
+							<ipxact:left>uuid_b03feccc_6ad4_4d94_94b7_64cb5d46c48f-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -276,7 +264,7 @@
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>31</ipxact:left>
+							<ipxact:left>uuid_b03feccc_6ad4_4d94_94b7_64cb5d46c48f-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>

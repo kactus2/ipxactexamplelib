@@ -1,11 +1,11 @@
 //-----------------------------------------------------------------------------
 // File          : wishbone_bus.v
-// Creation date : 27.06.2016
-// Creation time : 13:39:27
+// Creation date : 28.06.2016
+// Creation time : 12:57:35
 // Description   : Bus used to connect two slaves to one master. Used slave is determined using the address output of the master and parameter SLAVE_SPLIT.
 // Created by    : TermosPullo
 // This file was generated with Kactus2 verilog generator version 1.2
-// Kactus2 version : 3.1.7 32-bit
+// Kactus2 version : 3.1.5 32-bit
 // based on IP-XACT component tut.fi:ip.com:wishbone_bus:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.com/wishbone_bus/1.0/wishbone_bus.1.0.xml
 //-----------------------------------------------------------------------------

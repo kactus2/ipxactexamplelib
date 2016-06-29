@@ -3,9 +3,10 @@
 // Address space is assumed to be contiguous.
 module wb_master #(
 	parameter BASE_ADDRESS = 0, // The first referable address. Is substracted from input address.
-	parameter DATA_WIDTH = 32, // The width of the both transferred and inputted data.
-	parameter ADDR_WIDTH = 32, // The width of the address.
-	parameter DATA_COUNT = 16 // How many values there are in the register array.
+	parameter DATA_WIDTH = 16, // The width of the both transferred and inputted data.
+	parameter ADDR_WIDTH = 16, // The width of the address.
+	parameter DATA_COUNT = 16, // How many values there are in the register array.
+    parameter AU_IN_DATA  = 1   
 	)(
     input                               				clk, // The mandatory clock, as this is synchronous logic.
     input                               				rst, // The mandatory reset, as this is synchronous logic.
@@ -95,7 +96,8 @@ module wb_master #(
 				// Take output data from the register array.
                 dat_o <= dat[iterator];
 				// Offset our base address by the iterator, thus placing each iteration on separate location on slave.
-                adr_o <= iterator + BASE_ADDRESS;
+				// Also, multiply with addressable units, so that the iterations wont overlap.
+                adr_o <= ( iterator * AU_IN_DATA ) + BASE_ADDRESS;
 				// Next we shall wait for acknowledgement.
                 state <=  S_WAIT_WRITE_ACK;
             end

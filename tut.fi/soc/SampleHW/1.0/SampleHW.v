@@ -1,13 +1,13 @@
 //-----------------------------------------------------------------------------
 // File          : SampleHW.v
-// Creation date : 27.06.2016
-// Creation time : 13:39:50
+// Creation date : 28.06.2016
+// Creation time : 13:20:14
 // Description   : A hardware component containing a hardware design, which has a master component, three slaves and a bus.
 //                 
 //                 This component also has a component instantiation, which provides parameters for the design.
 // Created by    : TermosPullo
 // This file was generated with Kactus2 verilog generator version 1.2
-// Kactus2 version : 3.1.7 32-bit
+// Kactus2 version : 3.1.5 32-bit
 // based on IP-XACT component tut.fi:soc:SampleHW:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/soc/SampleHW/1.0/SampleHW.1.0.xml
 //-----------------------------------------------------------------------------
@@ -28,12 +28,17 @@ module SampleHW #(
 );
 
     wire        wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_ack_i;
-    wire [31:0] wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_adr_o;
-    wire [31:0] wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_dat_i;
     wire        wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_cyc_o;
-    wire [31:0] wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_dat_o;
     wire        wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_stb_o;
     wire        wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_we_o;
+    wire [31:0] wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_adr_o;
+    wire        wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_bte_o;
+    wire        wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_cti_o;
+    wire        wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_err_i;
+    wire        wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_rty_i;
+    wire        wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_sel_o;
+    wire [31:0] wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_dat_i;
+    wire [31:0] wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_dat_o;
     wire        hierarchical_wb_slave_0_bus_slave_to_wishbone_bus_0_bus_slave_1_ack_i;
     wire [31:0] hierarchical_wb_slave_0_bus_slave_to_wishbone_bus_0_bus_slave_1_dat_i;
     wire [31:0] hierarchical_wb_slave_0_bus_slave_to_wishbone_bus_0_bus_slave_1_adr_o;
@@ -49,10 +54,10 @@ module SampleHW #(
     wire        wishbone_bus_0_one_to_many_master_to_master_0_master_0_stb_o;
     wire        wishbone_bus_0_one_to_many_master_to_master_0_master_0_we_o;
     wire        master_0_master_1_to_wb_slave_1_slave_interface_ack_i;
-    wire [31:0] master_0_master_1_to_wb_slave_1_slave_interface_adr_o;
+    wire        master_0_master_1_to_wb_slave_1_slave_interface_adr_o;
     wire        master_0_master_1_to_wb_slave_1_slave_interface_cyc_o;
-    wire [31:0] master_0_master_1_to_wb_slave_1_slave_interface_dat_i;
-    wire [31:0] master_0_master_1_to_wb_slave_1_slave_interface_dat_o;
+    wire        master_0_master_1_to_wb_slave_1_slave_interface_dat_i;
+    wire [7:0]  master_0_master_1_to_wb_slave_1_slave_interface_dat_o;
     wire        master_0_master_1_to_wb_slave_1_slave_interface_stb_o;
     wire        master_0_master_1_to_wb_slave_1_slave_interface_we_o;
 
@@ -62,16 +67,17 @@ module SampleHW #(
     hierarchical_wb_slave #(
         .DATA_COUNT          (TOTAL_MEMORY / 2),
         .ADDR_WIDTH          (ADDR_WIDTH),
-        .BASE_ADDRESS        (MasterBase + TOTAL_MEMORY / 2))
+        .BASE_ADDRESS        (MasterBase + TOTAL_MEMORY / 2),
+        .DATA_WIDTH          (DATA_WIDTH))
     hierarchical_wb_slave_0(
         // Interface: bus_slave
-        .adr_i               (hierarchical_wb_slave_0_bus_slave_to_wishbone_bus_0_bus_slave_1_adr_o),
+        .adr_i               (hierarchical_wb_slave_0_bus_slave_to_wishbone_bus_0_bus_slave_1_adr_o[0]),
         .cyc_i               (hierarchical_wb_slave_0_bus_slave_to_wishbone_bus_0_bus_slave_1_cyc_o),
-        .dat_i               (hierarchical_wb_slave_0_bus_slave_to_wishbone_bus_0_bus_slave_1_dat_o),
+        .dat_i               (hierarchical_wb_slave_0_bus_slave_to_wishbone_bus_0_bus_slave_1_dat_o[15:0]),
         .stb_i               (hierarchical_wb_slave_0_bus_slave_to_wishbone_bus_0_bus_slave_1_stb_o),
         .we_i                (hierarchical_wb_slave_0_bus_slave_to_wishbone_bus_0_bus_slave_1_we_o),
         .ack_o               (hierarchical_wb_slave_0_bus_slave_to_wishbone_bus_0_bus_slave_1_ack_i),
-        .dat_o               (hierarchical_wb_slave_0_bus_slave_to_wishbone_bus_0_bus_slave_1_dat_i),
+        .dat_o               (hierarchical_wb_slave_0_bus_slave_to_wishbone_bus_0_bus_slave_1_dat_i[0]),
         // These ports are not in any interface
         .clk                 (clk),
         .rst                 (rst));
@@ -88,10 +94,10 @@ module SampleHW #(
     master_0(
         // Interface: master_0
         .ack_i_0             (wishbone_bus_0_one_to_many_master_to_master_0_master_0_ack_i),
-        .dat_i_0             (wishbone_bus_0_one_to_many_master_to_master_0_master_0_dat_i),
-        .adr_o_0             (wishbone_bus_0_one_to_many_master_to_master_0_master_0_adr_o),
+        .dat_i_0             (wishbone_bus_0_one_to_many_master_to_master_0_master_0_dat_i[0]),
+        .adr_o_0             (wishbone_bus_0_one_to_many_master_to_master_0_master_0_adr_o[0]),
         .cyc_o_0             (wishbone_bus_0_one_to_many_master_to_master_0_master_0_cyc_o),
-        .dat_o_0             (wishbone_bus_0_one_to_many_master_to_master_0_master_0_dat_o),
+        .dat_o_0             (wishbone_bus_0_one_to_many_master_to_master_0_master_0_dat_o[7:0]),
         .stb_o_0             (wishbone_bus_0_one_to_many_master_to_master_0_master_0_stb_o),
         .we_o_0              (wishbone_bus_0_one_to_many_master_to_master_0_master_0_we_o),
         // Interface: master_1
@@ -113,18 +119,20 @@ module SampleHW #(
     wb_slave #(
         .DATA_COUNT          (TOTAL_MEMORY / 2),
         .ADDR_WIDTH          (ADDR_WIDTH),
-        .BASE_ADDRESS        (MasterBase))
+        .BASE_ADDRESS        (MasterBase),
+        .DATA_WIDTH          (DATA_WIDTH))
     wb_slave_0(
         // Interface: slave_interface
-        .adr_i               (wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_adr_o),
+        .adr_i               (wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_adr_o[0]),
         .cyc_i               (wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_cyc_o),
-        .dat_i               (wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_dat_o),
+        .dat_i               (wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_dat_o[7:0]),
         .stb_i               (wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_stb_o),
         .we_i                (wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_we_o),
         .ack_o               (wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_ack_i),
-        .dat_o               (wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_dat_i),
+        .dat_o               (wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_dat_i[0]),
         // These ports are not in any interface
         .clk                 (clk),
+        .configuration       (4'b0100),
         .rst                 (rst));
 
     // The slave in the design which is directly connected to the master.
@@ -132,7 +140,8 @@ module SampleHW #(
     wb_slave #(
         .ADDR_WIDTH          (ADDR_WIDTH ),
         .DATA_COUNT          (TOTAL_MEMORY),
-        .BASE_ADDRESS        (DirectSlaveBase))
+        .BASE_ADDRESS        (DirectSlaveBase),
+        .DATA_WIDTH          (DATA_WIDTH))
     wb_slave_1(
         // Interface: slave_interface
         .adr_i               (master_0_master_1_to_wb_slave_1_slave_interface_adr_o),
@@ -144,6 +153,7 @@ module SampleHW #(
         .dat_o               (master_0_master_1_to_wb_slave_1_slave_interface_dat_i),
         // These ports are not in any interface
         .clk                 (clk),
+        .configuration       (4'b1000),
         .rst                 (rst));
 
     // The bus used in this design to connect a master to two slaves.
@@ -154,13 +164,13 @@ module SampleHW #(
         .ADDR_WIDTH          (ADDR_WIDTH))
     wishbone_bus_0(
         // Interface: bus_slave_0
-        .ack_i_in_0          (wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_ack_i),
+        .ack_i_in_0          (wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_err_i),
         .dat_i_in_0          (wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_dat_i),
         .adr_o_out_0         (wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_adr_o),
-        .cyc_o_out_0         (wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_cyc_o),
+        .cyc_o_out_0         (wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_cti_o),
         .dat_o_out_0         (wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_dat_o),
         .stb_o_out_0         (wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_stb_o),
-        .we_o_out_0          (wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_we_o),
+        .we_o_out_0          (wishbone_bus_0_bus_slave_0_to_wb_slave_0_slave_interface_sel_o),
         // Interface: bus_slave_1
         .ack_i_in_1          (hierarchical_wb_slave_0_bus_slave_to_wishbone_bus_0_bus_slave_1_ack_i),
         .dat_i_in_1          (hierarchical_wb_slave_0_bus_slave_to_wishbone_bus_0_bus_slave_1_dat_i),

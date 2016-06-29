@@ -24,18 +24,12 @@
 							<ipxact:logicalPort>
 								<ipxact:name>adr_o</ipxact:name>
 								<ipxact:range>
-									<ipxact:left>0</ipxact:left>
-									<ipxact:right>31</ipxact:right>
+									<ipxact:left></ipxact:left>
+									<ipxact:right></ipxact:right>
 								</ipxact:range>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
 								<ipxact:name>adr_o_0</ipxact:name>
-								<ipxact:partSelect>
-									<ipxact:range>
-										<ipxact:left>uuid_cc378479_fd8a_47ff_91f8_dbc0d6eb727c-1</ipxact:left>
-										<ipxact:right>0</ipxact:right>
-									</ipxact:range>
-								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 						<ipxact:portMap invert="false">
@@ -60,18 +54,12 @@
 							<ipxact:logicalPort>
 								<ipxact:name>dat_i</ipxact:name>
 								<ipxact:range>
-									<ipxact:left>0</ipxact:left>
-									<ipxact:right>31</ipxact:right>
+									<ipxact:left></ipxact:left>
+									<ipxact:right></ipxact:right>
 								</ipxact:range>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
 								<ipxact:name>dat_i_0</ipxact:name>
-								<ipxact:partSelect>
-									<ipxact:range>
-										<ipxact:left>uuid_bef59402_0f84_49f3_bf1c_d0305a65236a-1</ipxact:left>
-										<ipxact:right>0</ipxact:right>
-									</ipxact:range>
-								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 						<ipxact:portMap invert="false">
@@ -142,18 +130,12 @@
 							<ipxact:logicalPort>
 								<ipxact:name>adr_o</ipxact:name>
 								<ipxact:range>
-									<ipxact:left>0</ipxact:left>
-									<ipxact:right>31</ipxact:right>
+									<ipxact:left></ipxact:left>
+									<ipxact:right></ipxact:right>
 								</ipxact:range>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
 								<ipxact:name>adr_o_1</ipxact:name>
-								<ipxact:partSelect>
-									<ipxact:range>
-										<ipxact:left>uuid_cc378479_fd8a_47ff_91f8_dbc0d6eb727c-1</ipxact:left>
-										<ipxact:right>0</ipxact:right>
-									</ipxact:range>
-								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 						<ipxact:portMap invert="false">
@@ -178,18 +160,12 @@
 							<ipxact:logicalPort>
 								<ipxact:name>dat_i</ipxact:name>
 								<ipxact:range>
-									<ipxact:left>0</ipxact:left>
-									<ipxact:right>31</ipxact:right>
+									<ipxact:left></ipxact:left>
+									<ipxact:right></ipxact:right>
 								</ipxact:range>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
 								<ipxact:name>dat_i_1</ipxact:name>
-								<ipxact:partSelect>
-									<ipxact:range>
-										<ipxact:left>uuid_bef59402_0f84_49f3_bf1c_d0305a65236a-1</ipxact:left>
-										<ipxact:right>0</ipxact:right>
-									</ipxact:range>
-								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 						<ipxact:portMap invert="false">
@@ -261,7 +237,7 @@
 				<ipxact:language>verilog</ipxact:language>
 				<ipxact:moduleName>master</ipxact:moduleName>
 				<ipxact:moduleParameters>
-					<ipxact:moduleParameter parameterId="uuid_bef59402_0f84_49f3_bf1c_d0305a65236a" resolve="user" usageCount="4" usageType="nontyped">
+					<ipxact:moduleParameter parameterId="uuid_bef59402_0f84_49f3_bf1c_d0305a65236a" resolve="user" usageCount="2" usageType="nontyped">
 						<ipxact:name>DATA_WIDTH</ipxact:name>
 						<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
 						<ipxact:arrays>
@@ -270,9 +246,9 @@
 								<ipxact:right></ipxact:right>
 							</ipxact:array>
 						</ipxact:arrays>
-						<ipxact:value>32</ipxact:value>
+						<ipxact:value>8</ipxact:value>
 					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_cc378479_fd8a_47ff_91f8_dbc0d6eb727c" resolve="user" usageCount="2" usageType="nontyped">
+					<ipxact:moduleParameter parameterId="uuid_cc378479_fd8a_47ff_91f8_dbc0d6eb727c" resolve="user" usageType="nontyped">
 						<ipxact:name>ADDR_WIDTH</ipxact:name>
 						<ipxact:description>The width of the address.</ipxact:description>
 						<ipxact:arrays>
@@ -281,7 +257,7 @@
 								<ipxact:right></ipxact:right>
 							</ipxact:array>
 						</ipxact:arrays>
-						<ipxact:value>32</ipxact:value>
+						<ipxact:value>16</ipxact:value>
 					</ipxact:moduleParameter>
 					<ipxact:moduleParameter parameterId="uuid_261464fe_4330_4cb9_b6c5_db9194b418af" resolve="user" usageType="nontyped">
 						<ipxact:name>DATA_COUNT</ipxact:name>
