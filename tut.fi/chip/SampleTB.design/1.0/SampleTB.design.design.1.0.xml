@@ -17,7 +17,7 @@
 			<ipxact:instanceName>TestIntitializer_0</ipxact:instanceName>
 			<ipxact:componentRef vendor="tut.fi" library="ip.hw" name="TestIntitializer" version="1.0">
 				<ipxact:configurableElementValues>
-					<ipxact:configurableElementValue referenceId="uuid_be8aa64d_ce68_41ab_b683_ce5030823069">2100</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_d3a6969c_8076_4ad3_9b17_763b80d83ec8">2100</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
 			</ipxact:componentRef>
 			<ipxact:vendorExtensions>

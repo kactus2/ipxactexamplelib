@@ -23,10 +23,6 @@
 						<ipxact:portMap>
 							<ipxact:logicalPort>
 								<ipxact:name>adr_o</ipxact:name>
-								<ipxact:range>
-									<ipxact:left></ipxact:left>
-									<ipxact:right></ipxact:right>
-								</ipxact:range>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
 								<ipxact:name>adr_i</ipxact:name>
@@ -52,22 +48,18 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>dat_o</ipxact:name>
+								<ipxact:name>dat_i</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>dat_i</ipxact:name>
+								<ipxact:name>dat_o</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>dat_i</ipxact:name>
-								<ipxact:range>
-									<ipxact:left></ipxact:left>
-									<ipxact:right></ipxact:right>
-								</ipxact:range>
+								<ipxact:name>dat_o</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>dat_o</ipxact:name>
+								<ipxact:name>dat_i</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 						<ipxact:portMap>
@@ -130,28 +122,6 @@
 			<ipxact:componentInstantiation>
 				<ipxact:name>design_verilog_instantiation</ipxact:name>
 				<ipxact:language>verilog</ipxact:language>
-				<ipxact:moduleParameters>
-					<ipxact:moduleParameter parameterId="uuid_d8ee4f97_8360_4d00_a499_e609469c9895" resolve="user" usageCount="1">
-						<ipxact:name>ADDR_WIDTH</ipxact:name>
-						<ipxact:description>The width of the address.</ipxact:description>
-						<ipxact:value>32</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_0cfd51dd_12ed_4175_8223_20187eff154b" resolve="user">
-						<ipxact:name>BASE_ADDRESS</ipxact:name>
-						<ipxact:description>The first referable address. Is substracted from input address.</ipxact:description>
-						<ipxact:value>5</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_c6ae46c0_905a_4a77_ba9e_8a8cf89de81c" resolve="user">
-						<ipxact:name>DATA_COUNT</ipxact:name>
-						<ipxact:description>How many values there are in the register array.</ipxact:description>
-						<ipxact:value>16</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_b03feccc_6ad4_4d94_94b7_64cb5d46c48f" resolve="user" usageCount="2">
-						<ipxact:name>DATA_WIDTH</ipxact:name>
-						<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
-						<ipxact:value>16</ipxact:value>
-					</ipxact:moduleParameter>
-				</ipxact:moduleParameters>
 				<ipxact:fileSetRef>
 					<ipxact:localName>design_verilogSource</ipxact:localName>
 				</ipxact:fileSetRef>
@@ -201,7 +171,7 @@
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>uuid_d8ee4f97_8360_4d00_a499_e609469c9895-1</ipxact:left>
+							<ipxact:left>uuid_08e3f0c7_e9a6_479b_9e70_b614f5d809fc-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -243,7 +213,7 @@
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>uuid_b03feccc_6ad4_4d94_94b7_64cb5d46c48f-1</ipxact:left>
+							<ipxact:left>uuid_9f8a68d3_a06c_447d_a93c_86c6f2df980b-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -264,7 +234,7 @@
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>uuid_b03feccc_6ad4_4d94_94b7_64cb5d46c48f-1</ipxact:left>
+							<ipxact:left>uuid_9f8a68d3_a06c_447d_a93c_86c6f2df980b-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -384,6 +354,28 @@
 		</ipxact:fileSet>
 	</ipxact:fileSets>
 	<ipxact:description>A wishbone slave containing another wishbone slave, so now you can use a wishbone slave while using a wishbone slave.</ipxact:description>
+	<ipxact:parameters>
+		<ipxact:parameter parameterId="uuid_08e3f0c7_e9a6_479b_9e70_b614f5d809fc" resolve="user" usageCount="1">
+			<ipxact:name>ADDR_WIDTH</ipxact:name>
+			<ipxact:description>The width of the address.</ipxact:description>
+			<ipxact:value>16</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_589fece3_fadf_487e_a26f_cf530ad2218a" resolve="user">
+			<ipxact:name>BASE_ADDRESS</ipxact:name>
+			<ipxact:description>The first referable address. Is substracted from input address.</ipxact:description>
+			<ipxact:value>0</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_223a95ba_e4b0_4773_9f25_14d3b85116f7" resolve="user">
+			<ipxact:name>DATA_COUNT</ipxact:name>
+			<ipxact:description>How many values there are in the register array.</ipxact:description>
+			<ipxact:value>8</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_9f8a68d3_a06c_447d_a93c_86c6f2df980b" resolve="user" usageCount="2">
+			<ipxact:name>DATA_WIDTH</ipxact:name>
+			<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
+			<ipxact:value>16</ipxact:value>
+		</ipxact:parameter>
+	</ipxact:parameters>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,0,114,0</kactus2:version>
 		<kactus2:kts_attributes>

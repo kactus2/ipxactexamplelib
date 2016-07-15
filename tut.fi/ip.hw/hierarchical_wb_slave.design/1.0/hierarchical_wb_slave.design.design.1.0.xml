@@ -10,10 +10,10 @@
 			<ipxact:description>An instantiation of the same wish bone slave, as used in SampleHW design.</ipxact:description>
 			<ipxact:componentRef vendor="tut.fi" library="ip.hw" name="wb_slave" version="1.0">
 				<ipxact:configurableElementValues>
-					<ipxact:configurableElementValue referenceId="uuid_29fbf007_8686_4e9c_a6e9_1379a1b41c3e">uuid_c6ae46c0_905a_4a77_ba9e_8a8cf89de81c</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_1588d50f_f139_4170_a517_1f1cd2af59e0">uuid_0cfd51dd_12ed_4175_8223_20187eff154b</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_1fb1e00c_22b1_4e2d_ac48_ea1a8661f968">uuid_b03feccc_6ad4_4d94_94b7_64cb5d46c48f</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_893f25f8_325b_42db_9ecc_53d3b3879fb9">uuid_d8ee4f97_8360_4d00_a499_e609469c9895</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd">uuid_9f8a68d3_a06c_447d_a93c_86c6f2df980b</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba">uuid_223a95ba_e4b0_4773_9f25_14d3b85116f7</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_3452fcca_4cd2_458f_a644_4c6530ea74ed">uuid_08e3f0c7_e9a6_479b_9e70_b614f5d809fc</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_f3588ecb_1ebf_4695_bca3_b133f233f47f">uuid_589fece3_fadf_487e_a26f_cf530ad2218a</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
 			</ipxact:componentRef>
 			<ipxact:vendorExtensions>

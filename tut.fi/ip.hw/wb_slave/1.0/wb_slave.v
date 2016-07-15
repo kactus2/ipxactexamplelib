@@ -1,12 +1,12 @@
 //-----------------------------------------------------------------------------
 // File          : wb_slave.v
-// Creation date : 28.06.2016
-// Creation time : 10:46:10
+// Creation date : 15.07.2016
+// Creation time : 14:14:06
 // Description   : A verilog slave that provides a read/write access to a verilog register array. Address space is assumed to be contiguous.
 // Created by    : TermosPullo
-// This file was generated with Kactus2 verilog generator version 1.2
-// Kactus2 version : 3.1.3 32-bit
-// based on IP-XACT component tut.fi:ip.hw:wb_slave:1.0
+// Tool : Kactus2 3.1.17 32-bit
+// Plugin : Verilog generator 1.4
+// This file was generated based on IP-XACT component tut.fi:ip.hw:wb_slave:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.hw/wb_slave/1.0/wb_slave.1.0.xml
 //-----------------------------------------------------------------------------
 
@@ -14,7 +14,13 @@ module wb_slave #(
     parameter                              BASE_ADDRESS     = 0,    // The first referable address. Is substracted from input address.
     parameter                              DATA_WIDTH       = 8,    // The width of the both transferred and inputted data.
     parameter                              ADDR_WIDTH       = 16,    // The width of the address.
-    parameter                              DATA_COUNT       = 16    // How many values there are in the register array.
+    parameter                              DATA_COUNT       = 4,    // How many values there are in the register array.
+    parameter                              InputForConfig0  = 'b0100,
+    parameter                              InputForConfig1  = 'b1000,
+    parameter                              V_BASE_ADDRESS   = BASE_ADDRESS,    // The first referable address. Is substracted from input address.
+    parameter                              V_DATA_WIDTH     = DATA_WIDTH,    // The width of the both transferred and inputted data.
+    parameter                              V_ADDR_WIDTH     = ADDR_WIDTH,    // The width of the address.
+    parameter                              V_DATA_COUNT     = DATA_COUNT    // How many values there are in the register array.
 ) (
     // Interface: slave_interface
     input          [ADDR_WIDTH-1:0]     adr_i,    // The address of the data.
@@ -39,7 +45,7 @@ localparam AUB = 8;
     localparam STATUS_WIDTH = 4;
     localparam STATUS_OFFSET = 3;
 	
-    localparam AU_IN_DATA = DATA_WIDTH/AUB;
+    localparam AU_IN_DATA = V_DATA_WIDTH/AUB;
 
 // We have as much memory as parameterized.
     reg [AUB-1:0] dat [0:MEMORY_SIZE-1];
@@ -76,7 +82,7 @@ localparam AUB = 8;
 						// Set the bytes to memory locations corresponding the inputs and parameters.
 						for (index = 0; index < AU_IN_DATA; index = index +1) begin
 							// Writing means we set data to the specified address, offsetted by the base address.
-							dat[adr_i - BASE_ADDRESS + index] <= dat_i;
+							dat[adr_i - V_BASE_ADDRESS + index] <= dat_i;
 						end
                     end
                     else begin
@@ -85,7 +91,7 @@ localparam AUB = 8;
 							// Assign each bit of the addressed units.
 							for (sub_index = 0; sub_index < AUB; sub_index = sub_index +1) begin
 								// Reading means we output dat from the specified address, offsetted by the base address.
-								dat_o[index*AUB+sub_index] <= dat[adr_i - BASE_ADDRESS + index][sub_index];
+								dat_o[index*AUB+sub_index] <= dat[adr_i - V_BASE_ADDRESS + index][sub_index];
 							end
 						end
                     end

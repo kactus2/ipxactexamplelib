@@ -22,20 +22,36 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>dat_i</ipxact:name>
+								<ipxact:name>adr_o</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>adr_o_master</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>cyc_o</ipxact:name>
 								<ipxact:range>
-									<ipxact:left>31</ipxact:left>
+									<ipxact:left>0</ipxact:left>
 									<ipxact:right>0</ipxact:right>
 								</ipxact:range>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>dat_i_master</ipxact:name>
+								<ipxact:name>cyc_o_master</ipxact:name>
 								<ipxact:partSelect>
 									<ipxact:range>
-										<ipxact:left>31</ipxact:left>
+										<ipxact:left>0</ipxact:left>
 										<ipxact:right>0</ipxact:right>
 									</ipxact:range>
 								</ipxact:partSelect>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>dat_i</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>dat_i_master</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 						<ipxact:portMap>
@@ -48,18 +64,18 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>we_o</ipxact:name>
+								<ipxact:name>rty_i</ipxact:name>
 								<ipxact:range>
 									<ipxact:left>0</ipxact:left>
 									<ipxact:right>0</ipxact:right>
 								</ipxact:range>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>we_o_master</ipxact:name>
+								<ipxact:name>dat_i_master</ipxact:name>
 								<ipxact:partSelect>
 									<ipxact:range>
-										<ipxact:left></ipxact:left>
-										<ipxact:right></ipxact:right>
+										<ipxact:left>0</ipxact:left>
+										<ipxact:right>0</ipxact:right>
 									</ipxact:range>
 								</ipxact:partSelect>
 							</ipxact:physicalPort>
@@ -76,43 +92,25 @@
 								<ipxact:name>stb_o_master</ipxact:name>
 								<ipxact:partSelect>
 									<ipxact:range>
-										<ipxact:left></ipxact:left>
-										<ipxact:right></ipxact:right>
+										<ipxact:left>0</ipxact:left>
+										<ipxact:right>0</ipxact:right>
 									</ipxact:range>
 								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>cyc_o</ipxact:name>
+								<ipxact:name>we_o</ipxact:name>
 								<ipxact:range>
 									<ipxact:left>0</ipxact:left>
 									<ipxact:right>0</ipxact:right>
 								</ipxact:range>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>cyc_o_master</ipxact:name>
+								<ipxact:name>we_o_master</ipxact:name>
 								<ipxact:partSelect>
 									<ipxact:range>
-										<ipxact:left></ipxact:left>
-										<ipxact:right></ipxact:right>
-									</ipxact:range>
-								</ipxact:partSelect>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>adr_o</ipxact:name>
-								<ipxact:range>
-									<ipxact:left>31</ipxact:left>
-									<ipxact:right>0</ipxact:right>
-								</ipxact:range>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>adr_o_master</ipxact:name>
-								<ipxact:partSelect>
-									<ipxact:range>
-										<ipxact:left>31</ipxact:left>
+										<ipxact:left>0</ipxact:left>
 										<ipxact:right>0</ipxact:right>
 									</ipxact:range>
 								</ipxact:partSelect>
@@ -140,6 +138,14 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
+								<ipxact:name>adr_o</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>adr_o_out_0</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
 								<ipxact:name>cyc_o</ipxact:name>
 								<ipxact:range>
 									<ipxact:left>0</ipxact:left>
@@ -150,74 +156,6 @@
 								<ipxact:name>cyc_o_out_0</ipxact:name>
 								<ipxact:partSelect>
 									<ipxact:range>
-										<ipxact:left></ipxact:left>
-										<ipxact:right></ipxact:right>
-									</ipxact:range>
-								</ipxact:partSelect>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>stb_o</ipxact:name>
-								<ipxact:range>
-									<ipxact:left>0</ipxact:left>
-									<ipxact:right>0</ipxact:right>
-								</ipxact:range>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>stb_o_out_0</ipxact:name>
-								<ipxact:partSelect>
-									<ipxact:range>
-										<ipxact:left></ipxact:left>
-										<ipxact:right></ipxact:right>
-									</ipxact:range>
-								</ipxact:partSelect>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>we_o</ipxact:name>
-								<ipxact:range>
-									<ipxact:left>0</ipxact:left>
-									<ipxact:right>0</ipxact:right>
-								</ipxact:range>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>we_o_out_0</ipxact:name>
-								<ipxact:partSelect>
-									<ipxact:range>
-										<ipxact:left></ipxact:left>
-										<ipxact:right></ipxact:right>
-									</ipxact:range>
-								</ipxact:partSelect>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>adr_o</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>adr_o_out_0</ipxact:name>
-								<ipxact:partSelect>
-									<ipxact:range>
-										<ipxact:left>uuid_049a6e29_d7a0_4c40_a0d2_3fee71464846-1</ipxact:left>
-										<ipxact:right>0</ipxact:right>
-									</ipxact:range>
-								</ipxact:partSelect>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>bte_o</ipxact:name>
-								<ipxact:range>
-									<ipxact:left>0</ipxact:left>
-									<ipxact:right>0</ipxact:right>
-								</ipxact:range>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>we_o_out_0</ipxact:name>
-								<ipxact:partSelect>
-									<ipxact:range>
 										<ipxact:left>0</ipxact:left>
 										<ipxact:right>0</ipxact:right>
 									</ipxact:range>
@@ -226,20 +164,18 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>cti_o</ipxact:name>
-								<ipxact:range>
-									<ipxact:left>0</ipxact:left>
-									<ipxact:right>0</ipxact:right>
-								</ipxact:range>
+								<ipxact:name>dat_i</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>cyc_o_out_0</ipxact:name>
-								<ipxact:partSelect>
-									<ipxact:range>
-										<ipxact:left>0</ipxact:left>
-										<ipxact:right>0</ipxact:right>
-									</ipxact:range>
-								</ipxact:partSelect>
+								<ipxact:name>dat_i_in_0</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>dat_o</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>dat_o_out_0</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 						<ipxact:portMap>
@@ -280,14 +216,14 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>sel_o</ipxact:name>
+								<ipxact:name>stb_o</ipxact:name>
 								<ipxact:range>
 									<ipxact:left>0</ipxact:left>
 									<ipxact:right>0</ipxact:right>
 								</ipxact:range>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>we_o_out_0</ipxact:name>
+								<ipxact:name>stb_o_out_0</ipxact:name>
 								<ipxact:partSelect>
 									<ipxact:range>
 										<ipxact:left>0</ipxact:left>
@@ -298,31 +234,17 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>dat_i</ipxact:name>
+								<ipxact:name>we_o</ipxact:name>
 								<ipxact:range>
-									<ipxact:left>uuid_3f7c2e84_6e9a_4a0f_891d_9a0e42b30f8c-1</ipxact:left>
+									<ipxact:left>0</ipxact:left>
 									<ipxact:right>0</ipxact:right>
 								</ipxact:range>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>dat_i_in_0</ipxact:name>
+								<ipxact:name>we_o_out_0</ipxact:name>
 								<ipxact:partSelect>
 									<ipxact:range>
-										<ipxact:left>uuid_3f7c2e84_6e9a_4a0f_891d_9a0e42b30f8c-1</ipxact:left>
-										<ipxact:right>0</ipxact:right>
-									</ipxact:range>
-								</ipxact:partSelect>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>dat_o</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>dat_o_out_0</ipxact:name>
-								<ipxact:partSelect>
-									<ipxact:range>
-										<ipxact:left>uuid_3f7c2e84_6e9a_4a0f_891d_9a0e42b30f8c-1</ipxact:left>
+										<ipxact:left>0</ipxact:left>
 										<ipxact:right>0</ipxact:right>
 									</ipxact:range>
 								</ipxact:partSelect>
@@ -350,38 +272,10 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>dat_i</ipxact:name>
-								<ipxact:range>
-									<ipxact:left>31</ipxact:left>
-									<ipxact:right>0</ipxact:right>
-								</ipxact:range>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>dat_i_in_1</ipxact:name>
-								<ipxact:partSelect>
-									<ipxact:range>
-										<ipxact:left>31</ipxact:left>
-										<ipxact:right>0</ipxact:right>
-									</ipxact:range>
-								</ipxact:partSelect>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
 								<ipxact:name>adr_o</ipxact:name>
-								<ipxact:range>
-									<ipxact:left>31</ipxact:left>
-									<ipxact:right>0</ipxact:right>
-								</ipxact:range>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
 								<ipxact:name>adr_o_out_1</ipxact:name>
-								<ipxact:partSelect>
-									<ipxact:range>
-										<ipxact:left>31</ipxact:left>
-										<ipxact:right>0</ipxact:right>
-									</ipxact:range>
-								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 						<ipxact:portMap>
@@ -396,10 +290,18 @@
 								<ipxact:name>cyc_o_out_1</ipxact:name>
 								<ipxact:partSelect>
 									<ipxact:range>
-										<ipxact:left></ipxact:left>
-										<ipxact:right></ipxact:right>
+										<ipxact:left>0</ipxact:left>
+										<ipxact:right>0</ipxact:right>
 									</ipxact:range>
 								</ipxact:partSelect>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>dat_i</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>dat_i_in_1</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 						<ipxact:portMap>
@@ -408,6 +310,42 @@
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
 								<ipxact:name>dat_o_out_1</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>err_i</ipxact:name>
+								<ipxact:range>
+									<ipxact:left>0</ipxact:left>
+									<ipxact:right>0</ipxact:right>
+								</ipxact:range>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>ack_i_in_1</ipxact:name>
+								<ipxact:partSelect>
+									<ipxact:range>
+										<ipxact:left>0</ipxact:left>
+										<ipxact:right>0</ipxact:right>
+									</ipxact:range>
+								</ipxact:partSelect>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>rty_i</ipxact:name>
+								<ipxact:range>
+									<ipxact:left>0</ipxact:left>
+									<ipxact:right>0</ipxact:right>
+								</ipxact:range>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>dat_i_in_1</ipxact:name>
+								<ipxact:partSelect>
+									<ipxact:range>
+										<ipxact:left>0</ipxact:left>
+										<ipxact:right>0</ipxact:right>
+									</ipxact:range>
+								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 						<ipxact:portMap>
@@ -422,8 +360,8 @@
 								<ipxact:name>stb_o_out_1</ipxact:name>
 								<ipxact:partSelect>
 									<ipxact:range>
-										<ipxact:left></ipxact:left>
-										<ipxact:right></ipxact:right>
+										<ipxact:left>0</ipxact:left>
+										<ipxact:right>0</ipxact:right>
 									</ipxact:range>
 								</ipxact:partSelect>
 							</ipxact:physicalPort>
@@ -440,8 +378,8 @@
 								<ipxact:name>we_o_out_1</ipxact:name>
 								<ipxact:partSelect>
 									<ipxact:range>
-										<ipxact:left></ipxact:left>
-										<ipxact:right></ipxact:right>
+										<ipxact:left>0</ipxact:left>
+										<ipxact:right>0</ipxact:right>
 									</ipxact:range>
 								</ipxact:partSelect>
 							</ipxact:physicalPort>
@@ -484,8 +422,8 @@
 				<ipxact:language>verilog</ipxact:language>
 				<ipxact:moduleName>wishbone_bus</ipxact:moduleName>
 				<ipxact:moduleParameters>
-					<ipxact:moduleParameter parameterId="uuid_a54967e6_ad06_41df_83a1_1bcd6fcb483e" resolve="user" usageType="nontyped">
-						<ipxact:name>SLAVE_SPLIT</ipxact:name>
+					<ipxact:moduleParameter parameterId="uuid_a54967e6_ad06_41df_83a1_1bcd6fcb483e" resolve="immediate" usageType="nontyped">
+						<ipxact:name>V_SLAVE_SPLIT</ipxact:name>
 						<ipxact:description>The first address that goes to bus_slave_1</ipxact:description>
 						<ipxact:arrays>
 							<ipxact:array>
@@ -493,10 +431,10 @@
 								<ipxact:right></ipxact:right>
 							</ipxact:array>
 						</ipxact:arrays>
-						<ipxact:value>4</ipxact:value>
+						<ipxact:value>uuid_c89fc0c6_9d7c_470e_86ae_93f17ba44f0b</ipxact:value>
 					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_3f7c2e84_6e9a_4a0f_891d_9a0e42b30f8c" resolve="user" usageCount="9" usageType="nontyped">
-						<ipxact:name>DATA_WIDTH</ipxact:name>
+					<ipxact:moduleParameter parameterId="uuid_3f7c2e84_6e9a_4a0f_891d_9a0e42b30f8c" resolve="immediate" usageCount="9" usageType="nontyped">
+						<ipxact:name>V_DATA_WIDTH</ipxact:name>
 						<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
 						<ipxact:arrays>
 							<ipxact:array>
@@ -504,10 +442,10 @@
 								<ipxact:right></ipxact:right>
 							</ipxact:array>
 						</ipxact:arrays>
-						<ipxact:value>32</ipxact:value>
+						<ipxact:value>uuid_f30c27b8_94fc_4cc9_b6c6_2e6299cb0242</ipxact:value>
 					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_049a6e29_d7a0_4c40_a0d2_3fee71464846" resolve="user" usageCount="4" usageType="nontyped">
-						<ipxact:name>ADDR_WIDTH</ipxact:name>
+					<ipxact:moduleParameter parameterId="uuid_049a6e29_d7a0_4c40_a0d2_3fee71464846" resolve="immediate" usageCount="4" usageType="nontyped">
+						<ipxact:name>V_ADDR_WIDTH</ipxact:name>
 						<ipxact:description>The width of the address.</ipxact:description>
 						<ipxact:arrays>
 							<ipxact:array>
@@ -515,7 +453,7 @@
 								<ipxact:right></ipxact:right>
 							</ipxact:array>
 						</ipxact:arrays>
-						<ipxact:value>32</ipxact:value>
+						<ipxact:value>uuid_5c8126ec_6b47_4c7e_9fbe_8ff0c16f7a5c</ipxact:value>
 					</ipxact:moduleParameter>
 				</ipxact:moduleParameters>
 				<ipxact:fileSetRef>
@@ -554,7 +492,7 @@
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>uuid_3f7c2e84_6e9a_4a0f_891d_9a0e42b30f8c-1</ipxact:left>
+							<ipxact:left>uuid_f30c27b8_94fc_4cc9_b6c6_2e6299cb0242-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -571,7 +509,7 @@
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>uuid_049a6e29_d7a0_4c40_a0d2_3fee71464846-1</ipxact:left>
+							<ipxact:left>uuid_5c8126ec_6b47_4c7e_9fbe_8ff0c16f7a5c-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -605,7 +543,7 @@
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>uuid_3f7c2e84_6e9a_4a0f_891d_9a0e42b30f8c-1</ipxact:left>
+							<ipxact:left>uuid_f30c27b8_94fc_4cc9_b6c6_2e6299cb0242-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -673,7 +611,7 @@
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>uuid_3f7c2e84_6e9a_4a0f_891d_9a0e42b30f8c-1</ipxact:left>
+							<ipxact:left>uuid_f30c27b8_94fc_4cc9_b6c6_2e6299cb0242-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -690,7 +628,7 @@
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>uuid_049a6e29_d7a0_4c40_a0d2_3fee71464846-1</ipxact:left>
+							<ipxact:left>uuid_5c8126ec_6b47_4c7e_9fbe_8ff0c16f7a5c-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -724,7 +662,7 @@
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>uuid_3f7c2e84_6e9a_4a0f_891d_9a0e42b30f8c-1</ipxact:left>
+							<ipxact:left>uuid_f30c27b8_94fc_4cc9_b6c6_2e6299cb0242-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -792,7 +730,7 @@
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>uuid_3f7c2e84_6e9a_4a0f_891d_9a0e42b30f8c-1</ipxact:left>
+							<ipxact:left>uuid_f30c27b8_94fc_4cc9_b6c6_2e6299cb0242-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -809,7 +747,7 @@
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>uuid_049a6e29_d7a0_4c40_a0d2_3fee71464846-1</ipxact:left>
+							<ipxact:left>uuid_5c8126ec_6b47_4c7e_9fbe_8ff0c16f7a5c-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -843,7 +781,7 @@
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>uuid_3f7c2e84_6e9a_4a0f_891d_9a0e42b30f8c-1</ipxact:left>
+							<ipxact:left>uuid_f30c27b8_94fc_4cc9_b6c6_2e6299cb0242-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -908,6 +846,20 @@
 		</ipxact:fileSet>
 	</ipxact:fileSets>
 	<ipxact:description>Bus used to connect two slaves to one master. Used slave is determined using the address output of the master and parameter SLAVE_SPLIT.</ipxact:description>
+	<ipxact:parameters>
+		<ipxact:parameter parameterId="uuid_5c8126ec_6b47_4c7e_9fbe_8ff0c16f7a5c" resolve="user" usageCount="4">
+			<ipxact:name>ADDR_WIDTH</ipxact:name>
+			<ipxact:value>32</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_f30c27b8_94fc_4cc9_b6c6_2e6299cb0242" resolve="user" usageCount="7">
+			<ipxact:name>DATA_WIDTH</ipxact:name>
+			<ipxact:value>32</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_c89fc0c6_9d7c_470e_86ae_93f17ba44f0b" resolve="user" usageCount="1">
+			<ipxact:name>SLAVE_SPLIT</ipxact:name>
+			<ipxact:value>8</ipxact:value>
+		</ipxact:parameter>
+	</ipxact:parameters>
 	<ipxact:vendorExtensions>
 		<kactus2:kts_attributes>
 			<kactus2:kts_productHier>IP</kactus2:kts_productHier>

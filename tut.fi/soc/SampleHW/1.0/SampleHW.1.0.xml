@@ -28,35 +28,10 @@
 				<ipxact:name>design_verilog_instantiation</ipxact:name>
 				<ipxact:language>verilog</ipxact:language>
 				<ipxact:moduleParameters>
-					<ipxact:moduleParameter parameterId="uuid_9e2fdf12_765d_498f_9c98_afc100670b8a">
-						<ipxact:name>MasterBase</ipxact:name>
-						<ipxact:description>The base addresss of the master slave in the design.</ipxact:description>
-						<ipxact:value>0</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_17a43ae1_9737_4ab7_9cb8_5ea58767aa0e">
-						<ipxact:name>DirectSlaveBase</ipxact:name>
-						<ipxact:description>The base addresss of the direct slave in the design.</ipxact:description>
-						<ipxact:value>uuid_c69f4524_e5e3_4ea3_9eba_cd7c3099bfd0</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_f97f03d3_d52c_4f31_8274_15056d03ca0d">
-						<ipxact:name>HierSlaveBase</ipxact:name>
-						<ipxact:description>The base addresss of the hiearchical slave in the design.</ipxact:description>
-						<ipxact:value>uuid_c69f4524_e5e3_4ea3_9eba_cd7c3099bfd0 / 2</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_72254c53_846d_4941_a4dd_b85ec82f6e41">
-						<ipxact:name>DATA_WIDTH</ipxact:name>
-						<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
-						<ipxact:value>32</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_c69f4524_e5e3_4ea3_9eba_cd7c3099bfd0" usageCount="2">
-						<ipxact:name>TOTAL_MEMORY</ipxact:name>
-						<ipxact:description>How much memory in total is addressed by a single wb master.</ipxact:description>
-						<ipxact:value>16</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_4f5c977e_781c_4c2c_953f_e7f5c7998b21">
-						<ipxact:name>ADDR_WIDTH</ipxact:name>
-						<ipxact:description>The width of the address.</ipxact:description>
-						<ipxact:value>32</ipxact:value>
+					<ipxact:moduleParameter parameterId="uuid_dac60f4a_ddf8_49ac_9914_668e40d443e4" resolve="immediate">
+						<ipxact:name>VERILOG_SPECIFIC</ipxact:name>
+						<ipxact:description>A verilog specific parameter</ipxact:description>
+						<ipxact:value>'hEE</ipxact:value>
 					</ipxact:moduleParameter>
 				</ipxact:moduleParameters>
 				<ipxact:fileSetRef>
@@ -166,6 +141,33 @@
 	<ipxact:description>A hardware component containing a hardware design, which has a master component, three slaves and a bus.
 
 This component also has a component instantiation, which provides parameters for the design.</ipxact:description>
+	<ipxact:parameters>
+		<ipxact:parameter parameterId="uuid_22156e3a_cd6e_466e_b2df_e39e07351910" resolve="immediate">
+			<ipxact:name>ADDR_WIDTH</ipxact:name>
+			<ipxact:description>The width of the address.</ipxact:description>
+			<ipxact:value>32</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_13c00319_f850_43fe_90b3_c6a942e16146" resolve="immediate" usageCount="3">
+			<ipxact:name>TOTAL_MEMORY</ipxact:name>
+			<ipxact:description>How much memory there are in the slaves, summed up.</ipxact:description>
+			<ipxact:value>32</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_bb96c047_ce50_4dbb_99c0_87a80a753f91" resolve="immediate">
+			<ipxact:name>DATA_WIDTH</ipxact:name>
+			<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
+			<ipxact:value>32</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_2b4dc959_07c4_48f0_94e2_9004764a04c7" resolve="immediate" usageCount="2">
+			<ipxact:name>MASTER_BASE</ipxact:name>
+			<ipxact:description>The base addresss of the master in the design.</ipxact:description>
+			<ipxact:value>80</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_76c681ec_44ac_4869_ab2f_97cb9bde1030" resolve="immediate">
+			<ipxact:name>DIRECT_SLAVE_BASE</ipxact:name>
+			<ipxact:description>The base addresss of the direct slave in the design.</ipxact:description>
+			<ipxact:value>uuid_2b4dc959_07c4_48f0_94e2_9004764a04c7+uuid_13c00319_f850_43fe_90b3_c6a942e16146/2</ipxact:value>
+		</ipxact:parameter>
+	</ipxact:parameters>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,0,104,0</kactus2:version>
 		<kactus2:kts_attributes>

@@ -22,10 +22,10 @@
 				<ipxact:name>verilogSource_instantiation</ipxact:name>
 				<ipxact:language>verilog</ipxact:language>
 				<ipxact:moduleParameters>
-					<ipxact:moduleParameter parameterId="uuid_be8aa64d_ce68_41ab_b683_ce5030823069" resolve="user">
-						<ipxact:name>WAIT_TIME</ipxact:name>
+					<ipxact:moduleParameter parameterId="uuid_be8aa64d_ce68_41ab_b683_ce5030823069" resolve="immediate">
+						<ipxact:name>V_WAIT_TIME</ipxact:name>
 						<ipxact:description>How long to wait after reset is deassereted.</ipxact:description>
-						<ipxact:value>100</ipxact:value>
+						<ipxact:value>uuid_d3a6969c_8076_4ad3_9b17_763b80d83ec8</ipxact:value>
 					</ipxact:moduleParameter>
 				</ipxact:moduleParameters>
 				<ipxact:fileSetRef>
@@ -147,6 +147,13 @@
 		</ipxact:fileSet>
 	</ipxact:fileSets>
 	<ipxact:description>A bare bones verilog test bench, which is used to assert reset, generate clock, give start signal and finally check after WAIT_TIME, if the done is asserted.</ipxact:description>
+	<ipxact:parameters>
+		<ipxact:parameter parameterId="uuid_d3a6969c_8076_4ad3_9b17_763b80d83ec8" resolve="user" usageCount="1">
+			<ipxact:name>WAIT_TIME</ipxact:name>
+			<ipxact:description>How long to wait after reset is deassereted.</ipxact:description>
+			<ipxact:value>100</ipxact:value>
+		</ipxact:parameter>
+	</ipxact:parameters>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,0,111,0</kactus2:version>
 		<kactus2:kts_attributes>
