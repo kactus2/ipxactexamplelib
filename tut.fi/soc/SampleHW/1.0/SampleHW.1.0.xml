@@ -150,7 +150,7 @@ This component also has a component instantiation, which provides parameters for
 		<ipxact:parameter parameterId="uuid_13c00319_f850_43fe_90b3_c6a942e16146" resolve="immediate" usageCount="3">
 			<ipxact:name>TOTAL_MEMORY</ipxact:name>
 			<ipxact:description>How much memory there are in the slaves, summed up.</ipxact:description>
-			<ipxact:value>32</ipxact:value>
+			<ipxact:value>128</ipxact:value>
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_bb96c047_ce50_4dbb_99c0_87a80a753f91" resolve="immediate">
 			<ipxact:name>DATA_WIDTH</ipxact:name>

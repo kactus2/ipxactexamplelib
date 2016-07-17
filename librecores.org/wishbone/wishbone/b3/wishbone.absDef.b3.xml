@@ -7,7 +7,7 @@
 	<ipxact:busType vendor="librecores.org" library="wishbone" name="wishbone" version="b3"/>
 	<ipxact:ports>
 		<ipxact:port>
-			<ipxact:logicalName>ack_i</ipxact:logicalName>
+			<ipxact:logicalName>ack</ipxact:logicalName>
 			<ipxact:wire>
 				<ipxact:onMaster>
 					<ipxact:presence>required</ipxact:presence>
@@ -20,7 +20,7 @@
 			</ipxact:wire>
 		</ipxact:port>
 		<ipxact:port>
-			<ipxact:logicalName>adr_o</ipxact:logicalName>
+			<ipxact:logicalName>adr</ipxact:logicalName>
 			<ipxact:wire>
 				<ipxact:qualifier>
 					<ipxact:isAddress>true</ipxact:isAddress>
@@ -36,7 +36,7 @@
 			</ipxact:wire>
 		</ipxact:port>
 		<ipxact:port>
-			<ipxact:logicalName>bte_o</ipxact:logicalName>
+			<ipxact:logicalName>bte</ipxact:logicalName>
 			<ipxact:wire>
 				<ipxact:onMaster>
 					<ipxact:presence>optional</ipxact:presence>
@@ -51,7 +51,7 @@
 			</ipxact:wire>
 		</ipxact:port>
 		<ipxact:port>
-			<ipxact:logicalName>cti_o</ipxact:logicalName>
+			<ipxact:logicalName>cti</ipxact:logicalName>
 			<ipxact:wire>
 				<ipxact:onMaster>
 					<ipxact:presence>optional</ipxact:presence>
@@ -67,7 +67,7 @@
 			</ipxact:wire>
 		</ipxact:port>
 		<ipxact:port>
-			<ipxact:logicalName>cyc_o</ipxact:logicalName>
+			<ipxact:logicalName>cyc</ipxact:logicalName>
 			<ipxact:wire>
 				<ipxact:onMaster>
 					<ipxact:presence>required</ipxact:presence>
@@ -82,7 +82,7 @@
 			</ipxact:wire>
 		</ipxact:port>
 		<ipxact:port>
-			<ipxact:logicalName>dat_i</ipxact:logicalName>
+			<ipxact:logicalName>dat_sm</ipxact:logicalName>
 			<ipxact:wire>
 				<ipxact:onMaster>
 					<ipxact:presence>required</ipxact:presence>
@@ -95,7 +95,7 @@
 			</ipxact:wire>
 		</ipxact:port>
 		<ipxact:port>
-			<ipxact:logicalName>dat_o</ipxact:logicalName>
+			<ipxact:logicalName>dat_ms</ipxact:logicalName>
 			<ipxact:wire>
 				<ipxact:qualifier>
 					<ipxact:isData>true</ipxact:isData>
@@ -111,7 +111,7 @@
 			</ipxact:wire>
 		</ipxact:port>
 		<ipxact:port>
-			<ipxact:logicalName>err_i</ipxact:logicalName>
+			<ipxact:logicalName>err</ipxact:logicalName>
 			<ipxact:wire>
 				<ipxact:onMaster>
 					<ipxact:presence>optional</ipxact:presence>
@@ -127,7 +127,7 @@
 			</ipxact:wire>
 		</ipxact:port>
 		<ipxact:port>
-			<ipxact:logicalName>rty_i</ipxact:logicalName>
+			<ipxact:logicalName>rty</ipxact:logicalName>
 			<ipxact:wire>
 				<ipxact:onMaster>
 					<ipxact:presence>optional</ipxact:presence>
@@ -143,7 +143,7 @@
 			</ipxact:wire>
 		</ipxact:port>
 		<ipxact:port>
-			<ipxact:logicalName>sel_o</ipxact:logicalName>
+			<ipxact:logicalName>sel</ipxact:logicalName>
 			<ipxact:wire>
 				<ipxact:onMaster>
 					<ipxact:presence>optional</ipxact:presence>
@@ -158,7 +158,7 @@
 			</ipxact:wire>
 		</ipxact:port>
 		<ipxact:port>
-			<ipxact:logicalName>stb_o</ipxact:logicalName>
+			<ipxact:logicalName>stb</ipxact:logicalName>
 			<ipxact:wire>
 				<ipxact:onMaster>
 					<ipxact:presence>required</ipxact:presence>
@@ -173,7 +173,7 @@
 			</ipxact:wire>
 		</ipxact:port>
 		<ipxact:port>
-			<ipxact:logicalName>we_o</ipxact:logicalName>
+			<ipxact:logicalName>we</ipxact:logicalName>
 			<ipxact:wire>
 				<ipxact:onMaster>
 					<ipxact:presence>required</ipxact:presence>

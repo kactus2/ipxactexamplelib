@@ -1,21 +1,21 @@
 //-----------------------------------------------------------------------------
 // File          : master.v
-// Creation date : 15.07.2016
-// Creation time : 13:00:10
+// Creation date : 17.07.2016
+// Creation time : 15:28:46
 // Description   : A component containing two wishbone master interfaces and thus two wishbone master module instantiations. Its operation is governed by external start signal, and will send a done signal after both master modules have sent and received everything.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.1.16 32-bit
+// Tool : Kactus2 3.1.10 32-bit
 // Plugin : Verilog generator 1.4
 // This file was generated based on IP-XACT component tut.fi:ip.hw:master:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.hw/master/1.0/master.1.0.xml
 //-----------------------------------------------------------------------------
 
 module master #(
-    parameter                              ADDR_WIDTH       = 16,    // The width of the address.
-    parameter                              MASTER_1_BASE_ADDRESS = 64,    // The first referable address of master1. Is substracted from input address.
-    parameter                              DATA_COUNT       = 8,    // How many values there are in the register array.
     parameter                              DATA_WIDTH       = 16,    // The width of the both transferred and inputted data.
+    parameter                              ADDR_WIDTH       = 16,    // The width of the address.
+    parameter                              DATA_COUNT       = 8,    // How many values there are in the register array.
     parameter                              MASTER_0_BASE_ADDRESS = 0,    // The first referable address of master0. Is substracted from input address.
+    parameter                              MASTER_1_BASE_ADDRESS = 64,    // The first referable address of master1. Is substracted from input address.
     parameter                              V_DATA_WIDTH     = DATA_WIDTH,    // The width of the both transferred and inputted data.
     parameter                              V_ADDR_WIDTH     = ADDR_WIDTH,    // The width of the address.
     parameter                              V_DATA_COUNT     = DATA_COUNT,    // How many values there are in the register array.

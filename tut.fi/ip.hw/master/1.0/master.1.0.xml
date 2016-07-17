@@ -14,7 +14,7 @@
 					<ipxact:portMaps>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>ack_i</ipxact:name>
+								<ipxact:name>ack</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
 								<ipxact:name>ack_i_0</ipxact:name>
@@ -22,7 +22,7 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>adr_o</ipxact:name>
+								<ipxact:name>adr</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
 								<ipxact:name>adr_o_0</ipxact:name>
@@ -30,7 +30,7 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>cyc_o</ipxact:name>
+								<ipxact:name>cyc</ipxact:name>
 								<ipxact:range>
 									<ipxact:left>0</ipxact:left>
 									<ipxact:right>0</ipxact:right>
@@ -48,7 +48,7 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>dat_i</ipxact:name>
+								<ipxact:name>dat_sm</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
 								<ipxact:name>dat_i_0</ipxact:name>
@@ -56,7 +56,7 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>dat_o</ipxact:name>
+								<ipxact:name>dat_ms</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
 								<ipxact:name>dat_o_0</ipxact:name>
@@ -64,7 +64,7 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>stb_o</ipxact:name>
+								<ipxact:name>stb</ipxact:name>
 								<ipxact:range>
 									<ipxact:left>0</ipxact:left>
 									<ipxact:right>0</ipxact:right>
@@ -82,7 +82,7 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>we_o</ipxact:name>
+								<ipxact:name>we</ipxact:name>
 								<ipxact:range>
 									<ipxact:left>0</ipxact:left>
 									<ipxact:right>0</ipxact:right>
@@ -112,7 +112,7 @@
 					<ipxact:portMaps>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>ack_i</ipxact:name>
+								<ipxact:name>ack</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
 								<ipxact:name>ack_i_1</ipxact:name>
@@ -120,7 +120,7 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>adr_o</ipxact:name>
+								<ipxact:name>adr</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
 								<ipxact:name>adr_o_1</ipxact:name>
@@ -128,7 +128,7 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>cyc_o</ipxact:name>
+								<ipxact:name>cyc</ipxact:name>
 								<ipxact:range>
 									<ipxact:left>0</ipxact:left>
 									<ipxact:right>0</ipxact:right>
@@ -146,7 +146,7 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>dat_i</ipxact:name>
+								<ipxact:name>dat_sm</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
 								<ipxact:name>dat_i_1</ipxact:name>
@@ -154,7 +154,7 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>dat_o</ipxact:name>
+								<ipxact:name>dat_ms</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
 								<ipxact:name>dat_o_1</ipxact:name>
@@ -162,7 +162,7 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>stb_o</ipxact:name>
+								<ipxact:name>stb</ipxact:name>
 								<ipxact:range>
 									<ipxact:left>0</ipxact:left>
 									<ipxact:right>0</ipxact:right>
@@ -180,7 +180,7 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>we_o</ipxact:name>
+								<ipxact:name>we</ipxact:name>
 								<ipxact:range>
 									<ipxact:left>0</ipxact:left>
 									<ipxact:right>0</ipxact:right>

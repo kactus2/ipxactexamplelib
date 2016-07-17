@@ -13,7 +13,7 @@
 				<ipxact:configurableElementValues>
 					<ipxact:configurableElementValue referenceId="uuid_e2414448_9d04_40bd_af10_8061a5e4ae7c">uuid_2b4dc959_07c4_48f0_94e2_9004764a04c7</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_d0fe4fa7_e3eb_4fec_a7f9_9f3eac6b8c04">uuid_76c681ec_44ac_4869_ab2f_97cb9bde1030</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_637f6d26_180c_487c_a7e9_688b55488841">uuid_13c00319_f850_43fe_90b3_c6a942e16146/2</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_637f6d26_180c_487c_a7e9_688b55488841">uuid_13c00319_f850_43fe_90b3_c6a942e16146/(2*4)</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_ed7d4652_1c14_4647_90dd_881ec00146f8">uuid_22156e3a_cd6e_466e_b2df_e39e07351910</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_fe30a511_9701_4142_b340_223777d1b857">uuid_bb96c047_ce50_4dbb_99c0_87a80a753f91</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
@@ -40,7 +40,7 @@
 			<ipxact:componentRef vendor="tut.fi" library="ip.hw" name="wb_slave" version="1.0">
 				<ipxact:configurableElementValues>
 					<ipxact:configurableElementValue referenceId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd">uuid_bb96c047_ce50_4dbb_99c0_87a80a753f91</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba">uuid_13c00319_f850_43fe_90b3_c6a942e16146/4</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba">uuid_13c00319_f850_43fe_90b3_c6a942e16146/(4*4)</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_f3588ecb_1ebf_4695_bca3_b133f233f47f">uuid_2b4dc959_07c4_48f0_94e2_9004764a04c7+uuid_13c00319_f850_43fe_90b3_c6a942e16146/4</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_3452fcca_4cd2_458f_a644_4c6530ea74ed">uuid_22156e3a_cd6e_466e_b2df_e39e07351910</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
@@ -85,7 +85,7 @@
 			<ipxact:componentRef vendor="tut.fi" library="ip.hw" name="wb_slave" version="1.0">
 				<ipxact:configurableElementValues>
 					<ipxact:configurableElementValue referenceId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd">uuid_bb96c047_ce50_4dbb_99c0_87a80a753f91</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba">uuid_13c00319_f850_43fe_90b3_c6a942e16146/2</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba">uuid_13c00319_f850_43fe_90b3_c6a942e16146/(2*4)</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_f3588ecb_1ebf_4695_bca3_b133f233f47f">uuid_76c681ec_44ac_4869_ab2f_97cb9bde1030</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_3452fcca_4cd2_458f_a644_4c6530ea74ed">uuid_22156e3a_cd6e_466e_b2df_e39e07351910</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
@@ -109,7 +109,7 @@
 			<ipxact:description>The another slave connected to bus. This ones base address is master + half of the total memory.</ipxact:description>
 			<ipxact:componentRef vendor="tut.fi" library="ip.hw" name="hierarchical_wb_slave" version="1.0">
 				<ipxact:configurableElementValues>
-					<ipxact:configurableElementValue referenceId="uuid_223a95ba_e4b0_4773_9f25_14d3b85116f7">uuid_13c00319_f850_43fe_90b3_c6a942e16146/4</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_223a95ba_e4b0_4773_9f25_14d3b85116f7">uuid_13c00319_f850_43fe_90b3_c6a942e16146/(4*4)</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_589fece3_fadf_487e_a26f_cf530ad2218a">uuid_2b4dc959_07c4_48f0_94e2_9004764a04c7</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_08e3f0c7_e9a6_479b_9e70_b614f5d809fc">uuid_22156e3a_cd6e_466e_b2df_e39e07351910</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_9f8a68d3_a06c_447d_a93c_86c6f2df980b">uuid_bb96c047_ce50_4dbb_99c0_87a80a753f91</ipxact:configurableElementValue>
