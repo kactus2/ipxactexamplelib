@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : wishbone_bus.v
-// Creation date : 17.07.2016
-// Creation time : 15:48:52
+// Creation date : 03.08.2016
+// Creation time : 11:54:33
 // Description   : Bus used to connect two slaves to one master. Used slave is determined using the address output of the master and parameter SLAVE_SPLIT.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.1.10 32-bit
+// Tool : Kactus2 3.1.14 32-bit
 // Plugin : Verilog generator 1.4
 // This file was generated based on IP-XACT component tut.fi:ip.com:wishbone_bus:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.com/wishbone_bus/1.0/wishbone_bus.1.0.xml
@@ -18,16 +18,7 @@ module wishbone_bus #(
     parameter                              V_DATA_WIDTH     = DATA_WIDTH,    // The width of the both transferred and inputted data.
     parameter                              V_ADDR_WIDTH     = ADDR_WIDTH    // The width of the address.
 ) (
-    // Interface: one_to_many_master
-    input          [ADDR_WIDTH-1:0]     adr_master,
-    input                               cyc_master,
-    input          [DATA_WIDTH-1:0]     dat_ms_master,
-    input                               stb_master,
-    input                               we_master,
-    output                              ack_master,
-    output         [DATA_WIDTH-1:0]     dat_sm_master,
-
-    // There ports are contained in many interfaces
+    // Interface: bus_slave_0
     input                               ack_slave_0,
     input          [DATA_WIDTH-1:0]     dat_sm_slave_0,
     output         [ADDR_WIDTH-1:0]     adr_slave_0,
@@ -36,18 +27,28 @@ module wishbone_bus #(
     output                              stb_slave_0,
     output                              we_slave_0,
 
-    // These ports are not in any interface
+    // Interface: bus_slave_1
     input                               ack_slave_1,
     input          [DATA_WIDTH-1:0]     dat_sm_slave_1,
     output         [ADDR_WIDTH-1:0]     adr_slave_1,
     output                              cyc_slave_1,
     output         [DATA_WIDTH-1:0]     dat_ms_slave_1,
     output                              stb_slave_1,
-    output                              we_slave_1
+    output                              we_slave_1,
+
+    // Interface: one_to_many_master
+    input          [ADDR_WIDTH-1:0]     adr_master,
+    input                               cyc_master,
+    input          [DATA_WIDTH-1:0]     dat_ms_master,
+    input                               stb_master,
+    input                               we_master,
+    output                              ack_master,
+    output         [DATA_WIDTH-1:0]     dat_sm_master
 );
 
 // WARNING: EVERYTHING ON AND ABOVE THIS LINE MAY BE OVERWRITTEN BY KACTUS2!!!
-// Assign most of the master outputs directly to slave inputs.
+
+	// Assign most of the master outputs directly to slave inputs.
     assign adr_slave_0 = adr_master;
     assign cyc_slave_0 = cyc_master;
     assign dat_ms_slave_0 = dat_ms_master;

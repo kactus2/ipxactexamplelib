@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : TestIntitializer.v
-// Creation date : 15.07.2016
-// Creation time : 13:05:33
+// Creation date : 03.08.2016
+// Creation time : 11:54:13
 // Description   : A bare bones verilog test bench, which is used to assert reset, generate clock, give start signal and finally check after WAIT_TIME, if the done is asserted.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.1.16 32-bit
+// Tool : Kactus2 3.1.14 32-bit
 // Plugin : Verilog generator 1.4
 // This file was generated based on IP-XACT component tut.fi:ip.hw:TestIntitializer:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.hw/TestIntitializer/1.0/TestIntitializer.1.0.xml
@@ -22,7 +22,7 @@ module TestIntitializer #(
 );
 
 // WARNING: EVERYTHING ON AND ABOVE THIS LINE MAY BE OVERWRITTEN BY KACTUS2!!!
-initial begin
+	initial begin
       clk = 1'b0;
       rst = 1'b0; // assert reset
       repeat(4) #10 clk = ~clk;

@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : wb_slave.v
-// Creation date : 17.07.2016
-// Creation time : 15:27:39
+// Creation date : 03.08.2016
+// Creation time : 11:53:54
 // Description   : A verilog slave that provides a read/write access to a verilog register array. Address space is assumed to be contiguous.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.1.10 32-bit
+// Tool : Kactus2 3.1.14 32-bit
 // Plugin : Verilog generator 1.4
 // This file was generated based on IP-XACT component tut.fi:ip.hw:wb_slave:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.hw/wb_slave/1.0/wb_slave.1.0.xml
@@ -38,7 +38,8 @@ module wb_slave #(
 );
 
 // WARNING: EVERYTHING ON AND ABOVE THIS LINE MAY BE OVERWRITTEN BY KACTUS2!!!
-localparam AUB = 8;
+
+	localparam AUB = 8;
     localparam SIZE = 32;
     localparam DIMENSION = 16;
     localparam MEMORY_SIZE = (DIMENSION*SIZE)/AUB;
@@ -47,7 +48,7 @@ localparam AUB = 8;
 	
     localparam AU_IN_DATA = V_DATA_WIDTH/AUB;
 
-// We have as much memory as parameterized.
+	// We have as much memory as parameterized.
     reg [AUB-1:0] dat [0:MEMORY_SIZE-1];
     // The state.
     reg [0:0] state;
