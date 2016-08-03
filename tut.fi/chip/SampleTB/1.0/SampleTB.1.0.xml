@@ -14,7 +14,6 @@
 			</ipxact:view>
 			<ipxact:view>
 				<ipxact:name>SystemC</ipxact:name>
-				<ipxact:envIdentifier>cppSource:Notepad++:</ipxact:envIdentifier>
 				<ipxact:componentInstantiationRef>systemC_instantiation</ipxact:componentInstantiationRef>
 				<ipxact:designConfigurationInstantiationRef>SystemC</ipxact:designConfigurationInstantiationRef>
 			</ipxact:view>

@@ -323,7 +323,6 @@
 			</ipxact:view>
 			<ipxact:view>
 				<ipxact:name>SystemC</ipxact:name>
-				<ipxact:envIdentifier>cppSource:Notepad++:</ipxact:envIdentifier>
 			</ipxact:view>
 		</ipxact:views>
 		<ipxact:instantiations>
