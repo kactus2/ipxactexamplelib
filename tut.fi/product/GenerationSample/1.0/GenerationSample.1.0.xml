@@ -2,7 +2,7 @@
 <ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
 	<ipxact:library>product</ipxact:library>
-	<ipxact:name>SampleProduct</ipxact:name>
+	<ipxact:name>GenerationSample</ipxact:name>
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:model>
 		<ipxact:views>
@@ -13,13 +13,13 @@
 			<ipxact:view>
 				<ipxact:name>SampleHardware</ipxact:name>
 				<ipxact:envIdentifier>::</ipxact:envIdentifier>
-				<ipxact:designConfigurationInstantiationRef>SampleProduct.SampleHardware.designcfg_1.0</ipxact:designConfigurationInstantiationRef>
+				<ipxact:designConfigurationInstantiationRef>GenerationSample.designcfg_1.0</ipxact:designConfigurationInstantiationRef>
 			</ipxact:view>
 		</ipxact:views>
 		<ipxact:instantiations>
 			<ipxact:designConfigurationInstantiation>
-				<ipxact:name>SampleProduct.SampleHardware.designcfg_1.0</ipxact:name>
-				<ipxact:designConfigurationRef vendor="tut.fi" library="product" name="SampleProduct.SampleHardware.designcfg" version="1.0"/>
+				<ipxact:name>GenerationSample.designcfg_1.0</ipxact:name>
+				<ipxact:designConfigurationRef vendor="tut.fi" library="product" name="GenerationSample.designcfg" version="1.0"/>
 			</ipxact:designConfigurationInstantiation>
 		</ipxact:instantiations>
 	</ipxact:model>
