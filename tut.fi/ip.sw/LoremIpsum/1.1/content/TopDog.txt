@@ -1,11 +1,11 @@
                    TopDog
                     |
             -----------
-           /             |
+           /          |
     MidLevelA -> MidLevelB
-          |             /         |
-          |            /         Bot
-          |           /
+          |       /   |
+          |      /   Bot
+          |     /
        LoremIpsum
 	   
 needs MidLevelA.txt
