@@ -33,6 +33,7 @@ module wb_master #(
 	// Status of start during the last cycle.
 	reg start_old;
  
+	// The available states.
     parameter [2:0]
         S_WAIT_START            = 3'd0, // Waiting for start-signal
         S_WRITE_INIT           	= 3'd1, // Initiating a write to slave.
@@ -129,7 +130,7 @@ module wb_master #(
                     
 					// It was read from the same address as was written, so it should be the same data.
                     if (dat[iterator] != dat_i) begin
-                        $display("ERROR: Wrong answer from slave: %d", dat_i);
+                        $display("ERROR: Wrong answer from slave: %X", dat_i);
                         $stop;
                     end
                     
