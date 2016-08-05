@@ -323,6 +323,7 @@
 			</ipxact:view>
 			<ipxact:view>
 				<ipxact:name>SystemC</ipxact:name>
+				<ipxact:componentInstantiationRef>systemC_instantiation</ipxact:componentInstantiationRef>
 			</ipxact:view>
 		</ipxact:views>
 		<ipxact:instantiations>
@@ -370,7 +371,7 @@
 				</ipxact:fileSetRef>
 			</ipxact:componentInstantiation>
 			<ipxact:componentInstantiation>
-				<ipxact:name>systemCnstantiation</ipxact:name>
+				<ipxact:name>systemC_instantiation</ipxact:name>
 				<ipxact:language>cppSource</ipxact:language>
 				<ipxact:fileSetRef>
 					<ipxact:localName>systemCSource</ipxact:localName>
