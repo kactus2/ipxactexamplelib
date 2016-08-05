@@ -48,7 +48,7 @@ module wishbone_bus #(
 
 // WARNING: EVERYTHING ON AND ABOVE THIS LINE MAY BE OVERWRITTEN BY KACTUS2!!!
 
-	// Assign most of the master outputs directly to slave inputs.
+    // Assign most of the master outputs directly to slave inputs.
     assign adr_slave_0 = adr_master;
     assign cyc_slave_0 = cyc_master;
     assign dat_ms_slave_0 = dat_ms_master;

@@ -50,16 +50,16 @@ module master #(
 
 // WARNING: EVERYTHING ON AND ABOVE THIS LINE MAY BE OVERWRITTEN BY KACTUS2!!!
 
-	// Needs "done" from both masters.
+    // Needs "done" from both masters.
     wire done_0;
     wire done_1;
     assign done = done_0 & done_1;
-	
+    
     localparam AUB = 8;
     localparam SIZE = 32;
     localparam DIMENSION = 16;
     localparam MEMORY_SIZE = (DIMENSION*SIZE)/AUB;
-	
+    
     localparam AU_IN_DATA = V_DATA_WIDTH/AUB;
 
     wb_master #(

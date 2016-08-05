@@ -39,31 +39,31 @@ module wb_slave #(
 
 // WARNING: EVERYTHING ON AND ABOVE THIS LINE MAY BE OVERWRITTEN BY KACTUS2!!!
 
-	localparam AUB = 8;
+    localparam AUB = 8;
     localparam SIZE = 32;
     localparam DIMENSION = 16;
     localparam MEMORY_SIZE = (DIMENSION*SIZE)/AUB;
     localparam STATUS_WIDTH = 4;
     localparam STATUS_OFFSET = 3;
-	
+    
     localparam AU_IN_DATA = V_DATA_WIDTH/AUB;
 
-	// We have as much memory as parameterized.
+    // We have as much memory as parameterized.
     reg [AUB-1:0] dat [0:MEMORY_SIZE-1];
     // The state.
     reg [0:0] state;
 
-	wire [STATUS_WIDTH:0] status  [0:DIMENSION-1];
-	
-	assign status[0] = {dat[3],dat[2],dat[1],dat[0]} >> STATUS_OFFSET;
-	assign status[1] = {dat[7],dat[6],dat[5],dat[4]} >> STATUS_OFFSET;
-	assign status[2] = {dat[11],dat[10],dat[9],dat[8]} >> STATUS_OFFSET;
-	assign status[3] = {dat[15],dat[14],dat[13],dat[12]} >> STATUS_OFFSET;
-	
-	// Used to index AUBs to data io.
-	integer index;
+    wire [STATUS_WIDTH:0] status  [0:DIMENSION-1];
+    
+    assign status[0] = {dat[3],dat[2],dat[1],dat[0]} >> STATUS_OFFSET;
+    assign status[1] = {dat[7],dat[6],dat[5],dat[4]} >> STATUS_OFFSET;
+    assign status[2] = {dat[11],dat[10],dat[9],dat[8]} >> STATUS_OFFSET;
+    assign status[3] = {dat[15],dat[14],dat[13],dat[12]} >> STATUS_OFFSET;
+    
+    // Used to index AUBs to data io.
+    integer index;
 
-	// The available states.
+    // The available states.
     parameter [0:0]
         S_WAIT            = 1'd0, // Waiting for cyc_i & stb_i
         S_DEASSERT    = 1'd1; // Deassert acknowledgement.
@@ -82,18 +82,18 @@ module wb_slave #(
                     ack_o <= 1;
 
                     if ( we_i == 1 ) begin
-						// Set the bytes to memory locations corresponding the inputs and parameters.
-						for (index = 0; index < AU_IN_DATA; index = index +1) begin
-							// Writing means we set data to the specified address, offsetted by the base address and the AUB-index.
-							dat[adr_i - V_BASE_ADDRESS + index] <= dat_i;
-						end
+                        // Set the bytes to memory locations corresponding the inputs and parameters.
+                        for (index = 0; index < AU_IN_DATA; index = index +1) begin
+                            // Writing means we set data to the specified address, offsetted by the base address and the AUB-index.
+                            dat[adr_i - V_BASE_ADDRESS + index] <= dat_i;
+                        end
                     end
                     else begin
-						// Get the bytes from memory locations corresponding the inputs and parameters.
-						for (index = 0; index < AU_IN_DATA; index = index +1) begin
-							// Reading means we output data from the specified address, offsetted by the base address and the AUB-index.
-							dat_o[(index*AUB)+:AUB] <= dat[adr_i - V_BASE_ADDRESS + index];
-						end
+                        // Get the bytes from memory locations corresponding the inputs and parameters.
+                        for (index = 0; index < AU_IN_DATA; index = index +1) begin
+                            // Reading means we output data from the specified address, offsetted by the base address and the AUB-index.
+                            dat_o[(index*AUB)+:AUB] <= dat[adr_i - V_BASE_ADDRESS + index];
+                        end
                     end
 
                     // Next thing is to deassert.
