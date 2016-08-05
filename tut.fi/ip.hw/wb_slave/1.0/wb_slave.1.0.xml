@@ -7,10 +7,10 @@
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
 			<ipxact:name>slave_interface</ipxact:name>
-			<ipxact:busType vendor="librecores.org" library="wishbone" name="wishbone" version="b3"/>
+			<ipxact:busType vendor="librecores.org" library="ip.ifc" name="wishbone" version="b3"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
-					<ipxact:abstractionRef vendor="librecores.org" library="wishbone" name="wishbone.absDef" version="b3"/>
+					<ipxact:abstractionRef vendor="librecores.org" library="ip.ifc" name="wishbone.absDef" version="b3"/>
 					<ipxact:portMaps>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
