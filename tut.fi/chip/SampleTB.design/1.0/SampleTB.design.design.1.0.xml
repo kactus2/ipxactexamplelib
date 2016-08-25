@@ -22,7 +22,12 @@
 			</ipxact:componentRef>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{c63da2d4-b693-4c84-a32f-8b43cc25b3eb}</kactus2:uuid>
-				<kactus2:position x="160" y="180"/>
+				<kactus2:position x="160" y="210"/>
+				<kactus2:adHocVisibilities>
+					<kactus2:adHocVisible portName="clk" x="110" y="50"/>
+					<kactus2:adHocVisible portName="meta_ok" x="110" y="30"/>
+					<kactus2:adHocVisible portName="start" x="110" y="70"/>
+				</kactus2:adHocVisibilities>
 			</ipxact:vendorExtensions>
 		</ipxact:componentInstance>
 	</ipxact:componentInstances>
@@ -55,6 +60,13 @@
 				<ipxact:internalPortReference componentRef="SampleHW_0" portRef="start"/>
 			</ipxact:portReferences>
 		</ipxact:adHocConnection>
+		<ipxact:adHocConnection>
+			<ipxact:name>SampleHW_0_meta_ok_to_TestIntitializer_0_meta_ok</ipxact:name>
+			<ipxact:portReferences>
+				<ipxact:internalPortReference componentRef="SampleHW_0" portRef="meta_ok"/>
+				<ipxact:internalPortReference componentRef="TestIntitializer_0" portRef="meta_ok"/>
+			</ipxact:portReferences>
+		</ipxact:adHocConnection>
 	</ipxact:adHocConnections>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,0,104,0</kactus2:version>
@@ -69,6 +81,7 @@
 			<kactus2:route kactus2:connRef="TestIntitializer_0_clk_to_SampleHW_0_clk" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="SampleHW_0_done_to_TestIntitializer_0_done" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="TestIntitializer_0_start_to_SampleHW_0_start" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="SampleHW_0_meta_ok_to_TestIntitializer_0_meta_ok" kactus2:offPage="false"/>
 		</kactus2:routes>
 		<kactus2:adHocVisibilities/>
 	</ipxact:vendorExtensions>

@@ -102,18 +102,18 @@
 			<ipxact:addressBlock>
 				<ipxact:name>registers</ipxact:name>
 				<ipxact:baseAddress>'h0</ipxact:baseAddress>
-				<ipxact:range>4</ipxact:range>
-				<ipxact:width>32</ipxact:width>
+				<ipxact:range>uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba*4</ipxact:range>
+				<ipxact:width>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:width>
 				<ipxact:usage>register</ipxact:usage>
 				<ipxact:register>
 					<ipxact:name>reg1</ipxact:name>
-					<ipxact:dim>0</ipxact:dim>
+					<ipxact:dim>uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba</ipxact:dim>
 					<ipxact:addressOffset>'h0</ipxact:addressOffset>
-					<ipxact:size>32</ipxact:size>
+					<ipxact:size>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:size>
 					<ipxact:field>
 						<ipxact:name>data</ipxact:name>
 						<ipxact:bitOffset>0</ipxact:bitOffset>
-						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:bitWidth>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:bitWidth>
 					</ipxact:field>
 				</ipxact:register>
 			</ipxact:addressBlock>
@@ -122,18 +122,23 @@
 				<ipxact:addressBlock>
 					<ipxact:name>registers</ipxact:name>
 					<ipxact:baseAddress>'h0</ipxact:baseAddress>
-					<ipxact:range>4</ipxact:range>
-					<ipxact:width>32</ipxact:width>
+					<ipxact:range>uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba*4</ipxact:range>
+					<ipxact:width>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:width>
 					<ipxact:usage>register</ipxact:usage>
 					<ipxact:register>
 						<ipxact:name>reg1</ipxact:name>
-						<ipxact:dim>2</ipxact:dim>
+						<ipxact:dim>uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba</ipxact:dim>
 						<ipxact:addressOffset>'h0</ipxact:addressOffset>
-						<ipxact:size>16</ipxact:size>
+						<ipxact:size>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:size>
 						<ipxact:field>
-							<ipxact:name>data</ipxact:name>
+							<ipxact:name>payLoad</ipxact:name>
 							<ipxact:bitOffset>0</ipxact:bitOffset>
-							<ipxact:bitWidth>16</ipxact:bitWidth>
+							<ipxact:bitWidth>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd/2</ipxact:bitWidth>
+						</ipxact:field>
+						<ipxact:field>
+							<ipxact:name>metaData</ipxact:name>
+							<ipxact:bitOffset>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd/2</ipxact:bitOffset>
+							<ipxact:bitWidth>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd/2</ipxact:bitWidth>
 						</ipxact:field>
 					</ipxact:register>
 				</ipxact:addressBlock>
@@ -141,30 +146,37 @@
 			<ipxact:memoryRemap state="configuration1">
 				<ipxact:name>mode1</ipxact:name>
 				<ipxact:addressBlock>
-					<ipxact:name>registers</ipxact:name>
+					<ipxact:name>payLoad</ipxact:name>
 					<ipxact:baseAddress>'h0</ipxact:baseAddress>
-					<ipxact:range>4</ipxact:range>
-					<ipxact:width>32</ipxact:width>
+					<ipxact:range>uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba*2</ipxact:range>
+					<ipxact:width>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd/2</ipxact:width>
 					<ipxact:usage>register</ipxact:usage>
 					<ipxact:register>
-						<ipxact:name>reg1</ipxact:name>
-						<ipxact:dim>0</ipxact:dim>
+						<ipxact:name>RpayLoad</ipxact:name>
+						<ipxact:dim>uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba</ipxact:dim>
 						<ipxact:addressOffset>'h0</ipxact:addressOffset>
-						<ipxact:size>32</ipxact:size>
+						<ipxact:size>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd/2</ipxact:size>
 						<ipxact:field>
 							<ipxact:name>data</ipxact:name>
 							<ipxact:bitOffset>0</ipxact:bitOffset>
-							<ipxact:bitWidth>16</ipxact:bitWidth>
+							<ipxact:bitWidth>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd/2</ipxact:bitWidth>
 						</ipxact:field>
+					</ipxact:register>
+				</ipxact:addressBlock>
+				<ipxact:addressBlock>
+					<ipxact:name>metaData</ipxact:name>
+					<ipxact:baseAddress>uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba*2</ipxact:baseAddress>
+					<ipxact:range>uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba*2</ipxact:range>
+					<ipxact:width>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd/2</ipxact:width>
+					<ipxact:register>
+						<ipxact:name>RmetaData</ipxact:name>
+						<ipxact:dim>uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba</ipxact:dim>
+						<ipxact:addressOffset>'h0</ipxact:addressOffset>
+						<ipxact:size>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd/2</ipxact:size>
 						<ipxact:field>
-							<ipxact:name>ctrl</ipxact:name>
-							<ipxact:bitOffset>16</ipxact:bitOffset>
-							<ipxact:bitWidth>8</ipxact:bitWidth>
-						</ipxact:field>
-						<ipxact:field>
-							<ipxact:name>status</ipxact:name>
-							<ipxact:bitOffset>30</ipxact:bitOffset>
-							<ipxact:bitWidth>2</ipxact:bitWidth>
+							<ipxact:name>data</ipxact:name>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd/2</ipxact:bitWidth>
 						</ipxact:field>
 					</ipxact:register>
 				</ipxact:addressBlock>
@@ -189,52 +201,6 @@
 				<ipxact:name>flat_verilog_component</ipxact:name>
 				<ipxact:language>verilog</ipxact:language>
 				<ipxact:moduleName>wb_slave</ipxact:moduleName>
-				<ipxact:moduleParameters>
-					<ipxact:moduleParameter parameterId="uuid_1588d50f_f139_4170_a517_1f1cd2af59e0" resolve="immediate" usageType="nontyped">
-						<ipxact:name>V_BASE_ADDRESS</ipxact:name>
-						<ipxact:description>The first referable address. Is substracted from input address.</ipxact:description>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>uuid_f3588ecb_1ebf_4695_bca3_b133f233f47f</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_1fb1e00c_22b1_4e2d_ac48_ea1a8661f968" resolve="immediate" usageType="nontyped">
-						<ipxact:name>V_DATA_WIDTH</ipxact:name>
-						<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_893f25f8_325b_42db_9ecc_53d3b3879fb9" resolve="immediate" usageType="nontyped">
-						<ipxact:name>V_ADDR_WIDTH</ipxact:name>
-						<ipxact:description>The width of the address.</ipxact:description>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>uuid_3452fcca_4cd2_458f_a644_4c6530ea74ed</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_29fbf007_8686_4e9c_a6e9_1379a1b41c3e" resolve="immediate" usageType="nontyped">
-						<ipxact:name>V_DATA_COUNT</ipxact:name>
-						<ipxact:description>How many values there are in the register array.</ipxact:description>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba</ipxact:value>
-					</ipxact:moduleParameter>
-				</ipxact:moduleParameters>
 				<ipxact:fileSetRef>
 					<ipxact:localName>verilogSource</ipxact:localName>
 				</ipxact:fileSetRef>
@@ -460,6 +426,28 @@
 					<kactus2:adHocVisible/>
 				</ipxact:vendorExtensions>
 			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>meta_o</ipxact:name>
+				<ipxact:description>The latest meta data.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd/2-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+					<ipxact:wireTypeDefs>
+						<ipxact:wireTypeDef>
+							<ipxact:typeName>reg</ipxact:typeName>
+							<ipxact:typeDefinition></ipxact:typeDefinition>
+						</ipxact:wireTypeDef>
+					</ipxact:wireTypeDefs>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:adHocVisible/>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
 		</ipxact:ports>
 	</ipxact:model>
 	<ipxact:fileSets>
@@ -469,7 +457,7 @@
 				<ipxact:name>wb_slave.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
 				<ipxact:vendorExtensions>
-					<kactus2:hash>d0245c311a5b5d8750795057349f7c961f1cc2d8</kactus2:hash>
+					<kactus2:hash>aed6804bccb5097d3cf156210ab19d02dfec701c</kactus2:hash>
 				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>
@@ -478,11 +466,17 @@
 			<ipxact:file>
 				<ipxact:name>wb_slave.cpp</ipxact:name>
 				<ipxact:fileType>cppSource</ipxact:fileType>
+				<ipxact:vendorExtensions>
+					<kactus2:hash>d3581e9899ae04024091c75de075821daa90b687</kactus2:hash>
+				</ipxact:vendorExtensions>
 			</ipxact:file>
 			<ipxact:file>
 				<ipxact:name>wb_slave.hh</ipxact:name>
 				<ipxact:fileType>cppSource</ipxact:fileType>
 				<ipxact:isIncludeFile>true</ipxact:isIncludeFile>
+				<ipxact:vendorExtensions>
+					<kactus2:hash>c9495a546ce25feda2bd4a0febbb183472e6ec09</kactus2:hash>
+				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
@@ -496,22 +490,22 @@
 			<ipxact:name>InputForConfig1</ipxact:name>
 			<ipxact:value>'b1000</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_3452fcca_4cd2_458f_a644_4c6530ea74ed" resolve="user" usageCount="2">
+		<ipxact:parameter parameterId="uuid_3452fcca_4cd2_458f_a644_4c6530ea74ed" resolve="user" usageCount="1">
 			<ipxact:name>ADDR_WIDTH</ipxact:name>
 			<ipxact:description>The width of the address.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_f3588ecb_1ebf_4695_bca3_b133f233f47f" resolve="user" usageCount="1">
+		<ipxact:parameter parameterId="uuid_f3588ecb_1ebf_4695_bca3_b133f233f47f" resolve="user">
 			<ipxact:name>BASE_ADDRESS</ipxact:name>
 			<ipxact:description>The first referable address. Is substracted from input address.</ipxact:description>
 			<ipxact:value>0</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd" resolve="user" usageCount="3">
+		<ipxact:parameter parameterId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd" resolve="user" usageCount="17">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
-			<ipxact:value>8</ipxact:value>
+			<ipxact:value>32</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba" resolve="user" usageCount="1">
+		<ipxact:parameter parameterId="uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba" resolve="user" usageCount="9">
 			<ipxact:name>DATA_COUNT</ipxact:name>
 			<ipxact:description>How many values there are in the register array.</ipxact:description>
 			<ipxact:value>4</ipxact:value>

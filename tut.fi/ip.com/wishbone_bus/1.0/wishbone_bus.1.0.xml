@@ -331,41 +331,6 @@
 				<ipxact:name>flat_verilog_component</ipxact:name>
 				<ipxact:language>verilog</ipxact:language>
 				<ipxact:moduleName>wishbone_bus</ipxact:moduleName>
-				<ipxact:moduleParameters>
-					<ipxact:moduleParameter parameterId="uuid_a54967e6_ad06_41df_83a1_1bcd6fcb483e" resolve="immediate" usageType="nontyped">
-						<ipxact:name>V_SLAVE_SPLIT</ipxact:name>
-						<ipxact:description>The first address that goes to bus_slave_1</ipxact:description>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>uuid_c89fc0c6_9d7c_470e_86ae_93f17ba44f0b</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_3f7c2e84_6e9a_4a0f_891d_9a0e42b30f8c" resolve="immediate" usageCount="9" usageType="nontyped">
-						<ipxact:name>V_DATA_WIDTH</ipxact:name>
-						<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>uuid_f30c27b8_94fc_4cc9_b6c6_2e6299cb0242</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_049a6e29_d7a0_4c40_a0d2_3fee71464846" resolve="immediate" usageCount="4" usageType="nontyped">
-						<ipxact:name>V_ADDR_WIDTH</ipxact:name>
-						<ipxact:description>The width of the address.</ipxact:description>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>uuid_5c8126ec_6b47_4c7e_9fbe_8ff0c16f7a5c</ipxact:value>
-					</ipxact:moduleParameter>
-				</ipxact:moduleParameters>
 				<ipxact:fileSetRef>
 					<ipxact:localName>verilogSource</ipxact:localName>
 				</ipxact:fileSetRef>
@@ -757,15 +722,15 @@
 	</ipxact:fileSets>
 	<ipxact:description>Bus used to connect two slaves to one master. Used slave is determined using the address output of the master and parameter SLAVE_SPLIT.</ipxact:description>
 	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_5c8126ec_6b47_4c7e_9fbe_8ff0c16f7a5c" resolve="user" usageCount="4">
+		<ipxact:parameter parameterId="uuid_5c8126ec_6b47_4c7e_9fbe_8ff0c16f7a5c" resolve="user" usageCount="3">
 			<ipxact:name>ADDR_WIDTH</ipxact:name>
 			<ipxact:value>32</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_f30c27b8_94fc_4cc9_b6c6_2e6299cb0242" resolve="user" usageCount="7">
+		<ipxact:parameter parameterId="uuid_f30c27b8_94fc_4cc9_b6c6_2e6299cb0242" resolve="user" usageCount="6">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:value>32</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_c89fc0c6_9d7c_470e_86ae_93f17ba44f0b" resolve="user" usageCount="1">
+		<ipxact:parameter parameterId="uuid_c89fc0c6_9d7c_470e_86ae_93f17ba44f0b" resolve="user">
 			<ipxact:name>SLAVE_SPLIT</ipxact:name>
 			<ipxact:value>8</ipxact:value>
 		</ipxact:parameter>

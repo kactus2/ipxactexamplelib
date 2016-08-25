@@ -122,6 +122,22 @@
 					<kactus2:adHocVisible/>
 				</ipxact:vendorExtensions>
 			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>meta_ok</ipxact:name>
+				<ipxact:description>The latest meta data.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left></ipxact:left>
+							<ipxact:right></ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:adHocVisible/>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
 		</ipxact:ports>
 	</ipxact:model>
 	<ipxact:fileSets>

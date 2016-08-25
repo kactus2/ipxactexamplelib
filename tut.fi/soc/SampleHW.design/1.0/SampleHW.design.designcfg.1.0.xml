@@ -25,6 +25,10 @@
 		<ipxact:instanceName>hierarchical_wb_slave_0</ipxact:instanceName>
 		<ipxact:view viewRef="design"/>
 	</ipxact:viewConfiguration>
+	<ipxact:viewConfiguration>
+		<ipxact:instanceName>metaAnalyzer_0</ipxact:instanceName>
+		<ipxact:view viewRef="rtl"/>
+	</ipxact:viewConfiguration>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,0,104,0</kactus2:version>
 		<kactus2:kts_attributes>

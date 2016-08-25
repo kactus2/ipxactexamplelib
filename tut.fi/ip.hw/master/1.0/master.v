@@ -1,26 +1,22 @@
 //-----------------------------------------------------------------------------
 // File          : master.v
-// Creation date : 03.08.2016
-// Creation time : 11:53:24
+// Creation date : 23.08.2016
+// Creation time : 10:13:07
 // Description   : A component containing two wishbone master interfaces and thus two wishbone master module instantiations. Its operation is governed by external start signal, and will send a done signal after both master modules have sent and received everything.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.1.14 32-bit
+// Tool : Kactus2 3.1.18 32-bit
 // Plugin : Verilog generator 1.4
 // This file was generated based on IP-XACT component tut.fi:ip.hw:master:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.hw/master/1.0/master.1.0.xml
 //-----------------------------------------------------------------------------
 
 module master #(
-    parameter                              DATA_WIDTH       = 16,    // The width of the both transferred and inputted data.
     parameter                              ADDR_WIDTH       = 16,    // The width of the address.
-    parameter                              DATA_COUNT       = 8,    // How many values there are in the register array.
-    parameter                              MASTER_0_BASE_ADDRESS = 0,    // The first referable address of master0. Is substracted from input address.
     parameter                              MASTER_1_BASE_ADDRESS = 64,    // The first referable address of master1. Is substracted from input address.
-    parameter                              V_DATA_WIDTH     = DATA_WIDTH,    // The width of the both transferred and inputted data.
-    parameter                              V_ADDR_WIDTH     = ADDR_WIDTH,    // The width of the address.
-    parameter                              V_DATA_COUNT     = DATA_COUNT,    // How many values there are in the register array.
-    parameter                              V_MASTER_0_BASE_ADDRESS = MASTER_0_BASE_ADDRESS,    // The first referable address of master0. Is substracted from input address.
-    parameter                              V_MASTER_1_BASE_ADDRESS = MASTER_1_BASE_ADDRESS,    // The first referable address of master1. Is substracted from input address.
+    parameter                              DATA_COUNT       = 8,    // How many values there are in the register array.
+    parameter                              DATA_WIDTH       = 16,    // The width of the both transferred and inputted data.
+    parameter                              MASTER_0_BASE_ADDRESS = 0,    // The first referable address of master0. Is substracted from input address.
+    parameter                              AUB              = 8,    // Addressable unit bits of the memory.
     parameter                              VERILOG_SPECIFIC = 'hEE    // A verilog specific parameter
 ) (
     // Interface: master_0
@@ -50,23 +46,19 @@ module master #(
 
 // WARNING: EVERYTHING ON AND ABOVE THIS LINE MAY BE OVERWRITTEN BY KACTUS2!!!
 
+
     // Needs "done" from both masters.
     wire done_0;
     wire done_1;
     assign done = done_0 & done_1;
     
-    localparam AUB = 8;
-    localparam SIZE = 32;
-    localparam DIMENSION = 16;
-    localparam MEMORY_SIZE = (DIMENSION*SIZE)/AUB;
-    
-    localparam AU_IN_DATA = V_DATA_WIDTH/AUB;
+    localparam AU_IN_DATA = DATA_WIDTH/AUB;
 
     wb_master #(
-        .DATA_COUNT          (V_DATA_COUNT),
-        .BASE_ADDRESS        (V_MASTER_0_BASE_ADDRESS),
-        .DATA_WIDTH          (V_DATA_WIDTH),
-        .ADDR_WIDTH          (V_ADDR_WIDTH),
+        .DATA_COUNT          (DATA_COUNT),
+        .BASE_ADDRESS        (MASTER_0_BASE_ADDRESS),
+        .DATA_WIDTH          (DATA_WIDTH),
+        .ADDR_WIDTH          (ADDR_WIDTH),
         .AU_IN_DATA          (AU_IN_DATA))
     wb_master_0(
       .clk(clk),
@@ -84,10 +76,10 @@ module master #(
    );
 
     wb_master #(
-        .DATA_COUNT          (V_DATA_COUNT),
-        .BASE_ADDRESS        (V_MASTER_1_BASE_ADDRESS),
-        .DATA_WIDTH          (V_DATA_WIDTH),
-        .ADDR_WIDTH          (V_ADDR_WIDTH),
+        .DATA_COUNT          (DATA_COUNT),
+        .BASE_ADDRESS        (MASTER_1_BASE_ADDRESS),
+        .DATA_WIDTH          (DATA_WIDTH),
+        .ADDR_WIDTH          (ADDR_WIDTH),
         .AU_IN_DATA          (AU_IN_DATA))
     wb_master_1(
       .clk(clk),

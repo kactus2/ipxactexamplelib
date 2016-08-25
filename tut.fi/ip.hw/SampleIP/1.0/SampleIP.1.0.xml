@@ -8,7 +8,6 @@
 		<ipxact:views>
 			<ipxact:view>
 				<ipxact:name>rtl</ipxact:name>
-				<ipxact:envIdentifier>::</ipxact:envIdentifier>
 			</ipxact:view>
 		</ipxact:views>
 	</ipxact:model>

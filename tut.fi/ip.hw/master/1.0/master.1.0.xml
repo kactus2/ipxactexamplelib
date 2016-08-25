@@ -220,49 +220,6 @@
 				<ipxact:language>verilog</ipxact:language>
 				<ipxact:moduleName>master</ipxact:moduleName>
 				<ipxact:moduleParameters>
-					<ipxact:moduleParameter parameterId="uuid_bef59402_0f84_49f3_bf1c_d0305a65236a" resolve="immediate" usageType="nontyped">
-						<ipxact:name>V_DATA_WIDTH</ipxact:name>
-						<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>uuid_fe30a511_9701_4142_b340_223777d1b857</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_cc378479_fd8a_47ff_91f8_dbc0d6eb727c" resolve="immediate" usageType="nontyped">
-						<ipxact:name>V_ADDR_WIDTH</ipxact:name>
-						<ipxact:description>The width of the address.</ipxact:description>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>uuid_ed7d4652_1c14_4647_90dd_881ec00146f8</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_261464fe_4330_4cb9_b6c5_db9194b418af" resolve="immediate" usageType="nontyped">
-						<ipxact:name>V_DATA_COUNT</ipxact:name>
-						<ipxact:description>How many values there are in the register array.</ipxact:description>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>uuid_637f6d26_180c_487c_a7e9_688b55488841</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_2e5f3824_7979_4c92_97f5_82a846bdb0e2" resolve="immediate" usageType="nontyped">
-						<ipxact:name>V_MASTER_0_BASE_ADDRESS</ipxact:name>
-						<ipxact:description>The first referable address of master0. Is substracted from input address.</ipxact:description>
-						<ipxact:value>uuid_e2414448_9d04_40bd_af10_8061a5e4ae7c</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_708ec24d_ea9d_4fef_b5bb_8c2beb8241eb" resolve="immediate" usageType="nontyped">
-						<ipxact:name>V_MASTER_1_BASE_ADDRESS</ipxact:name>
-						<ipxact:description>The first referable address of master1. Is substracted from input address.</ipxact:description>
-						<ipxact:value>uuid_d0fe4fa7_e3eb_4fec_a7f9_9f3eac6b8c04</ipxact:value>
-					</ipxact:moduleParameter>
 					<ipxact:moduleParameter parameterId="uuid_ea16e2c1_d774_492c_8ebe_0e0b08d73e0d" resolve="user">
 						<ipxact:name>VERILOG_SPECIFIC</ipxact:name>
 						<ipxact:description>A verilog specific parameter</ipxact:description>
@@ -703,30 +660,35 @@
 	</ipxact:fileSets>
 	<ipxact:description>A component containing two wishbone master interfaces and thus two wishbone master module instantiations. Its operation is governed by external start signal, and will send a done signal after both master modules have sent and received everything.</ipxact:description>
 	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_ed7d4652_1c14_4647_90dd_881ec00146f8" resolve="user" usageCount="3">
+		<ipxact:parameter parameterId="uuid_ed7d4652_1c14_4647_90dd_881ec00146f8" resolve="user" usageCount="2">
 			<ipxact:name>ADDR_WIDTH</ipxact:name>
 			<ipxact:description>The width of the address.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_d0fe4fa7_e3eb_4fec_a7f9_9f3eac6b8c04" resolve="user" usageCount="1">
+		<ipxact:parameter parameterId="uuid_d0fe4fa7_e3eb_4fec_a7f9_9f3eac6b8c04" resolve="user">
 			<ipxact:name>MASTER_1_BASE_ADDRESS</ipxact:name>
 			<ipxact:description>The first referable address of master1. Is substracted from input address.</ipxact:description>
 			<ipxact:value>64</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_637f6d26_180c_487c_a7e9_688b55488841" resolve="user" usageCount="1">
+		<ipxact:parameter parameterId="uuid_637f6d26_180c_487c_a7e9_688b55488841" resolve="user">
 			<ipxact:name>DATA_COUNT</ipxact:name>
 			<ipxact:description>How many values there are in the register array.</ipxact:description>
 			<ipxact:value>8</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_fe30a511_9701_4142_b340_223777d1b857" resolve="user" usageCount="5">
+		<ipxact:parameter parameterId="uuid_fe30a511_9701_4142_b340_223777d1b857" resolve="user" usageCount="4">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_e2414448_9d04_40bd_af10_8061a5e4ae7c" resolve="user" usageCount="1">
+		<ipxact:parameter parameterId="uuid_e2414448_9d04_40bd_af10_8061a5e4ae7c" resolve="user">
 			<ipxact:name>MASTER_0_BASE_ADDRESS</ipxact:name>
 			<ipxact:description>The first referable address of master0. Is substracted from input address.</ipxact:description>
 			<ipxact:value>0</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_1df2671d_ba36_4c32_9873_65ad286aedf3">
+			<ipxact:name>AUB</ipxact:name>
+			<ipxact:description>Addressable unit bits of the memory.</ipxact:description>
+			<ipxact:value>8</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

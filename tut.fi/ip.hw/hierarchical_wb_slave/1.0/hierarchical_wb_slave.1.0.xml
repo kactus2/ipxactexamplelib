@@ -327,6 +327,22 @@
 					<kactus2:portTags></kactus2:portTags>
 				</ipxact:vendorExtensions>
 			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>meta_o</ipxact:name>
+				<ipxact:description>The latest meta data.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>uuid_9f8a68d3_a06c_447d_a93c_86c6f2df980b/2-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:adHocVisible/>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
 		</ipxact:ports>
 	</ipxact:model>
 	<ipxact:fileSets>
@@ -363,7 +379,7 @@
 			<ipxact:description>How many values there are in the register array.</ipxact:description>
 			<ipxact:value>8</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_9f8a68d3_a06c_447d_a93c_86c6f2df980b" resolve="user" usageCount="2">
+		<ipxact:parameter parameterId="uuid_9f8a68d3_a06c_447d_a93c_86c6f2df980b" resolve="user" usageCount="3">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
 			<ipxact:value>16</ipxact:value>

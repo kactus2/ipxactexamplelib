@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : hierarchical_wb_slave.v
-// Creation date : 17.07.2016
-// Creation time : 15:27:45
+// Creation date : 23.08.2016
+// Creation time : 10:14:15
 // Description   : A wishbone slave containing another wishbone slave, so now you can use a wishbone slave while using a wishbone slave.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.1.10 32-bit
+// Tool : Kactus2 3.1.18 32-bit
 // Plugin : Verilog generator 1.4
 // This file was generated based on IP-XACT component tut.fi:ip.hw:hierarchical_wb_slave:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.hw/hierarchical_wb_slave/1.0/hierarchical_wb_slave.1.0.xml
@@ -27,7 +27,8 @@ module hierarchical_wb_slave #(
 
     // These ports are not in any interface
     input                               clk,    // The mandatory clock, as this is synchronous logic.
-    input                               rst    // The mandatory reset, as this is synchronous logic.
+    input                               rst,    // The mandatory reset, as this is synchronous logic.
+    output         [DATA_WIDTH/2-1:0]   meta_o    // The latest meta data.
 );
 
     // An instantiation of the same wish bone slave, as used in SampleHW design.
@@ -51,7 +52,8 @@ module hierarchical_wb_slave #(
         // These ports are not in any interface
         .clk                 (clk),
         .configuration       (4'b0000),
-        .rst                 (rst));
+        .rst                 (rst),
+        .meta_o              (meta_o[DATA_WIDTH/2-1:0]));
 
 
 endmodule

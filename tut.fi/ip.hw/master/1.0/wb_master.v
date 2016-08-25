@@ -26,12 +26,12 @@ module wb_master #(
     reg [DATA_WIDTH-1:0] dat [0:DATA_COUNT-1];
     // Used to iterate dat.
     reg [3:0] iterator;
-  
-    // The state.
-    reg [2:0] state;
     
     // Status of start during the last cycle.
     reg start_old;
+  
+    // The current state.
+    reg [2:0] state;
  
     // The available states.
     parameter [2:0]
@@ -45,21 +45,21 @@ module wb_master #(
         if(rst == 1'b0) begin
             // Initialize dat with data.
             dat[0] = 32'h00000000;
-            dat[1] = 32'h11111111;
-            dat[2] = 32'h22222222;
-            dat[3] = 32'h33333333;
-            dat[4] = 32'h44444444;
-            dat[5] = 32'h55555555;
-            dat[6] = 32'h66666666;
-            dat[7] = 32'h77777777;
-            dat[8] = 32'h88888888;
-            dat[9] = 32'h99999999;
-            dat[10] = 32'hAAAAAAAA;
-            dat[11] = 32'hBBBBBBBB;
-            dat[12] = 32'hCCCCCCCC;
-            dat[13] = 32'hDDDDDDDD;
-            dat[14] = 32'hEEEEEEEE;
-            dat[15] = 32'hFFFFFFFF;
+            dat[1] = 32'h10001111;
+            dat[2] = 32'h20002222;
+            dat[3] = 32'h30003333;
+            dat[4] = 32'h40004444;
+            dat[5] = 32'h50005555;
+            dat[6] = 32'h60006666;
+            dat[7] = 32'h70007777;
+            dat[8] = 32'h80008888;
+            dat[9] = 32'h90009999;
+            dat[10] = 32'hA000AAAA;
+            dat[11] = 32'hB000BBBB;
+            dat[12] = 32'hC000CCCC;
+            dat[13] = 32'hD000DDDD;
+            dat[14] = 32'hE000EEEE;
+            dat[15] = 32'hF000FFFF;
             
             // Initally waiting for start signal.
             state <= S_WAIT_START;

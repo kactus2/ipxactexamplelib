@@ -19,12 +19,13 @@
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{7e395ce5-991f-4a9c-af1a-28f76f90f85e}</kactus2:uuid>
 				<kactus2:portPositions>
-					<kactus2:portPosition busRef="slave_interface" x="110" y="60"/>
+					<kactus2:portPosition busRef="slave_interface" x="-110" y="100"/>
 				</kactus2:portPositions>
 				<kactus2:adHocVisibilities>
-					<kactus2:adHocVisible portName="clk" x="-110" y="40"/>
+					<kactus2:adHocVisible portName="clk" x="-110" y="60"/>
 					<kactus2:adHocVisible portName="configuration" x="110" y="40"/>
-					<kactus2:adHocVisible portName="rst" x="-110" y="60"/>
+					<kactus2:adHocVisible portName="meta_o" x="-110" y="40"/>
+					<kactus2:adHocVisible portName="rst" x="-110" y="80"/>
 				</kactus2:adHocVisibilities>
 				<kactus2:position x="280" y="60"/>
 			</ipxact:vendorExtensions>
@@ -59,6 +60,13 @@
 				<ipxact:internalPortReference componentRef="wb_slave_0" portRef="configuration"/>
 			</ipxact:portReferences>
 		</ipxact:adHocConnection>
+		<ipxact:adHocConnection>
+			<ipxact:name>wb_slave_0_meta_o_to_meta_o</ipxact:name>
+			<ipxact:portReferences>
+				<ipxact:internalPortReference componentRef="wb_slave_0" portRef="meta_o"/>
+				<ipxact:externalPortReference portRef="meta_o"/>
+			</ipxact:portReferences>
+		</ipxact:adHocConnection>
 	</ipxact:adHocConnections>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,0,114,0</kactus2:version>
@@ -73,14 +81,16 @@
 			<kactus2:route kactus2:connRef="wb_slave_0_rst_to_rst" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="wb_slave_0_clk_to_clk" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="wb_slave_0_slave_interface_to_bus_slave" kactus2:offPage="false">
-				<kactus2:position x="390" y="120"/>
-				<kactus2:position x="410" y="120"/>
-				<kactus2:position x="410" y="150"/>
+				<kactus2:position x="170" y="160"/>
+				<kactus2:position x="80" y="160"/>
+				<kactus2:position x="80" y="150"/>
 				<kactus2:position x="60" y="150"/>
 			</kactus2:route>
+			<kactus2:route kactus2:connRef="wb_slave_0_meta_o_to_meta_o" kactus2:offPage="false"/>
 		</kactus2:routes>
 		<kactus2:adHocVisibilities>
 			<kactus2:adHocVisible portName="clk" x="60" y="100"/>
+			<kactus2:adHocVisible portName="meta_o" x="60" y="60"/>
 			<kactus2:adHocVisible portName="rst" x="60" y="120"/>
 		</kactus2:adHocVisibilities>
 		<kactus2:interfaceGraphics>
