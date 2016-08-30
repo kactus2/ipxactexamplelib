@@ -625,12 +625,13 @@
 			<ipxact:file>
 				<ipxact:name>master.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
+				<ipxact:description>Generated at 13:43:44 on 29.08.2016 by Kactus2. </ipxact:description>
 			</ipxact:file>
 			<ipxact:file>
 				<ipxact:name>wb_master.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
 				<ipxact:vendorExtensions>
-					<kactus2:hash>f680c90bbc3fbf71bc5456cd661cc0f53716724a</kactus2:hash>
+					<kactus2:hash>c2474675a35a02e7c6096b69dd5463d282462292</kactus2:hash>
 				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>
