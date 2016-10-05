@@ -13,7 +13,6 @@
 			<ipxact:view>
 				<ipxact:name>design</ipxact:name>
 				<ipxact:envIdentifier>Verilog:Kactus2:</ipxact:envIdentifier>
-				<ipxact:componentInstantiationRef>design_verilog_instantiation</ipxact:componentInstantiationRef>
 				<ipxact:designConfigurationInstantiationRef>SampleHW.design.designcfg_1.0</ipxact:designConfigurationInstantiationRef>
 			</ipxact:view>
 			<ipxact:view>
@@ -23,20 +22,6 @@
 			</ipxact:view>
 		</ipxact:views>
 		<ipxact:instantiations>
-			<ipxact:componentInstantiation>
-				<ipxact:name>design_verilog_instantiation</ipxact:name>
-				<ipxact:language>verilog</ipxact:language>
-				<ipxact:moduleParameters>
-					<ipxact:moduleParameter parameterId="uuid_dac60f4a_ddf8_49ac_9914_668e40d443e4" resolve="immediate">
-						<ipxact:name>VERILOG_SPECIFIC</ipxact:name>
-						<ipxact:description>A verilog specific parameter</ipxact:description>
-						<ipxact:value>'hEE</ipxact:value>
-					</ipxact:moduleParameter>
-				</ipxact:moduleParameters>
-				<ipxact:fileSetRef>
-					<ipxact:localName>design_verilogSource</ipxact:localName>
-				</ipxact:fileSetRef>
-			</ipxact:componentInstantiation>
 			<ipxact:componentInstantiation>
 				<ipxact:name>systemC_instantiation</ipxact:name>
 				<ipxact:language>cppSource</ipxact:language>
@@ -59,12 +44,6 @@
 				<ipxact:description>The mandatory clock, as this is synchronous logic.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
 				</ipxact:wire>
 				<ipxact:vendorExtensions>
 					<kactus2:adHocVisible/>
@@ -75,12 +54,6 @@
 				<ipxact:description>The mandatory reset, as this is synchronous logic.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
 				</ipxact:wire>
 				<ipxact:vendorExtensions>
 					<kactus2:adHocVisible/>
@@ -91,12 +64,6 @@
 				<ipxact:description>Input used to signal that is is ok to start the masters.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
 				</ipxact:wire>
 				<ipxact:vendorExtensions>
 					<kactus2:adHocVisible/>
@@ -107,12 +74,6 @@
 				<ipxact:description>The mandatory reset, as this is synchronous logic.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
 				</ipxact:wire>
 				<ipxact:vendorExtensions>
 					<kactus2:adHocVisible/>
@@ -122,12 +83,6 @@
 				<ipxact:name>meta_ok</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
 				</ipxact:wire>
 				<ipxact:vendorExtensions>
 					<kactus2:adHocVisible/>
@@ -136,13 +91,6 @@
 		</ipxact:ports>
 	</ipxact:model>
 	<ipxact:fileSets>
-		<ipxact:fileSet>
-			<ipxact:name>design_verilogSource</ipxact:name>
-			<ipxact:file>
-				<ipxact:name>SampleHW.v</ipxact:name>
-				<ipxact:fileType>verilogSource</ipxact:fileType>
-			</ipxact:file>
-		</ipxact:fileSet>
 		<ipxact:fileSet>
 			<ipxact:name>systemCSource</ipxact:name>
 			<ipxact:file>

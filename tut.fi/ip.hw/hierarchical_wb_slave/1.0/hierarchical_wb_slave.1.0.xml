@@ -102,7 +102,6 @@
 		<ipxact:views>
 			<ipxact:view>
 				<ipxact:name>design</ipxact:name>
-				<ipxact:componentInstantiationRef>design_verilog_instantiation</ipxact:componentInstantiationRef>
 				<ipxact:designConfigurationInstantiationRef>hierarchical_wb_slave.design.designcfg_1.0</ipxact:designConfigurationInstantiationRef>
 			</ipxact:view>
 			<ipxact:view>
@@ -112,13 +111,6 @@
 			</ipxact:view>
 		</ipxact:views>
 		<ipxact:instantiations>
-			<ipxact:componentInstantiation>
-				<ipxact:name>design_verilog_instantiation</ipxact:name>
-				<ipxact:language>verilog</ipxact:language>
-				<ipxact:fileSetRef>
-					<ipxact:localName>design_verilogSource</ipxact:localName>
-				</ipxact:fileSetRef>
-			</ipxact:componentInstantiation>
 			<ipxact:componentInstantiation>
 				<ipxact:name>systemC_instantiation</ipxact:name>
 				<ipxact:language>cppSource</ipxact:language>
@@ -141,12 +133,6 @@
 				<ipxact:description>Slave asserts acknowledge.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
@@ -183,12 +169,6 @@
 				<ipxact:description>Asserted by master for transfer.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
@@ -246,12 +226,6 @@
 				<ipxact:description>Asserted, when this specific slave is selected.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
@@ -267,12 +241,6 @@
 				<ipxact:description>Write = 1, Read = 0.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
@@ -288,12 +256,6 @@
 				<ipxact:description>The mandatory clock, as this is synchronous logic.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
@@ -310,12 +272,6 @@
 				<ipxact:description>The mandatory reset, as this is synchronous logic.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
@@ -346,13 +302,6 @@
 		</ipxact:ports>
 	</ipxact:model>
 	<ipxact:fileSets>
-		<ipxact:fileSet>
-			<ipxact:name>design_verilogSource</ipxact:name>
-			<ipxact:file>
-				<ipxact:name>hierarchical_wb_slave.v</ipxact:name>
-				<ipxact:fileType>verilogSource</ipxact:fileType>
-			</ipxact:file>
-		</ipxact:fileSet>
 		<ipxact:fileSet>
 			<ipxact:name>systemCSource</ipxact:name>
 			<ipxact:file>

@@ -1,16 +1,16 @@
 //-----------------------------------------------------------------------------
-// File          : SampleTB.v
-// Creation date : 23.08.2016
-// Creation time : 10:54:04
+// File          : D:/kactus2Repos/ipxactexamplelib/tut.fi/chip/SampleTB/1.0/SampleTB_0.v
+// Creation date : 05.10.2016
+// Creation time : 10:08:54
 // Description   : Contains TestInitializer connected to SampleHW.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.1.19 32-bit
-// Plugin : Verilog generator 1.4
+// Tool : Kactus2 3.2.1 32-bit
+// Plugin : Verilog generator 1.5
 // This file was generated based on IP-XACT component tut.fi:chip:SampleTB:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/chip/SampleTB/1.0/SampleTB.1.0.xml
 //-----------------------------------------------------------------------------
 
-module SampleTB();
+module SampleTB_0();
 
     wire        SampleHW_0_rst_to_TestIntitializer_0_rst;
     wire        TestIntitializer_0_clk_to_SampleHW_0_clk;

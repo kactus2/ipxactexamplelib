@@ -1,11 +1,11 @@
 //-----------------------------------------------------------------------------
-// File          : master.v
-// Creation date : 29.08.2016
-// Creation time : 13:43:44
+// File          : D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.hw/master/1.0/master.v
+// Creation date : 22.09.2016
+// Creation time : 15:59:48
 // Description   : A component containing two wishbone master interfaces and thus two wishbone master module instantiations. Its operation is governed by external start signal, and will send a done signal after both master modules have sent and received everything.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.1.32 32-bit
-// Plugin : Verilog generator 1.4
+// Tool : Kactus2 3.1.59 32-bit
+// Plugin : Verilog generator 1.5
 // This file was generated based on IP-XACT component tut.fi:ip.hw:master:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.hw/master/1.0/master.1.0.xml
 //-----------------------------------------------------------------------------
@@ -20,6 +20,7 @@ module master #(
     parameter                              VERILOG_SPECIFIC = 'hEE    // A verilog specific parameter
 ) (
     // Interface: master_0
+    // Slave asserts acknowledge.
     input                               ack_i_0,    // Slave asserts acknowledge.
     input          [DATA_WIDTH-1:0]     dat_i_0,    // Data from slave to master.
     output         [ADDR_WIDTH-1:0]     adr_o_0,    // The address of the data.
@@ -29,6 +30,7 @@ module master #(
     output                              we_o_0,    // Write = 1, Read = 0.
 
     // Interface: master_1
+    // Slave asserts acknowledge.
     input                               ack_i_1,    // Slave asserts acknowledge.
     input          [DATA_WIDTH-1:0]     dat_i_1,    // Data from slave to master.
     output         [ADDR_WIDTH-1:0]     adr_o_1,    // The address of the data.
@@ -43,7 +45,6 @@ module master #(
     input                               start,    // Input used to signal that is is ok to start the masters.
     output                              done    // Output used to signal that the masters are done sending.
 );
-
 
 // WARNING: EVERYTHING ON AND ABOVE THIS LINE MAY BE OVERWRITTEN BY KACTUS2!!!
 

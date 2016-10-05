@@ -393,18 +393,33 @@
 				<kactus2:position x="1110" y="70"/>
 				<kactus2:position x="780" y="460"/>
 			</kactus2:route>
-			<kactus2:route kactus2:connRef="wb_slave_0_meta_o_to_metaAnalyzer_0_meta_in0" kactus2:offPage="false"/>
-			<kactus2:route kactus2:connRef="wb_slave_1_meta_o_to_metaAnalyzer_0_meta_in1" kactus2:offPage="false"/>
-			<kactus2:route kactus2:connRef="hierarchical_wb_slave_0_meta_o_to_metaAnalyzer_0_meta_in2" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="wb_slave_0_meta_o_to_metaAnalyzer_0_meta_in0" kactus2:offPage="false">
+				<kactus2:position x="1030" y="260"/>
+				<kactus2:position x="1050" y="260"/>
+				<kactus2:position x="1050" y="460"/>
+				<kactus2:position x="1030" y="460"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="wb_slave_1_meta_o_to_metaAnalyzer_0_meta_in1" kactus2:offPage="false">
+				<kactus2:position x="1030" y="380"/>
+				<kactus2:position x="1060" y="380"/>
+				<kactus2:position x="1060" y="480"/>
+				<kactus2:position x="1030" y="480"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="hierarchical_wb_slave_0_meta_o_to_metaAnalyzer_0_meta_in2" kactus2:offPage="false">
+				<kactus2:position x="1030" y="140"/>
+				<kactus2:position x="1070" y="140"/>
+				<kactus2:position x="1070" y="500"/>
+				<kactus2:position x="1030" y="500"/>
+			</kactus2:route>
 			<kactus2:route kactus2:connRef="metaAnalyzer_0_meta_ok_to_meta_ok" kactus2:offPage="true">
-				<kactus2:position x="1110" y="140"/>
+				<kactus2:position x="1110" y="130"/>
 				<kactus2:position x="1060" y="520"/>
 			</kactus2:route>
 		</kactus2:routes>
 		<kactus2:adHocVisibilities>
 			<kactus2:adHocVisible portName="clk" x="1140" y="70"/>
 			<kactus2:adHocVisible portName="done" x="60" y="100"/>
-			<kactus2:adHocVisible portName="meta_ok" x="1140" y="140"/>
+			<kactus2:adHocVisible portName="meta_ok" x="1140" y="130"/>
 			<kactus2:adHocVisible portName="rst" x="1140" y="100"/>
 			<kactus2:adHocVisible portName="start" x="60" y="120"/>
 		</kactus2:adHocVisibilities>
