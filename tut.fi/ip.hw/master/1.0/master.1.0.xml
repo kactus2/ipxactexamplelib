@@ -101,7 +101,11 @@
 					</ipxact:portMaps>
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
-			<ipxact:master/>
+			<ipxact:master>
+				<ipxact:addressSpaceRef ipxact:addressSpaceRef="bus_space">
+					<ipxact:baseAddress ipxact:addressSpaceRef="bus_space">uuid_e2414448_9d04_40bd_af10_8061a5e4ae7c</ipxact:baseAddress>
+				</ipxact:addressSpaceRef>
+			</ipxact:master>
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>master_1</ipxact:name>
@@ -199,9 +203,41 @@
 					</ipxact:portMaps>
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
-			<ipxact:master/>
+			<ipxact:master>
+				<ipxact:addressSpaceRef ipxact:addressSpaceRef="direct_space">
+					<ipxact:baseAddress ipxact:addressSpaceRef="direct_space">uuid_d0fe4fa7_e3eb_4fec_a7f9_9f3eac6b8c04</ipxact:baseAddress>
+				</ipxact:addressSpaceRef>
+			</ipxact:master>
 		</ipxact:busInterface>
 	</ipxact:busInterfaces>
+	<ipxact:addressSpaces>
+		<ipxact:addressSpace>
+			<ipxact:name>bus_space</ipxact:name>
+			<ipxact:range>uuid_637f6d26_180c_487c_a7e9_688b55488841</ipxact:range>
+			<ipxact:width>uuid_fe30a511_9701_4142_b340_223777d1b857</ipxact:width>
+			<ipxact:segments>
+				<ipxact:segment>
+					<ipxact:name>peripherals</ipxact:name>
+					<ipxact:addressOffset>'h0</ipxact:addressOffset>
+					<ipxact:range>uuid_637f6d26_180c_487c_a7e9_688b55488841</ipxact:range>
+				</ipxact:segment>
+			</ipxact:segments>
+			<ipxact:addressUnitBits>8</ipxact:addressUnitBits>
+		</ipxact:addressSpace>
+		<ipxact:addressSpace>
+			<ipxact:name>direct_space</ipxact:name>
+			<ipxact:range>uuid_637f6d26_180c_487c_a7e9_688b55488841</ipxact:range>
+			<ipxact:width>uuid_fe30a511_9701_4142_b340_223777d1b857</ipxact:width>
+			<ipxact:segments>
+				<ipxact:segment>
+					<ipxact:name>peripherals</ipxact:name>
+					<ipxact:addressOffset>'h0</ipxact:addressOffset>
+					<ipxact:range>uuid_637f6d26_180c_487c_a7e9_688b55488841</ipxact:range>
+				</ipxact:segment>
+			</ipxact:segments>
+			<ipxact:addressUnitBits>8</ipxact:addressUnitBits>
+		</ipxact:addressSpace>
+	</ipxact:addressSpaces>
 	<ipxact:model>
 		<ipxact:views>
 			<ipxact:view>
@@ -553,7 +589,7 @@
 			<ipxact:file>
 				<ipxact:name>master.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 15:59:50 on 22.09.2016 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 15:38:59 on 26.10.2016 by Kactus2. </ipxact:description>
 			</ipxact:file>
 			<ipxact:file>
 				<ipxact:name>wb_master.v</ipxact:name>
@@ -594,22 +630,22 @@
 			<ipxact:description>The width of the address.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_d0fe4fa7_e3eb_4fec_a7f9_9f3eac6b8c04" resolve="user">
+		<ipxact:parameter parameterId="uuid_d0fe4fa7_e3eb_4fec_a7f9_9f3eac6b8c04" resolve="user" usageCount="1">
 			<ipxact:name>MASTER_1_BASE_ADDRESS</ipxact:name>
 			<ipxact:description>The first referable address of master1. Is substracted from input address.</ipxact:description>
 			<ipxact:value>64</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_637f6d26_180c_487c_a7e9_688b55488841" resolve="user">
+		<ipxact:parameter parameterId="uuid_637f6d26_180c_487c_a7e9_688b55488841" resolve="user" usageCount="5">
 			<ipxact:name>DATA_COUNT</ipxact:name>
 			<ipxact:description>How many values there are in the register array.</ipxact:description>
 			<ipxact:value>8</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_fe30a511_9701_4142_b340_223777d1b857" resolve="user" usageCount="4">
+		<ipxact:parameter parameterId="uuid_fe30a511_9701_4142_b340_223777d1b857" resolve="user" usageCount="6">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_e2414448_9d04_40bd_af10_8061a5e4ae7c" resolve="user">
+		<ipxact:parameter parameterId="uuid_e2414448_9d04_40bd_af10_8061a5e4ae7c" resolve="user" usageCount="1">
 			<ipxact:name>MASTER_0_BASE_ADDRESS</ipxact:name>
 			<ipxact:description>The first referable address of master0. Is substracted from input address.</ipxact:description>
 			<ipxact:value>0</ipxact:value>

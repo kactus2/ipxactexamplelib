@@ -1,18 +1,17 @@
 //-----------------------------------------------------------------------------
 // File          : D:/kactus2Repos/ipxactexamplelib/tut.fi/chip/SampleTB/1.0/hierarchical_wb_slave_0.v
-// Creation date : 05.10.2016
-// Creation time : 10:08:54
+// Creation date : 26.10.2016
+// Creation time : 15:20:26
 // Description   : A wishbone slave containing another wishbone slave, so now you can use a wishbone slave while using a wishbone slave.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.2.1 32-bit
-// Plugin : Verilog generator 1.5
+// Tool : Kactus2 3.2.124 32-bit
+// Plugin : Verilog generator 1.5b
 // This file was generated based on IP-XACT component tut.fi:ip.hw:hierarchical_wb_slave:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.hw/hierarchical_wb_slave/1.0/hierarchical_wb_slave.1.0.xml
 //-----------------------------------------------------------------------------
 
 module hierarchical_wb_slave_0 #(
     parameter                              ADDR_WIDTH       = 16,    // The width of the address.
-    parameter                              BASE_ADDRESS     = 0,    // The first referable address. Is substracted from input address.
     parameter                              DATA_COUNT       = 8,    // How many values there are in the register array.
     parameter                              DATA_WIDTH       = 16    // The width of the both transferred and inputted data.
 ) (
@@ -32,7 +31,7 @@ module hierarchical_wb_slave_0 #(
     output         [DATA_WIDTH/2-1:0]   meta_o    // The latest meta data.
 );
 
-    wire        wb_slave_0_configuration_to_tiedValue;
+    wire        sub_slave_configuration_to_tiedValue;
 
     // An instantiation of the same wish bone slave, as used in SampleHW design.
     // IP-XACT VLNV: tut.fi:ip.hw:wb_slave:1.0
@@ -40,10 +39,9 @@ module hierarchical_wb_slave_0 #(
         .InputForConfig0     (4),
         .InputForConfig1     (8),
         .ADDR_WIDTH          (32),
-        .BASE_ADDRESS        (80),
         .DATA_WIDTH          (32),
         .DATA_COUNT          (8))
-    wb_slave_0(
+    sub_slave(
         // Interface: slave_interface
         .adr_i               (adr_i[31:0]),
         .cyc_i               (cyc_i),

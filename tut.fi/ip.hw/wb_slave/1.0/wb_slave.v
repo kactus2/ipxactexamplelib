@@ -1,11 +1,11 @@
 //-----------------------------------------------------------------------------
-// File          : wb_slave.v
-// Creation date : 25.08.2016
-// Creation time : 14:38:10
-// Description   : A verilog slave that provides a read/write access to a verilog register array. Address space is assumed to be contiguous.
+// File          : D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.hw/wb_slave/1.0/wb_slave.v
+// Creation date : 26.10.2016
+// Creation time : 15:37:57
+// Description   : A slave component that provides a read/write access to a register array. Address space is assumed to be contiguous.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.1.29 32-bit
-// Plugin : Verilog generator 1.4
+// Tool : Kactus2 3.2.124 32-bit
+// Plugin : Verilog generator 1.5b
 // This file was generated based on IP-XACT component tut.fi:ip.hw:wb_slave:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.hw/wb_slave/1.0/wb_slave.1.0.xml
 //-----------------------------------------------------------------------------
@@ -14,18 +14,18 @@ module wb_slave #(
     parameter                              InputForConfig0  = 'b0100,
     parameter                              InputForConfig1  = 'b1000,
     parameter                              ADDR_WIDTH       = 16,    // The width of the address.
-    parameter                              BASE_ADDRESS     = 0,    // The first referable address. Is substracted from input address.
     parameter                              DATA_WIDTH       = 32,    // The width of the both transferred and inputted data.
     parameter                              DATA_COUNT       = 4    // How many values there are in the register array.
 ) (
     // Interface: slave_interface
+    // The address of the data.
     input          [ADDR_WIDTH-1:0]     adr_i,    // The address of the data.
     input                               cyc_i,    // Asserted by master for transfer.
-    input          [DATA_WIDTH-1:0]     dat_i,    // Data from slave to master.
+    input          [DATA_WIDTH-1:0]     dat_i,    // Data from master to slave.
     input                               stb_i,    // Asserted, when this specific slave is selected.
     input                               we_i,    // Write = 1, Read = 0.
     output reg                          ack_o,    // Slave asserts acknowledge.
-    output reg     [DATA_WIDTH-1:0]     dat_o,    // Data from master to slave.
+    output reg     [DATA_WIDTH-1:0]     dat_o,    // Data from slave to master.
 
     // These ports are not in any interface
     input                               clk,    // The mandatory clock, as this is synchronous logic.
@@ -132,6 +132,7 @@ module wb_slave #(
 
 // WARNING: EVERYTHING ON AND ABOVE THIS LINE MAY BE OVERWRITTEN BY KACTUS2!!!
 
+
     localparam AU_IN_DATA = DATA_WIDTH/AUB;
     
     // Used to index AUBs to data io.
@@ -164,20 +165,20 @@ module wb_slave #(
                     if  ( `configuration1 ) begin
                         if ( we_i == 1 ) begin
                             for (index = 0; index < AU_IN_DATA/2; index = index +1) begin
-                                dat[(adr_i - BASE_ADDRESS)/2 + index + mode1_payLoad_BASE] <= dat_i[(index*AUB)+:AUB];
+                                dat[(adr_i)/2 + index + mode1_payLoad_BASE] <= dat_i[(index*AUB)+:AUB];
                             end
                             
                             for (index = 0; index < AU_IN_DATA/2; index = index +1) begin
-                                dat[(adr_i - BASE_ADDRESS)/2 + index + mode1_metaData_BASE] <= dat_i[((index+AU_IN_DATA/2)*AUB)+:AUB];
+                                dat[(adr_i)/2 + index + mode1_metaData_BASE] <= dat_i[((index+AU_IN_DATA/2)*AUB)+:AUB];
                             end
                         end
                         else begin
                             for (index = 0; index < AU_IN_DATA/2; index = index +1) begin
-                                dat_o[(index*AUB)+:AUB] <= dat[(adr_i - BASE_ADDRESS)/2 + index + mode1_payLoad_BASE];
+                                dat_o[(index*AUB)+:AUB] <= dat[(adr_i)/2 + index + mode1_payLoad_BASE];
                             end
                             
                             for (index = 0; index < AU_IN_DATA/2; index = index +1) begin
-                                dat_o[((index + AU_IN_DATA/2)*AUB)+:AUB] <= dat[(adr_i - BASE_ADDRESS)/2 + index + mode1_metaData_BASE];
+                                dat_o[((index + AU_IN_DATA/2)*AUB)+:AUB] <= dat[(adr_i )/2 + index + mode1_metaData_BASE];
                             end
                         end
                     end
@@ -186,14 +187,14 @@ module wb_slave #(
                             // Set the bytes to memory locations corresponding the inputs and parameters.
                             for (index = 0; index < AU_IN_DATA; index = index +1) begin
                                 // Writing means we set data to the specified address, offsetted by the base address and the AUB-index.
-                                dat[adr_i - BASE_ADDRESS + index] <= dat_i[(index*AUB)+:AUB];
+                                dat[adr_i + index] <= dat_i[(index*AUB)+:AUB];
                             end
                         end
                         else begin
                             // Get the bytes from memory locations corresponding the inputs and parameters.
                             for (index = 0; index < AU_IN_DATA; index = index +1) begin
                                 // Reading means we output data from the specified address, offsetted by the base address and the AUB-index.
-                                dat_o[(index*AUB)+:AUB] <= dat[adr_i - BASE_ADDRESS + index];
+                                dat_o[(index*AUB)+:AUB] <= dat[adr_i + index];
                             end
                         end
                     end
@@ -216,17 +217,17 @@ module wb_slave #(
         else begin
             if  ( `configuration0 ) begin
                 for (index = 0; index < AU_IN_DATA/2; index = index +1) begin
-                    meta_o[(index*AUB)+:AUB] <= dat[adr_i - BASE_ADDRESS + index + AU_IN_DATA/2];
+                    meta_o[(index*AUB)+:AUB] <= dat[adr_i + index + AU_IN_DATA/2];
                 end
             end
             else if  ( `configuration1 ) begin
                 for (index = 0; index < AU_IN_DATA/2; index = index +1) begin
-                    meta_o[(index*AUB)+:AUB] <= dat[(adr_i - BASE_ADDRESS)/2 + index + mode1_metaData_BASE];
+                    meta_o[(index*AUB)+:AUB] <= dat[(adr_i)/2 + index + mode1_metaData_BASE];
                 end
             end
             else begin
                 for ( index = 0; index < AU_IN_DATA/2; index = index +1 ) begin
-                    meta_o[(index*AUB)+:AUB] <= dat[adr_i - BASE_ADDRESS + index + AU_IN_DATA/2];
+                    meta_o[(index*AUB)+:AUB] <= dat[adr_i + index + AU_IN_DATA/2];
                 end
             end
         end

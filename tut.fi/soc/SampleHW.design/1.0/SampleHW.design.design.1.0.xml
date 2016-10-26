@@ -12,11 +12,10 @@
 			<ipxact:componentRef vendor="tut.fi" library="ip.hw" name="master" version="1.0">
 				<ipxact:configurableElementValues>
 					<ipxact:configurableElementValue referenceId="uuid_e2414448_9d04_40bd_af10_8061a5e4ae7c">uuid_2b4dc959_07c4_48f0_94e2_9004764a04c7</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_d0fe4fa7_e3eb_4fec_a7f9_9f3eac6b8c04">uuid_76c681ec_44ac_4869_ab2f_97cb9bde1030</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_d0fe4fa7_e3eb_4fec_a7f9_9f3eac6b8c04">0</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_637f6d26_180c_487c_a7e9_688b55488841">uuid_971a9685_1ec7_4781_bd5d_3dfa2fcc51ae</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_ed7d4652_1c14_4647_90dd_881ec00146f8">uuid_22156e3a_cd6e_466e_b2df_e39e07351910</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_fe30a511_9701_4142_b340_223777d1b857">uuid_bb96c047_ce50_4dbb_99c0_87a80a753f91</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_ea16e2c1_d774_492c_8ebe_0e0b08d73e0d">uuid_dac60f4a_ddf8_49ac_9914_668e40d443e4</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
 			</ipxact:componentRef>
 			<ipxact:vendorExtensions>
@@ -42,7 +41,6 @@
 				<ipxact:configurableElementValues>
 					<ipxact:configurableElementValue referenceId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd">uuid_bb96c047_ce50_4dbb_99c0_87a80a753f91</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba">uuid_971a9685_1ec7_4781_bd5d_3dfa2fcc51ae/2</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_f3588ecb_1ebf_4695_bca3_b133f233f47f">uuid_d2252a64_191f_4984_844f_6a1b4ce6c9c7/2+uuid_2b4dc959_07c4_48f0_94e2_9004764a04c7</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_3452fcca_4cd2_458f_a644_4c6530ea74ed">uuid_22156e3a_cd6e_466e_b2df_e39e07351910</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
 			</ipxact:componentRef>
@@ -65,9 +63,10 @@
 			<ipxact:description>The bus used in this design to connect a master to two slaves.</ipxact:description>
 			<ipxact:componentRef vendor="tut.fi" library="ip.com" name="wishbone_bus" version="1.0">
 				<ipxact:configurableElementValues>
-					<ipxact:configurableElementValue referenceId="uuid_c89fc0c6_9d7c_470e_86ae_93f17ba44f0b">uuid_d2252a64_191f_4984_844f_6a1b4ce6c9c7/2+uuid_2b4dc959_07c4_48f0_94e2_9004764a04c7</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_c89fc0c6_9d7c_470e_86ae_93f17ba44f0b">uuid_2b4dc959_07c4_48f0_94e2_9004764a04c7+uuid_d2252a64_191f_4984_844f_6a1b4ce6c9c7/2</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_f30c27b8_94fc_4cc9_b6c6_2e6299cb0242">uuid_bb96c047_ce50_4dbb_99c0_87a80a753f91</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_5c8126ec_6b47_4c7e_9fbe_8ff0c16f7a5c">uuid_22156e3a_cd6e_466e_b2df_e39e07351910</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_981a7d44_cb9a_44b8_9282_5ef08a769e4a">uuid_2b4dc959_07c4_48f0_94e2_9004764a04c7</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
 			</ipxact:componentRef>
 			<ipxact:vendorExtensions>
@@ -88,7 +87,6 @@
 				<ipxact:configurableElementValues>
 					<ipxact:configurableElementValue referenceId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd">uuid_bb96c047_ce50_4dbb_99c0_87a80a753f91</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba">uuid_971a9685_1ec7_4781_bd5d_3dfa2fcc51ae</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_f3588ecb_1ebf_4695_bca3_b133f233f47f">uuid_76c681ec_44ac_4869_ab2f_97cb9bde1030</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_3452fcca_4cd2_458f_a644_4c6530ea74ed">uuid_22156e3a_cd6e_466e_b2df_e39e07351910</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
 			</ipxact:componentRef>
@@ -113,7 +111,6 @@
 			<ipxact:componentRef vendor="tut.fi" library="ip.hw" name="hierarchical_wb_slave" version="1.0">
 				<ipxact:configurableElementValues>
 					<ipxact:configurableElementValue referenceId="uuid_223a95ba_e4b0_4773_9f25_14d3b85116f7">uuid_971a9685_1ec7_4781_bd5d_3dfa2fcc51ae/2</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_589fece3_fadf_487e_a26f_cf530ad2218a">uuid_2b4dc959_07c4_48f0_94e2_9004764a04c7</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_08e3f0c7_e9a6_479b_9e70_b614f5d809fc">uuid_22156e3a_cd6e_466e_b2df_e39e07351910</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_9f8a68d3_a06c_447d_a93c_86c6f2df980b">uuid_bb96c047_ce50_4dbb_99c0_87a80a753f91</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
@@ -393,24 +390,9 @@
 				<kactus2:position x="1110" y="70"/>
 				<kactus2:position x="780" y="460"/>
 			</kactus2:route>
-			<kactus2:route kactus2:connRef="wb_slave_0_meta_o_to_metaAnalyzer_0_meta_in0" kactus2:offPage="false">
-				<kactus2:position x="1030" y="260"/>
-				<kactus2:position x="1050" y="260"/>
-				<kactus2:position x="1050" y="460"/>
-				<kactus2:position x="1030" y="460"/>
-			</kactus2:route>
-			<kactus2:route kactus2:connRef="wb_slave_1_meta_o_to_metaAnalyzer_0_meta_in1" kactus2:offPage="false">
-				<kactus2:position x="1030" y="380"/>
-				<kactus2:position x="1060" y="380"/>
-				<kactus2:position x="1060" y="480"/>
-				<kactus2:position x="1030" y="480"/>
-			</kactus2:route>
-			<kactus2:route kactus2:connRef="hierarchical_wb_slave_0_meta_o_to_metaAnalyzer_0_meta_in2" kactus2:offPage="false">
-				<kactus2:position x="1030" y="140"/>
-				<kactus2:position x="1070" y="140"/>
-				<kactus2:position x="1070" y="500"/>
-				<kactus2:position x="1030" y="500"/>
-			</kactus2:route>
+			<kactus2:route kactus2:connRef="wb_slave_0_meta_o_to_metaAnalyzer_0_meta_in0" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="wb_slave_1_meta_o_to_metaAnalyzer_0_meta_in1" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="hierarchical_wb_slave_0_meta_o_to_metaAnalyzer_0_meta_in2" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="metaAnalyzer_0_meta_ok_to_meta_ok" kactus2:offPage="true">
 				<kactus2:position x="1110" y="130"/>
 				<kactus2:position x="1060" y="520"/>

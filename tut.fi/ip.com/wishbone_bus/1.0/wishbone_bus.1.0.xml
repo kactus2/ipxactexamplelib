@@ -199,7 +199,12 @@
 					</ipxact:portMaps>
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
-			<ipxact:mirroredSlave/>
+			<ipxact:mirroredSlave>
+				<ipxact:baseAddresses>
+					<ipxact:remapAddress>0</ipxact:remapAddress>
+					<ipxact:range>uuid_c89fc0c6_9d7c_470e_86ae_93f17ba44f0b</ipxact:range>
+				</ipxact:baseAddresses>
+			</ipxact:mirroredSlave>
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>bus_slave_1</ipxact:name>
@@ -297,7 +302,12 @@
 					</ipxact:portMaps>
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
-			<ipxact:mirroredSlave/>
+			<ipxact:mirroredSlave>
+				<ipxact:baseAddresses>
+					<ipxact:remapAddress>uuid_c89fc0c6_9d7c_470e_86ae_93f17ba44f0b</ipxact:remapAddress>
+					<ipxact:range>uuid_c89fc0c6_9d7c_470e_86ae_93f17ba44f0b</ipxact:range>
+				</ipxact:baseAddresses>
+			</ipxact:mirroredSlave>
 		</ipxact:busInterface>
 	</ipxact:busInterfaces>
 	<ipxact:channels>
@@ -348,12 +358,6 @@
 				<ipxact:name>ack_slave_0</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
@@ -399,12 +403,6 @@
 				<ipxact:name>cyc_slave_0</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
@@ -433,12 +431,6 @@
 				<ipxact:name>stb_slave_0</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
@@ -450,12 +442,6 @@
 				<ipxact:name>we_slave_0</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
@@ -467,12 +453,6 @@
 				<ipxact:name>ack_slave_1</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
@@ -518,12 +498,6 @@
 				<ipxact:name>cyc_slave_1</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
@@ -552,12 +526,6 @@
 				<ipxact:name>stb_slave_1</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
@@ -569,12 +537,6 @@
 				<ipxact:name>we_slave_1</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
@@ -586,12 +548,6 @@
 				<ipxact:name>ack_master</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
@@ -637,12 +593,6 @@
 				<ipxact:name>cyc_master</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
@@ -671,12 +621,6 @@
 				<ipxact:name>stb_master</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
@@ -688,12 +632,6 @@
 				<ipxact:name>we_master</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
@@ -709,6 +647,7 @@
 			<ipxact:file>
 				<ipxact:name>wishbone_bus.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
+				<ipxact:description>Generated at 13:47:37 on 26.10.2016 by Kactus2. </ipxact:description>
 			</ipxact:file>
 		</ipxact:fileSet>
 		<ipxact:fileSet>
@@ -730,9 +669,13 @@
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:value>32</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_c89fc0c6_9d7c_470e_86ae_93f17ba44f0b" resolve="user">
-			<ipxact:name>SLAVE_SPLIT</ipxact:name>
+		<ipxact:parameter parameterId="uuid_c89fc0c6_9d7c_470e_86ae_93f17ba44f0b" resolve="user" usageCount="3">
+			<ipxact:name>SLAVE_1_REMAP_ADDRESS</ipxact:name>
 			<ipxact:value>8</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_981a7d44_cb9a_44b8_9282_5ef08a769e4a" resolve="user">
+			<ipxact:name>SLAVE_0_REMAP_ADDRESS</ipxact:name>
+			<ipxact:value>0</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

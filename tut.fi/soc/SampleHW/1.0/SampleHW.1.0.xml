@@ -100,9 +100,7 @@
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
-	<ipxact:description>A hardware component containing a hardware design, which has a master component, three slaves and a bus.
-
-This component also has a component instantiation, which provides parameters for the design.</ipxact:description>
+	<ipxact:description>A hardware component containing a hardware design, which has a master component, three slaves and a bus component.</ipxact:description>
 	<ipxact:parameters>
 		<ipxact:parameter parameterId="uuid_22156e3a_cd6e_466e_b2df_e39e07351910" resolve="immediate">
 			<ipxact:name>ADDR_WIDTH</ipxact:name>
@@ -114,15 +112,10 @@ This component also has a component instantiation, which provides parameters for
 			<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
 			<ipxact:value>32</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_2b4dc959_07c4_48f0_94e2_9004764a04c7" resolve="immediate" usageCount="2">
-			<ipxact:name>MASTER_BASE</ipxact:name>
-			<ipxact:description>The base addresss of the master in the design.</ipxact:description>
+		<ipxact:parameter parameterId="uuid_2b4dc959_07c4_48f0_94e2_9004764a04c7" resolve="immediate" usageCount="1">
+			<ipxact:name>BUS_MASTER_BASE</ipxact:name>
+			<ipxact:description>The base addresss of the bus master in the design.</ipxact:description>
 			<ipxact:value>80</ipxact:value>
-		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_76c681ec_44ac_4869_ab2f_97cb9bde1030" resolve="immediate">
-			<ipxact:name>DIRECT_SLAVE_BASE</ipxact:name>
-			<ipxact:description>The base addresss of the direct slave in the design.</ipxact:description>
-			<ipxact:value>uuid_2b4dc959_07c4_48f0_94e2_9004764a04c7+uuid_d2252a64_191f_4984_844f_6a1b4ce6c9c7</ipxact:value>
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_971a9685_1ec7_4781_bd5d_3dfa2fcc51ae" resolve="immediate" usageCount="1">
 			<ipxact:name>WORD_COUNT</ipxact:name>
@@ -134,7 +127,7 @@ This component also has a component instantiation, which provides parameters for
 			<ipxact:description>Addressable unit bits of the memory</ipxact:description>
 			<ipxact:value>8</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_d2252a64_191f_4984_844f_6a1b4ce6c9c7" resolve="immediate" usageCount="1">
+		<ipxact:parameter parameterId="uuid_d2252a64_191f_4984_844f_6a1b4ce6c9c7" resolve="immediate">
 			<ipxact:name>MEMORY_AUB_SIZE</ipxact:name>
 			<ipxact:description>Size of memory in AUBs, for each master.</ipxact:description>
 			<ipxact:value>uuid_971a9685_1ec7_4781_bd5d_3dfa2fcc51ae*uuid_bb96c047_ce50_4dbb_99c0_87a80a753f91/uuid_3260e9d8_0b45_4d05_be91_63899a9b154a</ipxact:value>

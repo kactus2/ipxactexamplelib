@@ -75,7 +75,9 @@
 					</ipxact:portMaps>
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
-			<ipxact:slave/>
+			<ipxact:slave>
+				<ipxact:memoryMapRef memoryMapRef="slaveMap"/>
+			</ipxact:slave>
 		</ipxact:busInterface>
 	</ipxact:busInterfaces>
 	<ipxact:remapStates>
@@ -221,8 +223,8 @@
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
@@ -264,8 +266,8 @@
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
@@ -280,7 +282,7 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>dat_o</ipxact:name>
-				<ipxact:description>Data from master to slave.</ipxact:description>
+				<ipxact:description>Data from slave to master.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
@@ -302,7 +304,7 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>dat_i</ipxact:name>
-				<ipxact:description>Data from slave to master.</ipxact:description>
+				<ipxact:description>Data from master to slave.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
@@ -328,8 +330,8 @@
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
@@ -349,8 +351,8 @@
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
@@ -368,12 +370,6 @@
 				<ipxact:description>The mandatory clock, as this is synchronous logic.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
@@ -389,12 +385,6 @@
 				<ipxact:description>The mandatory reset, as this is synchronous logic.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
@@ -456,7 +446,7 @@
 			<ipxact:file>
 				<ipxact:name>wb_slave.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 14:14:00 on 06.09.2016 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 15:37:57 on 26.10.2016 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
 					<kactus2:hash>aed6804bccb5097d3cf156210ab19d02dfec701c</kactus2:hash>
 				</ipxact:vendorExtensions>
@@ -467,21 +457,14 @@
 			<ipxact:file>
 				<ipxact:name>wb_slave.cpp</ipxact:name>
 				<ipxact:fileType>cppSource</ipxact:fileType>
-				<ipxact:vendorExtensions>
-					<kactus2:hash>d3581e9899ae04024091c75de075821daa90b687</kactus2:hash>
-				</ipxact:vendorExtensions>
 			</ipxact:file>
 			<ipxact:file>
 				<ipxact:name>wb_slave.hh</ipxact:name>
 				<ipxact:fileType>cppSource</ipxact:fileType>
-				<ipxact:isIncludeFile>true</ipxact:isIncludeFile>
-				<ipxact:vendorExtensions>
-					<kactus2:hash>c9495a546ce25feda2bd4a0febbb183472e6ec09</kactus2:hash>
-				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
-	<ipxact:description>A verilog slave that provides a read/write access to a verilog register array. Address space is assumed to be contiguous.</ipxact:description>
+	<ipxact:description>A slave component that provides a read/write access to a register array. Address space is assumed to be contiguous.</ipxact:description>
 	<ipxact:parameters>
 		<ipxact:parameter parameterId="uuid_6d625720_0a09_4f0a_809a_e768334318d5" resolve="user" usageCount="1">
 			<ipxact:name>InputForConfig0</ipxact:name>
@@ -496,12 +479,7 @@
 			<ipxact:description>The width of the address.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_f3588ecb_1ebf_4695_bca3_b133f233f47f" resolve="user">
-			<ipxact:name>BASE_ADDRESS</ipxact:name>
-			<ipxact:description>The first referable address. Is substracted from input address.</ipxact:description>
-			<ipxact:value>0</ipxact:value>
-		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd" resolve="user" usageCount="17">
+		<ipxact:parameter parameterId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd" resolve="user" usageCount="18">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
 			<ipxact:value>32</ipxact:value>
@@ -513,6 +491,23 @@
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>
+		<kactus2:fileDependencies>
+			<kactus2:fileDependency manual="false" bidirectional="false" locked="false">
+				<kactus2:fileRef1>wb_slave.cpp</kactus2:fileRef1>
+				<kactus2:fileRef2>wb_slave.hh</kactus2:fileRef2>
+				<ipxact:description></ipxact:description>
+			</kactus2:fileDependency>
+			<kactus2:fileDependency manual="false" bidirectional="false" locked="false">
+				<kactus2:fileRef1>wb_slave.hh</kactus2:fileRef1>
+				<kactus2:fileRef2>$External$/header.hh</kactus2:fileRef2>
+				<ipxact:description></ipxact:description>
+			</kactus2:fileDependency>
+			<kactus2:fileDependency manual="false" bidirectional="false" locked="false">
+				<kactus2:fileRef1>wb_slave.hh</kactus2:fileRef1>
+				<kactus2:fileRef2>$External$/systemc.h</kactus2:fileRef2>
+				<ipxact:description></ipxact:description>
+			</kactus2:fileDependency>
+		</kactus2:fileDependencies>
 		<kactus2:kts_attributes>
 			<kactus2:kts_productHier>Flat</kactus2:kts_productHier>
 			<kactus2:kts_implementation>HW</kactus2:kts_implementation>

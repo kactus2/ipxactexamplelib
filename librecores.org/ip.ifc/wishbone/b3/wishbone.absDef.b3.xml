@@ -11,10 +11,12 @@
 			<ipxact:wire>
 				<ipxact:onMaster>
 					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
 					<ipxact:direction>in</ipxact:direction>
 				</ipxact:onMaster>
 				<ipxact:onSlave>
 					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
 					<ipxact:direction>out</ipxact:direction>
 				</ipxact:onSlave>
 			</ipxact:wire>
@@ -84,6 +86,9 @@
 		<ipxact:port>
 			<ipxact:logicalName>dat_sm</ipxact:logicalName>
 			<ipxact:wire>
+				<ipxact:qualifier>
+					<ipxact:isData>true</ipxact:isData>
+				</ipxact:qualifier>
 				<ipxact:onMaster>
 					<ipxact:presence>required</ipxact:presence>
 					<ipxact:direction>in</ipxact:direction>

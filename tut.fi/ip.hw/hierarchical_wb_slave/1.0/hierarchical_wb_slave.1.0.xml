@@ -318,11 +318,6 @@
 			<ipxact:description>The width of the address.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_589fece3_fadf_487e_a26f_cf530ad2218a" resolve="user">
-			<ipxact:name>BASE_ADDRESS</ipxact:name>
-			<ipxact:description>The first referable address. Is substracted from input address.</ipxact:description>
-			<ipxact:value>0</ipxact:value>
-		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_223a95ba_e4b0_4773_9f25_14d3b85116f7" resolve="user">
 			<ipxact:name>DATA_COUNT</ipxact:name>
 			<ipxact:description>How many values there are in the register array.</ipxact:description>

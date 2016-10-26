@@ -1,13 +1,11 @@
 //-----------------------------------------------------------------------------
 // File          : D:/kactus2Repos/ipxactexamplelib/tut.fi/chip/SampleTB/1.0/SampleHW_0.v
-// Creation date : 05.10.2016
-// Creation time : 10:08:54
-// Description   : A hardware component containing a hardware design, which has a master component, three slaves and a bus.
-//                 
-//                 This component also has a component instantiation, which provides parameters for the design.
+// Creation date : 26.10.2016
+// Creation time : 15:20:26
+// Description   : A hardware component containing a hardware design, which has a master component, three slaves and a bus component.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.2.1 32-bit
-// Plugin : Verilog generator 1.5
+// Tool : Kactus2 3.2.124 32-bit
+// Plugin : Verilog generator 1.5b
 // This file was generated based on IP-XACT component tut.fi:soc:SampleHW:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/soc/SampleHW/1.0/SampleHW.1.0.xml
 //-----------------------------------------------------------------------------
@@ -66,9 +64,8 @@ module SampleHW_0 #(
     // The another slave connected to bus. This ones base address is master + half of
     // the total memory.
     // IP-XACT VLNV: tut.fi:ip.hw:hierarchical_wb_slave:1.0
-    hierarchical_wb_slave #(
+    hierarchical_wb_slave_0 #(
         .ADDR_WIDTH          (32),
-        .BASE_ADDRESS        (80),
         .DATA_COUNT          (8),
         .DATA_WIDTH          (32))
     hierarchical_wb_slave_0(
@@ -90,11 +87,11 @@ module SampleHW_0 #(
     // IP-XACT VLNV: tut.fi:ip.hw:master:1.0
     master #(
         .ADDR_WIDTH          (32),
-        .MASTER_1_BASE_ADDRESS(144),
+        .MASTER_1_BASE_ADDRESS(0),
         .DATA_COUNT          (16),
         .DATA_WIDTH          (32),
         .MASTER_0_BASE_ADDRESS(80),
-        .VERILOG_SPECIFIC    (0))
+        .VERILOG_SPECIFIC    (238))
     master_0(
         // Interface: master_0
         .ack_i_0             (wishbone_bus_0_one_to_many_master_to_master_0_master_0_ack),
@@ -136,7 +133,6 @@ module SampleHW_0 #(
         .InputForConfig0     (4),
         .InputForConfig1     (8),
         .ADDR_WIDTH          (32),
-        .BASE_ADDRESS        (112),
         .DATA_WIDTH          (32),
         .DATA_COUNT          (8))
     wb_slave_0(
@@ -160,7 +156,6 @@ module SampleHW_0 #(
         .InputForConfig0     (4),
         .InputForConfig1     (8),
         .ADDR_WIDTH          (32),
-        .BASE_ADDRESS        (144),
         .DATA_WIDTH          (32),
         .DATA_COUNT          (16))
     wb_slave_1(
@@ -183,7 +178,8 @@ module SampleHW_0 #(
     wishbone_bus #(
         .ADDR_WIDTH          (32),
         .DATA_WIDTH          (32),
-        .SLAVE_SPLIT         (112))
+        .SLAVE_1_REMAP_ADDRESS(112),
+        .SLAVE_0_REMAP_ADDRESS(80))
     wishbone_bus_0(
         // Interface: bus_slave_0
         .ack_slave_0         (hierarchical_wb_slave_0_bus_slave_to_wishbone_bus_0_bus_slave_0_ack),
