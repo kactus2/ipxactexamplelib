@@ -20,6 +20,10 @@
 				<ipxact:componentInstantiationRef>systemC_instantiation</ipxact:componentInstantiationRef>
 				<ipxact:designConfigurationInstantiationRef>SystemC</ipxact:designConfigurationInstantiationRef>
 			</ipxact:view>
+			<ipxact:view>
+				<ipxact:name>verilog_demo</ipxact:name>
+				<ipxact:designConfigurationInstantiationRef>SampleHW.verilog_demo.designcfg_1.0_vlog_demo</ipxact:designConfigurationInstantiationRef>
+			</ipxact:view>
 		</ipxact:views>
 		<ipxact:instantiations>
 			<ipxact:componentInstantiation>
@@ -36,6 +40,10 @@
 			<ipxact:designConfigurationInstantiation>
 				<ipxact:name>SystemC</ipxact:name>
 				<ipxact:designConfigurationRef vendor="tut.fi" library="soc" name="SampleHW.SystemC.designcfg" version="1.0"/>
+			</ipxact:designConfigurationInstantiation>
+			<ipxact:designConfigurationInstantiation>
+				<ipxact:name>SampleHW.verilog_demo.designcfg_1.0_vlog_demo</ipxact:name>
+				<ipxact:designConfigurationRef vendor="tut.fi" library="soc" name="SampleHW.verilog_demo.designcfg" version="1.0_vlog_demo"/>
 			</ipxact:designConfigurationInstantiation>
 		</ipxact:instantiations>
 		<ipxact:ports>
@@ -97,6 +105,22 @@
 				<ipxact:name>SampleHW.hh</ipxact:name>
 				<ipxact:fileType>cppSource</ipxact:fileType>
 				<ipxact:isIncludeFile>true</ipxact:isIncludeFile>
+				<ipxact:vendorExtensions>
+					<kactus2:hash>a34ca0cb510eece7b944a50c6efb2d5040aba0b7</kactus2:hash>
+				</ipxact:vendorExtensions>
+			</ipxact:file>
+		</ipxact:fileSet>
+		<ipxact:fileSet>
+			<ipxact:name>generatedVerilog</ipxact:name>
+			<ipxact:file>
+				<ipxact:name>SampleHW_0.v</ipxact:name>
+				<ipxact:fileType>verilogSource</ipxact:fileType>
+				<ipxact:description>Generated at 13:04:01 on 28.10.2016 by Kactus2. </ipxact:description>
+			</ipxact:file>
+			<ipxact:file>
+				<ipxact:name>hierarchical_wb_slave_0.v</ipxact:name>
+				<ipxact:fileType>verilogSource</ipxact:fileType>
+				<ipxact:description>Generated at 13:04:01 on 28.10.2016 by Kactus2. </ipxact:description>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
@@ -134,7 +158,39 @@
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>
-		<kactus2:version>3,0,104,0</kactus2:version>
+		<kactus2:fileDependencies>
+			<kactus2:fileDependency manual="false" bidirectional="false" locked="false">
+				<kactus2:fileRef1>SampleHW.hh</kactus2:fileRef1>
+				<kactus2:fileRef2>$External$/systemc.h</kactus2:fileRef2>
+				<ipxact:description></ipxact:description>
+			</kactus2:fileDependency>
+			<kactus2:fileDependency manual="false" bidirectional="false" locked="false">
+				<kactus2:fileRef1>SampleHW.hh</kactus2:fileRef1>
+				<kactus2:fileRef2>$External$/header.hh</kactus2:fileRef2>
+				<ipxact:description></ipxact:description>
+			</kactus2:fileDependency>
+			<kactus2:fileDependency manual="false" bidirectional="false" locked="false">
+				<kactus2:fileRef1>SampleHW.hh</kactus2:fileRef1>
+				<kactus2:fileRef2>$External$/master.hh</kactus2:fileRef2>
+				<ipxact:description></ipxact:description>
+			</kactus2:fileDependency>
+			<kactus2:fileDependency manual="false" bidirectional="false" locked="false">
+				<kactus2:fileRef1>SampleHW.hh</kactus2:fileRef1>
+				<kactus2:fileRef2>$External$/wb_slave.hh</kactus2:fileRef2>
+				<ipxact:description></ipxact:description>
+			</kactus2:fileDependency>
+			<kactus2:fileDependency manual="false" bidirectional="false" locked="false">
+				<kactus2:fileRef1>SampleHW.hh</kactus2:fileRef1>
+				<kactus2:fileRef2>$External$/hier_slave.hh</kactus2:fileRef2>
+				<ipxact:description></ipxact:description>
+			</kactus2:fileDependency>
+			<kactus2:fileDependency manual="false" bidirectional="false" locked="false">
+				<kactus2:fileRef1>SampleHW.hh</kactus2:fileRef1>
+				<kactus2:fileRef2>$External$/wishbone_bus.hh</kactus2:fileRef2>
+				<ipxact:description></ipxact:description>
+			</kactus2:fileDependency>
+		</kactus2:fileDependencies>
+		<kactus2:version>3,2,137,0</kactus2:version>
 		<kactus2:kts_attributes>
 			<kactus2:kts_productHier>SoC</kactus2:kts_productHier>
 			<kactus2:kts_implementation>HW</kactus2:kts_implementation>

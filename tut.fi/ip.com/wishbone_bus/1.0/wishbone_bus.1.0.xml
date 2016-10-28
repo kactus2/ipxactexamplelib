@@ -201,8 +201,8 @@
 			</ipxact:abstractionTypes>
 			<ipxact:mirroredSlave>
 				<ipxact:baseAddresses>
-					<ipxact:remapAddress>0</ipxact:remapAddress>
-					<ipxact:range>uuid_c89fc0c6_9d7c_470e_86ae_93f17ba44f0b</ipxact:range>
+					<ipxact:remapAddress>uuid_981a7d44_cb9a_44b8_9282_5ef08a769e4a</ipxact:remapAddress>
+					<ipxact:range>uuid_c9972837_4e45_4ec1_8ea5_23df5114da6b</ipxact:range>
 				</ipxact:baseAddresses>
 			</ipxact:mirroredSlave>
 		</ipxact:busInterface>
@@ -305,7 +305,7 @@
 			<ipxact:mirroredSlave>
 				<ipxact:baseAddresses>
 					<ipxact:remapAddress>uuid_c89fc0c6_9d7c_470e_86ae_93f17ba44f0b</ipxact:remapAddress>
-					<ipxact:range>uuid_c89fc0c6_9d7c_470e_86ae_93f17ba44f0b</ipxact:range>
+					<ipxact:range>uuid_6f2dfa37_1d31_435e_8c9c_2a14518a7783</ipxact:range>
 				</ipxact:baseAddresses>
 			</ipxact:mirroredSlave>
 		</ipxact:busInterface>
@@ -647,7 +647,7 @@
 			<ipxact:file>
 				<ipxact:name>wishbone_bus.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 13:47:37 on 26.10.2016 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 10:57:34 on 28.10.2016 by Kactus2. </ipxact:description>
 			</ipxact:file>
 		</ipxact:fileSet>
 		<ipxact:fileSet>
@@ -669,13 +669,21 @@
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:value>32</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_c89fc0c6_9d7c_470e_86ae_93f17ba44f0b" resolve="user" usageCount="3">
+		<ipxact:parameter parameterId="uuid_c89fc0c6_9d7c_470e_86ae_93f17ba44f0b" resolve="user" usageCount="1">
 			<ipxact:name>SLAVE_1_REMAP_ADDRESS</ipxact:name>
 			<ipxact:value>8</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_981a7d44_cb9a_44b8_9282_5ef08a769e4a" resolve="user">
+		<ipxact:parameter parameterId="uuid_981a7d44_cb9a_44b8_9282_5ef08a769e4a" resolve="user" usageCount="1">
 			<ipxact:name>SLAVE_0_REMAP_ADDRESS</ipxact:name>
 			<ipxact:value>0</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_c9972837_4e45_4ec1_8ea5_23df5114da6b" resolve="user" usageCount="1">
+			<ipxact:name>SLAVE_0_RANGE</ipxact:name>
+			<ipxact:value>4</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_6f2dfa37_1d31_435e_8c9c_2a14518a7783" resolve="user" usageCount="1">
+			<ipxact:name>SLAVE_1_RANGE</ipxact:name>
+			<ipxact:value>4</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

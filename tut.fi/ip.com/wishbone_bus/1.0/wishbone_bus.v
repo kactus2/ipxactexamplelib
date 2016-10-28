@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.com/wishbone_bus/1.0/wishbone_bus.v
-// Creation date : 26.10.2016
-// Creation time : 13:47:37
+// Creation date : 28.10.2016
+// Creation time : 10:57:34
 // Description   : Bus used to connect two slaves to one master. Used slave is determined using the address output of the master and parameter SLAVE_SPLIT.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.2.123 32-bit
+// Tool : Kactus2 3.2.138 32-bit
 // Plugin : Verilog generator 1.5b
 // This file was generated based on IP-XACT component tut.fi:ip.com:wishbone_bus:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.com/wishbone_bus/1.0/wishbone_bus.1.0.xml
@@ -14,7 +14,9 @@ module wishbone_bus #(
     parameter                              ADDR_WIDTH       = 32,
     parameter                              DATA_WIDTH       = 32,
     parameter                              SLAVE_1_REMAP_ADDRESS = 8,
-    parameter                              SLAVE_0_REMAP_ADDRESS = 0
+    parameter                              SLAVE_0_REMAP_ADDRESS = 0,
+    parameter                              SLAVE_0_RANGE    = 8,
+    parameter                              SLAVE_1_RANGE    = 8
 ) (
     // Interface: bus_slave_0
     input                               ack_slave_0,
@@ -58,8 +60,8 @@ module wishbone_bus #(
     assign dat_ms_slave_1 = dat_ms_master;
     assign we_slave_1 = we_master;
     
-    wire slave_0_sel = (adr_master >= SLAVE_0_REMAP_ADDRESS && adr_master < SLAVE_1_REMAP_ADDRESS) ? 1 : 0;
-    wire slave_1_sel = (adr_master >= SLAVE_1_REMAP_ADDRESS) ? 1 : 0;
+    wire slave_0_sel = (adr_master >= SLAVE_0_REMAP_ADDRESS && adr_master < SLAVE_0_REMAP_ADDRESS + SLAVE_0_RANGE) ? 1 : 0;
+    wire slave_1_sel = (adr_master >= SLAVE_1_REMAP_ADDRESS && adr_master < SLAVE_1_REMAP_ADDRESS + SLAVE_1_RANGE) ? 1 : 0;
     
     // The strobes are a wee exception: It is decided based on the address, which one is active.
     assign stb_slave_0 = slave_0_sel ? stb_master : 0;

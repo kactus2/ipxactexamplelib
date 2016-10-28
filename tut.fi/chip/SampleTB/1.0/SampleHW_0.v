@@ -1,23 +1,22 @@
 //-----------------------------------------------------------------------------
 // File          : D:/kactus2Repos/ipxactexamplelib/tut.fi/chip/SampleTB/1.0/SampleHW_0.v
-// Creation date : 26.10.2016
-// Creation time : 15:20:26
+// Creation date : 28.10.2016
+// Creation time : 11:58:58
 // Description   : A hardware component containing a hardware design, which has a master component, three slaves and a bus component.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.2.124 32-bit
+// Tool : Kactus2 3.2.138 32-bit
 // Plugin : Verilog generator 1.5b
 // This file was generated based on IP-XACT component tut.fi:soc:SampleHW:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/soc/SampleHW/1.0/SampleHW.1.0.xml
 //-----------------------------------------------------------------------------
 
 module SampleHW_0 #(
-    parameter                              MASTER_BASE      = 80,    // The base addresss of the master in the design.
     parameter                              DATA_WIDTH       = 32,    // The width of the both transferred and inputted data.
     parameter                              WORD_COUNT       = 16,    // How many words there are per master.
     parameter                              AUB              = 8,    // Addressable unit bits of the memory
     parameter                              ADDR_WIDTH       = 32,    // The width of the address.
-    parameter                              MEMORY_AUB_SIZE  = WORD_COUNT*DATA_WIDTH/AUB,    // Size of memory in AUBs, for each master.
-    parameter                              DIRECT_SLAVE_BASE = MASTER_BASE+MEMORY_AUB_SIZE    // The base addresss of the direct slave in the design.
+    parameter                              BUS_MASTER_BASE  = 80,    // The base addresss of the bus master in the design.
+    parameter                              MEMORY_AUB_SIZE  = WORD_COUNT*DATA_WIDTH/AUB    // Size of memory in AUBs, for each master.
 ) (
     // These ports are not in any interface
     input                               clk,    // The mandatory clock, as this is synchronous logic.
@@ -179,7 +178,9 @@ module SampleHW_0 #(
         .ADDR_WIDTH          (32),
         .DATA_WIDTH          (32),
         .SLAVE_1_REMAP_ADDRESS(112),
-        .SLAVE_0_REMAP_ADDRESS(80))
+        .SLAVE_0_REMAP_ADDRESS(80),
+        .SLAVE_0_RANGE       (32),
+        .SLAVE_1_RANGE       (32))
     wishbone_bus_0(
         // Interface: bus_slave_0
         .ack_slave_0         (hierarchical_wb_slave_0_bus_slave_to_wishbone_bus_0_bus_slave_0_ack),

@@ -10,10 +10,6 @@
 		<ipxact:view viewRef="flat"/>
 	</ipxact:viewConfiguration>
 	<ipxact:viewConfiguration>
-		<ipxact:instanceName>wishbone_bus_0</ipxact:instanceName>
-		<ipxact:view viewRef="flat"/>
-	</ipxact:viewConfiguration>
-	<ipxact:viewConfiguration>
 		<ipxact:instanceName>wb_slave_1</ipxact:instanceName>
 		<ipxact:view viewRef="flat"/>
 	</ipxact:viewConfiguration>
@@ -28,6 +24,10 @@
 	<ipxact:viewConfiguration>
 		<ipxact:instanceName>metaAnalyzer_0</ipxact:instanceName>
 		<ipxact:view viewRef="rtl"/>
+	</ipxact:viewConfiguration>
+	<ipxact:viewConfiguration>
+		<ipxact:instanceName>wishbone_bus_0</ipxact:instanceName>
+		<ipxact:view viewRef="flat"/>
 	</ipxact:viewConfiguration>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,0,104,0</kactus2:version>

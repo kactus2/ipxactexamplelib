@@ -67,6 +67,8 @@
 					<ipxact:configurableElementValue referenceId="uuid_f30c27b8_94fc_4cc9_b6c6_2e6299cb0242">uuid_bb96c047_ce50_4dbb_99c0_87a80a753f91</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_5c8126ec_6b47_4c7e_9fbe_8ff0c16f7a5c">uuid_22156e3a_cd6e_466e_b2df_e39e07351910</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_981a7d44_cb9a_44b8_9282_5ef08a769e4a">uuid_2b4dc959_07c4_48f0_94e2_9004764a04c7</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_6f2dfa37_1d31_435e_8c9c_2a14518a7783">uuid_d2252a64_191f_4984_844f_6a1b4ce6c9c7/2</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_c9972837_4e45_4ec1_8ea5_23df5114da6b">uuid_d2252a64_191f_4984_844f_6a1b4ce6c9c7/2</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
 			</ipxact:componentRef>
 			<ipxact:vendorExtensions>
