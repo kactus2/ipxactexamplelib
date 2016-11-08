@@ -20,10 +20,6 @@
 				<ipxact:componentInstantiationRef>systemC_instantiation</ipxact:componentInstantiationRef>
 				<ipxact:designConfigurationInstantiationRef>SystemC</ipxact:designConfigurationInstantiationRef>
 			</ipxact:view>
-			<ipxact:view>
-				<ipxact:name>verilog_demo</ipxact:name>
-				<ipxact:designConfigurationInstantiationRef>SampleHW.verilog_demo.designcfg_1.0_vlog_demo</ipxact:designConfigurationInstantiationRef>
-			</ipxact:view>
 		</ipxact:views>
 		<ipxact:instantiations>
 			<ipxact:componentInstantiation>
@@ -40,10 +36,6 @@
 			<ipxact:designConfigurationInstantiation>
 				<ipxact:name>SystemC</ipxact:name>
 				<ipxact:designConfigurationRef vendor="tut.fi" library="soc" name="SampleHW.SystemC.designcfg" version="1.0"/>
-			</ipxact:designConfigurationInstantiation>
-			<ipxact:designConfigurationInstantiation>
-				<ipxact:name>SampleHW.verilog_demo.designcfg_1.0_vlog_demo</ipxact:name>
-				<ipxact:designConfigurationRef vendor="tut.fi" library="soc" name="SampleHW.verilog_demo.designcfg" version="1.0_vlog_demo"/>
 			</ipxact:designConfigurationInstantiation>
 		</ipxact:instantiations>
 		<ipxact:ports>
@@ -108,19 +100,6 @@
 				<ipxact:vendorExtensions>
 					<kactus2:hash>a34ca0cb510eece7b944a50c6efb2d5040aba0b7</kactus2:hash>
 				</ipxact:vendorExtensions>
-			</ipxact:file>
-		</ipxact:fileSet>
-		<ipxact:fileSet>
-			<ipxact:name>generatedVerilog</ipxact:name>
-			<ipxact:file>
-				<ipxact:name>SampleHW_0.v</ipxact:name>
-				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 13:04:01 on 28.10.2016 by Kactus2. </ipxact:description>
-			</ipxact:file>
-			<ipxact:file>
-				<ipxact:name>hierarchical_wb_slave_0.v</ipxact:name>
-				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 13:04:01 on 28.10.2016 by Kactus2. </ipxact:description>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
