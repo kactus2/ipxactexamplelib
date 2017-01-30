@@ -446,7 +446,7 @@
 			<ipxact:file>
 				<ipxact:name>wb_slave.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 15:37:57 on 26.10.2016 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 14:47:42 on 30.01.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
 					<kactus2:hash>aed6804bccb5097d3cf156210ab19d02dfec701c</kactus2:hash>
 				</ipxact:vendorExtensions>
