@@ -3,7 +3,7 @@ Contains examples to start with Kactus2.
 VLNV naming recommendation: http://funbase.cs.tut.fi/doc/Kactus2_vlnv.pdf
 See video tutorials at: https://www.youtube.com/user/Kactus2Tutorial
 
-## The IP-XACT documents of the plugin templates:
+## The IP-XACT documents for the plugin templates:
 * Sample Generator:
   * tut.fi:product:GenerationSample:1.0
   * tut.fi:ip.hw:SampleIP:1.0
@@ -12,7 +12,7 @@ See video tutorials at: https://www.youtube.com/user/Kactus2Tutorial
 * Sample Source Analyzer:
   * tut.fi:ip.sw:LoremIpsum:1.1
 
-## The IP-XACT documents of the video tutorials:
+## The IP-XACT documents for the video tutorials:
 * Getting Started:
   * tut.fi:soc:SampleHW:1.0
   * tut.fi:ip.hw:wb_slave:1.0
