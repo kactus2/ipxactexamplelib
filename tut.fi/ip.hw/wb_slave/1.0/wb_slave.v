@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : wb_slave.v
-// Creation date : 30.01.2017
-// Creation time : 14:47:35
+// Creation date : 31.01.2017
+// Creation time : 12:10:08
 // Description   : A slave component that provides a read/write access to a register array. Address space is assumed to be contiguous.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.3.31 32-bit
+// Tool : Kactus2 3.3.151 32-bit
 // Plugin : Verilog generator 2.0
 // This file was generated based on IP-XACT component tut.fi:ip.hw:wb_slave:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.hw/wb_slave/1.0/wb_slave.1.0.xml
@@ -37,104 +37,14 @@ module wb_slave #(
     `define configuration0 (configuration == InputForConfig0)
     `define configuration1 (configuration == InputForConfig1)
 
-    localparam MEMORY_SIZE = DATA_COUNT*4;
-    localparam AUB = 8;
-    reg [0:AUB-1] dat [0:MEMORY_SIZE-1];
-    genvar gen_iterator1;
-    genvar gen_iterator2;
-
-    localparam slaveMap_default_registers_BASE = 'h0;
-        localparam slaveMap_default_registers_reg1_DIM = DATA_COUNT;
-        localparam slaveMap_default_registers_reg1_OFFSET = 'h0;
-        localparam slaveMap_default_registers_reg1_WIDTH = DATA_WIDTH;
-        localparam slaveMap_default_registers_reg1_AU_WIDTH = $ceil($ceil(DATA_WIDTH)/AUB);
-        wire [0:slaveMap_default_registers_reg1_WIDTH-1] slaveMap_default_registers_reg1 [0:slaveMap_default_registers_reg1_DIM-1];
-
-        generate
-        for (gen_iterator1= 0; gen_iterator1 < slaveMap_default_registers_reg1_DIM; gen_iterator1 = gen_iterator1 + 1)
-        begin
-            for (gen_iterator2 = 0; gen_iterator2 < slaveMap_default_registers_reg1_AU_WIDTH; gen_iterator2 = gen_iterator2 + 1)
-            begin
-                assign slaveMap_default_registers_reg1[gen_iterator1][(gen_iterator2*AUB)+:AUB] = dat[gen_iterator1*slaveMap_default_registers_reg1_AU_WIDTH+gen_iterator2];
-            end
-        end
-        endgenerate
-
-        localparam slaveMap_default_registers_reg1_data_WIDTH = DATA_WIDTH;
-        localparam slaveMap_default_registers_reg1_data_OFFSET = 0;
-
-
-    localparam mode0_registers_BASE = 'h0;
-        localparam mode0_registers_reg1_DIM = DATA_COUNT;
-        localparam mode0_registers_reg1_OFFSET = 'h0;
-        localparam mode0_registers_reg1_WIDTH = DATA_WIDTH;
-        localparam mode0_registers_reg1_AU_WIDTH = $ceil($ceil(DATA_WIDTH)/AUB);
-        wire [0:mode0_registers_reg1_WIDTH-1] mode0_registers_reg1 [0:mode0_registers_reg1_DIM-1];
-
-        generate
-        for (gen_iterator1= 0; gen_iterator1 < mode0_registers_reg1_DIM; gen_iterator1 = gen_iterator1 + 1)
-        begin
-            for (gen_iterator2 = 0; gen_iterator2 < mode0_registers_reg1_AU_WIDTH; gen_iterator2 = gen_iterator2 + 1)
-            begin
-                assign mode0_registers_reg1[gen_iterator1][(gen_iterator2*AUB)+:AUB] = dat[gen_iterator1*mode0_registers_reg1_AU_WIDTH+gen_iterator2];
-            end
-        end
-        endgenerate
-
-        localparam mode0_registers_reg1_payLoad_WIDTH = DATA_WIDTH/2;
-        localparam mode0_registers_reg1_payLoad_OFFSET = 0;
-
-        localparam mode0_registers_reg1_metaData_WIDTH = DATA_WIDTH/2;
-        localparam mode0_registers_reg1_metaData_OFFSET = DATA_WIDTH/2;
-
-
-    localparam mode1_payLoad_BASE = 'h0;
-        localparam mode1_payLoad_RpayLoad_DIM = DATA_COUNT;
-        localparam mode1_payLoad_RpayLoad_OFFSET = 'h0;
-        localparam mode1_payLoad_RpayLoad_WIDTH = DATA_WIDTH/2;
-        localparam mode1_payLoad_RpayLoad_AU_WIDTH = $ceil($ceil(DATA_WIDTH/2)/AUB);
-        wire [0:mode1_payLoad_RpayLoad_WIDTH-1] mode1_payLoad_RpayLoad [0:mode1_payLoad_RpayLoad_DIM-1];
-
-        generate
-        for (gen_iterator1= 0; gen_iterator1 < mode1_payLoad_RpayLoad_DIM; gen_iterator1 = gen_iterator1 + 1)
-        begin
-            for (gen_iterator2 = 0; gen_iterator2 < mode1_payLoad_RpayLoad_AU_WIDTH; gen_iterator2 = gen_iterator2 + 1)
-            begin
-                assign mode1_payLoad_RpayLoad[gen_iterator1][(gen_iterator2*AUB)+:AUB] = dat[gen_iterator1*mode1_payLoad_RpayLoad_AU_WIDTH+gen_iterator2];
-            end
-        end
-        endgenerate
-
-        localparam mode1_payLoad_RpayLoad_data_WIDTH = DATA_WIDTH/2;
-        localparam mode1_payLoad_RpayLoad_data_OFFSET = 0;
-
-
-    localparam mode1_metaData_BASE = DATA_COUNT*2;
-        localparam mode1_metaData_RmetaData_DIM = DATA_COUNT;
-        localparam mode1_metaData_RmetaData_OFFSET = 'h0;
-        localparam mode1_metaData_RmetaData_WIDTH = DATA_WIDTH/2;
-        localparam mode1_metaData_RmetaData_AU_WIDTH = $ceil($ceil(DATA_WIDTH/2)/AUB);
-        wire [0:mode1_metaData_RmetaData_WIDTH-1] mode1_metaData_RmetaData [0:mode1_metaData_RmetaData_DIM-1];
-
-        generate
-        for (gen_iterator1= 0; gen_iterator1 < mode1_metaData_RmetaData_DIM; gen_iterator1 = gen_iterator1 + 1)
-        begin
-            for (gen_iterator2 = 0; gen_iterator2 < mode1_metaData_RmetaData_AU_WIDTH; gen_iterator2 = gen_iterator2 + 1)
-            begin
-                assign mode1_metaData_RmetaData[gen_iterator1][(gen_iterator2*AUB)+:AUB] = dat[gen_iterator1*mode1_metaData_RmetaData_AU_WIDTH+gen_iterator2];
-            end
-        end
-        endgenerate
-
-        localparam mode1_metaData_RmetaData_data_WIDTH = DATA_WIDTH/2;
-        localparam mode1_metaData_RmetaData_data_OFFSET = 0;
-
-
 // WARNING: EVERYTHING ON AND ABOVE THIS LINE MAY BE OVERWRITTEN BY KACTUS2!!!
 
-
-
+    localparam AUB = 8;
     localparam AU_IN_DATA = DATA_WIDTH/AUB;
+    localparam MEMORY_SIZE = DATA_COUNT*4;
+    reg [0:AUB-1] dat [0:MEMORY_SIZE-1];
+    localparam mode1_metaData_BASE = DATA_COUNT*2;
+    localparam mode1_payLoad_BASE = 'h0;
     
     // Used to index AUBs to data io.
     integer index;
