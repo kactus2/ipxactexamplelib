@@ -1,11 +1,11 @@
 //-----------------------------------------------------------------------------
-// File          : D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.com/wishbone_bus/1.0/wishbone_bus.v
-// Creation date : 28.10.2016
-// Creation time : 10:57:34
+// File          : wishbone_bus.v
+// Creation date : 03.02.2017
+// Creation time : 11:49:16
 // Description   : Bus used to connect two slaves to one master. Used slave is determined using the address output of the master and parameter SLAVE_SPLIT.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.2.138 32-bit
-// Plugin : Verilog generator 1.5b
+// Tool : Kactus2 3.3.168 32-bit
+// Plugin : Verilog generator 2.0
 // This file was generated based on IP-XACT component tut.fi:ip.com:wishbone_bus:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.com/wishbone_bus/1.0/wishbone_bus.1.0.xml
 //-----------------------------------------------------------------------------
@@ -15,8 +15,8 @@ module wishbone_bus #(
     parameter                              DATA_WIDTH       = 32,
     parameter                              SLAVE_1_REMAP_ADDRESS = 8,
     parameter                              SLAVE_0_REMAP_ADDRESS = 0,
-    parameter                              SLAVE_0_RANGE    = 8,
-    parameter                              SLAVE_1_RANGE    = 8
+    parameter                              SLAVE_0_RANGE    = 4,
+    parameter                              SLAVE_1_RANGE    = 4
 ) (
     // Interface: bus_slave_0
     input                               ack_slave_0,

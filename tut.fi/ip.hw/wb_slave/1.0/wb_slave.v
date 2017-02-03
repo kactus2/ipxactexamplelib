@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : wb_slave.v
-// Creation date : 31.01.2017
-// Creation time : 12:10:08
+// Creation date : 03.02.2017
+// Creation time : 11:48:48
 // Description   : A slave component that provides a read/write access to a register array. Address space is assumed to be contiguous.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.3.151 32-bit
+// Tool : Kactus2 3.3.168 32-bit
 // Plugin : Verilog generator 2.0
 // This file was generated based on IP-XACT component tut.fi:ip.hw:wb_slave:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.hw/wb_slave/1.0/wb_slave.1.0.xml
@@ -34,6 +34,7 @@ module wb_slave #(
     output reg     [DATA_WIDTH/2-1:0]   meta_o    // The latest meta data.
 );
 
+    // Remap states:
     `define configuration0 (configuration == InputForConfig0)
     `define configuration1 (configuration == InputForConfig1)
 
