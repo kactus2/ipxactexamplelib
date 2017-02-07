@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipxact:catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+	<ipxact:vendor>tut.fi</ipxact:vendor>
+	<ipxact:library>examples</ipxact:library>
+	<ipxact:name>DesignEditor</ipxact:name>
+	<ipxact:version>1.0</ipxact:version>
+	<ipxact:description>This catalog contains all the IP-XACT files used in the Design Editor video tutorial for Kactus2. The top-level component is tut.fi:soc:SampleHW:1.0.</ipxact:description>
+	<ipxact:busDefinitions>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="librecores.org" library="ip.ifc" name="wishbone" version="b3"/>
+			<ipxact:name>../../../../librecores.org/ip.ifc/wishbone/b3/wishbone.b3.xml</ipxact:name>
+		</ipxact:ipxactFile>
+	</ipxact:busDefinitions>
+	<ipxact:abstractionDefinitions>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="librecores.org" library="ip.ifc" name="wishbone.absDef" version="b3"/>
+			<ipxact:name>../../../../librecores.org/ip.ifc/wishbone/b3/wishbone.absDef.b3.xml</ipxact:name>
+		</ipxact:ipxactFile>
+	</ipxact:abstractionDefinitions>
+	<ipxact:components>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tut.fi" library="soc" name="SampleHW" version="1.0"/>
+			<ipxact:name>../../../soc/SampleHW/1.0/SampleHW.1.0.xml</ipxact:name>
+		</ipxact:ipxactFile>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tut.fi" library="ip.hw" name="master" version="1.0"/>
+			<ipxact:name>../../../ip.hw/master/1.0/master.1.0.xml</ipxact:name>
+		</ipxact:ipxactFile>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tut.fi" library="ip.hw" name="wb_slave" version="1.0"/>
+			<ipxact:name>../../../ip.hw/wb_slave/1.0/wb_slave.1.0.xml</ipxact:name>
+		</ipxact:ipxactFile>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tut.fi" library="ip.hw" name="hierarchical_wb_slave" version="1.0"/>
+			<ipxact:name>../../../ip.hw/hierarchical_wb_slave/1.0/hierarchical_wb_slave.1.0.xml</ipxact:name>
+		</ipxact:ipxactFile>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tut.fi" library="ip.com" name="wishbone_bus" version="1.0"/>
+			<ipxact:name>../../../ip.com/wishbone_bus/1.0/wishbone_bus.1.0.xml</ipxact:name>
+		</ipxact:ipxactFile>
+	</ipxact:components>
+	<ipxact:designs>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tut.fi" library="soc" name="SampleHW.design.design" version="1.0"/>
+			<ipxact:name>../../../soc/SampleHW.design/1.0/SampleHW.design.design.1.0.xml</ipxact:name>
+		</ipxact:ipxactFile>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tut.fi" library="ip.hw" name="hierarchical_wb_slave.design.design" version="1.0"/>
+			<ipxact:name>../../../ip.hw/hierarchical_wb_slave.design/1.0/hierarchical_wb_slave.design.design.1.0.xml</ipxact:name>
+		</ipxact:ipxactFile>
+	</ipxact:designs>
+	<ipxact:designConfigurations>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tut.fi" library="soc" name="SampleHW.design.designcfg" version="1.0"/>
+			<ipxact:name>../../../soc/SampleHW.design/1.0/SampleHW.design.designcfg.1.0.xml</ipxact:name>
+		</ipxact:ipxactFile>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tut.fi" library="ip.hw" name="hierarchical_wb_slave.design.designcfg" version="1.0"/>
+			<ipxact:name>../../../ip.hw/hierarchical_wb_slave.design/1.0/hierarchical_wb_slave.design.designcfg.1.0.xml</ipxact:name>
+		</ipxact:ipxactFile>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tut.fi" library="ip.hw" name="hierarchical_wb_slave.SystemC.designcfg" version="1.0"/>
+			<ipxact:name>../../../ip.hw/hierarchical_wb_slave/1.0/hierarchical_wb_slave.SystemC.designcfg.1.0.xml</ipxact:name>
+		</ipxact:ipxactFile>
+	</ipxact:designConfigurations>
+	<ipxact:vendorExtensions>
+		<kactus2:version>3,3,279,0</kactus2:version>
+	</ipxact:vendorExtensions>
+</ipxact:catalog>
