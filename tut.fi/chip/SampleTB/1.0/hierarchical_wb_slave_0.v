@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : hierarchical_wb_slave_0.v
-// Creation date : 03.02.2017
-// Creation time : 11:49:21
+// Creation date : 15.02.2017
+// Creation time : 14:13:32
 // Description   : A wishbone slave containing another wishbone slave, so now you can use a wishbone slave while using a wishbone slave.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.3.168 32-bit
+// Tool : Kactus2 3.3.384 32-bit
 // Plugin : Verilog generator 2.0
 // This file was generated based on IP-XACT component tut.fi:ip.hw:hierarchical_wb_slave:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.hw/hierarchical_wb_slave/1.0/hierarchical_wb_slave.1.0.xml
@@ -43,7 +43,6 @@ module hierarchical_wb_slave_0 #(
     // Ad-hoc wires:
     wire        sub_slave_rst_to_rst;
     wire        sub_slave_clk_to_clk;
-    wire [3:0]  sub_slave_configuration_to_tiedValue;
     wire [15:0] sub_slave_meta_o_to_meta_o;
 
     // sub_slave port wires:
@@ -75,7 +74,7 @@ module hierarchical_wb_slave_0 #(
     assign sub_slave_slave_interface_to_bus_slaveack = sub_slave_ack_o;
     assign sub_slave_adr_i[31:0] = sub_slave_slave_interface_to_bus_slaveadr[31:0];
     assign sub_slave_clk = sub_slave_clk_to_clk;
-    assign sub_slave_configuration[3:0] = sub_slave_configuration_to_tiedValue[3:0];
+    assign sub_slave_configuration[3:0] = 4'b0000;
     assign sub_slave_cyc_i = sub_slave_slave_interface_to_bus_slavecyc;
     assign sub_slave_dat_i[31:0] = sub_slave_slave_interface_to_bus_slavedat_ms[31:0];
     assign sub_slave_slave_interface_to_bus_slavedat_sm[31:0] = sub_slave_dat_o[31:0];

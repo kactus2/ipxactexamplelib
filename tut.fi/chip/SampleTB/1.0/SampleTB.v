@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : SampleTB.v
-// Creation date : 03.02.2017
-// Creation time : 11:49:21
+// Creation date : 15.02.2017
+// Creation time : 14:13:32
 // Description   : Contains TestInitializer connected to SampleHW.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.3.168 32-bit
+// Tool : Kactus2 3.3.384 32-bit
 // Plugin : Verilog generator 2.0
 // This file was generated based on IP-XACT component tut.fi:chip:SampleTB:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/chip/SampleTB/1.0/SampleTB.1.0.xml
@@ -46,7 +46,7 @@ module SampleTB();
     assign TestIntitializer_0_start_to_SampleHW_0_start = TestIntitializer_0_start;
 
     // IP-XACT VLNV: tut.fi:soc:SampleHW:1.0
-    SampleHW_0 SampleHW_0(
+    SampleHW_0     SampleHW_0(
         // These ports are not in any interface
         .clk                 (SampleHW_0_clk),
         .rst                 (SampleHW_0_rst),

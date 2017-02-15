@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : SampleHW_0.v
-// Creation date : 03.02.2017
-// Creation time : 11:49:21
+// Creation date : 15.02.2017
+// Creation time : 14:13:32
 // Description   : A hardware component containing a hardware design, which has a master component, three slaves and a bus component.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.3.168 32-bit
+// Tool : Kactus2 3.3.384 32-bit
 // Plugin : Verilog generator 2.0
 // This file was generated based on IP-XACT component tut.fi:soc:SampleHW:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/soc/SampleHW/1.0/SampleHW.1.0.xml
@@ -70,8 +70,6 @@ module SampleHW_0 #(
     wire        wb_slave_0_rst_to_rst;
     wire        hierarchical_wb_slave_0_clk_to_clk;
     wire        hierarchical_wb_slave_0_rst_to_rst;
-    wire [3:0]  wb_slave_1_configuration_to_tiedValue;
-    wire [3:0]  wb_slave_0_configuration_to_tiedValue;
     wire        metaAnalyzer_0_rst_to_rst;
     wire        metaAnalyzer_0_clk_to_clk;
     wire [15:0] wb_slave_0_meta_o_to_metaAnalyzer_0_meta_in0;
@@ -219,7 +217,7 @@ module SampleHW_0 #(
     assign wishbone_bus_0_bus_slave_1_to_wb_slave_0_slave_interfaceack = wb_slave_0_ack_o;
     assign wb_slave_0_adr_i[31:0] = wishbone_bus_0_bus_slave_1_to_wb_slave_0_slave_interfaceadr[31:0];
     assign wb_slave_0_clk = wb_slave_0_clk_to_clk;
-    assign wb_slave_0_configuration[3:0] = wb_slave_0_configuration_to_tiedValue[3:0];
+    assign wb_slave_0_configuration[3:0] = 4'b0100;
     assign wb_slave_0_cyc_i = wishbone_bus_0_bus_slave_1_to_wb_slave_0_slave_interfacecyc;
     assign wb_slave_0_dat_i[31:0] = wishbone_bus_0_bus_slave_1_to_wb_slave_0_slave_interfacedat_ms[31:0];
     assign wishbone_bus_0_bus_slave_1_to_wb_slave_0_slave_interfacedat_sm[31:0] = wb_slave_0_dat_o[31:0];
@@ -231,7 +229,7 @@ module SampleHW_0 #(
     assign master_0_master_1_to_wb_slave_1_slave_interfaceack = wb_slave_1_ack_o;
     assign wb_slave_1_adr_i[31:0] = master_0_master_1_to_wb_slave_1_slave_interfaceadr[31:0];
     assign wb_slave_1_clk = wb_slave_1_clk_to_clk;
-    assign wb_slave_1_configuration[3:0] = wb_slave_1_configuration_to_tiedValue[3:0];
+    assign wb_slave_1_configuration[3:0] = 4'b1000;
     assign wb_slave_1_cyc_i = master_0_master_1_to_wb_slave_1_slave_interfacecyc;
     assign wb_slave_1_dat_i[31:0] = master_0_master_1_to_wb_slave_1_slave_interfacedat_ms[31:0];
     assign master_0_master_1_to_wb_slave_1_slave_interfacedat_sm[31:0] = wb_slave_1_dat_o[31:0];
