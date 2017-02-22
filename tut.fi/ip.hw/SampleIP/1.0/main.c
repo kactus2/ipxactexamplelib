@@ -1,11 +1,11 @@
 int baz()
 {
-	return 0xB105;
+    return 0xB105;
 }
 
 int main()
 {
-	int foobar = baz();
-	
-	return 0;
+    int foobar = baz();
+    
+    return 0;
 }

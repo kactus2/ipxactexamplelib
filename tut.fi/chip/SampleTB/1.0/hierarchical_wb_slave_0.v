@@ -23,7 +23,7 @@ module hierarchical_wb_slave_0 #(
     input                               stb_i,    // Asserted, when this specific slave is selected.
     input                               we_i,    // Write = 1, Read = 0.
     output                              ack_o,    // Slave asserts acknowledge.
-    output         [31:0]               dat_o,    // Data from master to slave.
+    output         [31:0]               .dat_o(sub_slave_slave_interface_to_bus_slavedat_sm[31:0]),    // Data from master to slave.
 
     // These ports are not in any interface
     input                               clk,    // The mandatory clock, as this is synchronous logic.
@@ -64,7 +64,6 @@ module hierarchical_wb_slave_0 #(
     assign sub_slave_clk_to_clk = clk;
     assign sub_slave_slave_interface_to_bus_slavecyc = cyc_i;
     assign sub_slave_slave_interface_to_bus_slavedat_ms[31:0] = dat_i[31:0];
-    assign dat_o[31:0] = sub_slave_slave_interface_to_bus_slavedat_sm[31:0];
     assign meta_o[15:0] = sub_slave_meta_o_to_meta_o[15:0];
     assign sub_slave_rst_to_rst = rst;
     assign sub_slave_slave_interface_to_bus_slavestb = stb_i;

@@ -23,7 +23,7 @@ module TestIntitializer #(
 );
 
 // WARNING: EVERYTHING ON AND ABOVE THIS LINE MAY BE OVERWRITTEN BY KACTUS2!!!
-	initial begin
+    initial begin
       clk = 1'b0;
       rst = 1'b0; // assert reset
       repeat(4) #10 clk = ~clk;
@@ -31,24 +31,24 @@ module TestIntitializer #(
       forever #10 clk = ~clk; // generate a clock
    end
 
-   initial begin
-      start = 0;
-      @(posedge rst); // wait for reset
-      start = 1;
-      @(posedge clk);
-      @(posedge clk);
-      @(posedge clk);
-      start =0;  // generate the falling edge
-      #V_WAIT_TIME
-      if ( done == 1'b0 )
+    initial begin
+    start = 0;
+    @(posedge rst); // wait for reset
+    start = 1;
+    @(posedge clk);
+    @(posedge clk);
+    @(posedge clk);
+    start =0;  // generate the falling edge
+    #V_WAIT_TIME
+    if ( done == 1'b0 )
         $display("not done!");
-      else
+    else
         $display("done high");
-        
-      if ( meta_ok == 1'b0 )
+    
+    if ( meta_ok == 1'b0 )
         $display("meta not ok!");
-      else
+    else
         $display("meta ok high");
-      $stop;
-   end
+        $stop;
+    end
 endmodule

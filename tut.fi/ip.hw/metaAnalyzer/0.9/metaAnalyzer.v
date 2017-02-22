@@ -31,8 +31,8 @@ module metaAnalyzer #(
     reg meta_ok0;
     reg meta_ok1;
     reg meta_ok2;
-	 
-	 assign meta_ok = meta_ok0 & meta_ok1 & meta_ok2;
+     
+     assign meta_ok = meta_ok0 & meta_ok1 & meta_ok2;
 
     always @(posedge clk or negedge rst) begin
         if(rst == 1'b0) begin
