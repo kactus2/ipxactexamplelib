@@ -3,29 +3,29 @@
 
 SC_MODULE (wishbone_bus)
 {
-    sc_out<bool>                                cyc_i_0; // Asserted by master for transfer.
-    sc_out<bool>                                stb_i_0; // Asserted, when this specific slave is selected.
-    sc_in<bool>                                    ack_o_0; // Slave asserts acknowledge.
-    sc_out<bool>                                we_i_0; // Write = 1, Read = 0.
-    sc_in<sc_uint<DATA_WIDTH> >        dat_o_0; // Data from master to slave.
+    sc_out<bool>                    cyc_i_0; // Asserted by master for transfer.
+    sc_out<bool>                    stb_i_0; // Asserted, when this specific slave is selected.
+    sc_in<bool>                     ack_o_0; // Slave asserts acknowledge.
+    sc_out<bool>                    we_i_0; // Write = 1, Read = 0.
+    sc_in<sc_uint<DATA_WIDTH> >     dat_o_0; // Data from master to slave.
     sc_out<sc_uint<DATA_WIDTH> >    dat_i_0; // Data from slave to master.
     sc_out<sc_uint<ADDR_WIDTH> >    adr_i_0; // The address of the data.
     
-    sc_out<bool>                                cyc_i_1; // Asserted by master for transfer.
-    sc_out<bool>                                stb_i_1; // Asserted, when this specific slave is selected.
-    sc_in<bool>                                    ack_o_1; // Slave asserts acknowledge.
-    sc_out<bool>                                we_i_1; // Write = 1, Read = 0.
-    sc_in<sc_uint<DATA_WIDTH> >        dat_o_1; // Data from master to slave.
+    sc_out<bool>                    cyc_i_1; // Asserted by master for transfer.
+    sc_out<bool>                    stb_i_1; // Asserted, when this specific slave is selected.
+    sc_in<bool>                     ack_o_1; // Slave asserts acknowledge.
+    sc_out<bool>                    we_i_1; // Write = 1, Read = 0.
+    sc_in<sc_uint<DATA_WIDTH> >     dat_o_1; // Data from master to slave.
     sc_out<sc_uint<DATA_WIDTH> >    dat_i_1; // Data from slave to master.
     sc_out<sc_uint<ADDR_WIDTH> >    adr_i_1; // The address of the data.
     
-    sc_in<bool>                                    cyc_o_master; // Asserted by master for transfer.
-    sc_in<bool>                                    stb_o_master; // Asserted by master for transfer.
-    sc_out<bool>                                ack_i_master; // Slave asserts acknowledge.
-    sc_in<bool>                                    we_o_master; // Write = 1, Read = 0.
-    sc_in<sc_uint<DATA_WIDTH> >        dat_o_master; // Data from master to slave.
+    sc_in<bool>                     cyc_o_master; // Asserted by master for transfer.
+    sc_in<bool>                     stb_o_master; // Asserted by master for transfer.
+    sc_out<bool>                    ack_i_master; // Slave asserts acknowledge.
+    sc_in<bool>                     we_o_master; // Write = 1, Read = 0.
+    sc_in<sc_uint<DATA_WIDTH> >     dat_o_master; // Data from master to slave.
     sc_out<sc_uint<DATA_WIDTH> >    dat_i_master; // Data from slave to master.
-    sc_in<sc_uint<ADDR_WIDTH> >    adr_o_master; // The address of the data
+    sc_in<sc_uint<ADDR_WIDTH> >     adr_o_master; // The address of the data
 
     void run()
     {
