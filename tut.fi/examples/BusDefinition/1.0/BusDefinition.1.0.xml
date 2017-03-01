@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipxact:catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+	<ipxact:vendor>tut.fi</ipxact:vendor>
+	<ipxact:library>examples</ipxact:library>
+	<ipxact:name>BusDefinition</ipxact:name>
+	<ipxact:version>1.0</ipxact:version>
+	<ipxact:description>This catalog contains all the IP-XACT files used in the Bus Definition video tutorial for Kactus2. The top-level component is tut.fi:ip.hw:spi_example:1.0.</ipxact:description>
+	<ipxact:busDefinitions>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tut.fi" library="ip.ifc" name="SPI" version="1.0"/>
+			<ipxact:name>../../../ip.ifc/SPI/1.0/SPI.1.0.xml</ipxact:name>
+		</ipxact:ipxactFile>
+	</ipxact:busDefinitions>
+	<ipxact:abstractionDefinitions>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tut.fi" library="ip.ifc" name="SPI.absDef" version="1.0"/>
+			<ipxact:name>../../../ip.ifc/SPI/1.0/SPI.absDef.1.0.xml</ipxact:name>
+		</ipxact:ipxactFile>
+	</ipxact:abstractionDefinitions>
+	<ipxact:components>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tut.fi" library="ip.com" name="spi_master" version="1.0"/>
+			<ipxact:name>../../../ip.com/spi_master/1.0/spi_master.1.0.xml</ipxact:name>
+		</ipxact:ipxactFile>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tut.fi" library="ip.com" name="spi_slave" version="1.0"/>
+			<ipxact:name>../../../ip.com/spi_slave/1.0/spi_slave.1.0.xml</ipxact:name>
+		</ipxact:ipxactFile>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tut.fi" library="ip.hw" name="spi_example" version="1.0"/>
+			<ipxact:name>../../../ip.hw/spi_example/1.0/spi_example.1.0.xml</ipxact:name>
+		</ipxact:ipxactFile>
+	</ipxact:components>
+	<ipxact:designs>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tut.fi" library="ip.hw" name="spi_example.bus_design.design" version="1.0_bus"/>
+			<ipxact:name>../../../ip.hw/spi_example.bus_design/1.0_bus/spi_example.bus_design.design.1.0_bus.xml</ipxact:name>
+		</ipxact:ipxactFile>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tut.fi" library="ip.hw" name="spi_example.design" version="1.0_adhoc"/>
+			<ipxact:name>../../../ip.hw/spi_example/1.0/spi_example.design.1.0_adhoc.xml</ipxact:name>
+		</ipxact:ipxactFile>
+	</ipxact:designs>
+	<ipxact:designConfigurations>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tut.fi" library="ip.hw" name="spi_example.designcfg" version="1.0_adhoc"/>
+			<ipxact:name>../../../ip.hw/spi_example/1.0/spi_example.designcfg.1.0_adhoc.xml</ipxact:name>
+		</ipxact:ipxactFile>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tut.fi" library="ip.hw" name="spi_example.bus_design.designcfg" version="1.0_bus"/>
+			<ipxact:name>../../../ip.hw/spi_example.bus_design/1.0_bus/spi_example.bus_design.designcfg.1.0_bus.xml</ipxact:name>
+		</ipxact:ipxactFile>
+	</ipxact:designConfigurations>
+	<ipxact:vendorExtensions>
+		<kactus2:version>3,3,318,0</kactus2:version>
+	</ipxact:vendorExtensions>
+</ipxact:catalog>

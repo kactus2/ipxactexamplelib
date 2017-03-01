@@ -58,10 +58,6 @@
 			<ipxact:vlnv vendor="tut.fi" library="ip.hw" name="hierarchical_wb_slave.design.designcfg" version="1.0"/>
 			<ipxact:name>../../../ip.hw/hierarchical_wb_slave.design/1.0/hierarchical_wb_slave.design.designcfg.1.0.xml</ipxact:name>
 		</ipxact:ipxactFile>
-		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="ip.hw" name="hierarchical_wb_slave.SystemC.designcfg" version="1.0"/>
-			<ipxact:name>../../../ip.hw/hierarchical_wb_slave/1.0/hierarchical_wb_slave.SystemC.designcfg.1.0.xml</ipxact:name>
-		</ipxact:ipxactFile>
 	</ipxact:designConfigurations>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,3,279,0</kactus2:version>

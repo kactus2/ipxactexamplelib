@@ -49,7 +49,7 @@
 			<ipxact:file>
 				<ipxact:name>hierarchical_wb_slave_0.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 14:13:34 on 15.02.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 14:10:32 on 22.02.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
 					<kactus2:hash>ea678c7d5fb6c20e91db02d5ab0b661f5932f97b</kactus2:hash>
 				</ipxact:vendorExtensions>
@@ -57,7 +57,7 @@
 			<ipxact:file>
 				<ipxact:name>SampleHW_0.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 14:13:34 on 15.02.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 14:10:32 on 22.02.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
 					<kactus2:hash>3aede7f72fac43928c1419631978435a6a896c92</kactus2:hash>
 				</ipxact:vendorExtensions>
@@ -65,7 +65,7 @@
 			<ipxact:file>
 				<ipxact:name>SampleTB.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 14:13:34 on 15.02.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 14:10:32 on 22.02.2017 by Kactus2. </ipxact:description>
 			</ipxact:file>
 		</ipxact:fileSet>
 		<ipxact:fileSet>

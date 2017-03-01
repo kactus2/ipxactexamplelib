@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : SampleTB.v
-// Creation date : 15.02.2017
-// Creation time : 14:13:32
+// Creation date : 22.02.2017
+// Creation time : 14:10:26
 // Description   : Contains TestInitializer connected to SampleHW.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.3.384 32-bit
+// Tool : Kactus2 3.3.495 32-bit
 // Plugin : Verilog generator 2.0
 // This file was generated based on IP-XACT component tut.fi:chip:SampleTB:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/chip/SampleTB/1.0/SampleTB.1.0.xml

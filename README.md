@@ -12,3 +12,5 @@ See video tutorials at: https://www.youtube.com/user/Kactus2Tutorial
 * Getting Started: tut.fi:examples:GettingStarted:1.0
 * Component Editor: tut.fi:examples:ComponentEditor:1.0
 * Design Editor: tut.fi:examples:DesignEditor:1.0
+* Verilog Generation: tut.fi:examples:VerilogGeneration:1.0
+* Bus Definition: tut.fi:examples:BusDefinition:1.0
