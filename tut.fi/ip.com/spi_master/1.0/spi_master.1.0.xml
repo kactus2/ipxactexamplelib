@@ -58,12 +58,6 @@
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
 								<ipxact:name>slave_select2_out</ipxact:name>
-								<ipxact:partSelect>
-									<ipxact:range>
-										<ipxact:left>0</ipxact:left>
-										<ipxact:right>0</ipxact:right>
-									</ipxact:range>
-								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 						<ipxact:portMap>

@@ -8,6 +8,7 @@
 	<ipxact:ports>
 		<ipxact:port>
 			<ipxact:logicalName>MISO</ipxact:logicalName>
+			<ipxact:description>Master input, slave output.</ipxact:description>
 			<ipxact:wire>
 				<ipxact:onMaster>
 					<ipxact:width>1</ipxact:width>
@@ -21,6 +22,7 @@
 		</ipxact:port>
 		<ipxact:port>
 			<ipxact:logicalName>MOSI</ipxact:logicalName>
+			<ipxact:description>Master output, slave input.</ipxact:description>
 			<ipxact:wire>
 				<ipxact:onMaster>
 					<ipxact:width>1</ipxact:width>
@@ -34,6 +36,7 @@
 		</ipxact:port>
 		<ipxact:port>
 			<ipxact:logicalName>SCLK</ipxact:logicalName>
+			<ipxact:description>Clock from master to slave.</ipxact:description>
 			<ipxact:wire>
 				<ipxact:onMaster>
 					<ipxact:width>1</ipxact:width>
@@ -47,6 +50,7 @@
 		</ipxact:port>
 		<ipxact:port>
 			<ipxact:logicalName>SS</ipxact:logicalName>
+			<ipxact:description>Slave select, may have variable number of bits.</ipxact:description>
 			<ipxact:wire>
 				<ipxact:onMaster>
 					<ipxact:direction>out</ipxact:direction>
@@ -58,6 +62,6 @@
 		</ipxact:port>
 	</ipxact:ports>
 	<ipxact:vendorExtensions>
-		<kactus2:version>3,3,506,0</kactus2:version>
+		<kactus2:version>3,3,515,0</kactus2:version>
 	</ipxact:vendorExtensions>
 </ipxact:abstractionDefinition>

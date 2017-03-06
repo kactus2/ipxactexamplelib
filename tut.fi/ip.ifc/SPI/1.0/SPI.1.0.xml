@@ -7,7 +7,8 @@
 	<ipxact:directConnection>true</ipxact:directConnection>
 	<ipxact:isAddressable>false</ipxact:isAddressable>
 	<ipxact:maxMasters>1</ipxact:maxMasters>
+	<ipxact:description>Serial Peripheral Interface bus for multislave full duplex communication.</ipxact:description>
 	<ipxact:vendorExtensions>
-		<kactus2:version>3,3,506,0</kactus2:version>
+		<kactus2:version>3,3,515,0</kactus2:version>
 	</ipxact:vendorExtensions>
 </ipxact:busDefinition>
