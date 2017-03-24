@@ -632,7 +632,7 @@
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_d0fe4fa7_e3eb_4fec_a7f9_9f3eac6b8c04" resolve="user" usageCount="1">
 			<ipxact:name>MASTER_1_BASE_ADDRESS</ipxact:name>
-			<ipxact:description>The first referable address of master1. Is substracted from input address.</ipxact:description>
+			<ipxact:description>The first referred address of master1.</ipxact:description>
 			<ipxact:value>64</ipxact:value>
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_637f6d26_180c_487c_a7e9_688b55488841" resolve="user" usageCount="5">
@@ -647,7 +647,7 @@
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_e2414448_9d04_40bd_af10_8061a5e4ae7c" resolve="user" usageCount="1">
 			<ipxact:name>MASTER_0_BASE_ADDRESS</ipxact:name>
-			<ipxact:description>The first referable address of master0. Is substracted from input address.</ipxact:description>
+			<ipxact:description>The first referred address of master0.</ipxact:description>
 			<ipxact:value>0</ipxact:value>
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_1df2671d_ba36_4c32_9873_65ad286aedf3">

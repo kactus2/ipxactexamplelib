@@ -14,18 +14,18 @@
 					<ipxact:portMaps>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>clk</ipxact:name>
+								<ipxact:name>rst</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>clk</ipxact:name>
+								<ipxact:name>rst_o</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>rst</ipxact:name>
+								<ipxact:name>clk</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>rst</ipxact:name>
+								<ipxact:name>clk_o</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 					</ipxact:portMaps>
@@ -55,7 +55,7 @@
 		</ipxact:instantiations>
 		<ipxact:ports>
 			<ipxact:port>
-				<ipxact:name>clk</ipxact:name>
+				<ipxact:name>clk_o</ipxact:name>
 				<ipxact:description>The mandatory clock, as this is synchronous logic.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
@@ -68,7 +68,7 @@
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>rst</ipxact:name>
+				<ipxact:name>rst_o</ipxact:name>
 				<ipxact:description>The mandatory reset, as this is synchronous logic.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
@@ -88,16 +88,19 @@
 			<ipxact:file>
 				<ipxact:name>TestClockSource.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 09:12:05 on 24.03.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 13:14:39 on 24.03.2017 by Kactus2. </ipxact:description>
+				<ipxact:vendorExtensions>
+					<kactus2:hash>4112318d275fe50d9ee9beada6eaaa0eec3cf77b</kactus2:hash>
+				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
-	<ipxact:description>A bare bones verilog test bench, which is used to assert reset, generate clock, give start signal and finally check after WAIT_TIME, if the done is asserted.</ipxact:description>
+	<ipxact:description>A clock source for simulations. Will also assert and deassert reset and terminate the simulation after WAIT_TIME has passed since the deassertion.</ipxact:description>
 	<ipxact:parameters>
 		<ipxact:parameter parameterId="uuid_d3a6969c_8076_4ad3_9b17_763b80d83ec8" resolve="user">
 			<ipxact:name>WAIT_TIME</ipxact:name>
 			<ipxact:description>How long to wait after reset is deassereted.</ipxact:description>
-			<ipxact:value>1000</ipxact:value>
+			<ipxact:value>1500</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

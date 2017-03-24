@@ -5,7 +5,7 @@
 	<ipxact:name>wishbone</ipxact:name>
 	<ipxact:version>b4</ipxact:version>
 	<ipxact:directConnection>true</ipxact:directConnection>
-	<ipxact:broadcast>true</ipxact:broadcast>
+	<ipxact:broadcast>false</ipxact:broadcast>
 	<ipxact:isAddressable>true</ipxact:isAddressable>
 	<ipxact:systemGroupNames>
 		<ipxact:systemGroupName>ClockSource</ipxact:systemGroupName>
@@ -13,5 +13,7 @@
 	</ipxact:systemGroupNames>
 	<ipxact:description>Specification of wishbone bus is available at: http://cdn.opencores.org/downloads/wbspec_b4.pdf
 
-Tag types are also ommitted.</ipxact:description>
+Clock and reset signals are not specifically master-to-slave signals nor vice versa, but instead they come from a third party that assumes neither mode.
+
+Notice that while multiple slaves and masters are supported, broadcasts are not. Thus an arbiter will be required.</ipxact:description>
 </ipxact:busDefinition>

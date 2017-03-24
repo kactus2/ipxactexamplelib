@@ -63,11 +63,11 @@
 					<ipxact:isData>true</ipxact:isData>
 				</ipxact:qualifier>
 				<ipxact:onMaster>
-					<ipxact:presence>required</ipxact:presence>
+					<ipxact:presence>optional</ipxact:presence>
 					<ipxact:direction>in</ipxact:direction>
 				</ipxact:onMaster>
 				<ipxact:onSlave>
-					<ipxact:presence>required</ipxact:presence>
+					<ipxact:presence>optional</ipxact:presence>
 					<ipxact:direction>out</ipxact:direction>
 				</ipxact:onSlave>
 			</ipxact:wire>
@@ -80,11 +80,11 @@
 					<ipxact:isData>true</ipxact:isData>
 				</ipxact:qualifier>
 				<ipxact:onMaster>
-					<ipxact:presence>required</ipxact:presence>
+					<ipxact:presence>optional</ipxact:presence>
 					<ipxact:direction>out</ipxact:direction>
 				</ipxact:onMaster>
 				<ipxact:onSlave>
-					<ipxact:presence>required</ipxact:presence>
+					<ipxact:presence>optional</ipxact:presence>
 					<ipxact:direction>in</ipxact:direction>
 				</ipxact:onSlave>
 			</ipxact:wire>
@@ -94,16 +94,15 @@
 			<ipxact:description>Slave indicates abnormal cycle termination. Cause for this is defined by IP supplier.</ipxact:description>
 			<ipxact:wire>
 				<ipxact:onMaster>
-					<ipxact:presence>required</ipxact:presence>
+					<ipxact:presence>optional</ipxact:presence>
 					<ipxact:width>1</ipxact:width>
 					<ipxact:direction>in</ipxact:direction>
 				</ipxact:onMaster>
 				<ipxact:onSlave>
-					<ipxact:presence>required</ipxact:presence>
+					<ipxact:presence>optional</ipxact:presence>
 					<ipxact:width>1</ipxact:width>
 					<ipxact:direction>out</ipxact:direction>
 				</ipxact:onSlave>
-				<ipxact:defaultValue>0</ipxact:defaultValue>
 			</ipxact:wire>
 		</ipxact:port>
 		<ipxact:port>
@@ -120,7 +119,6 @@
 					<ipxact:width>1</ipxact:width>
 					<ipxact:direction>out</ipxact:direction>
 				</ipxact:onSlave>
-				<ipxact:defaultValue>0</ipxact:defaultValue>
 			</ipxact:wire>
 		</ipxact:port>
 		<ipxact:port>
@@ -158,12 +156,12 @@
 			<ipxact:description>Write enable: Negated during READ cycles and asserted during WRITE cycles.</ipxact:description>
 			<ipxact:wire>
 				<ipxact:onMaster>
-					<ipxact:presence>required</ipxact:presence>
+					<ipxact:presence>optional</ipxact:presence>
 					<ipxact:width>1</ipxact:width>
 					<ipxact:direction>out</ipxact:direction>
 				</ipxact:onMaster>
 				<ipxact:onSlave>
-					<ipxact:presence>required</ipxact:presence>
+					<ipxact:presence>optional</ipxact:presence>
 					<ipxact:width>1</ipxact:width>
 					<ipxact:direction>in</ipxact:direction>
 				</ipxact:onSlave>
@@ -205,6 +203,9 @@
 			<ipxact:logicalName>rst</ipxact:logicalName>
 			<ipxact:description>Reset for reset cycle</ipxact:description>
 			<ipxact:wire>
+				<ipxact:qualifier>
+					<ipxact:isReset>true</ipxact:isReset>
+				</ipxact:qualifier>
 				<ipxact:onSystem>
 					<ipxact:group>ClockSink</ipxact:group>
 					<ipxact:presence>required</ipxact:presence>
@@ -221,6 +222,9 @@
 			<ipxact:logicalName>clk</ipxact:logicalName>
 			<ipxact:description>Clock to phase the bus cycles.</ipxact:description>
 			<ipxact:wire>
+				<ipxact:qualifier>
+					<ipxact:isClock>true</ipxact:isClock>
+				</ipxact:qualifier>
 				<ipxact:onSystem>
 					<ipxact:group>ClockSink</ipxact:group>
 					<ipxact:presence>required</ipxact:presence>
@@ -231,6 +235,34 @@
 					<ipxact:presence>required</ipxact:presence>
 					<ipxact:direction>out</ipxact:direction>
 				</ipxact:onSystem>
+			</ipxact:wire>
+		</ipxact:port>
+		<ipxact:port>
+			<ipxact:logicalName>tga</ipxact:logicalName>
+			<ipxact:description>Cycle tag type, used to tag bus cycle.</ipxact:description>
+			<ipxact:wire>
+				<ipxact:onMaster>
+					<ipxact:presence>optional</ipxact:presence>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onMaster>
+				<ipxact:onSlave>
+					<ipxact:presence>optional</ipxact:presence>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onSlave>
+			</ipxact:wire>
+		</ipxact:port>
+		<ipxact:port>
+			<ipxact:logicalName>tgc</ipxact:logicalName>
+			<ipxact:description>Address tag type, contains information associated with address lines.</ipxact:description>
+			<ipxact:wire>
+				<ipxact:onMaster>
+					<ipxact:presence>optional</ipxact:presence>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onMaster>
+				<ipxact:onSlave>
+					<ipxact:presence>optional</ipxact:presence>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onSlave>
 			</ipxact:wire>
 		</ipxact:port>
 	</ipxact:ports>
