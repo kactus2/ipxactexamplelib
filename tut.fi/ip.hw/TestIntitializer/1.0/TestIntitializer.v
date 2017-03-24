@@ -32,23 +32,23 @@ module TestIntitializer #(
    end
 
     initial begin
-    start = 0;
-    @(posedge rst); // wait for reset
-    start = 1;
-    @(posedge clk);
-    @(posedge clk);
-    @(posedge clk);
-    start =0;  // generate the falling edge
-    #V_WAIT_TIME
-    if ( done == 1'b0 )
-        $display("not done!");
-    else
-        $display("done high");
-    
-    if ( meta_ok == 1'b0 )
-        $display("meta not ok!");
-    else
-        $display("meta ok high");
+        start = 0;
+        @(posedge rst); // wait for reset
+        start = 1;
+        @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
+        start =0;  // generate the falling edge
+        #V_WAIT_TIME
+        if ( done == 1'b0 )
+            $display("not done!");
+        else
+            $display("done high");
+        
+        if ( meta_ok == 1'b0 )
+            $display("meta not ok!");
+        else
+            $display("meta ok high");
         $stop;
     end
 endmodule
