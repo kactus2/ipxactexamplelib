@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
-	<ipxact:library>test_bench</ipxact:library>
+	<ipxact:library>testBench</ipxact:library>
 	<ipxact:name>wishbone</ipxact:name>
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:model>
@@ -14,12 +14,8 @@
 		<ipxact:instantiations>
 			<ipxact:designInstantiation>
 				<ipxact:name>wishbone.hierarchical.design_1.0</ipxact:name>
-				<ipxact:designRef vendor="tut.fi" library="test_bench" name="wishbone.hierarchical.design" version="1.0"/>
+				<ipxact:designRef vendor="tut.fi" library="testBench" name="wishbone.hierarchical.design" version="1.0"/>
 			</ipxact:designInstantiation>
-			<ipxact:designConfigurationInstantiation>
-				<ipxact:name>wishbone.hierarchical.designcfg_1.0</ipxact:name>
-				<ipxact:designConfigurationRef vendor="tut.fi" library="test_bench" name="wishbone.hierarchical.designcfg" version="1.0"/>
-			</ipxact:designConfigurationInstantiation>
 		</ipxact:instantiations>
 	</ipxact:model>
 	<ipxact:fileSets>
@@ -28,7 +24,7 @@
 			<ipxact:file>
 				<ipxact:name>wishbone.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 14:17:34 on 24.03.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 11:08:35 on 27.03.2017 by Kactus2. </ipxact:description>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>

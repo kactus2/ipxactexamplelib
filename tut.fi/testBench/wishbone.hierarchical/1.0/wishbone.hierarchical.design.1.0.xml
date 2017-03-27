@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ipxact:design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
-	<ipxact:library>test_bench</ipxact:library>
+	<ipxact:library>testBench</ipxact:library>
 	<ipxact:name>wishbone.hierarchical.design</ipxact:name>
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:componentInstances>
-		<ipxact:componentInstance>
-			<ipxact:instanceName>wb_test_master_0</ipxact:instanceName>
-			<ipxact:componentRef vendor="tut.fi" library="test_bench" name="wb_test_master" version="1.0"/>
-			<ipxact:vendorExtensions>
-				<kactus2:uuid>{c0fafea5-6185-431c-ab04-e90cec0305ea}</kactus2:uuid>
-				<kactus2:position x="160" y="60"/>
-			</ipxact:vendorExtensions>
-		</ipxact:componentInstance>
 		<ipxact:componentInstance>
 			<ipxact:instanceName>wb_slave_template_0</ipxact:instanceName>
 			<ipxact:componentRef vendor="tut.fi" library="ip.hw" name="wb_slave_template" version="1.0"/>
@@ -22,14 +14,26 @@
 			</ipxact:vendorExtensions>
 		</ipxact:componentInstance>
 		<ipxact:componentInstance>
-			<ipxact:instanceName>TestClockSource_0</ipxact:instanceName>
-			<ipxact:componentRef vendor="tut.fi" library="test_bench" name="TestClockSource" version="1.0"/>
+			<ipxact:instanceName>wb_test_master_0</ipxact:instanceName>
+			<ipxact:componentRef vendor="tut.fi" library="testBench" name="wb_test_master" version="1.0"/>
 			<ipxact:vendorExtensions>
-				<kactus2:uuid>{028988b7-0a0e-45c3-b8d5-b571142762dc}</kactus2:uuid>
-				<kactus2:position x="160" y="240"/>
+				<kactus2:uuid>{762bd010-afc4-4298-a9e3-e2f2d61455b6}</kactus2:uuid>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="wb_system" x="-110" y="40"/>
+					<kactus2:portPosition busRef="wb_master" x="110" y="40"/>
+				</kactus2:portPositions>
+				<kactus2:position x="160" y="60"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>TestClockSource_0</ipxact:instanceName>
+			<ipxact:componentRef vendor="tut.fi" library="testBench" name="TestClockSource" version="1.0"/>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{a1622169-6360-4246-8571-e57919d4bf1a}</kactus2:uuid>
 				<kactus2:portPositions>
 					<kactus2:portPosition busRef="wb_system" x="-110" y="40"/>
 				</kactus2:portPositions>
+				<kactus2:position x="160" y="240"/>
 			</ipxact:vendorExtensions>
 		</ipxact:componentInstance>
 	</ipxact:componentInstances>
@@ -73,8 +77,8 @@
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="wb_slave_template_0_wb_slave_to_wb_test_master_0_wb_master" kactus2:offPage="false">
 				<kactus2:position x="270" y="190"/>
-				<kactus2:position x="290" y="190"/>
-				<kactus2:position x="290" y="100"/>
+				<kactus2:position x="300" y="190"/>
+				<kactus2:position x="300" y="100"/>
 				<kactus2:position x="270" y="100"/>
 			</kactus2:route>
 		</kactus2:routes>

@@ -1,13 +1,13 @@
 //-----------------------------------------------------------------------------
 // File          : wishbone.v
-// Creation date : 24.03.2017
-// Creation time : 14:17:32
+// Creation date : 27.03.2017
+// Creation time : 11:08:33
 // Description   : 
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.6 32-bit
+// Tool : Kactus2 3.4.4 32-bit
 // Plugin : Verilog generator 2.0d
-// This file was generated based on IP-XACT component tut.fi:test_bench:wishbone:1.0
-// whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/test_bench/wishbone/1.0/wishbone.1.0.xml
+// This file was generated based on IP-XACT component tut.fi:testBench:wishbone:1.0
+// whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/testBench/wishbone/1.0/wishbone.1.0.xml
 //-----------------------------------------------------------------------------
 
 module wishbone();
@@ -77,7 +77,7 @@ module wishbone();
     assign wb_slave_template_0_wb_slave_to_wb_test_master_0_wb_masterstb = wb_test_master_0_stb_o;
     assign wb_slave_template_0_wb_slave_to_wb_test_master_0_wb_masterwe = wb_test_master_0_we_o;
 
-    // IP-XACT VLNV: tut.fi:test_bench:TestClockSource:1.0
+    // IP-XACT VLNV: tut.fi:testBench:TestClockSource:1.0
     TestClockSource #(
         .WAIT_TIME           (1500))
     TestClockSource_0(
@@ -86,7 +86,7 @@ module wishbone();
         .rst_o               (TestClockSource_0_rst_o));
 
     // IP-XACT VLNV: tut.fi:ip.hw:wb_slave_template:1.0
-    wb_slave_template #(
+    wb_slave #(
         .ADDR_WIDTH          (16),
         .DATA_WIDTH          (32),
         .DATA_COUNT          (8),
@@ -105,8 +105,8 @@ module wishbone();
         .clk_i               (wb_slave_template_0_clk_i),
         .rst_i               (wb_slave_template_0_rst_i));
 
-    // IP-XACT VLNV: tut.fi:test_bench:wb_test_master:1.0
-    wb_test_master #(
+    // IP-XACT VLNV: tut.fi:testBench:wb_test_master:1.0
+    wb_master #(
         .ADDR_WIDTH          (16),
         .DATA_COUNT          (8),
         .DATA_WIDTH          (32),

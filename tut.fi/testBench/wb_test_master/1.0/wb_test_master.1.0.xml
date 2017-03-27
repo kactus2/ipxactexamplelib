@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
-	<ipxact:library>test_bench</ipxact:library>
+	<ipxact:library>testBench</ipxact:library>
 	<ipxact:name>wb_test_master</ipxact:name>
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:busInterfaces>
@@ -129,9 +129,7 @@
 					</ipxact:portMaps>
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
-			<ipxact:master>
-				<ipxact:addressSpaceRef ipxact:addressSpaceRef="bus_space"/>
-			</ipxact:master>
+			<ipxact:master/>
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>wb_system</ipxact:name>
@@ -164,21 +162,6 @@
 			</ipxact:system>
 		</ipxact:busInterface>
 	</ipxact:busInterfaces>
-	<ipxact:addressSpaces>
-		<ipxact:addressSpace>
-			<ipxact:name>bus_space</ipxact:name>
-			<ipxact:range>uuid_637f6d26_180c_487c_a7e9_688b55488841</ipxact:range>
-			<ipxact:width>uuid_fe30a511_9701_4142_b340_223777d1b857</ipxact:width>
-			<ipxact:segments>
-				<ipxact:segment>
-					<ipxact:name>peripherals</ipxact:name>
-					<ipxact:addressOffset>'h0</ipxact:addressOffset>
-					<ipxact:range>uuid_637f6d26_180c_487c_a7e9_688b55488841</ipxact:range>
-				</ipxact:segment>
-			</ipxact:segments>
-			<ipxact:addressUnitBits>8</ipxact:addressUnitBits>
-		</ipxact:addressSpace>
-	</ipxact:addressSpaces>
 	<ipxact:model>
 		<ipxact:views>
 			<ipxact:view>
@@ -430,12 +413,12 @@
 			<ipxact:description>The width of the address.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_637f6d26_180c_487c_a7e9_688b55488841" resolve="user" usageCount="3">
+		<ipxact:parameter parameterId="uuid_637f6d26_180c_487c_a7e9_688b55488841" resolve="user" usageCount="1">
 			<ipxact:name>DATA_COUNT</ipxact:name>
 			<ipxact:description>How many values there are in the register array.</ipxact:description>
 			<ipxact:value>8</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_fe30a511_9701_4142_b340_223777d1b857" resolve="user" usageCount="7">
+		<ipxact:parameter parameterId="uuid_fe30a511_9701_4142_b340_223777d1b857" resolve="user" usageCount="6">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
 			<ipxact:value>32</ipxact:value>

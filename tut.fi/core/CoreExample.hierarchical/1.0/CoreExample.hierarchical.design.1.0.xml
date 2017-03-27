@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipxact:design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+	<ipxact:vendor>tut.fi</ipxact:vendor>
+	<ipxact:library>core</ipxact:library>
+	<ipxact:name>CoreExample.hierarchical.design</ipxact:name>
+	<ipxact:version>1.0</ipxact:version>
+	<ipxact:componentInstances>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>memoryController</ipxact:instanceName>
+			<ipxact:componentRef vendor="" library="" name="" version=""/>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{f1c6783b-2438-4b40-8336-11bce25429cd}</kactus2:uuid>
+				<kactus2:draft/>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="bus" x="-110" y="40"/>
+					<kactus2:portPosition busRef="bus_1" x="110" y="40"/>
+				</kactus2:portPositions>
+				<kactus2:position x="280" y="60"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>alu</ipxact:instanceName>
+			<ipxact:componentRef vendor="" library="" name="" version=""/>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{058f52f8-3b86-436b-93f1-3857ea473cac}</kactus2:uuid>
+				<kactus2:draft/>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="bus" x="110" y="40"/>
+				</kactus2:portPositions>
+				<kactus2:position x="280" y="150"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>instruction_decoder</ipxact:instanceName>
+			<ipxact:componentRef vendor="tut.fi" library="core" name="instruction_decoder" version="1.0">
+				<ipxact:configurableElementValues>
+					<ipxact:configurableElementValue referenceId="uuid_762fbf84_805d_4c16_bb3b_39c8d2b431a2">uuid_8c69d7e2_8840_4623_b3a1_be6efaa4db1b</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_9641f7b1_19d4_49d4_95c8_cae15e0c612d">uuid_240da555_796c_42e9_b09d_9769b11e8ac7</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_46bdcbbd_81e4_4fb2_8c74_219eb3408e96">uuid_fd462923_54e9_4b79_8af5_d7cd29d5bfa4</ipxact:configurableElementValue>
+				</ipxact:configurableElementValues>
+			</ipxact:componentRef>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{efd2a422-aea0-4145-acf5-293eb1ff8900}</kactus2:uuid>
+				<kactus2:adHocVisibilities>
+					<kactus2:adHocVisible portName="register_result" x="-110" y="100"/>
+					<kactus2:adHocVisible portName="instruction_feed" x="-110" y="40"/>
+					<kactus2:adHocVisible portName="result_ok" x="-110" y="70"/>
+				</kactus2:adHocVisibilities>
+				<kactus2:position x="280" y="240"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+	</ipxact:componentInstances>
+	<ipxact:interconnections>
+		<ipxact:interconnection>
+			<ipxact:name>memoryController_bus_to_bus</ipxact:name>
+			<ipxact:activeInterface componentRef="memoryController" busRef="bus"/>
+			<ipxact:hierInterface busRef="bus"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>instruction_decoder_cpu_interface_to_alu_bus</ipxact:name>
+			<ipxact:activeInterface componentRef="instruction_decoder" busRef="cpu_interface"/>
+			<ipxact:activeInterface componentRef="alu" busRef="bus"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>instruction_decoder_cpu_interface_to_memoryController_bus_1</ipxact:name>
+			<ipxact:activeInterface componentRef="instruction_decoder" busRef="cpu_interface"/>
+			<ipxact:activeInterface componentRef="memoryController" busRef="bus_1"/>
+		</ipxact:interconnection>
+	</ipxact:interconnections>
+	<ipxact:adHocConnections>
+		<ipxact:adHocConnection>
+			<ipxact:name>instruction_decoder_instruction_feed_to_instruction_feed</ipxact:name>
+			<ipxact:portReferences>
+				<ipxact:internalPortReference componentRef="instruction_decoder" portRef="instruction_feed"/>
+				<ipxact:externalPortReference portRef="instruction_feed"/>
+			</ipxact:portReferences>
+		</ipxact:adHocConnection>
+		<ipxact:adHocConnection>
+			<ipxact:name>instruction_decoder_register_result_to_register_result</ipxact:name>
+			<ipxact:portReferences>
+				<ipxact:internalPortReference componentRef="instruction_decoder" portRef="register_result"/>
+				<ipxact:externalPortReference portRef="register_result"/>
+			</ipxact:portReferences>
+		</ipxact:adHocConnection>
+		<ipxact:adHocConnection>
+			<ipxact:name>instruction_decoder_result_ok_to_result_ok</ipxact:name>
+			<ipxact:portReferences>
+				<ipxact:internalPortReference componentRef="instruction_decoder" portRef="result_ok"/>
+				<ipxact:externalPortReference portRef="result_ok"/>
+			</ipxact:portReferences>
+		</ipxact:adHocConnection>
+	</ipxact:adHocConnections>
+	<ipxact:vendorExtensions>
+		<kactus2:version>3,4,4,0</kactus2:version>
+		<kactus2:kts_attributes>
+			<kactus2:kts_implementation>HW</kactus2:kts_implementation>
+		</kactus2:kts_attributes>
+		<kactus2:columnLayout>
+			<kactus2:column name="Components" contentType="2" allowedItems="2" minWidth="319" width="319" x="120"/>
+			<kactus2:column name="IO" contentType="0" allowedItems="1" minWidth="119" width="119" x="0"/>
+		</kactus2:columnLayout>
+		<kactus2:routes>
+			<kactus2:route kactus2:connRef="memoryController_bus_to_bus" kactus2:offPage="false">
+				<kactus2:position x="170" y="100"/>
+				<kactus2:position x="60" y="100"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="instruction_decoder_cpu_interface_to_alu_bus" kactus2:offPage="false">
+				<kactus2:position x="390" y="280"/>
+				<kactus2:position x="410" y="280"/>
+				<kactus2:position x="410" y="190"/>
+				<kactus2:position x="390" y="190"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="instruction_decoder_cpu_interface_to_memoryController_bus_1" kactus2:offPage="false">
+				<kactus2:position x="390" y="280"/>
+				<kactus2:position x="410" y="280"/>
+				<kactus2:position x="410" y="100"/>
+				<kactus2:position x="390" y="100"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="instruction_decoder_instruction_feed_to_instruction_feed" kactus2:offPage="false">
+				<kactus2:position x="60" y="280"/>
+				<kactus2:position x="170" y="280"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="instruction_decoder_register_result_to_register_result" kactus2:offPage="false">
+				<kactus2:position x="170" y="340"/>
+				<kactus2:position x="60" y="340"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="instruction_decoder_result_ok_to_result_ok" kactus2:offPage="false">
+				<kactus2:position x="170" y="310"/>
+				<kactus2:position x="60" y="310"/>
+			</kactus2:route>
+		</kactus2:routes>
+		<kactus2:adHocVisibilities>
+			<kactus2:adHocVisible portName="instruction_feed" x="60" y="280"/>
+			<kactus2:adHocVisible portName="register_result" x="60" y="340"/>
+			<kactus2:adHocVisible portName="result_ok" x="60" y="310"/>
+		</kactus2:adHocVisibilities>
+		<kactus2:interfaceGraphics>
+			<kactus2:name>bus</kactus2:name>
+			<kactus2:position x="60" y="80"/>
+			<kactus2:direction x="1" y="0"/>
+		</kactus2:interfaceGraphics>
+		<kactus2:interfaceGraphics>
+			<kactus2:name>bus</kactus2:name>
+			<kactus2:position x="60" y="100"/>
+			<kactus2:direction x="1" y="0"/>
+		</kactus2:interfaceGraphics>
+		<kactus2:interfaceGraphics>
+			<kactus2:name>bus</kactus2:name>
+			<kactus2:position x="60" y="70"/>
+			<kactus2:direction x="1" y="0"/>
+		</kactus2:interfaceGraphics>
+		<kactus2:interfaceGraphics>
+			<kactus2:name>bus</kactus2:name>
+			<kactus2:position x="60" y="70"/>
+			<kactus2:direction x="1" y="0"/>
+		</kactus2:interfaceGraphics>
+		<kactus2:interfaceGraphics>
+			<kactus2:name>bus</kactus2:name>
+			<kactus2:position x="60" y="100"/>
+			<kactus2:direction x="1" y="0"/>
+		</kactus2:interfaceGraphics>
+		<kactus2:interfaceGraphics>
+			<kactus2:name>bus</kactus2:name>
+			<kactus2:position x="60" y="70"/>
+			<kactus2:direction x="1" y="0"/>
+		</kactus2:interfaceGraphics>
+		<kactus2:note>
+			<kactus2:position x="210" y="390"/>
+			<kactus2:content>Saa feedistä käskyn, katsoo mitä tehdään, passaa tarvittaessa mukana tulleen datan eteen päin.
+
+Jää odottamaan tulosta, jonka sitten tallentaa rekisteriin ja kuittaa että tulos on tullut, ja siirtyy seuraavaan käskyyn.</kactus2:content>
+			<kactus2:associations/>
+			<kactus2:timestamp>27.3.2017 12:13:41</kactus2:timestamp>
+		</kactus2:note>
+		<kactus2:note>
+			<kactus2:position x="460" y="150"/>
+			<kactus2:content>Jos aritmetiikka halutaan, se käytännössä saa bitin jolla katsotaan tehdäänkö plus vai miinus.</kactus2:content>
+			<kactus2:associations/>
+			<kactus2:timestamp>27.3.2017 12:12:38</kactus2:timestamp>
+		</kactus2:note>
+		<kactus2:note>
+			<kactus2:position x="470" y="60"/>
+			<kactus2:content>Osoitteen mukaan katsoo laitetaanko periferaaleihin vaiko sisäisiin rekisterihin</kactus2:content>
+			<kactus2:associations/>
+			<kactus2:timestamp>27.3.2017 12:14:40</kactus2:timestamp>
+		</kactus2:note>
+	</ipxact:vendorExtensions>
+</ipxact:design>
