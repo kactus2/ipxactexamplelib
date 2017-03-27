@@ -1330,25 +1330,21 @@
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:value>32</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_bcba20bf_5f4d_4408_ab04_e9272e8a2a55" usageCount="1">
+		<ipxact:parameter parameterId="uuid_bcba20bf_5f4d_4408_ab04_e9272e8a2a55" resolve="user">
 			<ipxact:name>SLAVE_0_BASE</ipxact:name>
 			<ipxact:value>'h0100</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_5d21620a_24de_423a_bc89_d4669d9ba8c3" usageCount="1">
+		<ipxact:parameter parameterId="uuid_5d21620a_24de_423a_bc89_d4669d9ba8c3" resolve="user">
 			<ipxact:name>SLAVE_1_BASE</ipxact:name>
-			<ipxact:value>uuid_bcba20bf_5f4d_4408_ab04_e9272e8a2a55+uuid_65329c01_8d95_430f_a99c_21ac39e990ab</ipxact:value>
+			<ipxact:value>'h0200</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_7a0bf7b4_d2dc_4541_ada5_41e31e45bac1" usageCount="1">
+		<ipxact:parameter parameterId="uuid_7a0bf7b4_d2dc_4541_ada5_41e31e45bac1" resolve="user">
 			<ipxact:name>SLAVE_2_BASE</ipxact:name>
-			<ipxact:value>uuid_5d21620a_24de_423a_bc89_d4669d9ba8c3+uuid_65329c01_8d95_430f_a99c_21ac39e990ab</ipxact:value>
+			<ipxact:value>'h0300</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_64038f66_68bd_4536_90a9_f4fd43e4eb0e">
+		<ipxact:parameter parameterId="uuid_64038f66_68bd_4536_90a9_f4fd43e4eb0e" resolve="user">
 			<ipxact:name>SLAVE_3_BASE</ipxact:name>
-			<ipxact:value>uuid_7a0bf7b4_d2dc_4541_ada5_41e31e45bac1+uuid_65329c01_8d95_430f_a99c_21ac39e990ab</ipxact:value>
-		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_65329c01_8d95_430f_a99c_21ac39e990ab" usageCount="3">
-			<ipxact:name>SLAVE_RANGE</ipxact:name>
-			<ipxact:value>'h0100</ipxact:value>
+			<ipxact:value>'h0400</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

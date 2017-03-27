@@ -88,6 +88,44 @@
 			</ipxact:port>
 		</ipxact:ports>
 	</ipxact:model>
+	<ipxact:parameters>
+		<ipxact:parameter parameterId="uuid_51264501_3c28_4520_85cf_509d0483d12d" resolve="immediate">
+			<ipxact:name>ADDR_WIDTH</ipxact:name>
+			<ipxact:description>Width of the addresses.</ipxact:description>
+			<ipxact:value>$clog2(uuid_f5c2f2c1_588b_45b2_a352_49e3d278c24d)</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_1cedcd48_18d3_4ab1_8168_b840ffeef0c1" resolve="immediate">
+			<ipxact:name>DATA_WIDTH</ipxact:name>
+			<ipxact:description>Width for data in registers and instructions.</ipxact:description>
+			<ipxact:value>16</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_f5c2f2c1_588b_45b2_a352_49e3d278c24d" resolve="immediate" usageCount="1">
+			<ipxact:name>SUPPORTED_MEMORY</ipxact:name>
+			<ipxact:description>How much the system supports memory in total.</ipxact:description>
+			<ipxact:value>512</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_bf25fb78_f9e5_464e_ac38_8da3fda16d60" resolve="immediate" usageCount="1">
+			<ipxact:name>WB_SLAVE0_BASE</ipxact:name>
+			<ipxact:description>Base address for wishbone slave 0.</ipxact:description>
+			<ipxact:value>'h0700</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_7098bf49_6fc4_4971_b79c_dbf456e8fa22" resolve="immediate" usageCount="3">
+			<ipxact:name>WB_SLAVE_RANGE</ipxact:name>
+			<ipxact:value>'h0100</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_60efb6b8_d845_4ed7_92c5_ab0aeda62fc2" resolve="immediate" usageCount="1">
+			<ipxact:name>WB_SLAVE1_BASE</ipxact:name>
+			<ipxact:value>uuid_bf25fb78_f9e5_464e_ac38_8da3fda16d60+uuid_7098bf49_6fc4_4971_b79c_dbf456e8fa22</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_96d9f335_6814_4ab6_8c68_3fef0c331938" resolve="immediate" usageCount="1">
+			<ipxact:name>WB_SLAVE2_BASE</ipxact:name>
+			<ipxact:value>uuid_60efb6b8_d845_4ed7_92c5_ab0aeda62fc2+uuid_7098bf49_6fc4_4971_b79c_dbf456e8fa22</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_f700130c_5c67_4b2c_a33f_91a6e2f5239c" resolve="immediate">
+			<ipxact:name>WB_SLAVE3_BASE</ipxact:name>
+			<ipxact:value>uuid_96d9f335_6814_4ab6_8c68_3fef0c331938+uuid_7098bf49_6fc4_4971_b79c_dbf456e8fa22</ipxact:value>
+		</ipxact:parameter>
+	</ipxact:parameters>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,4,3,0</kactus2:version>
 		<kactus2:kts_attributes>

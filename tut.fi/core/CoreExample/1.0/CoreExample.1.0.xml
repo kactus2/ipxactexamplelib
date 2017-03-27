@@ -4,11 +4,106 @@
 	<ipxact:library>core</ipxact:library>
 	<ipxact:name>CoreExample</ipxact:name>
 	<ipxact:version>1.0</ipxact:version>
+	<ipxact:busInterfaces>
+		<ipxact:busInterface>
+			<ipxact:name>mem_control</ipxact:name>
+			<ipxact:busType vendor="tut.fi" library="interface" name="mem_control_bus_example" version="1.0"/>
+			<ipxact:abstractionTypes>
+				<ipxact:abstractionType>
+					<ipxact:abstractionRef vendor="tut.fi" library="interface" name="mem_control_bus_example.absDef" version="1.0"/>
+					<ipxact:portMaps>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>address</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>address_o</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>data_ms</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>data_o</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>data_sm</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>data_i</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>we</ipxact:name>
+								<ipxact:range>
+									<ipxact:left>0</ipxact:left>
+									<ipxact:right>0</ipxact:right>
+								</ipxact:range>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>we_o</ipxact:name>
+								<ipxact:partSelect>
+									<ipxact:range>
+										<ipxact:left>0</ipxact:left>
+										<ipxact:right>0</ipxact:right>
+									</ipxact:range>
+								</ipxact:partSelect>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+					</ipxact:portMaps>
+				</ipxact:abstractionType>
+			</ipxact:abstractionTypes>
+			<ipxact:master/>
+		</ipxact:busInterface>
+	</ipxact:busInterfaces>
+	<ipxact:addressSpaces>
+		<ipxact:addressSpace>
+			<ipxact:name>default</ipxact:name>
+			<ipxact:range>uuid_9d887d27_b1b6_4b29_b7c1_b9916038a6b4</ipxact:range>
+			<ipxact:width>32</ipxact:width>
+			<ipxact:segments>
+				<ipxact:segment>
+					<ipxact:name>LocalRegisters</ipxact:name>
+					<ipxact:addressOffset>'h0</ipxact:addressOffset>
+					<ipxact:range>'h20</ipxact:range>
+				</ipxact:segment>
+				<ipxact:segment>
+					<ipxact:name>ExternalMemory</ipxact:name>
+					<ipxact:addressOffset>uuid_e12a6fbf_70b9_4a92_945d_dc604556bd50</ipxact:addressOffset>
+					<ipxact:range>uuid_414fc3f4_5ef8_4e71_bff3_a4b1b76a6ae6</ipxact:range>
+				</ipxact:segment>
+				<ipxact:segment>
+					<ipxact:name>Peripherals</ipxact:name>
+					<ipxact:addressOffset>uuid_ad551e0e_7aa5_4972_bb1d_ec97505a773e</ipxact:addressOffset>
+					<ipxact:range>uuid_02b33c59_fe7b_4c6d_8a2f_32f8e6f2923f</ipxact:range>
+				</ipxact:segment>
+			</ipxact:segments>
+			<ipxact:addressUnitBits>8</ipxact:addressUnitBits>
+			<ipxact:localMemoryMap>
+				<ipxact:name>CPU_vectors</ipxact:name>
+				<ipxact:addressBlock>
+					<ipxact:name>ResetVector</ipxact:name>
+					<ipxact:baseAddress>'h8</ipxact:baseAddress>
+					<ipxact:range>12</ipxact:range>
+					<ipxact:width>32</ipxact:width>
+					<ipxact:usage>register</ipxact:usage>
+				</ipxact:addressBlock>
+				<ipxact:addressBlock>
+					<ipxact:name>InterruptVector</ipxact:name>
+					<ipxact:baseAddress>'h14</ipxact:baseAddress>
+					<ipxact:range>12</ipxact:range>
+					<ipxact:width>32</ipxact:width>
+					<ipxact:usage>register</ipxact:usage>
+				</ipxact:addressBlock>
+			</ipxact:localMemoryMap>
+		</ipxact:addressSpace>
+	</ipxact:addressSpaces>
 	<ipxact:model>
 		<ipxact:views>
-			<ipxact:view>
-				<ipxact:name>rtl</ipxact:name>
-			</ipxact:view>
 			<ipxact:view>
 				<ipxact:name>hierarchical</ipxact:name>
 				<ipxact:designConfigurationInstantiationRef>CoreExample.hierarchical.designcfg_1.0</ipxact:designConfigurationInstantiationRef>
@@ -66,10 +161,90 @@
 					<kactus2:adHocVisible/>
 				</ipxact:vendorExtensions>
 			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>address_o</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>uuid_6e1d17f1_eadc_4bdc_886b_00a3c4016028-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+					<ipxact:wireTypeDefs>
+						<ipxact:wireTypeDef>
+							<ipxact:typeDefinition></ipxact:typeDefinition>
+						</ipxact:wireTypeDef>
+					</ipxact:wireTypeDefs>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags></kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>data_o</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>uuid_240da555_796c_42e9_b09d_9769b11e8ac7-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+					<ipxact:wireTypeDefs>
+						<ipxact:wireTypeDef>
+							<ipxact:typeDefinition></ipxact:typeDefinition>
+						</ipxact:wireTypeDef>
+					</ipxact:wireTypeDefs>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags></kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>data_i</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>uuid_240da555_796c_42e9_b09d_9769b11e8ac7-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+					<ipxact:wireTypeDefs>
+						<ipxact:wireTypeDef>
+							<ipxact:typeDefinition></ipxact:typeDefinition>
+						</ipxact:wireTypeDef>
+					</ipxact:wireTypeDefs>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags></kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>we_o</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+					<ipxact:wireTypeDefs>
+						<ipxact:wireTypeDef>
+							<ipxact:typeDefinition></ipxact:typeDefinition>
+						</ipxact:wireTypeDef>
+					</ipxact:wireTypeDefs>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags></kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
 		</ipxact:ports>
 	</ipxact:model>
 	<ipxact:parameters>
-		<ipxact:parameter kactus2:arrayLeft="0" kactus2:arrayRight="1" parameterId="uuid_240da555_796c_42e9_b09d_9769b11e8ac7" resolve="immediate" usageCount="2">
+		<ipxact:parameter kactus2:arrayLeft="0" kactus2:arrayRight="1" parameterId="uuid_240da555_796c_42e9_b09d_9769b11e8ac7" resolve="user" usageCount="4">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>Width for data in registers and instructions.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
@@ -77,7 +252,7 @@
 		<ipxact:parameter kactus2:arrayLeft="0" kactus2:arrayRight="1" parameterId="uuid_fd462923_54e9_4b79_8af5_d7cd29d5bfa4" resolve="immediate" usageCount="1">
 			<ipxact:name>OP_CODE_WIDTH</ipxact:name>
 			<ipxact:description>Bits reserved for operation identifiers.</ipxact:description>
-			<ipxact:value>3</ipxact:value>
+			<ipxact:value>$clog2(uuid_ffabd536_0c3b_4a57_a403_90dce6fb42b5)</ipxact:value>
 		</ipxact:parameter>
 		<ipxact:parameter kactus2:arrayLeft="0" kactus2:arrayRight="2" parameterId="uuid_8c69d7e2_8840_4623_b3a1_be6efaa4db1b" resolve="immediate" usageCount="1">
 			<ipxact:name>REGISTER_ID_WIDTH</ipxact:name>
@@ -88,6 +263,41 @@
 			<ipxact:name>INSTRUCTION_WIDTH</ipxact:name>
 			<ipxact:description>Total width of an instruction</ipxact:description>
 			<ipxact:value>uuid_240da555_796c_42e9_b09d_9769b11e8ac7+uuid_fd462923_54e9_4b79_8af5_d7cd29d5bfa4+uuid_8c69d7e2_8840_4623_b3a1_be6efaa4db1b</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_6e1d17f1_eadc_4bdc_886b_00a3c4016028" resolve="user" usageCount="1">
+			<ipxact:name>ADDR_WIDTH</ipxact:name>
+			<ipxact:description>Width of the addresses.</ipxact:description>
+			<ipxact:value>$clog2(uuid_9d887d27_b1b6_4b29_b7c1_b9916038a6b4)</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_9d887d27_b1b6_4b29_b7c1_b9916038a6b4" resolve="user" usageCount="2">
+			<ipxact:name>SUPPORTED_MEMORY</ipxact:name>
+			<ipxact:description>How much the system supports memory in total.</ipxact:description>
+			<ipxact:value>1024</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_ffabd536_0c3b_4a57_a403_90dce6fb42b5" resolve="immediate" usageCount="1">
+			<ipxact:name>REGISTER_COUNT</ipxact:name>
+			<ipxact:description>How many registers are supported in the core.</ipxact:description>
+			<ipxact:value>8</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_e12a6fbf_70b9_4a92_945d_dc604556bd50" resolve="user" usageCount="2">
+			<ipxact:name>EXTERNAL_MEMORY_BASE</ipxact:name>
+			<ipxact:description>Where the external memory address space begins</ipxact:description>
+			<ipxact:value>128</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_ad551e0e_7aa5_4972_bb1d_ec97505a773e" resolve="user" usageCount="1">
+			<ipxact:name>PERIPHERAL_BASE</ipxact:name>
+			<ipxact:description>Where the peripheral address space begins.</ipxact:description>
+			<ipxact:value>256</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_414fc3f4_5ef8_4e71_bff3_a4b1b76a6ae6" resolve="user" usageCount="1">
+			<ipxact:name>EXTERNAL_MEMORY_SIZE</ipxact:name>
+			<ipxact:description>Size of the external memory.</ipxact:description>
+			<ipxact:value>64</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_02b33c59_fe7b_4c6d_8a2f_32f8e6f2923f" resolve="user" usageCount="1">
+			<ipxact:name>PERIPHERAL_SIZE</ipxact:name>
+			<ipxact:description>How large address space is reserved for peripherals.</ipxact:description>
+			<ipxact:value>32</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

@@ -6,15 +6,15 @@
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:designRef vendor="tut.fi" library="processor" name="MemoryExample.hierarchical.design" version="1.0"/>
 	<ipxact:viewConfiguration>
-		<ipxact:instanceName>wb_slave_template_0</ipxact:instanceName>
-		<ipxact:view viewRef="flat_verilog"/>
-	</ipxact:viewConfiguration>
-	<ipxact:viewConfiguration>
 		<ipxact:instanceName>wb_cpu_wrapper_0</ipxact:instanceName>
 		<ipxact:view viewRef="flat_verilog"/>
 	</ipxact:viewConfiguration>
 	<ipxact:viewConfiguration>
 		<ipxact:instanceName>wishbone_bus_0</ipxact:instanceName>
+		<ipxact:view viewRef="flat_verilog"/>
+	</ipxact:viewConfiguration>
+	<ipxact:viewConfiguration>
+		<ipxact:instanceName>wb_external_mem_hash</ipxact:instanceName>
 		<ipxact:view viewRef="flat_verilog"/>
 	</ipxact:viewConfiguration>
 	<ipxact:vendorExtensions>

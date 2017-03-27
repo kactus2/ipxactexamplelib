@@ -19,13 +19,9 @@
 				</ipxact:onMaster>
 				<ipxact:onSlave>
 					<ipxact:presence>required</ipxact:presence>
-					<ipxact:direction>out</ipxact:direction>
+					<ipxact:direction>in</ipxact:direction>
 				</ipxact:onSlave>
 			</ipxact:wire>
-		</ipxact:port>
-		<ipxact:port>
-			<ipxact:logicalName></ipxact:logicalName>
-			<ipxact:wire/>
 		</ipxact:port>
 		<ipxact:port>
 			<ipxact:logicalName>alu_active</ipxact:logicalName>
@@ -39,7 +35,7 @@
 				<ipxact:onSlave>
 					<ipxact:presence>optional</ipxact:presence>
 					<ipxact:width>1</ipxact:width>
-					<ipxact:direction>out</ipxact:direction>
+					<ipxact:direction>in</ipxact:direction>
 				</ipxact:onSlave>
 			</ipxact:wire>
 		</ipxact:port>
@@ -55,7 +51,7 @@
 				<ipxact:onSlave>
 					<ipxact:presence>optional</ipxact:presence>
 					<ipxact:width>1</ipxact:width>
-					<ipxact:direction>out</ipxact:direction>
+					<ipxact:direction>in</ipxact:direction>
 				</ipxact:onSlave>
 			</ipxact:wire>
 		</ipxact:port>
@@ -72,7 +68,7 @@
 				</ipxact:onMaster>
 				<ipxact:onSlave>
 					<ipxact:presence>required</ipxact:presence>
-					<ipxact:direction>in</ipxact:direction>
+					<ipxact:direction>out</ipxact:direction>
 				</ipxact:onSlave>
 			</ipxact:wire>
 		</ipxact:port>
@@ -88,7 +84,7 @@
 				<ipxact:onSlave>
 					<ipxact:presence>optional</ipxact:presence>
 					<ipxact:width>1</ipxact:width>
-					<ipxact:direction>in</ipxact:direction>
+					<ipxact:direction>out</ipxact:direction>
 				</ipxact:onSlave>
 			</ipxact:wire>
 		</ipxact:port>
@@ -104,7 +100,7 @@
 				<ipxact:onSlave>
 					<ipxact:presence>optional</ipxact:presence>
 					<ipxact:width>1</ipxact:width>
-					<ipxact:direction>in</ipxact:direction>
+					<ipxact:direction>out</ipxact:direction>
 				</ipxact:onSlave>
 			</ipxact:wire>
 		</ipxact:port>
