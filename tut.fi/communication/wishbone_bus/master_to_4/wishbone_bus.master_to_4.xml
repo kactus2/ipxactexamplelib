@@ -235,7 +235,12 @@
 					</ipxact:portMaps>
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
-			<ipxact:mirroredSlave/>
+			<ipxact:mirroredSlave>
+				<ipxact:baseAddresses>
+					<ipxact:remapAddress>uuid_bcba20bf_5f4d_4408_ab04_e9272e8a2a55</ipxact:remapAddress>
+					<ipxact:range>uuid_27458201_6776_47b9_ba3a_9e290a22ff3b</ipxact:range>
+				</ipxact:baseAddresses>
+			</ipxact:mirroredSlave>
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>slave_1</ipxact:name>
@@ -351,7 +356,12 @@
 					</ipxact:portMaps>
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
-			<ipxact:mirroredSlave/>
+			<ipxact:mirroredSlave>
+				<ipxact:baseAddresses>
+					<ipxact:remapAddress>uuid_5d21620a_24de_423a_bc89_d4669d9ba8c3</ipxact:remapAddress>
+					<ipxact:range>uuid_27458201_6776_47b9_ba3a_9e290a22ff3b</ipxact:range>
+				</ipxact:baseAddresses>
+			</ipxact:mirroredSlave>
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>slave_2</ipxact:name>
@@ -467,7 +477,12 @@
 					</ipxact:portMaps>
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
-			<ipxact:mirroredSlave/>
+			<ipxact:mirroredSlave>
+				<ipxact:baseAddresses>
+					<ipxact:remapAddress>uuid_7a0bf7b4_d2dc_4541_ada5_41e31e45bac1</ipxact:remapAddress>
+					<ipxact:range>uuid_27458201_6776_47b9_ba3a_9e290a22ff3b</ipxact:range>
+				</ipxact:baseAddresses>
+			</ipxact:mirroredSlave>
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>slave_3</ipxact:name>
@@ -583,7 +598,12 @@
 					</ipxact:portMaps>
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
-			<ipxact:mirroredSlave/>
+			<ipxact:mirroredSlave>
+				<ipxact:baseAddresses>
+					<ipxact:remapAddress>uuid_64038f66_68bd_4536_90a9_f4fd43e4eb0e</ipxact:remapAddress>
+					<ipxact:range>uuid_27458201_6776_47b9_ba3a_9e290a22ff3b</ipxact:range>
+				</ipxact:baseAddresses>
+			</ipxact:mirroredSlave>
 		</ipxact:busInterface>
 	</ipxact:busInterfaces>
 	<ipxact:channels>
@@ -1330,21 +1350,25 @@
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:value>32</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_bcba20bf_5f4d_4408_ab04_e9272e8a2a55" resolve="user">
+		<ipxact:parameter parameterId="uuid_bcba20bf_5f4d_4408_ab04_e9272e8a2a55" resolve="user" usageCount="1">
 			<ipxact:name>SLAVE_0_BASE</ipxact:name>
 			<ipxact:value>'h0100</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_5d21620a_24de_423a_bc89_d4669d9ba8c3" resolve="user">
+		<ipxact:parameter parameterId="uuid_5d21620a_24de_423a_bc89_d4669d9ba8c3" resolve="user" usageCount="1">
 			<ipxact:name>SLAVE_1_BASE</ipxact:name>
 			<ipxact:value>'h0200</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_7a0bf7b4_d2dc_4541_ada5_41e31e45bac1" resolve="user">
+		<ipxact:parameter parameterId="uuid_7a0bf7b4_d2dc_4541_ada5_41e31e45bac1" resolve="user" usageCount="1">
 			<ipxact:name>SLAVE_2_BASE</ipxact:name>
 			<ipxact:value>'h0300</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_64038f66_68bd_4536_90a9_f4fd43e4eb0e" resolve="user">
+		<ipxact:parameter parameterId="uuid_64038f66_68bd_4536_90a9_f4fd43e4eb0e" resolve="user" usageCount="1">
 			<ipxact:name>SLAVE_3_BASE</ipxact:name>
 			<ipxact:value>'h0400</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_27458201_6776_47b9_ba3a_9e290a22ff3b" resolve="user" usageCount="4">
+			<ipxact:name>SLAVE_RANGE</ipxact:name>
+			<ipxact:value>'h0040</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

@@ -129,7 +129,11 @@
 					</ipxact:portMaps>
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
-			<ipxact:master/>
+			<ipxact:master>
+				<ipxact:addressSpaceRef ipxact:addressSpaceRef="wb_bus_space">
+					<ipxact:baseAddress ipxact:addressSpaceRef="wb_bus_space">uuid_97ac3e61_b280_4fa3_982a_78b110952f5b</ipxact:baseAddress>
+				</ipxact:addressSpaceRef>
+			</ipxact:master>
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>wb_system</ipxact:name>
@@ -213,9 +217,19 @@
 					</ipxact:portMaps>
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
-			<ipxact:slave/>
+			<ipxact:slave>
+				<ipxact:transparentBridge masterRef="wb_master"/>
+			</ipxact:slave>
 		</ipxact:busInterface>
 	</ipxact:busInterfaces>
+	<ipxact:addressSpaces>
+		<ipxact:addressSpace>
+			<ipxact:name>wb_bus_space</ipxact:name>
+			<ipxact:range>uuid_c58fd099_9dad_463d_bbe9_ff967befbfb0</ipxact:range>
+			<ipxact:width>8</ipxact:width>
+			<ipxact:addressUnitBits>8</ipxact:addressUnitBits>
+		</ipxact:addressSpace>
+	</ipxact:addressSpaces>
 	<ipxact:model>
 		<ipxact:views>
 			<ipxact:view>
@@ -520,10 +534,15 @@
 			<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
 			<ipxact:value>32</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_97ac3e61_b280_4fa3_982a_78b110952f5b" resolve="user">
+		<ipxact:parameter parameterId="uuid_97ac3e61_b280_4fa3_982a_78b110952f5b" resolve="user" usageCount="1">
 			<ipxact:name>BASE_ADDRESS</ipxact:name>
-			<ipxact:description>The first referred address of the master.</ipxact:description>
-			<ipxact:value>'hFF00</ipxact:value>
+			<ipxact:description>The location of the bus in the system memory.</ipxact:description>
+			<ipxact:value>'h0F00</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_c58fd099_9dad_463d_bbe9_ff967befbfb0" resolve="user" usageCount="1">
+			<ipxact:name>RANGE</ipxact:name>
+			<ipxact:description>Number of addresses accesible by the component.</ipxact:description>
+			<ipxact:value>'h0200</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

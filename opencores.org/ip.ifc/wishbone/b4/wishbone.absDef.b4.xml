@@ -209,11 +209,13 @@
 				<ipxact:onSystem>
 					<ipxact:group>ClockSink</ipxact:group>
 					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
 					<ipxact:direction>in</ipxact:direction>
 				</ipxact:onSystem>
 				<ipxact:onSystem>
 					<ipxact:group>ClockSource</ipxact:group>
 					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
 					<ipxact:direction>out</ipxact:direction>
 				</ipxact:onSystem>
 			</ipxact:wire>
@@ -228,11 +230,13 @@
 				<ipxact:onSystem>
 					<ipxact:group>ClockSink</ipxact:group>
 					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
 					<ipxact:direction>in</ipxact:direction>
 				</ipxact:onSystem>
 				<ipxact:onSystem>
 					<ipxact:group>ClockSource</ipxact:group>
 					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
 					<ipxact:direction>out</ipxact:direction>
 				</ipxact:onSystem>
 			</ipxact:wire>

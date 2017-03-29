@@ -129,7 +129,9 @@
 					</ipxact:portMaps>
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
-			<ipxact:slave/>
+			<ipxact:slave>
+				<ipxact:memoryMapRef memoryMapRef="default"/>
+			</ipxact:slave>
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>wb_system</ipxact:name>
@@ -167,7 +169,7 @@
 			<ipxact:name>default</ipxact:name>
 			<ipxact:addressBlock>
 				<ipxact:name>data</ipxact:name>
-				<ipxact:baseAddress>uuid_11833df7_86a0_48e2_8577_f3cc38000d57</ipxact:baseAddress>
+				<ipxact:baseAddress>0</ipxact:baseAddress>
 				<ipxact:range>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920*2</ipxact:range>
 				<ipxact:width>8</ipxact:width>
 				<ipxact:register>
@@ -197,7 +199,7 @@
 			</ipxact:addressBlock>
 			<ipxact:addressBlock>
 				<ipxact:name>control</ipxact:name>
-				<ipxact:baseAddress>uuid_11833df7_86a0_48e2_8577_f3cc38000d57+uuid_3928a897_9f75_4ed7_a9be_c68cadf66920*2</ipxact:baseAddress>
+				<ipxact:baseAddress>0+uuid_3928a897_9f75_4ed7_a9be_c68cadf66920*2</ipxact:baseAddress>
 				<ipxact:range>1</ipxact:range>
 				<ipxact:width>8</ipxact:width>
 				<ipxact:register>
@@ -513,10 +515,10 @@
 			<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
 			<ipxact:value>32</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_11833df7_86a0_48e2_8577_f3cc38000d57" resolve="user" usageCount="2">
+		<ipxact:parameter parameterId="uuid_11833df7_86a0_48e2_8577_f3cc38000d57" resolve="user">
 			<ipxact:name>BASE_ADDRESS</ipxact:name>
 			<ipxact:description>The first referred address of the master.</ipxact:description>
-			<ipxact:value>'hFF00</ipxact:value>
+			<ipxact:value>'h0F00</ipxact:value>
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_3928a897_9f75_4ed7_a9be_c68cadf66920" resolve="immediate" usageCount="6">
 			<ipxact:name>BUFFER_SIZE</ipxact:name>

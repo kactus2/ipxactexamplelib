@@ -423,7 +423,7 @@
 		<ipxact:parameter parameterId="uuid_11833df7_86a0_48e2_8577_f3cc38000d57" resolve="user">
 			<ipxact:name>BASE_ADDRESS</ipxact:name>
 			<ipxact:description>The first referred address of the master.</ipxact:description>
-			<ipxact:value>'hFF00</ipxact:value>
+			<ipxact:value>'h0F00</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

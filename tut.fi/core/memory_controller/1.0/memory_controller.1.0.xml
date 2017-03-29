@@ -57,7 +57,11 @@
 					</ipxact:portMaps>
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
-			<ipxact:master/>
+			<ipxact:master>
+				<ipxact:addressSpaceRef ipxact:addressSpaceRef="default">
+					<ipxact:baseAddress ipxact:addressSpaceRef="default">0</ipxact:baseAddress>
+				</ipxact:addressSpaceRef>
+			</ipxact:master>
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>cpu_clk_sink</ipxact:name>
@@ -176,6 +180,14 @@
 								<ipxact:name>we_i</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>address</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>address_i</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
 					</ipxact:portMaps>
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
@@ -191,24 +203,24 @@
 			<ipxact:width>32</ipxact:width>
 			<ipxact:segments>
 				<ipxact:segment>
-					<ipxact:name>LocalRegisters</ipxact:name>
+					<ipxact:name>LocalConfig</ipxact:name>
 					<ipxact:addressOffset>'h0</ipxact:addressOffset>
-					<ipxact:range>'h20</ipxact:range>
-				</ipxact:segment>
-				<ipxact:segment>
-					<ipxact:name>ExternalMemory</ipxact:name>
-					<ipxact:addressOffset>uuid_e3b353a9_9c84_4f26_a9bf_8271de5b015c</ipxact:addressOffset>
-					<ipxact:range>uuid_6db85801_d4cb_4823_9c2f_026a2cb37ada-uuid_e3b353a9_9c84_4f26_a9bf_8271de5b015c</ipxact:range>
+					<ipxact:range>'h40</ipxact:range>
 				</ipxact:segment>
 				<ipxact:segment>
 					<ipxact:name>Peripherals</ipxact:name>
-					<ipxact:addressOffset>uuid_6db85801_d4cb_4823_9c2f_026a2cb37ada</ipxact:addressOffset>
-					<ipxact:range>uuid_e835eae8_6310_47c7_a791_8ee2df766ed3-uuid_6db85801_d4cb_4823_9c2f_026a2cb37ada</ipxact:range>
+					<ipxact:addressOffset>uuid_e3b353a9_9c84_4f26_a9bf_8271de5b015c</ipxact:addressOffset>
+					<ipxact:range>uuid_e835eae8_6310_47c7_a791_8ee2df766ed3-uuid_e3b353a9_9c84_4f26_a9bf_8271de5b015c</ipxact:range>
+				</ipxact:segment>
+				<ipxact:segment>
+					<ipxact:name>LocalData</ipxact:name>
+					<ipxact:addressOffset>'h40</ipxact:addressOffset>
+					<ipxact:range>uuid_e3b353a9_9c84_4f26_a9bf_8271de5b015c-'h40</ipxact:range>
 				</ipxact:segment>
 			</ipxact:segments>
 			<ipxact:addressUnitBits>8</ipxact:addressUnitBits>
 			<ipxact:localMemoryMap>
-				<ipxact:name>CPU_vectors</ipxact:name>
+				<ipxact:name>CPU_local_memory</ipxact:name>
 				<ipxact:addressBlock>
 					<ipxact:name>ResetVector</ipxact:name>
 					<ipxact:baseAddress>'h8</ipxact:baseAddress>
@@ -220,6 +232,13 @@
 					<ipxact:name>InterruptVector</ipxact:name>
 					<ipxact:baseAddress>'h14</ipxact:baseAddress>
 					<ipxact:range>12</ipxact:range>
+					<ipxact:width>32</ipxact:width>
+					<ipxact:usage>register</ipxact:usage>
+				</ipxact:addressBlock>
+				<ipxact:addressBlock>
+					<ipxact:name>DATA</ipxact:name>
+					<ipxact:baseAddress>'h40</ipxact:baseAddress>
+					<ipxact:range>uuid_e3b353a9_9c84_4f26_a9bf_8271de5b015c-'h40</ipxact:range>
 					<ipxact:width>32</ipxact:width>
 					<ipxact:usage>register</ipxact:usage>
 				</ipxact:addressBlock>
@@ -398,6 +417,18 @@
 					</ipxact:vectors>
 				</ipxact:wire>
 			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>address_i</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>uuid_b6bb8c34_3d40_4189_b91d_6cdce56c33f1-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+			</ipxact:port>
 		</ipxact:ports>
 	</ipxact:model>
 	<ipxact:parameters>
@@ -406,25 +437,20 @@
 			<ipxact:description>Width for data in registers and instructions.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_b6bb8c34_3d40_4189_b91d_6cdce56c33f1" resolve="user" usageCount="1">
+		<ipxact:parameter parameterId="uuid_b6bb8c34_3d40_4189_b91d_6cdce56c33f1" resolve="user" usageCount="2">
 			<ipxact:name>ADDR_WIDTH</ipxact:name>
 			<ipxact:description>Width of the addresses.</ipxact:description>
-			<ipxact:value>10</ipxact:value>
+			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_e835eae8_6310_47c7_a791_8ee2df766ed3" resolve="user" usageCount="2">
 			<ipxact:name>MEMORY_SIZE</ipxact:name>
 			<ipxact:description>How many bytes are in memory at total.</ipxact:description>
 			<ipxact:value>256</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_e3b353a9_9c84_4f26_a9bf_8271de5b015c" resolve="user" usageCount="2">
-			<ipxact:name>EXTERNAL_MEMORY_BASE</ipxact:name>
-			<ipxact:description>The first address for external memory.</ipxact:description>
+		<ipxact:parameter parameterId="uuid_e3b353a9_9c84_4f26_a9bf_8271de5b015c" resolve="user" usageCount="4">
+			<ipxact:name>PERIPHERAL_BASE</ipxact:name>
+			<ipxact:description>The first address for peripherals.</ipxact:description>
 			<ipxact:value>128</ipxact:value>
-		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_6db85801_d4cb_4823_9c2f_026a2cb37ada" resolve="user" usageCount="3">
-			<ipxact:name>OTHER_PERIPHERAL_BASE</ipxact:name>
-			<ipxact:description>The first address for other peripherals.</ipxact:description>
-			<ipxact:value>196</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

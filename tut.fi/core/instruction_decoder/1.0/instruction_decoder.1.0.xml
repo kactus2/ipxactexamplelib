@@ -108,6 +108,14 @@
 								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>address</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>address_o</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
 					</ipxact:portMaps>
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
@@ -329,6 +337,18 @@
 					</ipxact:vectors>
 				</ipxact:wire>
 			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>address_o</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>uuid_5a8de14b_9e99_403b_98ba_adf546212d61-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+			</ipxact:port>
 		</ipxact:ports>
 	</ipxact:model>
 	<ipxact:parameters>
@@ -356,6 +376,11 @@
 			<ipxact:name>ALU_OP_WIDTH</ipxact:name>
 			<ipxact:description>Bits reserved for identification of alu operation</ipxact:description>
 			<ipxact:value>2</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_5a8de14b_9e99_403b_98ba_adf546212d61" resolve="user" usageCount="1">
+			<ipxact:name>ADDR_WIDTH</ipxact:name>
+			<ipxact:description>Width of the addresses.</ipxact:description>
+			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

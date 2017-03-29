@@ -23,7 +23,7 @@
 	</ipxact:viewConfiguration>
 	<ipxact:viewConfiguration>
 		<ipxact:instanceName>core</ipxact:instanceName>
-		<ipxact:view viewRef="hierarchical"/>
+		<ipxact:view viewRef="hierarchical_verilog"/>
 	</ipxact:viewConfiguration>
 	<ipxact:viewConfiguration>
 		<ipxact:instanceName>data_passer_0</ipxact:instanceName>

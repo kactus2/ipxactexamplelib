@@ -148,6 +148,9 @@
 						</ipxact:vector>
 					</ipxact:vectors>
 				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:adHocVisible/>
+				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>new_value</ipxact:name>
@@ -166,6 +169,9 @@
 						</ipxact:wireTypeDef>
 					</ipxact:wireTypeDefs>
 				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:adHocVisible/>
+				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>register_result</ipxact:name>
@@ -184,6 +190,9 @@
 						</ipxact:wireTypeDef>
 					</ipxact:wireTypeDefs>
 				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:adHocVisible/>
+				</ipxact:vendorExtensions>
 			</ipxact:port>
 		</ipxact:ports>
 	</ipxact:model>
@@ -201,12 +210,12 @@
 		<ipxact:parameter parameterId="uuid_f5c2f2c1_588b_45b2_a352_49e3d278c24d" resolve="immediate" usageCount="1">
 			<ipxact:name>SUPPORTED_MEMORY</ipxact:name>
 			<ipxact:description>How much the system supports memory in total.</ipxact:description>
-			<ipxact:value>1024</ipxact:value>
+			<ipxact:value>'h400</ipxact:value>
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_bf25fb78_f9e5_464e_ac38_8da3fda16d60" resolve="immediate" usageCount="1">
 			<ipxact:name>WB_SLAVE0_BASE</ipxact:name>
 			<ipxact:description>Base address for wishbone slave 0.</ipxact:description>
-			<ipxact:value>'h0200</ipxact:value>
+			<ipxact:value>'h0020</ipxact:value>
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_7098bf49_6fc4_4971_b79c_dbf456e8fa22" resolve="immediate" usageCount="3">
 			<ipxact:name>WB_SLAVE_RANGE</ipxact:name>
@@ -227,6 +236,11 @@
 			<ipxact:name>WB_SLAVE3_BASE</ipxact:name>
 			<ipxact:description>Base address for wishbone slave 3.</ipxact:description>
 			<ipxact:value>uuid_96d9f335_6814_4ab6_8c68_3fef0c331938+uuid_7098bf49_6fc4_4971_b79c_dbf456e8fa22</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_34e837d0_846a_486c_84b3_a29e2f957b9f">
+			<ipxact:name>WB_ADDRESS_BASE</ipxact:name>
+			<ipxact:description>Base address for wishbone in the system memory.</ipxact:description>
+			<ipxact:value>'h0100</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

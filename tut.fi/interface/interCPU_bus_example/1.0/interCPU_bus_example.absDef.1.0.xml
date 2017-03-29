@@ -8,7 +8,7 @@
 	<ipxact:ports>
 		<ipxact:port>
 			<ipxact:logicalName>register_value</ipxact:logicalName>
-			<ipxact:description>Value of currently active register.</ipxact:description>
+			<ipxact:description>Value of the currently active register.</ipxact:description>
 			<ipxact:wire>
 				<ipxact:qualifier>
 					<ipxact:isData>true</ipxact:isData>
@@ -32,7 +32,7 @@
 		</ipxact:port>
 		<ipxact:port>
 			<ipxact:logicalName>alu_active</ipxact:logicalName>
-			<ipxact:description>Signifies that the value is targeted to ALU.</ipxact:description>
+			<ipxact:description>Signifies that ALU is expected to perform.</ipxact:description>
 			<ipxact:wire>
 				<ipxact:onSystem>
 					<ipxact:group>Decoder</ipxact:group>
@@ -50,7 +50,7 @@
 		</ipxact:port>
 		<ipxact:port>
 			<ipxact:logicalName>mem_active</ipxact:logicalName>
-			<ipxact:description>Signifies that the value is targeted to memory controller.</ipxact:description>
+			<ipxact:description>Signifies that memory controller is expected to perform.</ipxact:description>
 			<ipxact:wire>
 				<ipxact:onSystem>
 					<ipxact:group>Decoder</ipxact:group>
@@ -111,7 +111,7 @@
 		</ipxact:port>
 		<ipxact:port>
 			<ipxact:logicalName>mem_rdy</ipxact:logicalName>
-			<ipxact:description>Signifies that memory controller has processed the value and the result is ready.</ipxact:description>
+			<ipxact:description>Signifies that memory controller has done the operation and the result is ready.</ipxact:description>
 			<ipxact:wire>
 				<ipxact:onSystem>
 					<ipxact:group>RegisterBank</ipxact:group>
@@ -240,6 +240,25 @@
 					<ipxact:group>MemoryControl</ipxact:group>
 					<ipxact:presence>required</ipxact:presence>
 					<ipxact:width>1</ipxact:width>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onSystem>
+			</ipxact:wire>
+		</ipxact:port>
+		<ipxact:port>
+			<ipxact:logicalName>address</ipxact:logicalName>
+			<ipxact:description>The address for the memory operation.</ipxact:description>
+			<ipxact:wire>
+				<ipxact:qualifier>
+					<ipxact:isAddress>true</ipxact:isAddress>
+				</ipxact:qualifier>
+				<ipxact:onSystem>
+					<ipxact:group>Decoder</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onSystem>
+				<ipxact:onSystem>
+					<ipxact:group>MemoryControl</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
 					<ipxact:direction>in</ipxact:direction>
 				</ipxact:onSystem>
 			</ipxact:wire>

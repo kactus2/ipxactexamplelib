@@ -129,7 +129,9 @@
 					</ipxact:portMaps>
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
-			<ipxact:slave/>
+			<ipxact:slave>
+				<ipxact:memoryMapRef memoryMapRef="storage"/>
+			</ipxact:slave>
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>wb_system</ipxact:name>
@@ -166,7 +168,7 @@
 		<ipxact:remapState>
 			<ipxact:name>store_hash</ipxact:name>
 			<ipxact:remapPorts>
-				<ipxact:remapPort portRef="store_hash">
+				<ipxact:remapPort portRef="store_hash_i">
 					<ipxact:value>1</ipxact:value>
 				</ipxact:remapPort>
 			</ipxact:remapPorts>
@@ -177,56 +179,23 @@
 			<ipxact:name>storage</ipxact:name>
 			<ipxact:addressBlock>
 				<ipxact:name>DATA</ipxact:name>
-				<ipxact:baseAddress>uuid_11833df7_86a0_48e2_8577_f3cc38000d57</ipxact:baseAddress>
+				<ipxact:baseAddress>0</ipxact:baseAddress>
 				<ipxact:range>uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba</ipxact:range>
 				<ipxact:width>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:width>
-				<ipxact:register>
-					<ipxact:name>data</ipxact:name>
-					<ipxact:dim>uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba</ipxact:dim>
-					<ipxact:addressOffset>'h0</ipxact:addressOffset>
-					<ipxact:size>8</ipxact:size>
-					<ipxact:field>
-						<ipxact:name>DATA</ipxact:name>
-						<ipxact:bitOffset>0</ipxact:bitOffset>
-						<ipxact:bitWidth>8</ipxact:bitWidth>
-					</ipxact:field>
-				</ipxact:register>
 			</ipxact:addressBlock>
 			<ipxact:memoryRemap state="store_hash">
 				<ipxact:name>Hashed</ipxact:name>
 				<ipxact:addressBlock>
 					<ipxact:name>DATA</ipxact:name>
-					<ipxact:baseAddress>uuid_11833df7_86a0_48e2_8577_f3cc38000d57</ipxact:baseAddress>
+					<ipxact:baseAddress>0</ipxact:baseAddress>
 					<ipxact:range>uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba/2</ipxact:range>
 					<ipxact:width>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:width>
-					<ipxact:register>
-						<ipxact:name>data</ipxact:name>
-						<ipxact:dim>uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba/2</ipxact:dim>
-						<ipxact:addressOffset>'h0</ipxact:addressOffset>
-						<ipxact:size>8</ipxact:size>
-						<ipxact:field>
-							<ipxact:name>DATA</ipxact:name>
-							<ipxact:bitOffset>0</ipxact:bitOffset>
-							<ipxact:bitWidth>8</ipxact:bitWidth>
-						</ipxact:field>
-					</ipxact:register>
 				</ipxact:addressBlock>
 				<ipxact:addressBlock>
 					<ipxact:name>HASH</ipxact:name>
-					<ipxact:baseAddress>uuid_11833df7_86a0_48e2_8577_f3cc38000d57+uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba/2</ipxact:baseAddress>
+					<ipxact:baseAddress>0+uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba/2</ipxact:baseAddress>
 					<ipxact:range>uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba/2</ipxact:range>
 					<ipxact:width>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:width>
-					<ipxact:register>
-						<ipxact:name>hash</ipxact:name>
-						<ipxact:dim>uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba/2</ipxact:dim>
-						<ipxact:addressOffset>'h0</ipxact:addressOffset>
-						<ipxact:size>8</ipxact:size>
-						<ipxact:field>
-							<ipxact:name>HASH</ipxact:name>
-							<ipxact:bitOffset>0</ipxact:bitOffset>
-							<ipxact:bitWidth>8</ipxact:bitWidth>
-						</ipxact:field>
-					</ipxact:register>
 				</ipxact:addressBlock>
 			</ipxact:memoryRemap>
 			<ipxact:addressUnitBits>8</ipxact:addressUnitBits>
@@ -459,7 +428,7 @@
 				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>store_hash</ipxact:name>
+				<ipxact:name>store_hash_i</ipxact:name>
 				<ipxact:description>1 = store hash, 0 = do not store</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
@@ -501,15 +470,15 @@
 			<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
 			<ipxact:value>32</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba" resolve="user" usageCount="7">
+		<ipxact:parameter parameterId="uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba" resolve="user" usageCount="4">
 			<ipxact:name>MEMORY_SIZE</ipxact:name>
 			<ipxact:description>How many data slots in AUB there is in the memory.</ipxact:description>
 			<ipxact:value>128</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_11833df7_86a0_48e2_8577_f3cc38000d57" resolve="user" usageCount="3">
+		<ipxact:parameter parameterId="uuid_11833df7_86a0_48e2_8577_f3cc38000d57" resolve="user">
 			<ipxact:name>BASE_ADDRESS</ipxact:name>
 			<ipxact:description>The first referred address of the master.</ipxact:description>
-			<ipxact:value>'hFF00</ipxact:value>
+			<ipxact:value>'h0F00</ipxact:value>
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_7a5c050c_4b56_4d9b_9a6b_733537a85a44" resolve="immediate">
 			<ipxact:name>HASH_KEY</ipxact:name>
