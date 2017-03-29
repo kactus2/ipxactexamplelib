@@ -7,8 +7,15 @@
 	<ipxact:directConnection>true</ipxact:directConnection>
 	<ipxact:broadcast>true</ipxact:broadcast>
 	<ipxact:isAddressable>false</ipxact:isAddressable>
-	<ipxact:maxMasters>1</ipxact:maxMasters>
-	<ipxact:description>Bus definition that bundles signal in our example cpu core.</ipxact:description>
+	<ipxact:systemGroupNames>
+		<ipxact:systemGroupName>Decoder</ipxact:systemGroupName>
+		<ipxact:systemGroupName>MemoryControl</ipxact:systemGroupName>
+		<ipxact:systemGroupName>ALU</ipxact:systemGroupName>
+		<ipxact:systemGroupName>RegisterBank</ipxact:systemGroupName>
+		<ipxact:systemGroupName>ClockSource</ipxact:systemGroupName>
+		<ipxact:systemGroupName>ClockSink</ipxact:systemGroupName>
+	</ipxact:systemGroupNames>
+	<ipxact:description>Bus definition that bundles signal in our example CPU core.</ipxact:description>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,4,4,0</kactus2:version>
 	</ipxact:vendorExtensions>

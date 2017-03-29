@@ -25,7 +25,7 @@
 					<kactus2:portPosition busRef="bus_slave_1" x="110" y="130"/>
 					<kactus2:portPosition busRef="bus_slave_2" x="110" y="220"/>
 					<kactus2:portPosition busRef="bus_slave_3" x="110" y="310"/>
-					<kactus2:portPosition busRef="one_to_many_master" x="-110" y="230"/>
+					<kactus2:portPosition busRef="one_to_many_master" x="-110" y="270"/>
 					<kactus2:portPosition busRef="slave_1" x="110" y="160"/>
 					<kactus2:portPosition busRef="slave_2" x="110" y="280"/>
 					<kactus2:portPosition busRef="slave_3" x="110" y="370"/>
@@ -48,31 +48,7 @@
 					<kactus2:portPosition busRef="contoller" x="-110" y="40"/>
 					<kactus2:portPosition busRef="wb_system" x="-110" y="70"/>
 				</kactus2:portPositions>
-				<kactus2:position x="280" y="250"/>
-			</ipxact:vendorExtensions>
-		</ipxact:componentInstance>
-		<ipxact:componentInstance>
-			<ipxact:instanceName>data_passer</ipxact:instanceName>
-			<ipxact:componentRef vendor="" library="" name="" version=""/>
-			<ipxact:vendorExtensions>
-				<kactus2:uuid>{0d94f416-ecc4-48c5-b4bb-21052e6d16a5}</kactus2:uuid>
-				<kactus2:draft/>
-				<kactus2:portPositions>
-					<kactus2:portPosition busRef="bus" x="-110" y="40"/>
-				</kactus2:portPositions>
-				<kactus2:position x="920" y="390"/>
-			</ipxact:vendorExtensions>
-		</ipxact:componentInstance>
-		<ipxact:componentInstance>
-			<ipxact:instanceName>pid_controller</ipxact:instanceName>
-			<ipxact:componentRef vendor="" library="" name="" version=""/>
-			<ipxact:vendorExtensions>
-				<kactus2:uuid>{c1f70c78-7679-4394-8f47-f6016a373780}</kactus2:uuid>
-				<kactus2:draft/>
-				<kactus2:portPositions>
-					<kactus2:portPosition busRef="bus" x="-110" y="40"/>
-				</kactus2:portPositions>
-				<kactus2:position x="920" y="300"/>
+				<kactus2:position x="280" y="290"/>
 			</ipxact:vendorExtensions>
 		</ipxact:componentInstance>
 		<ipxact:componentInstance>
@@ -91,12 +67,14 @@
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{d02ad0c2-7ade-43ff-ab5b-61abfee84bf0}</kactus2:uuid>
 				<kactus2:portPositions>
-					<kactus2:portPosition busRef="mem_control" x="-110" y="140"/>
+					<kactus2:portPosition busRef="mem_control" x="-110" y="180"/>
 				</kactus2:portPositions>
 				<kactus2:adHocVisibilities>
+					<kactus2:adHocVisible portName="clk_i" x="-110" y="150"/>
 					<kactus2:adHocVisible portName="instruction_feed" x="-110" y="70"/>
+					<kactus2:adHocVisible portName="new_value" x="-110" y="100"/>
 					<kactus2:adHocVisible portName="register_result" x="-110" y="40"/>
-					<kactus2:adHocVisible portName="result_ok" x="-110" y="100"/>
+					<kactus2:adHocVisible portName="rst_i" x="-110" y="130"/>
 				</kactus2:adHocVisibilities>
 				<kactus2:position x="280" y="60"/>
 			</ipxact:vendorExtensions>
@@ -128,7 +106,7 @@
 			<ipxact:componentRef vendor="tut.fi" library="peripheral" name="wb_external_mem" version="1.0">
 				<ipxact:configurableElementValues>
 					<ipxact:configurableElementValue referenceId="uuid_11833df7_86a0_48e2_8577_f3cc38000d57">uuid_60efb6b8_d845_4ed7_92c5_ab0aeda62fc2</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba">uuid_bf25fb78_f9e5_464e_ac38_8da3fda16d60</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba">uuid_7098bf49_6fc4_4971_b79c_dbf456e8fa22</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd">uuid_1cedcd48_18d3_4ab1_8168_b840ffeef0c1</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_3452fcca_4cd2_458f_a644_4c6530ea74ed">uuid_51264501_3c28_4520_85cf_509d0483d12d</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
@@ -143,6 +121,46 @@
 					<kactus2:adHocVisible portName="store_hash" x="110" y="70"/>
 				</kactus2:adHocVisibilities>
 				<kactus2:position x="920" y="180"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>data_passer_0</ipxact:instanceName>
+			<ipxact:componentRef vendor="tut.fi" library="peripheral" name="data_passer" version="1.0">
+				<ipxact:configurableElementValues>
+					<ipxact:configurableElementValue referenceId="uuid_11833df7_86a0_48e2_8577_f3cc38000d57">uuid_f700130c_5c67_4b2c_a33f_91a6e2f5239c</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_3452fcca_4cd2_458f_a644_4c6530ea74ed">uuid_51264501_3c28_4520_85cf_509d0483d12d</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd">uuid_1cedcd48_18d3_4ab1_8168_b840ffeef0c1</ipxact:configurableElementValue>
+				</ipxact:configurableElementValues>
+			</ipxact:componentRef>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{12d9c5d2-6d0f-49f3-82c6-e37772921887}</kactus2:uuid>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="wb_slave" x="-110" y="40"/>
+					<kactus2:portPosition busRef="wb_system" x="110" y="40"/>
+				</kactus2:portPositions>
+				<kactus2:adHocVisibilities>
+					<kactus2:adHocVisible portName="ext_data_i" x="110" y="70"/>
+					<kactus2:adHocVisible portName="ext_data_o" x="110" y="70"/>
+				</kactus2:adHocVisibilities>
+				<kactus2:position x="920" y="390"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>rieman_sum_0</ipxact:instanceName>
+			<ipxact:componentRef vendor="tut.fi" library="peripheral" name="rieman_sum" version="1.0">
+				<ipxact:configurableElementValues>
+					<ipxact:configurableElementValue referenceId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd">uuid_1cedcd48_18d3_4ab1_8168_b840ffeef0c1</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_11833df7_86a0_48e2_8577_f3cc38000d57">uuid_f700130c_5c67_4b2c_a33f_91a6e2f5239c</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_3452fcca_4cd2_458f_a644_4c6530ea74ed">uuid_51264501_3c28_4520_85cf_509d0483d12d</ipxact:configurableElementValue>
+				</ipxact:configurableElementValues>
+			</ipxact:componentRef>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{81738595-1f24-48cf-8e7f-b17169d9f9da}</kactus2:uuid>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="wb_slave" x="-110" y="40"/>
+					<kactus2:portPosition busRef="wb_system" x="110" y="40"/>
+				</kactus2:portPositions>
+				<kactus2:position x="920" y="300"/>
 			</ipxact:vendorExtensions>
 		</ipxact:componentInstance>
 	</ipxact:componentInstances>
@@ -182,6 +200,26 @@
 			<ipxact:activeInterface componentRef="wb_external_mem_hash" busRef="wb_system"/>
 			<ipxact:hierInterface busRef="wb_system"/>
 		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>data_passer_0_wb_system_to_wb_system</ipxact:name>
+			<ipxact:activeInterface componentRef="data_passer_0" busRef="wb_system"/>
+			<ipxact:hierInterface busRef="wb_system"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>data_passer_0_wb_slave_to_wishbone_bus_0_slave_3</ipxact:name>
+			<ipxact:activeInterface componentRef="data_passer_0" busRef="wb_slave"/>
+			<ipxact:activeInterface componentRef="wishbone_bus_0" busRef="slave_3"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2</ipxact:name>
+			<ipxact:activeInterface componentRef="rieman_sum_0" busRef="wb_slave"/>
+			<ipxact:activeInterface componentRef="wishbone_bus_0" busRef="slave_2"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>rieman_sum_0_wb_system_to_wb_system</ipxact:name>
+			<ipxact:activeInterface componentRef="rieman_sum_0" busRef="wb_system"/>
+			<ipxact:hierInterface busRef="wb_system"/>
+		</ipxact:interconnection>
 	</ipxact:interconnections>
 	<ipxact:adHocConnections>
 		<ipxact:adHocConnection>
@@ -196,6 +234,34 @@
 			<ipxact:tiedValue>1</ipxact:tiedValue>
 			<ipxact:portReferences>
 				<ipxact:internalPortReference componentRef="wb_external_mem_hash" portRef="store_hash"/>
+			</ipxact:portReferences>
+		</ipxact:adHocConnection>
+		<ipxact:adHocConnection>
+			<ipxact:name>core_rst_i_to_rst_i</ipxact:name>
+			<ipxact:portReferences>
+				<ipxact:internalPortReference componentRef="core" portRef="rst_i"/>
+				<ipxact:externalPortReference portRef="rst_i"/>
+			</ipxact:portReferences>
+		</ipxact:adHocConnection>
+		<ipxact:adHocConnection>
+			<ipxact:name>core_clk_i_to_clk_i</ipxact:name>
+			<ipxact:portReferences>
+				<ipxact:internalPortReference componentRef="core" portRef="clk_i"/>
+				<ipxact:externalPortReference portRef="clk_i"/>
+			</ipxact:portReferences>
+		</ipxact:adHocConnection>
+		<ipxact:adHocConnection>
+			<ipxact:name>data_passer_0_ext_data_o_to_ext_data_o</ipxact:name>
+			<ipxact:portReferences>
+				<ipxact:internalPortReference componentRef="data_passer_0" portRef="ext_data_o"/>
+				<ipxact:externalPortReference portRef="ext_data_o"/>
+			</ipxact:portReferences>
+		</ipxact:adHocConnection>
+		<ipxact:adHocConnection>
+			<ipxact:name>data_passer_0_ext_data_i_to_ext_data_i</ipxact:name>
+			<ipxact:portReferences>
+				<ipxact:internalPortReference componentRef="data_passer_0" portRef="ext_data_i"/>
+				<ipxact:externalPortReference portRef="ext_data_i"/>
 			</ipxact:portReferences>
 		</ipxact:adHocConnection>
 	</ipxact:adHocConnections>
@@ -213,18 +279,18 @@
 		</kactus2:columnLayout>
 		<kactus2:routes>
 			<kactus2:route kactus2:connRef="wb_cpu_wrapper_0_wb_master_to_wishbone_bus_0_one_to_many_master" kactus2:offPage="false">
-				<kactus2:position x="390" y="290"/>
-				<kactus2:position x="490" y="290"/>
+				<kactus2:position x="390" y="330"/>
+				<kactus2:position x="490" y="330"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="wb_cpu_wrapper_0_wb_system_to_wb_system" kactus2:offPage="true">
-				<kactus2:position x="140" y="320"/>
+				<kactus2:position x="140" y="360"/>
 				<kactus2:position x="1110" y="100"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="core_mem_control_to_wb_cpu_wrapper_0_contoller" kactus2:offPage="false">
-				<kactus2:position x="170" y="200"/>
-				<kactus2:position x="150" y="200"/>
-				<kactus2:position x="150" y="290"/>
-				<kactus2:position x="170" y="290"/>
+				<kactus2:position x="170" y="240"/>
+				<kactus2:position x="150" y="240"/>
+				<kactus2:position x="150" y="330"/>
+				<kactus2:position x="170" y="330"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="wishbone_bus_0_slave_0_to_external_mem_large_wb_slave" kactus2:offPage="false">
 				<kactus2:position x="710" y="100"/>
@@ -242,31 +308,37 @@
 				<kactus2:position x="1060" y="220"/>
 				<kactus2:position x="1110" y="100"/>
 			</kactus2:route>
+			<kactus2:route kactus2:connRef="data_passer_0_wb_system_to_wb_system" kactus2:offPage="true">
+				<kactus2:position x="1060" y="430"/>
+				<kactus2:position x="1110" y="100"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="data_passer_0_wb_slave_to_wishbone_bus_0_slave_3" kactus2:offPage="false">
+				<kactus2:position x="810" y="430"/>
+				<kactus2:position x="710" y="430"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="core_rst_i_to_rst_i" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="core_clk_i_to_clk_i" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2" kactus2:offPage="false">
+				<kactus2:position x="810" y="340"/>
+				<kactus2:position x="710" y="340"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="rieman_sum_0_wb_system_to_wb_system" kactus2:offPage="true">
+				<kactus2:position x="1060" y="340"/>
+				<kactus2:position x="1110" y="100"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="data_passer_0_ext_data_o_to_ext_data_o" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="data_passer_0_ext_data_i_to_ext_data_i" kactus2:offPage="false"/>
 		</kactus2:routes>
+		<kactus2:adHocVisibilities>
+			<kactus2:adHocVisible portName="clk_i" x="60" y="210"/>
+			<kactus2:adHocVisible portName="ext_data_i" x="1140" y="490"/>
+			<kactus2:adHocVisible portName="ext_data_o" x="1140" y="460"/>
+			<kactus2:adHocVisible portName="rst_i" x="60" y="190"/>
+		</kactus2:adHocVisibilities>
 		<kactus2:interfaceGraphics>
 			<kactus2:name>wb_system</kactus2:name>
 			<kactus2:position x="1140" y="100"/>
 			<kactus2:direction x="-1" y="0"/>
 		</kactus2:interfaceGraphics>
-		<kactus2:adHocVisibilities/>
-		<kactus2:note>
-			<kactus2:position x="820" y="470"/>
-			<kactus2:content>Blokki, jossa on lähtevä data.
-Mahdollisesti myös tuleva data.
-Kontrolliekisteri, jolla 1. aloitetaan siirto. 2. Katsotaan onko siirto jo tehty.</kactus2:content>
-			<kactus2:associations/>
-			<kactus2:timestamp>27.3.2017 11:56:00</kactus2:timestamp>
-		</kactus2:note>
-		<kactus2:note>
-			<kactus2:position x="1050" y="360"/>
-			<kactus2:content>Rekisterit seuraaville arvoille:
-1. Asetusarvo
-2. Viimeisin mittausarvo
-3. Proportionaalikerroin
-4. Integraalikerroin
-5. Derivaattakerroin</kactus2:content>
-			<kactus2:associations/>
-			<kactus2:timestamp>27.3.2017 11:57:18</kactus2:timestamp>
-		</kactus2:note>
 	</ipxact:vendorExtensions>
 </ipxact:design>

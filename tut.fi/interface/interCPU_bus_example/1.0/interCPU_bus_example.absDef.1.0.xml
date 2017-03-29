@@ -7,101 +7,241 @@
 	<ipxact:busType vendor="tut.fi" library="interface" name="interCPU_bus_example" version="1.0"/>
 	<ipxact:ports>
 		<ipxact:port>
-			<ipxact:logicalName>ins_value</ipxact:logicalName>
-			<ipxact:description>Value in instruction, relevancy is known by receiver.</ipxact:description>
+			<ipxact:logicalName>register_value</ipxact:logicalName>
+			<ipxact:description>Value of currently active register.</ipxact:description>
 			<ipxact:wire>
 				<ipxact:qualifier>
 					<ipxact:isData>true</ipxact:isData>
 				</ipxact:qualifier>
-				<ipxact:onMaster>
+				<ipxact:onSystem>
+					<ipxact:group>RegisterBank</ipxact:group>
 					<ipxact:presence>required</ipxact:presence>
 					<ipxact:direction>out</ipxact:direction>
-				</ipxact:onMaster>
-				<ipxact:onSlave>
+				</ipxact:onSystem>
+				<ipxact:onSystem>
+					<ipxact:group>MemoryControl</ipxact:group>
 					<ipxact:presence>required</ipxact:presence>
 					<ipxact:direction>in</ipxact:direction>
-				</ipxact:onSlave>
+				</ipxact:onSystem>
+				<ipxact:onSystem>
+					<ipxact:group>ALU</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onSystem>
 			</ipxact:wire>
 		</ipxact:port>
 		<ipxact:port>
 			<ipxact:logicalName>alu_active</ipxact:logicalName>
 			<ipxact:description>Signifies that the value is targeted to ALU.</ipxact:description>
 			<ipxact:wire>
-				<ipxact:onMaster>
-					<ipxact:presence>optional</ipxact:presence>
+				<ipxact:onSystem>
+					<ipxact:group>Decoder</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
 					<ipxact:width>1</ipxact:width>
 					<ipxact:direction>out</ipxact:direction>
-				</ipxact:onMaster>
-				<ipxact:onSlave>
-					<ipxact:presence>optional</ipxact:presence>
+				</ipxact:onSystem>
+				<ipxact:onSystem>
+					<ipxact:group>ALU</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
 					<ipxact:width>1</ipxact:width>
 					<ipxact:direction>in</ipxact:direction>
-				</ipxact:onSlave>
+				</ipxact:onSystem>
 			</ipxact:wire>
 		</ipxact:port>
 		<ipxact:port>
 			<ipxact:logicalName>mem_active</ipxact:logicalName>
 			<ipxact:description>Signifies that the value is targeted to memory controller.</ipxact:description>
 			<ipxact:wire>
-				<ipxact:onMaster>
-					<ipxact:presence>optional</ipxact:presence>
+				<ipxact:onSystem>
+					<ipxact:group>Decoder</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
 					<ipxact:width>1</ipxact:width>
 					<ipxact:direction>out</ipxact:direction>
-				</ipxact:onMaster>
-				<ipxact:onSlave>
-					<ipxact:presence>optional</ipxact:presence>
+				</ipxact:onSystem>
+				<ipxact:onSystem>
+					<ipxact:group>MemoryControl</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
 					<ipxact:width>1</ipxact:width>
 					<ipxact:direction>in</ipxact:direction>
-				</ipxact:onSlave>
+				</ipxact:onSystem>
 			</ipxact:wire>
 		</ipxact:port>
 		<ipxact:port>
-			<ipxact:logicalName>res_value</ipxact:logicalName>
-			<ipxact:description>Value resulting from the operation.</ipxact:description>
+			<ipxact:logicalName>load_value</ipxact:logicalName>
+			<ipxact:description>Loaded value from memory.</ipxact:description>
 			<ipxact:wire>
 				<ipxact:qualifier>
 					<ipxact:isData>true</ipxact:isData>
 				</ipxact:qualifier>
-				<ipxact:onMaster>
+				<ipxact:onSystem>
+					<ipxact:group>RegisterBank</ipxact:group>
 					<ipxact:presence>required</ipxact:presence>
 					<ipxact:direction>in</ipxact:direction>
-				</ipxact:onMaster>
-				<ipxact:onSlave>
+				</ipxact:onSystem>
+				<ipxact:onSystem>
+					<ipxact:group>MemoryControl</ipxact:group>
 					<ipxact:presence>required</ipxact:presence>
 					<ipxact:direction>out</ipxact:direction>
-				</ipxact:onSlave>
+				</ipxact:onSystem>
 			</ipxact:wire>
 		</ipxact:port>
 		<ipxact:port>
 			<ipxact:logicalName>alu_rdy</ipxact:logicalName>
 			<ipxact:description>Signifies that ALU has processed the value and the result is ready.</ipxact:description>
 			<ipxact:wire>
-				<ipxact:onMaster>
-					<ipxact:presence>optional</ipxact:presence>
+				<ipxact:onSystem>
+					<ipxact:group>RegisterBank</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
 					<ipxact:width>1</ipxact:width>
 					<ipxact:direction>in</ipxact:direction>
-				</ipxact:onMaster>
-				<ipxact:onSlave>
-					<ipxact:presence>optional</ipxact:presence>
+				</ipxact:onSystem>
+				<ipxact:onSystem>
+					<ipxact:group>ALU</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
 					<ipxact:width>1</ipxact:width>
 					<ipxact:direction>out</ipxact:direction>
-				</ipxact:onSlave>
+				</ipxact:onSystem>
+				<ipxact:onSystem>
+					<ipxact:group>Decoder</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onSystem>
 			</ipxact:wire>
 		</ipxact:port>
 		<ipxact:port>
 			<ipxact:logicalName>mem_rdy</ipxact:logicalName>
 			<ipxact:description>Signifies that memory controller has processed the value and the result is ready.</ipxact:description>
 			<ipxact:wire>
-				<ipxact:onMaster>
-					<ipxact:presence>optional</ipxact:presence>
+				<ipxact:onSystem>
+					<ipxact:group>RegisterBank</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
 					<ipxact:width>1</ipxact:width>
 					<ipxact:direction>in</ipxact:direction>
-				</ipxact:onMaster>
-				<ipxact:onSlave>
-					<ipxact:presence>optional</ipxact:presence>
+				</ipxact:onSystem>
+				<ipxact:onSystem>
+					<ipxact:group>MemoryControl</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
 					<ipxact:width>1</ipxact:width>
 					<ipxact:direction>out</ipxact:direction>
-				</ipxact:onSlave>
+				</ipxact:onSystem>
+				<ipxact:onSystem>
+					<ipxact:group>Decoder</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onSystem>
+			</ipxact:wire>
+		</ipxact:port>
+		<ipxact:port>
+			<ipxact:logicalName>clk</ipxact:logicalName>
+			<ipxact:description>The used clock in the core</ipxact:description>
+			<ipxact:wire>
+				<ipxact:qualifier>
+					<ipxact:isClock>true</ipxact:isClock>
+				</ipxact:qualifier>
+				<ipxact:onSystem>
+					<ipxact:group>ClockSource</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onSystem>
+				<ipxact:onSystem>
+					<ipxact:group>ClockSink</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onSystem>
+			</ipxact:wire>
+		</ipxact:port>
+		<ipxact:port>
+			<ipxact:logicalName>rst</ipxact:logicalName>
+			<ipxact:description>The used reset in the core</ipxact:description>
+			<ipxact:wire>
+				<ipxact:qualifier>
+					<ipxact:isReset>true</ipxact:isReset>
+				</ipxact:qualifier>
+				<ipxact:onSystem>
+					<ipxact:group>ClockSource</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onSystem>
+				<ipxact:onSystem>
+					<ipxact:group>ClockSink</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onSystem>
+			</ipxact:wire>
+		</ipxact:port>
+		<ipxact:port>
+			<ipxact:logicalName>alu_result</ipxact:logicalName>
+			<ipxact:description>Result of the ALU operation.</ipxact:description>
+			<ipxact:wire>
+				<ipxact:qualifier>
+					<ipxact:isData>true</ipxact:isData>
+				</ipxact:qualifier>
+				<ipxact:onSystem>
+					<ipxact:group>RegisterBank</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onSystem>
+				<ipxact:onSystem>
+					<ipxact:group>ALU</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onSystem>
+			</ipxact:wire>
+		</ipxact:port>
+		<ipxact:port>
+			<ipxact:logicalName>choose_register</ipxact:logicalName>
+			<ipxact:description>Chooses the active register from register bank.</ipxact:description>
+			<ipxact:wire>
+				<ipxact:onSystem>
+					<ipxact:group>RegisterBank</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onSystem>
+				<ipxact:onSystem>
+					<ipxact:group>Decoder</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onSystem>
+			</ipxact:wire>
+		</ipxact:port>
+		<ipxact:port>
+			<ipxact:logicalName>alu_operation</ipxact:logicalName>
+			<ipxact:description>Signifies the operation executed by ALU.</ipxact:description>
+			<ipxact:wire>
+				<ipxact:onSystem>
+					<ipxact:group>Decoder</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onSystem>
+				<ipxact:onSystem>
+					<ipxact:group>ALU</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onSystem>
+			</ipxact:wire>
+		</ipxact:port>
+		<ipxact:port>
+			<ipxact:logicalName>mem_we</ipxact:logicalName>
+			<ipxact:description>1 = writing to memory. 0 = reading from memory</ipxact:description>
+			<ipxact:wire>
+				<ipxact:onSystem>
+					<ipxact:group>Decoder</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onSystem>
+				<ipxact:onSystem>
+					<ipxact:group>MemoryControl</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onSystem>
 			</ipxact:wire>
 		</ipxact:port>
 	</ipxact:ports>

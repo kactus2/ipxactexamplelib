@@ -2,119 +2,9 @@
 <ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
 	<ipxact:library>core</ipxact:library>
-	<ipxact:name>instruction_decoder</ipxact:name>
+	<ipxact:name>register_bank</ipxact:name>
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:busInterfaces>
-		<ipxact:busInterface>
-			<ipxact:name>cpu_system</ipxact:name>
-			<ipxact:busType vendor="tut.fi" library="interface" name="interCPU_bus_example" version="1.0"/>
-			<ipxact:abstractionTypes>
-				<ipxact:abstractionType>
-					<ipxact:abstractionRef vendor="tut.fi" library="interface" name="interCPU_bus_example.absDef" version="1.0"/>
-					<ipxact:portMaps>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>alu_active</ipxact:name>
-								<ipxact:range>
-									<ipxact:left>0</ipxact:left>
-									<ipxact:right>0</ipxact:right>
-								</ipxact:range>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>alu_active_o</ipxact:name>
-								<ipxact:partSelect>
-									<ipxact:range>
-										<ipxact:left>0</ipxact:left>
-										<ipxact:right>0</ipxact:right>
-									</ipxact:range>
-								</ipxact:partSelect>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>mem_active</ipxact:name>
-								<ipxact:range>
-									<ipxact:left>0</ipxact:left>
-									<ipxact:right>0</ipxact:right>
-								</ipxact:range>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>mem_active_o</ipxact:name>
-								<ipxact:partSelect>
-									<ipxact:range>
-										<ipxact:left>0</ipxact:left>
-										<ipxact:right>0</ipxact:right>
-									</ipxact:range>
-								</ipxact:partSelect>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>choose_register</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>choose_reg_o</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>alu_operation</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>alu_op_o</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>mem_we</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>we_o</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>alu_rdy</ipxact:name>
-								<ipxact:range>
-									<ipxact:left>0</ipxact:left>
-									<ipxact:right>0</ipxact:right>
-								</ipxact:range>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>alu_rdy_i</ipxact:name>
-								<ipxact:partSelect>
-									<ipxact:range>
-										<ipxact:left>0</ipxact:left>
-										<ipxact:right>0</ipxact:right>
-									</ipxact:range>
-								</ipxact:partSelect>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>mem_rdy</ipxact:name>
-								<ipxact:range>
-									<ipxact:left>0</ipxact:left>
-									<ipxact:right>0</ipxact:right>
-								</ipxact:range>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>mem_rdy_i</ipxact:name>
-								<ipxact:partSelect>
-									<ipxact:range>
-										<ipxact:left>0</ipxact:left>
-										<ipxact:right>0</ipxact:right>
-									</ipxact:range>
-								</ipxact:partSelect>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-					</ipxact:portMaps>
-				</ipxact:abstractionType>
-			</ipxact:abstractionTypes>
-			<ipxact:system>
-				<ipxact:group>Decoder</ipxact:group>
-			</ipxact:system>
-		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>cpu_clk_sink</ipxact:name>
 			<ipxact:busType vendor="tut.fi" library="interface" name="interCPU_bus_example" version="1.0"/>
@@ -165,6 +55,88 @@
 				<ipxact:group>ClockSink</ipxact:group>
 			</ipxact:system>
 		</ipxact:busInterface>
+		<ipxact:busInterface>
+			<ipxact:name>cpu_system</ipxact:name>
+			<ipxact:busType vendor="tut.fi" library="interface" name="interCPU_bus_example" version="1.0"/>
+			<ipxact:abstractionTypes>
+				<ipxact:abstractionType>
+					<ipxact:abstractionRef vendor="tut.fi" library="interface" name="interCPU_bus_example.absDef" version="1.0"/>
+					<ipxact:portMaps>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>load_value</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>load_value_i</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>alu_rdy</ipxact:name>
+								<ipxact:range>
+									<ipxact:left>0</ipxact:left>
+									<ipxact:right>0</ipxact:right>
+								</ipxact:range>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>alu_rdy_i</ipxact:name>
+								<ipxact:partSelect>
+									<ipxact:range>
+										<ipxact:left>0</ipxact:left>
+										<ipxact:right>0</ipxact:right>
+									</ipxact:range>
+								</ipxact:partSelect>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>mem_rdy</ipxact:name>
+								<ipxact:range>
+									<ipxact:left>0</ipxact:left>
+									<ipxact:right>0</ipxact:right>
+								</ipxact:range>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>mem_rdy_i</ipxact:name>
+								<ipxact:partSelect>
+									<ipxact:range>
+										<ipxact:left>0</ipxact:left>
+										<ipxact:right>0</ipxact:right>
+									</ipxact:range>
+								</ipxact:partSelect>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>alu_result</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>alu_result_i</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>choose_register</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>choose_register_i</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>register_value</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>register_value</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+					</ipxact:portMaps>
+				</ipxact:abstractionType>
+			</ipxact:abstractionTypes>
+			<ipxact:system>
+				<ipxact:group>RegisterBank</ipxact:group>
+			</ipxact:system>
+		</ipxact:busInterface>
 	</ipxact:busInterfaces>
 	<ipxact:model>
 		<ipxact:views>
@@ -174,63 +146,65 @@
 		</ipxact:views>
 		<ipxact:ports>
 			<ipxact:port>
-				<ipxact:name>alu_op_o</ipxact:name>
-				<ipxact:wire>
-					<ipxact:direction>out</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left>uuid_e9d5e74a_fd01_40b3_bad5_65e77c73c003-1</ipxact:left>
-							<ipxact:right>0</ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
-					<ipxact:wireTypeDefs>
-						<ipxact:wireTypeDef>
-							<ipxact:typeDefinition></ipxact:typeDefinition>
-						</ipxact:wireTypeDef>
-					</ipxact:wireTypeDefs>
-				</ipxact:wire>
-			</ipxact:port>
-			<ipxact:port>
-				<ipxact:name>alu_active_o</ipxact:name>
-				<ipxact:wire>
-					<ipxact:direction>out</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left>0</ipxact:left>
-							<ipxact:right>0</ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
-					<ipxact:wireTypeDefs>
-						<ipxact:wireTypeDef>
-							<ipxact:typeDefinition></ipxact:typeDefinition>
-						</ipxact:wireTypeDef>
-					</ipxact:wireTypeDefs>
-				</ipxact:wire>
-			</ipxact:port>
-			<ipxact:port>
-				<ipxact:name>mem_active_o</ipxact:name>
-				<ipxact:wire>
-					<ipxact:direction>out</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left>0</ipxact:left>
-							<ipxact:right>0</ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
-					<ipxact:wireTypeDefs>
-						<ipxact:wireTypeDef>
-							<ipxact:typeDefinition></ipxact:typeDefinition>
-						</ipxact:wireTypeDef>
-					</ipxact:wireTypeDefs>
-				</ipxact:wire>
-			</ipxact:port>
-			<ipxact:port>
-				<ipxact:name>instruction_feed</ipxact:name>
+				<ipxact:name>load_value_i</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>uuid_1ee25c55_7b66_4be1_bb94_c97e8779396d</ipxact:left>
+							<ipxact:left>uuid_8cf9f778_bf4e_4da5_9647_baa7ec8c8ddf-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>alu_rdy_i</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+					<ipxact:wireTypeDefs>
+						<ipxact:wireTypeDef>
+							<ipxact:typeDefinition></ipxact:typeDefinition>
+						</ipxact:wireTypeDef>
+					</ipxact:wireTypeDefs>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>mem_rdy_i</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>alu_result_i</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>register_value</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>uuid_8cf9f778_bf4e_4da5_9647_baa7ec8c8ddf-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -244,6 +218,18 @@
 					<kactus2:adHocVisible/>
 					<kactus2:portTags></kactus2:portTags>
 				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>choose_register_i</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>uuid_1d5eec35_c148_4fff_b0be_119fe9627877-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>clk_i</ipxact:name>
@@ -262,6 +248,9 @@
 						</ipxact:wireTypeDef>
 					</ipxact:wireTypeDefs>
 				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags></kactus2:portTags>
+				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>rst_i</ipxact:name>
@@ -280,21 +269,13 @@
 						</ipxact:wireTypeDef>
 					</ipxact:wireTypeDefs>
 				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags></kactus2:portTags>
+				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>choose_reg_o</ipxact:name>
-				<ipxact:wire>
-					<ipxact:direction>out</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left>uuid_762fbf84_805d_4c16_bb3b_39c8d2b431a2-1</ipxact:left>
-							<ipxact:right>0</ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
-				</ipxact:wire>
-			</ipxact:port>
-			<ipxact:port>
-				<ipxact:name>we_o</ipxact:name>
+				<ipxact:name>new_value</ipxact:name>
+				<ipxact:description>Signifies that new value has been written to the bank.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
@@ -304,58 +285,27 @@
 						</ipxact:vector>
 					</ipxact:vectors>
 				</ipxact:wire>
-			</ipxact:port>
-			<ipxact:port>
-				<ipxact:name>alu_rdy_i</ipxact:name>
-				<ipxact:wire>
-					<ipxact:direction>in</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left>0</ipxact:left>
-							<ipxact:right>0</ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
-				</ipxact:wire>
-			</ipxact:port>
-			<ipxact:port>
-				<ipxact:name>mem_rdy_i</ipxact:name>
-				<ipxact:wire>
-					<ipxact:direction>in</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left>0</ipxact:left>
-							<ipxact:right>0</ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
-				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:adHocVisible/>
+				</ipxact:vendorExtensions>
 			</ipxact:port>
 		</ipxact:ports>
 	</ipxact:model>
 	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_762fbf84_805d_4c16_bb3b_39c8d2b431a2" resolve="user" usageCount="3">
-			<ipxact:name>REGISTER_ID_WIDTH</ipxact:name>
-			<ipxact:description>Bits reserved for identification a single register.</ipxact:description>
-			<ipxact:value>4</ipxact:value>
-		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_1ee25c55_7b66_4be1_bb94_c97e8779396d" resolve="immediate" usageCount="1">
-			<ipxact:name>INSTRUCTION_WIDTH</ipxact:name>
-			<ipxact:description>Total width of an instruction</ipxact:description>
-			<ipxact:value>uuid_9641f7b1_19d4_49d4_95c8_cae15e0c612d+uuid_46bdcbbd_81e4_4fb2_8c74_219eb3408e96+uuid_762fbf84_805d_4c16_bb3b_39c8d2b431a2</ipxact:value>
-		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_46bdcbbd_81e4_4fb2_8c74_219eb3408e96" resolve="immediate" usageCount="1">
-			<ipxact:name>OP_CODE_WIDTH</ipxact:name>
-			<ipxact:description>Bits reserved for operation identifiers.</ipxact:description>
-			<ipxact:value>3</ipxact:value>
-		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_9641f7b1_19d4_49d4_95c8_cae15e0c612d" resolve="user" usageCount="1">
+		<ipxact:parameter parameterId="uuid_8cf9f778_bf4e_4da5_9647_baa7ec8c8ddf" resolve="user" usageCount="2">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>Width for data in registers and instructions.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_e9d5e74a_fd01_40b3_bad5_65e77c73c003" resolve="immediate" usageCount="1">
-			<ipxact:name>ALU_OP_WIDTH</ipxact:name>
-			<ipxact:description>Bits reserved for identification of alu operation</ipxact:description>
-			<ipxact:value>2</ipxact:value>
+		<ipxact:parameter parameterId="uuid_1d5eec35_c148_4fff_b0be_119fe9627877" resolve="user" usageCount="1">
+			<ipxact:name>REGISTER_ID_WIDTH</ipxact:name>
+			<ipxact:description>Bits reserved for identification a single register.</ipxact:description>
+			<ipxact:value>4</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_65a04e84_85d1_4de3_93bf_fa3c61a6e01b" resolve="user">
+			<ipxact:name>REGISTER_COUNT</ipxact:name>
+			<ipxact:description>How many registers are supported in the core.</ipxact:description>
+			<ipxact:value>8</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>
