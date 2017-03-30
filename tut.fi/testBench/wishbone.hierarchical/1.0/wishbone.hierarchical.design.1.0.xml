@@ -6,23 +6,15 @@
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:componentInstances>
 		<ipxact:componentInstance>
-			<ipxact:instanceName>wb_slave_template_0</ipxact:instanceName>
-			<ipxact:componentRef vendor="tut.fi" library="ip.hw" name="wb_slave_template" version="1.0"/>
-			<ipxact:vendorExtensions>
-				<kactus2:uuid>{b80c78c5-7cbb-46f9-acbb-b7e7de4e4982}</kactus2:uuid>
-				<kactus2:position x="160" y="150"/>
-			</ipxact:vendorExtensions>
-		</ipxact:componentInstance>
-		<ipxact:componentInstance>
 			<ipxact:instanceName>wb_test_master_0</ipxact:instanceName>
 			<ipxact:componentRef vendor="tut.fi" library="testBench" name="wb_test_master" version="1.0"/>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{762bd010-afc4-4298-a9e3-e2f2d61455b6}</kactus2:uuid>
-				<kactus2:portPositions>
-					<kactus2:portPosition busRef="wb_system" x="-110" y="40"/>
-					<kactus2:portPosition busRef="wb_master" x="110" y="40"/>
-				</kactus2:portPositions>
 				<kactus2:position x="160" y="60"/>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="wb_master" x="110" y="40"/>
+					<kactus2:portPosition busRef="wb_system" x="-110" y="40"/>
+				</kactus2:portPositions>
 			</ipxact:vendorExtensions>
 		</ipxact:componentInstance>
 		<ipxact:componentInstance>
@@ -34,6 +26,18 @@
 					<kactus2:portPosition busRef="wb_system" x="-110" y="40"/>
 				</kactus2:portPositions>
 				<kactus2:position x="160" y="240"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>wb_slave_template_0</ipxact:instanceName>
+			<ipxact:componentRef vendor="tut.fi" library="template" name="wb_slave_template" version="1.0"/>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{dbdcf99d-9b26-47c1-b0f9-7da46d3dab41}</kactus2:uuid>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="wb_slave" x="110" y="40"/>
+					<kactus2:portPosition busRef="wb_system" x="-110" y="40"/>
+				</kactus2:portPositions>
+				<kactus2:position x="160" y="150"/>
 			</ipxact:vendorExtensions>
 		</ipxact:componentInstance>
 	</ipxact:componentInstances>

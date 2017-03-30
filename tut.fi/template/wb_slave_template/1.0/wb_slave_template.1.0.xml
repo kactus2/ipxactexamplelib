@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
-	<ipxact:library>ip.hw</ipxact:library>
+	<ipxact:library>template</ipxact:library>
 	<ipxact:name>wb_slave_template</ipxact:name>
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
 			<ipxact:name>wb_slave</ipxact:name>
-			<ipxact:busType vendor="opencores.org" library="ip.ifc" name="wishbone" version="b4"/>
+			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
-					<ipxact:abstractionRef vendor="opencores.org" library="ip.ifc" name="wishbone.absDef" version="b4"/>
+					<ipxact:abstractionRef vendor="opencores.org" library="interface" name="wishbone.absDef" version="b4"/>
 					<ipxact:portMaps>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
@@ -133,10 +133,10 @@
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>wb_system</ipxact:name>
-			<ipxact:busType vendor="opencores.org" library="ip.ifc" name="wishbone" version="b4"/>
+			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
-					<ipxact:abstractionRef vendor="opencores.org" library="ip.ifc" name="wishbone.absDef" version="b4"/>
+					<ipxact:abstractionRef vendor="opencores.org" library="interface" name="wishbone.absDef" version="b4"/>
 					<ipxact:portMaps>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
@@ -396,7 +396,7 @@
 			<ipxact:file>
 				<ipxact:name>wb_slave.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 13:06:45 on 24.03.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 12:18:45 on 30.03.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
 					<kactus2:hash>72324505a2532322090eefe4127ce9c14496e9b1</kactus2:hash>
 				</ipxact:vendorExtensions>

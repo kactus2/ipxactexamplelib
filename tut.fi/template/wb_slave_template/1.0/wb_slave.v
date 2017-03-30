@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 // File          : wb_slave.v
-// Creation date : 24.03.2017
-// Creation time : 13:06:44
+// Creation date : 30.03.2017
+// Creation time : 12:18:42
 // Description   : Template component for wishbone slave. Address space is assumed to be contiguous.
 // Created by    : TermosPullo
 // Tool : Kactus2 3.4.6 32-bit
@@ -14,7 +14,7 @@ module wb_slave #(
     parameter                              ADDR_WIDTH       = 16,    // The width of the address.
     parameter                              DATA_WIDTH       = 32,    // The width of the both transferred and inputted data.
     parameter                              DATA_COUNT       = 8,    // How many values there are in the register array.
-    parameter                              BASE_ADDRESS     = 'hFF00    // The first referred address of the master.
+    parameter                              BASE_ADDRESS     = 'h0F00    // The first referred address of the master.
 ) (
     // Interface: wb_slave
     // The address of the data.

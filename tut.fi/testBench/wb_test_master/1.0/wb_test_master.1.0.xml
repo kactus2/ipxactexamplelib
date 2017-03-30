@@ -7,10 +7,10 @@
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
 			<ipxact:name>wb_master</ipxact:name>
-			<ipxact:busType vendor="opencores.org" library="ip.ifc" name="wishbone" version="b4"/>
+			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
-					<ipxact:abstractionRef vendor="opencores.org" library="ip.ifc" name="wishbone.absDef" version="b4"/>
+					<ipxact:abstractionRef vendor="opencores.org" library="interface" name="wishbone.absDef" version="b4"/>
 					<ipxact:portMaps>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
@@ -133,10 +133,10 @@
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>wb_system</ipxact:name>
-			<ipxact:busType vendor="opencores.org" library="ip.ifc" name="wishbone" version="b4"/>
+			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
-					<ipxact:abstractionRef vendor="opencores.org" library="ip.ifc" name="wishbone.absDef" version="b4"/>
+					<ipxact:abstractionRef vendor="opencores.org" library="interface" name="wishbone.absDef" version="b4"/>
 					<ipxact:portMaps>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
@@ -399,7 +399,7 @@
 			<ipxact:file>
 				<ipxact:name>wb_master.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 13:06:52 on 24.03.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 12:21:53 on 30.03.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
 					<kactus2:hash>c2474675a35a02e7c6096b69dd5463d282462292</kactus2:hash>
 				</ipxact:vendorExtensions>
@@ -426,7 +426,7 @@
 		<ipxact:parameter parameterId="uuid_97ac3e61_b280_4fa3_982a_78b110952f5b" resolve="user">
 			<ipxact:name>BASE_ADDRESS</ipxact:name>
 			<ipxact:description>The first referred address of the master.</ipxact:description>
-			<ipxact:value>'hFF00</ipxact:value>
+			<ipxact:value>'h0F00</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

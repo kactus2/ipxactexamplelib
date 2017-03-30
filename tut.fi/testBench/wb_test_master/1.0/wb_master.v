@@ -1,20 +1,20 @@
 //-----------------------------------------------------------------------------
 // File          : wb_master.v
-// Creation date : 24.03.2017
-// Creation time : 13:06:51
+// Creation date : 30.03.2017
+// Creation time : 12:21:50
 // Description   : A verilog master that has a register array of data it uses to write to a slave. Each data is written to different address, and then read to verify it worked. Address space is assumed to be contiguous.
 // Created by    : TermosPullo
 // Tool : Kactus2 3.4.6 32-bit
 // Plugin : Verilog generator 2.0d
-// This file was generated based on IP-XACT component tut.fi:test_bench:wb_test_master:1.0
-// whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/test_bench/wb_test_master/1.0/wb_test_master.1.0.xml
+// This file was generated based on IP-XACT component tut.fi:testBench:wb_test_master:1.0
+// whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/testBench/wb_test_master/1.0/wb_test_master.1.0.xml
 //-----------------------------------------------------------------------------
 
 module wb_master #(
     parameter                              ADDR_WIDTH       = 16,    // The width of the address.
     parameter                              DATA_COUNT       = 8,    // How many values there are in the register array.
     parameter                              DATA_WIDTH       = 32,    // The width of the both transferred and inputted data.
-    parameter                              BASE_ADDRESS     = 'hFF00    // The first referred address of the master.
+    parameter                              BASE_ADDRESS     = 'h0F00    // The first referred address of the master.
 ) (
     // Interface: wb_master
     // Slave asserts acknowledge.

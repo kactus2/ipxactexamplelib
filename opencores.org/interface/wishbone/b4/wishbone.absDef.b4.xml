@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ipxact:abstractionDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>opencores.org</ipxact:vendor>
-	<ipxact:library>ip.ifc</ipxact:library>
+	<ipxact:library>interface</ipxact:library>
 	<ipxact:name>wishbone.absDef</ipxact:name>
 	<ipxact:version>b4</ipxact:version>
-	<ipxact:busType vendor="opencores.org" library="ip.ifc" name="wishbone" version="b4"/>
+	<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 	<ipxact:ports>
 		<ipxact:port>
 			<ipxact:logicalName>ack</ipxact:logicalName>

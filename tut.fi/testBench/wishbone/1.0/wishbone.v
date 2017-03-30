@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : wishbone.v
-// Creation date : 27.03.2017
-// Creation time : 11:08:33
+// Creation date : 30.03.2017
+// Creation time : 12:25:54
 // Description   : 
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.4 32-bit
+// Tool : Kactus2 3.4.6 32-bit
 // Plugin : Verilog generator 2.0d
 // This file was generated based on IP-XACT component tut.fi:testBench:wishbone:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/testBench/wishbone/1.0/wishbone.1.0.xml
@@ -85,12 +85,12 @@ module wishbone();
         .clk_o               (TestClockSource_0_clk_o),
         .rst_o               (TestClockSource_0_rst_o));
 
-    // IP-XACT VLNV: tut.fi:ip.hw:wb_slave_template:1.0
+    // IP-XACT VLNV: tut.fi:template:wb_slave_template:1.0
     wb_slave #(
         .ADDR_WIDTH          (16),
         .DATA_WIDTH          (32),
         .DATA_COUNT          (8),
-        .BASE_ADDRESS        (65280))
+        .BASE_ADDRESS        (3840))
     wb_slave_template_0(
         // Interface: wb_slave
         .adr_i               (wb_slave_template_0_adr_i),
@@ -110,7 +110,7 @@ module wishbone();
         .ADDR_WIDTH          (16),
         .DATA_COUNT          (8),
         .DATA_WIDTH          (32),
-        .BASE_ADDRESS        (65280))
+        .BASE_ADDRESS        (3840))
     wb_test_master_0(
         // Interface: wb_master
         .ack_i               (wb_test_master_0_ack_i),

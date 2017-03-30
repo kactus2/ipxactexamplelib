@@ -7,10 +7,10 @@
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
 			<ipxact:name>one_to_many_master</ipxact:name>
-			<ipxact:busType vendor="opencores.org" library="ip.ifc" name="wishbone" version="b4"/>
+			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
-					<ipxact:abstractionRef vendor="opencores.org" library="ip.ifc" name="wishbone.absDef" version="b4"/>
+					<ipxact:abstractionRef vendor="opencores.org" library="interface" name="wishbone.absDef" version="b4"/>
 					<ipxact:portMaps>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
@@ -123,10 +123,10 @@
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>slave_0</ipxact:name>
-			<ipxact:busType vendor="opencores.org" library="ip.ifc" name="wishbone" version="b4"/>
+			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
-					<ipxact:abstractionRef vendor="opencores.org" library="ip.ifc" name="wishbone.absDef" version="b4"/>
+					<ipxact:abstractionRef vendor="opencores.org" library="interface" name="wishbone.absDef" version="b4"/>
 					<ipxact:portMaps>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
@@ -244,10 +244,10 @@
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>slave_1</ipxact:name>
-			<ipxact:busType vendor="opencores.org" library="ip.ifc" name="wishbone" version="b4"/>
+			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
-					<ipxact:abstractionRef vendor="opencores.org" library="ip.ifc" name="wishbone.absDef" version="b4"/>
+					<ipxact:abstractionRef vendor="opencores.org" library="interface" name="wishbone.absDef" version="b4"/>
 					<ipxact:portMaps>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
@@ -365,10 +365,10 @@
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>slave_2</ipxact:name>
-			<ipxact:busType vendor="opencores.org" library="ip.ifc" name="wishbone" version="b4"/>
+			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
-					<ipxact:abstractionRef vendor="opencores.org" library="ip.ifc" name="wishbone.absDef" version="b4"/>
+					<ipxact:abstractionRef vendor="opencores.org" library="interface" name="wishbone.absDef" version="b4"/>
 					<ipxact:portMaps>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
@@ -486,10 +486,10 @@
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>slave_3</ipxact:name>
-			<ipxact:busType vendor="opencores.org" library="ip.ifc" name="wishbone" version="b4"/>
+			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
-					<ipxact:abstractionRef vendor="opencores.org" library="ip.ifc" name="wishbone.absDef" version="b4"/>
+					<ipxact:abstractionRef vendor="opencores.org" library="interface" name="wishbone.absDef" version="b4"/>
 					<ipxact:portMaps>
 						<ipxact:portMap>
 							<ipxact:logicalPort>

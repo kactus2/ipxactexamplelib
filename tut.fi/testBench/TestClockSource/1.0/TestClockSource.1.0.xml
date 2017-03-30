@@ -7,10 +7,10 @@
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
 			<ipxact:name>wb_system</ipxact:name>
-			<ipxact:busType vendor="opencores.org" library="ip.ifc" name="wishbone" version="b4"/>
+			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
-					<ipxact:abstractionRef vendor="opencores.org" library="ip.ifc" name="wishbone.absDef" version="b4"/>
+					<ipxact:abstractionRef vendor="opencores.org" library="interface" name="wishbone.absDef" version="b4"/>
 					<ipxact:portMaps>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
@@ -88,7 +88,7 @@
 			<ipxact:file>
 				<ipxact:name>TestClockSource.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 13:14:39 on 24.03.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 12:18:55 on 30.03.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
 					<kactus2:hash>4112318d275fe50d9ee9beada6eaaa0eec3cf77b</kactus2:hash>
 				</ipxact:vendorExtensions>

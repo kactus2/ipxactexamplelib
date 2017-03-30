@@ -17,7 +17,7 @@
 		<ipxact:systemGroupName>ClockSource</ipxact:systemGroupName>
 		<ipxact:systemGroupName>ClockSink</ipxact:systemGroupName>
 	</ipxact:systemGroupNames>
-	<ipxact:description>Bus definition that bundles signal in our example CPU core.</ipxact:description>
+	<ipxact:description>Bus definition that bundles signals in our example CPU core. Each system group corresponds an element in the core, so that each signal with a group is accessed by the element corresponding the group.</ipxact:description>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,4,4,0</kactus2:version>
 	</ipxact:vendorExtensions>
