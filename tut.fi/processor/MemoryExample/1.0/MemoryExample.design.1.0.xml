@@ -2,7 +2,7 @@
 <ipxact:design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
 	<ipxact:library>processor</ipxact:library>
-	<ipxact:name>MemoryExample.hierarchical.design</ipxact:name>
+	<ipxact:name>MemoryExample.design</ipxact:name>
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:componentInstances>
 		<ipxact:componentInstance>
@@ -146,8 +146,8 @@
 			</ipxact:vendorExtensions>
 		</ipxact:componentInstance>
 		<ipxact:componentInstance>
-			<ipxact:instanceName>rieman_sum_0</ipxact:instanceName>
-			<ipxact:componentRef vendor="tut.fi" library="peripheral" name="rieman_sum" version="1.0">
+			<ipxact:instanceName>riemann_sum_0</ipxact:instanceName>
+			<ipxact:componentRef vendor="tut.fi" library="peripheral" name="riemann_sum" version="1.0">
 				<ipxact:configurableElementValues>
 					<ipxact:configurableElementValue referenceId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd">uuid_1cedcd48_18d3_4ab1_8168_b840ffeef0c1</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_11833df7_86a0_48e2_8577_f3cc38000d57">uuid_96d9f335_6814_4ab6_8c68_3fef0c331938</ipxact:configurableElementValue>
@@ -212,12 +212,12 @@
 		</ipxact:interconnection>
 		<ipxact:interconnection>
 			<ipxact:name>rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2</ipxact:name>
-			<ipxact:activeInterface componentRef="rieman_sum_0" busRef="wb_slave"/>
+			<ipxact:activeInterface componentRef="riemann_sum_0" busRef="wb_slave"/>
 			<ipxact:activeInterface componentRef="wishbone_bus_0" busRef="slave_2"/>
 		</ipxact:interconnection>
 		<ipxact:interconnection>
 			<ipxact:name>rieman_sum_0_wb_system_to_wb_system</ipxact:name>
-			<ipxact:activeInterface componentRef="rieman_sum_0" busRef="wb_system"/>
+			<ipxact:activeInterface componentRef="riemann_sum_0" busRef="wb_system"/>
 			<ipxact:hierInterface busRef="wb_system"/>
 		</ipxact:interconnection>
 	</ipxact:interconnections>

@@ -1,16 +1,16 @@
 //-----------------------------------------------------------------------------
-// File          : SampleTB.v
-// Creation date : 22.02.2017
-// Creation time : 14:10:26
+// File          : WishboneBusSlave.v
+// Creation date : 30.03.2017
+// Creation time : 16:23:58
 // Description   : Contains TestInitializer connected to SampleHW.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.3.495 32-bit
-// Plugin : Verilog generator 2.0
-// This file was generated based on IP-XACT component tut.fi:chip:SampleTB:1.0
-// whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/chip/SampleTB/1.0/SampleTB.1.0.xml
+// Tool : Kactus2 3.4.10 32-bit
+// Plugin : Verilog generator 2.0d
+// This file was generated based on IP-XACT component tut.fi:testBench:WishboneBusSlave:1.0
+// whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/testBench/WishboneBusSlave/1.0/WishboneBusSlave.1.0.xml
 //-----------------------------------------------------------------------------
 
-module SampleTB();
+module WishboneBusSlave();
 
     // Ad-hoc wires:
     wire        SampleHW_0_rst_to_TestIntitializer_0_rst;

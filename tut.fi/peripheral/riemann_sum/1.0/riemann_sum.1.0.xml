@@ -2,7 +2,7 @@
 <ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
 	<ipxact:library>peripheral</ipxact:library>
-	<ipxact:name>rieman_sum</ipxact:name>
+	<ipxact:name>riemann_sum</ipxact:name>
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
@@ -169,19 +169,23 @@
 			<ipxact:name>default</ipxact:name>
 			<ipxact:addressBlock>
 				<ipxact:name>control</ipxact:name>
-				<ipxact:baseAddress>0+uuid_a1a11cf0_8317_4c75_b719_c55f8b393ddc</ipxact:baseAddress>
+				<ipxact:baseAddress>0</ipxact:baseAddress>
 				<ipxact:range>8*uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd/8</ipxact:range>
 				<ipxact:width>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:width>
+				<ipxact:usage>register</ipxact:usage>
+				<ipxact:volatile>true</ipxact:volatile>
+				<ipxact:access>read-write</ipxact:access>
 				<ipxact:register>
 					<ipxact:name>NEW_VALUE</ipxact:name>
 					<ipxact:dim>0</ipxact:dim>
 					<ipxact:addressOffset>'h0</ipxact:addressOffset>
 					<ipxact:size>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>write-only</ipxact:access>
 					<ipxact:field>
 						<ipxact:name>value</ipxact:name>
 						<ipxact:bitOffset>0</ipxact:bitOffset>
 						<ipxact:bitWidth>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:bitWidth>
-						<ipxact:access>write-only</ipxact:access>
 					</ipxact:field>
 				</ipxact:register>
 				<ipxact:register>
@@ -189,28 +193,12 @@
 					<ipxact:dim>0</ipxact:dim>
 					<ipxact:addressOffset>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd/8</ipxact:addressOffset>
 					<ipxact:size>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-only</ipxact:access>
 					<ipxact:field>
 						<ipxact:name>value</ipxact:name>
 						<ipxact:bitOffset>0</ipxact:bitOffset>
 						<ipxact:bitWidth>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:bitWidth>
-						<ipxact:access>read-only</ipxact:access>
-					</ipxact:field>
-				</ipxact:register>
-			</ipxact:addressBlock>
-			<ipxact:addressBlock>
-				<ipxact:name>data</ipxact:name>
-				<ipxact:baseAddress>0</ipxact:baseAddress>
-				<ipxact:range>uuid_a1a11cf0_8317_4c75_b719_c55f8b393ddc</ipxact:range>
-				<ipxact:width>8</ipxact:width>
-				<ipxact:register>
-					<ipxact:name>DATA</ipxact:name>
-					<ipxact:dim>uuid_a1a11cf0_8317_4c75_b719_c55f8b393ddc</ipxact:dim>
-					<ipxact:addressOffset>'h0</ipxact:addressOffset>
-					<ipxact:size>8</ipxact:size>
-					<ipxact:field>
-						<ipxact:name>data</ipxact:name>
-						<ipxact:bitOffset>0</ipxact:bitOffset>
-						<ipxact:bitWidth>8</ipxact:bitWidth>
 					</ipxact:field>
 				</ipxact:register>
 			</ipxact:addressBlock>
@@ -475,7 +463,7 @@
 			<ipxact:description>The first referred address of the master.</ipxact:description>
 			<ipxact:value>'h0F00</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_a1a11cf0_8317_4c75_b719_c55f8b393ddc" resolve="immediate" usageCount="4">
+		<ipxact:parameter parameterId="uuid_a1a11cf0_8317_4c75_b719_c55f8b393ddc" resolve="immediate" usageCount="2">
 			<ipxact:name>BUFFER_SIZE</ipxact:name>
 			<ipxact:description>How much buffer is allocated for both directions.</ipxact:description>
 			<ipxact:value>16</ipxact:value>

@@ -7,24 +7,24 @@
 	<ipxact:description>This catalog contains all the IP-XACT files used in the Bus Definition video tutorial for Kactus2. The top-level component is tut.fi:ip.hw:spi_example:1.0.</ipxact:description>
 	<ipxact:busDefinitions>
 		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="ip.ifc" name="SPI" version="1.0"/>
-			<ipxact:name>../../../ip.ifc/SPI/1.0/SPI.1.0.xml</ipxact:name>
+			<ipxact:vlnv vendor="tut.fi" library="interface" name="SPI" version="1.0"/>
+			<ipxact:name>../../../interface/SPI/1.0/SPI.1.0.xml</ipxact:name>
 		</ipxact:ipxactFile>
 	</ipxact:busDefinitions>
 	<ipxact:abstractionDefinitions>
 		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="ip.ifc" name="SPI.absDef" version="1.0"/>
-			<ipxact:name>../../../ip.ifc/SPI/1.0/SPI.absDef.1.0.xml</ipxact:name>
+			<ipxact:vlnv vendor="tut.fi" library="interface" name="SPI.absDef" version="1.0"/>
+			<ipxact:name>../../../interface/SPI/1.0/SPI.absDef.1.0.xml</ipxact:name>
 		</ipxact:ipxactFile>
 	</ipxact:abstractionDefinitions>
 	<ipxact:components>
 		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="ip.com" name="spi_master" version="1.0"/>
-			<ipxact:name>../../../ip.com/spi_master/1.0/spi_master.1.0.xml</ipxact:name>
+			<ipxact:vlnv vendor="tut.fi" library="template" name="spi_master" version="1.0"/>
+			<ipxact:name>../../../template/spi_master/1.0/spi_master.1.0.xml</ipxact:name>
 		</ipxact:ipxactFile>
 		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="ip.com" name="spi_slave" version="1.0"/>
-			<ipxact:name>../../../ip.com/spi_slave/1.0/spi_slave.1.0.xml</ipxact:name>
+			<ipxact:vlnv vendor="tut.fi" library="template" name="spi_slave" version="1.0"/>
+			<ipxact:name>../../../template/spi_slave/1.0/spi_slave.1.0.xml</ipxact:name>
 		</ipxact:ipxactFile>
 		<ipxact:ipxactFile>
 			<ipxact:vlnv vendor="tut.fi" library="ip.hw" name="spi_example" version="1.0"/>

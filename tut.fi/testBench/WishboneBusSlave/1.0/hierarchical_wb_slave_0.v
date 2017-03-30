@@ -1,11 +1,11 @@
 //-----------------------------------------------------------------------------
 // File          : hierarchical_wb_slave_0.v
-// Creation date : 22.02.2017
-// Creation time : 14:10:26
+// Creation date : 30.03.2017
+// Creation time : 16:23:58
 // Description   : A wishbone slave containing another wishbone slave, so now you can use a wishbone slave while using a wishbone slave.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.3.495 32-bit
-// Plugin : Verilog generator 2.0
+// Tool : Kactus2 3.4.10 32-bit
+// Plugin : Verilog generator 2.0d
 // This file was generated based on IP-XACT component tut.fi:ip.hw:hierarchical_wb_slave:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.hw/hierarchical_wb_slave/1.0/hierarchical_wb_slave.1.0.xml
 //-----------------------------------------------------------------------------

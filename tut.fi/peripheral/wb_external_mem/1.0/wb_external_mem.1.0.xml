@@ -182,6 +182,9 @@
 				<ipxact:baseAddress>0</ipxact:baseAddress>
 				<ipxact:range>uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba</ipxact:range>
 				<ipxact:width>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:width>
+				<ipxact:usage>memory</ipxact:usage>
+				<ipxact:volatile>true</ipxact:volatile>
+				<ipxact:access>read-write</ipxact:access>
 			</ipxact:addressBlock>
 			<ipxact:memoryRemap state="store_hash">
 				<ipxact:name>Hashed</ipxact:name>
@@ -190,12 +193,18 @@
 					<ipxact:baseAddress>0</ipxact:baseAddress>
 					<ipxact:range>uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba/2</ipxact:range>
 					<ipxact:width>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:width>
+					<ipxact:usage>memory</ipxact:usage>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
 				</ipxact:addressBlock>
 				<ipxact:addressBlock>
 					<ipxact:name>HASH</ipxact:name>
 					<ipxact:baseAddress>0+uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba/2</ipxact:baseAddress>
 					<ipxact:range>uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba/2</ipxact:range>
 					<ipxact:width>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:width>
+					<ipxact:usage>memory</ipxact:usage>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-only</ipxact:access>
 				</ipxact:addressBlock>
 			</ipxact:memoryRemap>
 			<ipxact:addressUnitBits>8</ipxact:addressUnitBits>

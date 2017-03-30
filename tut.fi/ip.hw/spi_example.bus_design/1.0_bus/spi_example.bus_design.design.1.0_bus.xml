@@ -7,7 +7,7 @@
 	<ipxact:componentInstances>
 		<ipxact:componentInstance>
 			<ipxact:instanceName>spi_master_0</ipxact:instanceName>
-			<ipxact:componentRef vendor="tut.fi" library="ip.com" name="spi_master" version="1.0"/>
+			<ipxact:componentRef vendor="tut.fi" library="template" name="spi_master" version="1.0"/>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{c606df0e-793f-4cd8-8b96-357b585d0df1}</kactus2:uuid>
 				<kactus2:position x="160" y="60"/>
@@ -15,7 +15,7 @@
 		</ipxact:componentInstance>
 		<ipxact:componentInstance>
 			<ipxact:instanceName>spi_slave_0</ipxact:instanceName>
-			<ipxact:componentRef vendor="tut.fi" library="ip.com" name="spi_slave" version="1.0"/>
+			<ipxact:componentRef vendor="tut.fi" library="template" name="spi_slave" version="1.0"/>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{5dd0c57c-f4d8-4336-b7b0-c5ad0bb3ed4f}</kactus2:uuid>
 				<kactus2:portPositions>
@@ -26,7 +26,7 @@
 		</ipxact:componentInstance>
 		<ipxact:componentInstance>
 			<ipxact:instanceName>spi_slave_1</ipxact:instanceName>
-			<ipxact:componentRef vendor="tut.fi" library="ip.com" name="spi_slave" version="1.0">
+			<ipxact:componentRef vendor="tut.fi" library="template" name="spi_slave" version="1.0">
 				<ipxact:configurableElementValues>
 					<ipxact:configurableElementValue referenceId="uuid_df08f9de_fbe0_4c6c_a979_aeb9011ef1e4">1</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
@@ -41,7 +41,7 @@
 		</ipxact:componentInstance>
 		<ipxact:componentInstance>
 			<ipxact:instanceName>spi_slave_2</ipxact:instanceName>
-			<ipxact:componentRef vendor="tut.fi" library="ip.com" name="spi_slave" version="1.0">
+			<ipxact:componentRef vendor="tut.fi" library="template" name="spi_slave" version="1.0">
 				<ipxact:configurableElementValues>
 					<ipxact:configurableElementValue referenceId="uuid_df08f9de_fbe0_4c6c_a979_aeb9011ef1e4">2</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>

@@ -1,28 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
-	<ipxact:library>ip.com</ipxact:library>
-	<ipxact:name>spi_slave</ipxact:name>
+	<ipxact:library>template</ipxact:library>
+	<ipxact:name>spi_master</ipxact:name>
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
-			<ipxact:name>slave_if</ipxact:name>
-			<ipxact:busType vendor="tut.fi" library="ip.ifc" name="SPI" version="1.0"/>
+			<ipxact:name>master_if</ipxact:name>
+			<ipxact:busType vendor="tut.fi" library="interface" name="SPI" version="1.0"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
-					<ipxact:abstractionRef vendor="tut.fi" library="ip.ifc" name="SPI.absDef" version="1.0"/>
+					<ipxact:abstractionRef vendor="tut.fi" library="interface" name="SPI.absDef" version="1.0"/>
 					<ipxact:portMaps>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
 								<ipxact:name>MISO</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>data_out</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>MOSI</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
 								<ipxact:name>data_in</ipxact:name>
@@ -30,28 +22,60 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
+								<ipxact:name>MOSI</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>data_out</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
 								<ipxact:name>SCLK</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>clk_in</ipxact:name>
+								<ipxact:name>clk_out</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
 								<ipxact:name>SS</ipxact:name>
 								<ipxact:range>
-									<ipxact:left>uuid_df08f9de_fbe0_4c6c_a979_aeb9011ef1e4</ipxact:left>
-									<ipxact:right>uuid_df08f9de_fbe0_4c6c_a979_aeb9011ef1e4</ipxact:right>
+									<ipxact:left>0</ipxact:left>
+									<ipxact:right>0</ipxact:right>
 								</ipxact:range>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>slave_select_in</ipxact:name>
+								<ipxact:name>slave_select1_out</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>SS</ipxact:name>
+								<ipxact:range>
+									<ipxact:left>1</ipxact:left>
+									<ipxact:right>1</ipxact:right>
+								</ipxact:range>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>slave_select2_out</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>SS</ipxact:name>
+								<ipxact:range>
+									<ipxact:left>2</ipxact:left>
+									<ipxact:right>2</ipxact:right>
+								</ipxact:range>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>slave_select3_out</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 					</ipxact:portMaps>
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
-			<ipxact:slave/>
+			<ipxact:master/>
 		</ipxact:busInterface>
 	</ipxact:busInterfaces>
 	<ipxact:model>
@@ -62,15 +86,9 @@
 		</ipxact:views>
 		<ipxact:ports>
 			<ipxact:port>
-				<ipxact:name>clk_in</ipxact:name>
+				<ipxact:name>clk_out</ipxact:name>
 				<ipxact:wire>
-					<ipxact:direction>in</ipxact:direction>
-				</ipxact:wire>
-			</ipxact:port>
-			<ipxact:port>
-				<ipxact:name>data_in</ipxact:name>
-				<ipxact:wire>
-					<ipxact:direction>in</ipxact:direction>
+					<ipxact:direction>out</ipxact:direction>
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
@@ -80,20 +98,32 @@
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>slave_select_in</ipxact:name>
+				<ipxact:name>data_in</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 				</ipxact:wire>
 			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>slave_select1_out</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>slave_select2_out</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>slave_select3_out</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:wire>
+			</ipxact:port>
 		</ipxact:ports>
 	</ipxact:model>
-	<ipxact:description>A show case for SPI slave IP-XACT document. Does not include behavioral logic, though.</ipxact:description>
-	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_df08f9de_fbe0_4c6c_a979_aeb9011ef1e4" resolve="user" usageCount="2">
-			<ipxact:name>SLAVE_ID</ipxact:name>
-			<ipxact:value>0</ipxact:value>
-		</ipxact:parameter>
-	</ipxact:parameters>
+	<ipxact:description>A show case for SPI master IP-XACT document. Does not include behavioral logic, though.</ipxact:description>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,3,506,0</kactus2:version>
 		<kactus2:kts_attributes>

@@ -168,58 +168,49 @@
 		<ipxact:memoryMap>
 			<ipxact:name>default</ipxact:name>
 			<ipxact:addressBlock>
-				<ipxact:name>data</ipxact:name>
+				<ipxact:name>SEND_BUFFER</ipxact:name>
 				<ipxact:baseAddress>0</ipxact:baseAddress>
-				<ipxact:range>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920*2</ipxact:range>
+				<ipxact:range>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920</ipxact:range>
 				<ipxact:width>8</ipxact:width>
-				<ipxact:register>
-					<ipxact:name>SEND_BUFFER</ipxact:name>
-					<ipxact:dim>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920</ipxact:dim>
-					<ipxact:addressOffset>0</ipxact:addressOffset>
-					<ipxact:size>8</ipxact:size>
-					<ipxact:field>
-						<ipxact:name>data</ipxact:name>
-						<ipxact:bitOffset>0</ipxact:bitOffset>
-						<ipxact:bitWidth>8</ipxact:bitWidth>
-						<ipxact:access>write-only</ipxact:access>
-					</ipxact:field>
-				</ipxact:register>
-				<ipxact:register>
-					<ipxact:name>RECV_BUFFER</ipxact:name>
-					<ipxact:dim>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920</ipxact:dim>
-					<ipxact:addressOffset>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920</ipxact:addressOffset>
-					<ipxact:size>8</ipxact:size>
-					<ipxact:field>
-						<ipxact:name>data</ipxact:name>
-						<ipxact:bitOffset>0</ipxact:bitOffset>
-						<ipxact:bitWidth>8</ipxact:bitWidth>
-						<ipxact:access>read-only</ipxact:access>
-					</ipxact:field>
-				</ipxact:register>
+				<ipxact:usage>register</ipxact:usage>
+				<ipxact:volatile>true</ipxact:volatile>
+				<ipxact:access>write-only</ipxact:access>
 			</ipxact:addressBlock>
 			<ipxact:addressBlock>
 				<ipxact:name>control</ipxact:name>
 				<ipxact:baseAddress>0+uuid_3928a897_9f75_4ed7_a9be_c68cadf66920*2</ipxact:baseAddress>
 				<ipxact:range>1</ipxact:range>
 				<ipxact:width>8</ipxact:width>
+				<ipxact:usage>register</ipxact:usage>
+				<ipxact:volatile>true</ipxact:volatile>
+				<ipxact:access>read-write</ipxact:access>
 				<ipxact:register>
 					<ipxact:name>CONTROL</ipxact:name>
 					<ipxact:dim>0</ipxact:dim>
 					<ipxact:addressOffset>0</ipxact:addressOffset>
 					<ipxact:size>8</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
 					<ipxact:field>
 						<ipxact:name>start_transfer</ipxact:name>
 						<ipxact:bitOffset>0</ipxact:bitOffset>
 						<ipxact:bitWidth>1</ipxact:bitWidth>
-						<ipxact:access>write-only</ipxact:access>
 					</ipxact:field>
 					<ipxact:field>
 						<ipxact:name>transfer_done</ipxact:name>
 						<ipxact:bitOffset>1</ipxact:bitOffset>
 						<ipxact:bitWidth>1</ipxact:bitWidth>
-						<ipxact:access>read-only</ipxact:access>
 					</ipxact:field>
 				</ipxact:register>
+			</ipxact:addressBlock>
+			<ipxact:addressBlock>
+				<ipxact:name>RECV_BUFFER</ipxact:name>
+				<ipxact:baseAddress>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920</ipxact:baseAddress>
+				<ipxact:range>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920</ipxact:range>
+				<ipxact:width>8</ipxact:width>
+				<ipxact:usage>register</ipxact:usage>
+				<ipxact:volatile>true</ipxact:volatile>
+				<ipxact:access>read-only</ipxact:access>
 			</ipxact:addressBlock>
 			<ipxact:addressUnitBits>8</ipxact:addressUnitBits>
 		</ipxact:memoryMap>

@@ -43,8 +43,8 @@
 			<ipxact:name>../../../ip.hw/TestIntitializer/1.0/TestIntitializer.1.0.xml</ipxact:name>
 		</ipxact:ipxactFile>
 		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="chip" name="SampleTB" version="1.0"/>
-			<ipxact:name>../../../chip/SampleTB/1.0/SampleTB.1.0.xml</ipxact:name>
+			<ipxact:vlnv vendor="tut.fi" library="testBench" name="WishboneBusSlave" version="1.0"/>
+			<ipxact:name>../../../testBench/WishboneBusSlave/1.0/WishboneBusSlave.1.0.xml</ipxact:name>
 		</ipxact:ipxactFile>
 	</ipxact:components>
 	<ipxact:designs>
@@ -55,10 +55,6 @@
 		<ipxact:ipxactFile>
 			<ipxact:vlnv vendor="tut.fi" library="ip.hw" name="hierarchical_wb_slave.design.design" version="1.0"/>
 			<ipxact:name>../../../ip.hw/hierarchical_wb_slave.design/1.0/hierarchical_wb_slave.design.design.1.0.xml</ipxact:name>
-		</ipxact:ipxactFile>
-		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="chip" name="SampleTB.design.design" version="1.0"/>
-			<ipxact:name>../../../chip/SampleTB.design/1.0/SampleTB.design.design.1.0.xml</ipxact:name>
 		</ipxact:ipxactFile>
 	</ipxact:designs>
 	<ipxact:designConfigurations>
@@ -71,8 +67,12 @@
 			<ipxact:name>../../../ip.hw/hierarchical_wb_slave.design/1.0/hierarchical_wb_slave.design.designcfg.1.0.xml</ipxact:name>
 		</ipxact:ipxactFile>
 		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="chip" name="SampleTB.design.designcfg" version="1.0"/>
-			<ipxact:name>../../../chip/SampleTB.design/1.0/SampleTB.design.designcfg.1.0.xml</ipxact:name>
+			<ipxact:vlnv vendor="tut.fi" library="testBench" name="WishboneBusSlave.verilog.designcfg" version="1.0"/>
+			<ipxact:name>../../../testBench/WishboneBusSlave/1.0/WishboneBusSlave.verilog.designcfg.1.0.xml</ipxact:name>
+		</ipxact:ipxactFile>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tut.fi" library="testBench" name="WishboneBusSlave.SystemC.designcfg" version="1.0"/>
+			<ipxact:name>../../../testBench/WishboneBusSlave/1.0/WishboneBusSlave.SystemC.designcfg.1.0.xml</ipxact:name>
 		</ipxact:ipxactFile>
 	</ipxact:designConfigurations>
 	<ipxact:vendorExtensions>

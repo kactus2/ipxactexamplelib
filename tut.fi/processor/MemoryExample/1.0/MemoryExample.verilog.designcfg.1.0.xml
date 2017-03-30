@@ -2,9 +2,9 @@
 <ipxact:designConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
 	<ipxact:library>processor</ipxact:library>
-	<ipxact:name>MemoryExample.hierarchical.designcfg</ipxact:name>
+	<ipxact:name>MemoryExample.Verilog.designcfg</ipxact:name>
 	<ipxact:version>1.0</ipxact:version>
-	<ipxact:designRef vendor="tut.fi" library="processor" name="MemoryExample.hierarchical.design" version="1.0"/>
+	<ipxact:designRef vendor="tut.fi" library="processor" name="MemoryExample.design" version="1.0"/>
 	<ipxact:viewConfiguration>
 		<ipxact:instanceName>wb_cpu_wrapper_0</ipxact:instanceName>
 		<ipxact:view viewRef="flat_verilog"/>
@@ -30,7 +30,7 @@
 		<ipxact:view viewRef="flat_verilog"/>
 	</ipxact:viewConfiguration>
 	<ipxact:viewConfiguration>
-		<ipxact:instanceName>rieman_sum_0</ipxact:instanceName>
+		<ipxact:instanceName>riemann_sum_0</ipxact:instanceName>
 		<ipxact:view viewRef="flat_verilog"/>
 	</ipxact:viewConfiguration>
 	<ipxact:vendorExtensions>

@@ -7,14 +7,14 @@
 	<ipxact:model>
 		<ipxact:views>
 			<ipxact:view>
-				<ipxact:name>hierarchical</ipxact:name>
-				<ipxact:designInstantiationRef>wishbone.hierarchical.design_1.0</ipxact:designInstantiationRef>
+				<ipxact:name>hierarchical_verilog</ipxact:name>
+				<ipxact:designInstantiationRef>wishbone.design_1.0</ipxact:designInstantiationRef>
 			</ipxact:view>
 		</ipxact:views>
 		<ipxact:instantiations>
 			<ipxact:designInstantiation>
-				<ipxact:name>wishbone.hierarchical.design_1.0</ipxact:name>
-				<ipxact:designRef vendor="tut.fi" library="testBench" name="wishbone.hierarchical.design" version="1.0"/>
+				<ipxact:name>wishbone.design_1.0</ipxact:name>
+				<ipxact:designRef vendor="tut.fi" library="testBench" name="wishbone.design" version="1.0"/>
 			</ipxact:designInstantiation>
 		</ipxact:instantiations>
 	</ipxact:model>

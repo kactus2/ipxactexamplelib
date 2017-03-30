@@ -39,14 +39,14 @@
 	<ipxact:model>
 		<ipxact:views>
 			<ipxact:view>
-				<ipxact:name>hierarchical</ipxact:name>
-				<ipxact:designConfigurationInstantiationRef>MemoryExample.hierarchical.designcfg_1.0</ipxact:designConfigurationInstantiationRef>
+				<ipxact:name>hierarchical_verilog</ipxact:name>
+				<ipxact:designConfigurationInstantiationRef>verilog_configuration</ipxact:designConfigurationInstantiationRef>
 			</ipxact:view>
 		</ipxact:views>
 		<ipxact:instantiations>
 			<ipxact:designConfigurationInstantiation>
-				<ipxact:name>MemoryExample.hierarchical.designcfg_1.0</ipxact:name>
-				<ipxact:designConfigurationRef vendor="tut.fi" library="processor" name="MemoryExample.hierarchical.designcfg" version="1.0"/>
+				<ipxact:name>verilog_configuration</ipxact:name>
+				<ipxact:designConfigurationRef vendor="tut.fi" library="processor" name="MemoryExample.verilog.designcfg" version="1.0"/>
 			</ipxact:designConfigurationInstantiation>
 		</ipxact:instantiations>
 		<ipxact:ports>
@@ -237,7 +237,7 @@
 			<ipxact:description>Base address for wishbone slave 3.</ipxact:description>
 			<ipxact:value>uuid_96d9f335_6814_4ab6_8c68_3fef0c331938+uuid_7098bf49_6fc4_4971_b79c_dbf456e8fa22</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_34e837d0_846a_486c_84b3_a29e2f957b9f">
+		<ipxact:parameter parameterId="uuid_34e837d0_846a_486c_84b3_a29e2f957b9f" resolve="immediate">
 			<ipxact:name>WB_ADDRESS_BASE</ipxact:name>
 			<ipxact:description>Base address for wishbone in the system memory.</ipxact:description>
 			<ipxact:value>'h0100</ipxact:value>
@@ -248,7 +248,7 @@
 		<kactus2:kts_attributes>
 			<kactus2:kts_productHier>IP</kactus2:kts_productHier>
 			<kactus2:kts_implementation>HW</kactus2:kts_implementation>
-			<kactus2:kts_firmness>Mutable</kactus2:kts_firmness>
+			<kactus2:kts_firmness>Fixed</kactus2:kts_firmness>
 		</kactus2:kts_attributes>
 	</ipxact:vendorExtensions>
 </ipxact:component>

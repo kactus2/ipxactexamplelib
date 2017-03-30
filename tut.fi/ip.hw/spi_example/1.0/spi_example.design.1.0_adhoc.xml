@@ -7,7 +7,7 @@
 	<ipxact:componentInstances>
 		<ipxact:componentInstance>
 			<ipxact:instanceName>spi_master_0</ipxact:instanceName>
-			<ipxact:componentRef vendor="tut.fi" library="ip.com" name="spi_master" version="1.0"/>
+			<ipxact:componentRef vendor="tut.fi" library="template" name="spi_master" version="1.0"/>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{8f2dd173-31d5-4d40-b499-170c3e52f861}</kactus2:uuid>
 				<kactus2:position x="160" y="60"/>
@@ -26,7 +26,7 @@
 		</ipxact:componentInstance>
 		<ipxact:componentInstance>
 			<ipxact:instanceName>spi_slave_0</ipxact:instanceName>
-			<ipxact:componentRef vendor="tut.fi" library="ip.com" name="spi_slave" version="1.0"/>
+			<ipxact:componentRef vendor="tut.fi" library="template" name="spi_slave" version="1.0"/>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{44f306b6-3fda-4987-a172-f349094cb855}</kactus2:uuid>
 				<kactus2:adHocVisibilities>
@@ -43,7 +43,7 @@
 		</ipxact:componentInstance>
 		<ipxact:componentInstance>
 			<ipxact:instanceName>spi_slave_1</ipxact:instanceName>
-			<ipxact:componentRef vendor="tut.fi" library="ip.com" name="spi_slave" version="1.0"/>
+			<ipxact:componentRef vendor="tut.fi" library="template" name="spi_slave" version="1.0"/>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{3e179a6a-8373-47d8-97f7-05739ad2c66b}</kactus2:uuid>
 				<kactus2:adHocVisibilities>
@@ -57,7 +57,7 @@
 		</ipxact:componentInstance>
 		<ipxact:componentInstance>
 			<ipxact:instanceName>spi_slave_2</ipxact:instanceName>
-			<ipxact:componentRef vendor="tut.fi" library="ip.com" name="spi_slave" version="1.0"/>
+			<ipxact:componentRef vendor="tut.fi" library="template" name="spi_slave" version="1.0"/>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{047bc06f-15d5-4eaf-8db0-ade05b35d2e7}</kactus2:uuid>
 				<kactus2:adHocVisibilities>

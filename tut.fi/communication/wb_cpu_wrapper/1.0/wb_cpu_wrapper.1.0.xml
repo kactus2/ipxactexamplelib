@@ -131,7 +131,7 @@
 			</ipxact:abstractionTypes>
 			<ipxact:master>
 				<ipxact:addressSpaceRef ipxact:addressSpaceRef="wb_bus_space">
-					<ipxact:baseAddress ipxact:addressSpaceRef="wb_bus_space">uuid_97ac3e61_b280_4fa3_982a_78b110952f5b</ipxact:baseAddress>
+					<ipxact:baseAddress ipxact:addressSpaceRef="wb_bus_space">0</ipxact:baseAddress>
 				</ipxact:addressSpaceRef>
 			</ipxact:master>
 		</ipxact:busInterface>
@@ -226,7 +226,7 @@
 		<ipxact:addressSpace>
 			<ipxact:name>wb_bus_space</ipxact:name>
 			<ipxact:range>uuid_c58fd099_9dad_463d_bbe9_ff967befbfb0</ipxact:range>
-			<ipxact:width>8</ipxact:width>
+			<ipxact:width>uuid_fe30a511_9701_4142_b340_223777d1b857</ipxact:width>
 			<ipxact:addressUnitBits>8</ipxact:addressUnitBits>
 		</ipxact:addressSpace>
 	</ipxact:addressSpaces>
@@ -529,12 +529,12 @@
 			<ipxact:description>The width of the address.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_fe30a511_9701_4142_b340_223777d1b857" resolve="user" usageCount="8">
+		<ipxact:parameter parameterId="uuid_fe30a511_9701_4142_b340_223777d1b857" resolve="user" usageCount="9">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
 			<ipxact:value>32</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_97ac3e61_b280_4fa3_982a_78b110952f5b" resolve="user" usageCount="1">
+		<ipxact:parameter parameterId="uuid_97ac3e61_b280_4fa3_982a_78b110952f5b" resolve="user">
 			<ipxact:name>BASE_ADDRESS</ipxact:name>
 			<ipxact:description>The location of the bus in the system memory.</ipxact:description>
 			<ipxact:value>'h0F00</ipxact:value>

@@ -59,7 +59,7 @@
 			</ipxact:abstractionTypes>
 			<ipxact:master>
 				<ipxact:addressSpaceRef ipxact:addressSpaceRef="default">
-					<ipxact:baseAddress ipxact:addressSpaceRef="default">0</ipxact:baseAddress>
+					<ipxact:baseAddress ipxact:addressSpaceRef="default">uuid_e3b353a9_9c84_4f26_a9bf_8271de5b015c</ipxact:baseAddress>
 				</ipxact:addressSpaceRef>
 			</ipxact:master>
 		</ipxact:busInterface>
@@ -200,7 +200,7 @@
 		<ipxact:addressSpace>
 			<ipxact:name>default</ipxact:name>
 			<ipxact:range>uuid_e835eae8_6310_47c7_a791_8ee2df766ed3</ipxact:range>
-			<ipxact:width>32</ipxact:width>
+			<ipxact:width>uuid_11795f77_041d_4548_bcf3_cd41b67482a1</ipxact:width>
 			<ipxact:segments>
 				<ipxact:segment>
 					<ipxact:name>LocalConfig</ipxact:name>
@@ -432,7 +432,7 @@
 		</ipxact:ports>
 	</ipxact:model>
 	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_11795f77_041d_4548_bcf3_cd41b67482a1" resolve="user" usageCount="3">
+		<ipxact:parameter parameterId="uuid_11795f77_041d_4548_bcf3_cd41b67482a1" resolve="user" usageCount="4">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>Width for data in registers and instructions.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
@@ -447,7 +447,7 @@
 			<ipxact:description>How many bytes are in memory at total.</ipxact:description>
 			<ipxact:value>256</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_e3b353a9_9c84_4f26_a9bf_8271de5b015c" resolve="user" usageCount="4">
+		<ipxact:parameter parameterId="uuid_e3b353a9_9c84_4f26_a9bf_8271de5b015c" resolve="user" usageCount="5">
 			<ipxact:name>PERIPHERAL_BASE</ipxact:name>
 			<ipxact:description>The first address for peripherals.</ipxact:description>
 			<ipxact:value>128</ipxact:value>
