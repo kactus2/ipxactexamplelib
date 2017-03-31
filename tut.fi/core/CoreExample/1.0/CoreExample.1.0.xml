@@ -57,22 +57,9 @@
 					</ipxact:portMaps>
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
-			<ipxact:master>
-				<ipxact:addressSpaceRef ipxact:addressSpaceRef="visible_space">
-					<ipxact:baseAddress>0</ipxact:baseAddress>
-				</ipxact:addressSpaceRef>
-			</ipxact:master>
+			<ipxact:master/>
 		</ipxact:busInterface>
 	</ipxact:busInterfaces>
-	<ipxact:addressSpaces>
-		<ipxact:addressSpace>
-			<ipxact:name>visible_space</ipxact:name>
-			<ipxact:description>All addresses visible to the core.</ipxact:description>
-			<ipxact:range>uuid_9d887d27_b1b6_4b29_b7c1_b9916038a6b4</ipxact:range>
-			<ipxact:width>uuid_240da555_796c_42e9_b09d_9769b11e8ac7</ipxact:width>
-			<ipxact:addressUnitBits>8</ipxact:addressUnitBits>
-		</ipxact:addressSpace>
-	</ipxact:addressSpaces>
 	<ipxact:model>
 		<ipxact:views>
 			<ipxact:view>
@@ -258,14 +245,8 @@
 			</ipxact:port>
 		</ipxact:ports>
 	</ipxact:model>
-	<ipxact:cpus>
-		<ipxact:cpu>
-			<ipxact:name>cpu0</ipxact:name>
-			<ipxact:addressSpaceRef addressSpaceRef="visible_space"/>
-		</ipxact:cpu>
-	</ipxact:cpus>
 	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_240da555_796c_42e9_b09d_9769b11e8ac7" resolve="user" usageCount="5">
+		<ipxact:parameter parameterId="uuid_240da555_796c_42e9_b09d_9769b11e8ac7" resolve="user" usageCount="4">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>Width for data in registers and instructions.</ipxact:description>
 			<ipxact:value>32</ipxact:value>
@@ -280,7 +261,7 @@
 			<ipxact:description>Width of the addresses.</ipxact:description>
 			<ipxact:value>$clog2(uuid_9d887d27_b1b6_4b29_b7c1_b9916038a6b4)</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_9d887d27_b1b6_4b29_b7c1_b9916038a6b4" resolve="user" usageCount="3">
+		<ipxact:parameter parameterId="uuid_9d887d27_b1b6_4b29_b7c1_b9916038a6b4" resolve="user" usageCount="2">
 			<ipxact:name>SUPPORTED_MEMORY</ipxact:name>
 			<ipxact:description>How much the system supports memory in total.</ipxact:description>
 			<ipxact:value>512</ipxact:value>

@@ -40,7 +40,7 @@ module wb_master #(
     
     // We have as data to send as parameterized.
     reg [DATA_WIDTH-1:0] register_file [0:DATA_COUNT-1];
-    // Used to iterate dat.
+    // Used to iterate register file.
     reg [3:0] iterator;
     
     // Status of start during the last cycle.

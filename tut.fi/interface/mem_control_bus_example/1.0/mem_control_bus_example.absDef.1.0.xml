@@ -73,6 +73,38 @@
 				</ipxact:onSlave>
 			</ipxact:wire>
 		</ipxact:port>
+		<ipxact:port>
+			<ipxact:logicalName>slave_rdy</ipxact:logicalName>
+			<ipxact:description>Signifies that the slave has executed the transfer.</ipxact:description>
+			<ipxact:wire>
+				<ipxact:onMaster>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onMaster>
+				<ipxact:onSlave>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onSlave>
+			</ipxact:wire>
+		</ipxact:port>
+		<ipxact:port>
+			<ipxact:logicalName>master_rdy</ipxact:logicalName>
+			<ipxact:description>Signifies that master has provided data needed to execute the transfer.</ipxact:description>
+			<ipxact:wire>
+				<ipxact:onMaster>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onMaster>
+				<ipxact:onSlave>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onSlave>
+			</ipxact:wire>
+		</ipxact:port>
 	</ipxact:ports>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,4,4,0</kactus2:version>
