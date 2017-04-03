@@ -5,6 +5,7 @@
 	<ipxact:name>SPI</ipxact:name>
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:directConnection>true</ipxact:directConnection>
+	<ipxact:broadcast>true</ipxact:broadcast>
 	<ipxact:isAddressable>false</ipxact:isAddressable>
 	<ipxact:maxMasters>1</ipxact:maxMasters>
 	<ipxact:description>Serial Peripheral Interface bus for multislave full duplex communication.</ipxact:description>

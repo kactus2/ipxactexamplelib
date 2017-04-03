@@ -150,7 +150,7 @@ module wb_slave_mem_master #(
         else begin
             if (slave_state == S_WAIT) begin
                 // Wait signal from the master.
-                if ( cyc_i == 1 && stb_i == 1 ) begin
+                if (cyc_i == 1 && stb_i == 1) begin
                     // Master ok, check the address.
                     if (adr_i < BASE_ADDRESS + MEMORY_SIZE && adr_i >= BASE_ADDRESS) begin
                         // The specified address in accessible -> proceed.

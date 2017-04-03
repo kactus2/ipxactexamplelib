@@ -91,7 +91,7 @@ module wb_master #(
                 // Reset iterator, so that we may go through the array.
                 iterator <= 0;
             end
-            else if (state == S_BOGUS_INIT ) begin
+            else if (state == S_BOGUS_INIT) begin
                 // Assert signals indicating we are ready to transfer.
                 cyc_o <= 1;
                 stb_o <= 1;
@@ -122,7 +122,7 @@ module wb_master #(
                 dat_o <= register_file[iterator];
                 // Offset our base address by the iterator, thus placing each iteration on separate location on slave.
                 // Also, multiply with addressable units, so that the iterations wont overlap.
-                adr_o <= ( iterator * AU_IN_DATA ) + BASE_ADDRESS;
+                adr_o <= (iterator * AU_IN_DATA) + BASE_ADDRESS;
                 // Next we shall wait for acknowledgement.
                 state <= S_WAIT_WRITE_ACK;
             end

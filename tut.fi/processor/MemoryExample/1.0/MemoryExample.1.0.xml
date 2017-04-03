@@ -173,27 +173,6 @@
 					<kactus2:adHocVisible/>
 				</ipxact:vendorExtensions>
 			</ipxact:port>
-			<ipxact:port>
-				<ipxact:name>register_result</ipxact:name>
-				<ipxact:wire>
-					<ipxact:direction>out</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left>0</ipxact:left>
-							<ipxact:right>0</ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
-					<ipxact:wireTypeDefs>
-						<ipxact:wireTypeDef>
-							<ipxact:typeName>reg</ipxact:typeName>
-							<ipxact:typeDefinition></ipxact:typeDefinition>
-						</ipxact:wireTypeDef>
-					</ipxact:wireTypeDefs>
-				</ipxact:wire>
-				<ipxact:vendorExtensions>
-					<kactus2:adHocVisible/>
-				</ipxact:vendorExtensions>
-			</ipxact:port>
 		</ipxact:ports>
 	</ipxact:model>
 	<ipxact:parameters>

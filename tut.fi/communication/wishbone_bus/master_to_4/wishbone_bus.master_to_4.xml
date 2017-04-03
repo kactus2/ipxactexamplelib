@@ -1333,7 +1333,7 @@
 			<ipxact:file>
 				<ipxact:name>wishbone_bus.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 15:58:56 on 24.03.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 15:04:08 on 31.03.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
 					<kactus2:hash>a7bf14a08e285c7a2cd93877bcbb2c2fb49a2744</kactus2:hash>
 				</ipxact:vendorExtensions>

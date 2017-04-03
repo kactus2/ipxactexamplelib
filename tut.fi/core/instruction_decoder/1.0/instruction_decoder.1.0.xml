@@ -50,14 +50,6 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>choose_register</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>choose_reg_o</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
 								<ipxact:name>alu_operation</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
@@ -70,24 +62,6 @@
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
 								<ipxact:name>we_o</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>alu_rdy</ipxact:name>
-								<ipxact:range>
-									<ipxact:left>0</ipxact:left>
-									<ipxact:right>0</ipxact:right>
-								</ipxact:range>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>alu_rdy_i</ipxact:name>
-								<ipxact:partSelect>
-									<ipxact:range>
-										<ipxact:left>0</ipxact:left>
-										<ipxact:right>0</ipxact:right>
-									</ipxact:range>
-								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 						<ipxact:portMap>
@@ -110,10 +84,26 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>address</ipxact:name>
+								<ipxact:name>choose_register_1</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>address_o</ipxact:name>
+								<ipxact:name>choose_reg1_o</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>choose_register_2</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>choose_reg2_o</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>literal</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>literal_o</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 					</ipxact:portMaps>
@@ -193,6 +183,7 @@
 					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
+							<ipxact:typeName>reg</ipxact:typeName>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
 						</ipxact:wireTypeDef>
 					</ipxact:wireTypeDefs>
@@ -210,6 +201,7 @@
 					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
+							<ipxact:typeName>reg</ipxact:typeName>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
 						</ipxact:wireTypeDef>
 					</ipxact:wireTypeDefs>
@@ -227,6 +219,7 @@
 					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
+							<ipxact:typeName>reg</ipxact:typeName>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
 						</ipxact:wireTypeDef>
 					</ipxact:wireTypeDefs>
@@ -238,7 +231,7 @@
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>uuid_1ee25c55_7b66_4be1_bb94_c97e8779396d</ipxact:left>
+							<ipxact:left>uuid_1ee25c55_7b66_4be1_bb94_c97e8779396d-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -290,7 +283,7 @@
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>choose_reg_o</ipxact:name>
+				<ipxact:name>choose_reg2_o</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
@@ -299,6 +292,30 @@
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
+					<ipxact:wireTypeDefs>
+						<ipxact:wireTypeDef>
+							<ipxact:typeName>reg</ipxact:typeName>
+							<ipxact:typeDefinition></ipxact:typeDefinition>
+						</ipxact:wireTypeDef>
+					</ipxact:wireTypeDefs>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>choose_reg1_o</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>uuid_762fbf84_805d_4c16_bb3b_39c8d2b431a2-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+					<ipxact:wireTypeDefs>
+						<ipxact:wireTypeDef>
+							<ipxact:typeName>reg</ipxact:typeName>
+							<ipxact:typeDefinition></ipxact:typeDefinition>
+						</ipxact:wireTypeDef>
+					</ipxact:wireTypeDefs>
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
@@ -311,18 +328,12 @@
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
-				</ipxact:wire>
-			</ipxact:port>
-			<ipxact:port>
-				<ipxact:name>alu_rdy_i</ipxact:name>
-				<ipxact:wire>
-					<ipxact:direction>in</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left>0</ipxact:left>
-							<ipxact:right>0</ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
+					<ipxact:wireTypeDefs>
+						<ipxact:wireTypeDef>
+							<ipxact:typeName>reg</ipxact:typeName>
+							<ipxact:typeDefinition></ipxact:typeDefinition>
+						</ipxact:wireTypeDef>
+					</ipxact:wireTypeDefs>
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
@@ -338,19 +349,35 @@
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>address_o</ipxact:name>
+				<ipxact:name>literal_o</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>uuid_5a8de14b_9e99_403b_98ba_adf546212d61-1</ipxact:left>
+							<ipxact:left>uuid_9641f7b1_19d4_49d4_95c8_cae15e0c612d</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
+					<ipxact:wireTypeDefs>
+						<ipxact:wireTypeDef>
+							<ipxact:typeName>reg</ipxact:typeName>
+							<ipxact:typeDefinition></ipxact:typeDefinition>
+						</ipxact:wireTypeDef>
+					</ipxact:wireTypeDefs>
 				</ipxact:wire>
 			</ipxact:port>
 		</ipxact:ports>
 	</ipxact:model>
+	<ipxact:fileSets>
+		<ipxact:fileSet>
+			<ipxact:name>verilogSource</ipxact:name>
+			<ipxact:file>
+				<ipxact:name>instruction_decoder.v</ipxact:name>
+				<ipxact:fileType>verilogSource</ipxact:fileType>
+				<ipxact:description>Generated at 16:07:27 on 03.04.2017 by Kactus2. </ipxact:description>
+			</ipxact:file>
+		</ipxact:fileSet>
+	</ipxact:fileSets>
 	<ipxact:parameters>
 		<ipxact:parameter parameterId="uuid_762fbf84_805d_4c16_bb3b_39c8d2b431a2" resolve="user" usageCount="3">
 			<ipxact:name>REGISTER_ID_WIDTH</ipxact:name>
@@ -360,14 +387,14 @@
 		<ipxact:parameter parameterId="uuid_1ee25c55_7b66_4be1_bb94_c97e8779396d" resolve="immediate" usageCount="1">
 			<ipxact:name>INSTRUCTION_WIDTH</ipxact:name>
 			<ipxact:description>Total width of an instruction</ipxact:description>
-			<ipxact:value>uuid_9641f7b1_19d4_49d4_95c8_cae15e0c612d+uuid_46bdcbbd_81e4_4fb2_8c74_219eb3408e96+uuid_762fbf84_805d_4c16_bb3b_39c8d2b431a2</ipxact:value>
+			<ipxact:value>uuid_9641f7b1_19d4_49d4_95c8_cae15e0c612d</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_46bdcbbd_81e4_4fb2_8c74_219eb3408e96" resolve="immediate" usageCount="1">
+		<ipxact:parameter parameterId="uuid_46bdcbbd_81e4_4fb2_8c74_219eb3408e96" resolve="immediate">
 			<ipxact:name>OP_CODE_WIDTH</ipxact:name>
 			<ipxact:description>Bits reserved for operation identifiers.</ipxact:description>
-			<ipxact:value>3</ipxact:value>
+			<ipxact:value>4</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_9641f7b1_19d4_49d4_95c8_cae15e0c612d" resolve="user" usageCount="1">
+		<ipxact:parameter parameterId="uuid_9641f7b1_19d4_49d4_95c8_cae15e0c612d" resolve="user" usageCount="2">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>Width for data in registers and instructions.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
@@ -376,11 +403,6 @@
 			<ipxact:name>ALU_OP_WIDTH</ipxact:name>
 			<ipxact:description>Bits reserved for identification of alu operation</ipxact:description>
 			<ipxact:value>2</ipxact:value>
-		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_5a8de14b_9e99_403b_98ba_adf546212d61" resolve="user" usageCount="1">
-			<ipxact:name>ADDR_WIDTH</ipxact:name>
-			<ipxact:description>Width of the addresses.</ipxact:description>
-			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

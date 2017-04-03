@@ -7,8 +7,8 @@
 	<ipxact:busType vendor="tut.fi" library="interface" name="interCPU_bus_example" version="1.0"/>
 	<ipxact:ports>
 		<ipxact:port>
-			<ipxact:logicalName>register_value</ipxact:logicalName>
-			<ipxact:description>Value of the currently active register.</ipxact:description>
+			<ipxact:logicalName>register_value_1</ipxact:logicalName>
+			<ipxact:description>Value of the first currently active register.</ipxact:description>
 			<ipxact:wire>
 				<ipxact:qualifier>
 					<ipxact:isData>true</ipxact:isData>
@@ -46,6 +46,12 @@
 					<ipxact:width>1</ipxact:width>
 					<ipxact:direction>in</ipxact:direction>
 				</ipxact:onSystem>
+				<ipxact:onSystem>
+					<ipxact:group>RegisterBank</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onSystem>
 			</ipxact:wire>
 		</ipxact:port>
 		<ipxact:port>
@@ -60,6 +66,12 @@
 				</ipxact:onSystem>
 				<ipxact:onSystem>
 					<ipxact:group>MemoryControl</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onSystem>
+				<ipxact:onSystem>
+					<ipxact:group>RegisterBank</ipxact:group>
 					<ipxact:presence>required</ipxact:presence>
 					<ipxact:width>1</ipxact:width>
 					<ipxact:direction>in</ipxact:direction>
@@ -82,30 +94,6 @@
 					<ipxact:group>MemoryControl</ipxact:group>
 					<ipxact:presence>required</ipxact:presence>
 					<ipxact:direction>out</ipxact:direction>
-				</ipxact:onSystem>
-			</ipxact:wire>
-		</ipxact:port>
-		<ipxact:port>
-			<ipxact:logicalName>alu_rdy</ipxact:logicalName>
-			<ipxact:description>Signifies that ALU has processed the value and the result is ready.</ipxact:description>
-			<ipxact:wire>
-				<ipxact:onSystem>
-					<ipxact:group>RegisterBank</ipxact:group>
-					<ipxact:presence>required</ipxact:presence>
-					<ipxact:width>1</ipxact:width>
-					<ipxact:direction>in</ipxact:direction>
-				</ipxact:onSystem>
-				<ipxact:onSystem>
-					<ipxact:group>ALU</ipxact:group>
-					<ipxact:presence>required</ipxact:presence>
-					<ipxact:width>1</ipxact:width>
-					<ipxact:direction>out</ipxact:direction>
-				</ipxact:onSystem>
-				<ipxact:onSystem>
-					<ipxact:group>Decoder</ipxact:group>
-					<ipxact:presence>required</ipxact:presence>
-					<ipxact:width>1</ipxact:width>
-					<ipxact:direction>in</ipxact:direction>
 				</ipxact:onSystem>
 			</ipxact:wire>
 		</ipxact:port>
@@ -195,8 +183,8 @@
 			</ipxact:wire>
 		</ipxact:port>
 		<ipxact:port>
-			<ipxact:logicalName>choose_register</ipxact:logicalName>
-			<ipxact:description>Chooses the active register from register bank.</ipxact:description>
+			<ipxact:logicalName>choose_register_1</ipxact:logicalName>
+			<ipxact:description>Chooses the first active register from register bank.</ipxact:description>
 			<ipxact:wire>
 				<ipxact:onSystem>
 					<ipxact:group>RegisterBank</ipxact:group>
@@ -242,6 +230,12 @@
 					<ipxact:width>1</ipxact:width>
 					<ipxact:direction>in</ipxact:direction>
 				</ipxact:onSystem>
+				<ipxact:onSystem>
+					<ipxact:group>RegisterBank</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onSystem>
 			</ipxact:wire>
 		</ipxact:port>
 		<ipxact:port>
@@ -252,12 +246,66 @@
 					<ipxact:isAddress>true</ipxact:isAddress>
 				</ipxact:qualifier>
 				<ipxact:onSystem>
-					<ipxact:group>Decoder</ipxact:group>
+					<ipxact:group>RegisterBank</ipxact:group>
 					<ipxact:presence>required</ipxact:presence>
 					<ipxact:direction>out</ipxact:direction>
 				</ipxact:onSystem>
 				<ipxact:onSystem>
 					<ipxact:group>MemoryControl</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onSystem>
+			</ipxact:wire>
+		</ipxact:port>
+		<ipxact:port>
+			<ipxact:logicalName>register_value_2</ipxact:logicalName>
+			<ipxact:description>Value of the second currently active register.</ipxact:description>
+			<ipxact:wire>
+				<ipxact:qualifier>
+					<ipxact:isData>true</ipxact:isData>
+				</ipxact:qualifier>
+				<ipxact:onSystem>
+					<ipxact:group>ALU</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onSystem>
+				<ipxact:onSystem>
+					<ipxact:group>RegisterBank</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onSystem>
+			</ipxact:wire>
+		</ipxact:port>
+		<ipxact:port>
+			<ipxact:logicalName>choose_register_2</ipxact:logicalName>
+			<ipxact:description>Chooses the second active register from register bank.</ipxact:description>
+			<ipxact:wire>
+				<ipxact:onSystem>
+					<ipxact:group>Decoder</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onSystem>
+				<ipxact:onSystem>
+					<ipxact:group>RegisterBank</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onSystem>
+			</ipxact:wire>
+		</ipxact:port>
+		<ipxact:port>
+			<ipxact:logicalName>literal</ipxact:logicalName>
+			<ipxact:description>Decoded literal value in instruction. The most signficant bit is one, if a literal is being fed to register, else zero.</ipxact:description>
+			<ipxact:wire>
+				<ipxact:qualifier>
+					<ipxact:isData>true</ipxact:isData>
+				</ipxact:qualifier>
+				<ipxact:onSystem>
+					<ipxact:group>Decoder</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onSystem>
+				<ipxact:onSystem>
+					<ipxact:group>RegisterBank</ipxact:group>
 					<ipxact:presence>required</ipxact:presence>
 					<ipxact:direction>in</ipxact:direction>
 				</ipxact:onSystem>

@@ -15,5 +15,5 @@
 
 Clock and reset signals are not specifically master-to-slave signals nor vice versa, but instead they come from a third party that assumes neither mode.
 
-Notice that while multiple slaves and masters are supported, broadcasts are not. Thus an arbiter will be required.</ipxact:description>
+Notice that while multiple slaves and masters are supported, broadcasts are not. Thus an arbiter will be required, unless it is a single master to single slave connection.</ipxact:description>
 </ipxact:busDefinition>

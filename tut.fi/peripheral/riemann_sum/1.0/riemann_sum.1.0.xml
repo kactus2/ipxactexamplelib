@@ -169,7 +169,7 @@
 			<ipxact:name>default</ipxact:name>
 			<ipxact:addressBlock>
 				<ipxact:name>control</ipxact:name>
-				<ipxact:baseAddress>0</ipxact:baseAddress>
+				<ipxact:baseAddress>uuid_a1a11cf0_8317_4c75_b719_c55f8b393ddc</ipxact:baseAddress>
 				<ipxact:range>8*uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd/8</ipxact:range>
 				<ipxact:width>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:width>
 				<ipxact:usage>register</ipxact:usage>
@@ -463,7 +463,7 @@
 			<ipxact:description>The first referred address of the master.</ipxact:description>
 			<ipxact:value>'h0F00</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_a1a11cf0_8317_4c75_b719_c55f8b393ddc" resolve="immediate" usageCount="2">
+		<ipxact:parameter parameterId="uuid_a1a11cf0_8317_4c75_b719_c55f8b393ddc" resolve="immediate" usageCount="3">
 			<ipxact:name>BUFFER_SIZE</ipxact:name>
 			<ipxact:description>How much buffer is allocated for both directions.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
