@@ -108,7 +108,7 @@
 			<ipxact:file>
 				<ipxact:name>Core_tb.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 15:50:36 on 03.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 09:06:36 on 05.04.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
 					<kactus2:hash>b4661e04bc8835981d39c1bb8600d5c2c26108ab</kactus2:hash>
 				</ipxact:vendorExtensions>
@@ -116,15 +116,15 @@
 		</ipxact:fileSet>
 	</ipxact:fileSets>
 	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_a9f7f0ff_484b_4d10_bc65_81578ab405cb" resolve="user" usageCount="2">
+		<ipxact:parameter parameterId="uuid_a9f7f0ff_484b_4d10_bc65_81578ab405cb" resolve="user" usageCount="1">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>Width for data in registers and instructions.</ipxact:description>
 			<ipxact:value>32</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_e8ddf738_e12d_440f_a6b0_75d32bf0da26" resolve="generated" usageCount="1">
+		<ipxact:parameter parameterId="uuid_e8ddf738_e12d_440f_a6b0_75d32bf0da26" resolve="user" usageCount="1">
 			<ipxact:name>INSTRUCTION_WIDTH</ipxact:name>
 			<ipxact:description>Total width of an instruction</ipxact:description>
-			<ipxact:value>uuid_a9f7f0ff_484b_4d10_bc65_81578ab405cb</ipxact:value>
+			<ipxact:value>28</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

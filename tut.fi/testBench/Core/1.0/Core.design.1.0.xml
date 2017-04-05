@@ -85,12 +85,7 @@
 				<kactus2:position x="50" y="230"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="Core_tb_0_new_value_to_CoreExample_0_new_value" kactus2:offPage="false"/>
-			<kactus2:route kactus2:connRef="Core_tb_0_instruction_feed_to_CoreExample_0_instruction_feed" kactus2:offPage="false">
-				<kactus2:position x="270" y="250"/>
-				<kactus2:position x="300" y="250"/>
-				<kactus2:position x="300" y="120"/>
-				<kactus2:position x="270" y="120"/>
-			</kactus2:route>
+			<kactus2:route kactus2:connRef="Core_tb_0_instruction_feed_to_CoreExample_0_instruction_feed" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="Core_tb_0_rst_o_to_CoreExample_0_rst_i" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="CoreExample_0_clk_i_to_Core_tb_0_clk_o" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="Core_tb_0_new_value_to_CoreExample_0_new_value" kactus2:offPage="false">

@@ -30,22 +30,16 @@ module alu #(
         OP_MUL          = 2'd2, 
         OP_DIV          = 2'd3;
         
-    always @(posedge alu_active_i) begin
-        if (alu_op_i == OP_PLUS) begin
-            alu_result_o <= register_value1_i + register_value2_i;
-        end
-        else if (alu_op_i == OP_MINUS) begin
-            alu_result_o <= register_value1_i - register_value2_i;
-        end
-        else if (alu_op_i == OP_MUL) begin
-            alu_result_o <= register_value1_i * register_value2_i;
-        end
-        else if (alu_op_i == OP_DIV) begin
-            alu_result_o <= register_value1_i / register_value2_i;
-        end
-        else begin
-            $display("ERROR: Unkown alu operation: %d", alu_op_i);
-            alu_result_o <= 0;
-        end
+    always @* begin
+        case(alu_op_i)
+            OP_PLUS: alu_result_o <= register_value1_i + register_value2_i;
+            OP_MINUS: alu_result_o <= register_value1_i - register_value2_i;
+            OP_MUL: alu_result_o <= register_value1_i * register_value2_i;
+            OP_DIV: alu_result_o <= register_value1_i / register_value2_i;
+            default: begin
+                $display("ERROR: Unknown ALU operation: %d", alu_op_i);
+                alu_result_o <= 0;
+            end
+        endcase
     end
 endmodule

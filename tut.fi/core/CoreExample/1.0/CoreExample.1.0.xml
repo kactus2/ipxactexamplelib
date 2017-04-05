@@ -86,7 +86,7 @@
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>uuid_240da555_796c_42e9_b09d_9769b11e8ac7-1</ipxact:left>
+							<ipxact:left>uuid_113582c5_e9f8_4d52_9820_49dd1672e4a8-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -271,7 +271,7 @@
 		</ipxact:ports>
 	</ipxact:model>
 	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_240da555_796c_42e9_b09d_9769b11e8ac7" resolve="user" usageCount="4">
+		<ipxact:parameter parameterId="uuid_240da555_796c_42e9_b09d_9769b11e8ac7" resolve="user" usageCount="3">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>Width for data in registers and instructions.</ipxact:description>
 			<ipxact:value>32</ipxact:value>
@@ -305,6 +305,11 @@
 			<ipxact:name>OP_CODE_WIDTH</ipxact:name>
 			<ipxact:description>Bits reserved for operation identifiers.</ipxact:description>
 			<ipxact:value>3</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_113582c5_e9f8_4d52_9820_49dd1672e4a8" resolve="user" usageCount="1">
+			<ipxact:name>INSTRUCTION_WIDTH</ipxact:name>
+			<ipxact:description>Total width of an instruction</ipxact:description>
+			<ipxact:value>28</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

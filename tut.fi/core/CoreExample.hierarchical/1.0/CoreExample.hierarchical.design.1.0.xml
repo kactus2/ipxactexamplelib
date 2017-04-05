@@ -9,7 +9,6 @@
 			<ipxact:instanceName>instruction_decoder</ipxact:instanceName>
 			<ipxact:componentRef vendor="tut.fi" library="core" name="instruction_decoder" version="1.0">
 				<ipxact:configurableElementValues>
-					<ipxact:configurableElementValue referenceId="uuid_762fbf84_805d_4c16_bb3b_39c8d2b431a2">uuid_8c69d7e2_8840_4623_b3a1_be6efaa4db1b</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_9641f7b1_19d4_49d4_95c8_cae15e0c612d">uuid_240da555_796c_42e9_b09d_9769b11e8ac7</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_46bdcbbd_81e4_4fb2_8c74_219eb3408e96">uuid_fd462923_54e9_4b79_8af5_d7cd29d5bfa4</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
@@ -68,7 +67,6 @@
 			<ipxact:instanceName>register_bank</ipxact:instanceName>
 			<ipxact:componentRef vendor="tut.fi" library="core" name="register_bank" version="1.0">
 				<ipxact:configurableElementValues>
-					<ipxact:configurableElementValue referenceId="uuid_1d5eec35_c148_4fff_b0be_119fe9627877">uuid_8c69d7e2_8840_4623_b3a1_be6efaa4db1b</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_8cf9f778_bf4e_4da5_9647_baa7ec8c8ddf">uuid_240da555_796c_42e9_b09d_9769b11e8ac7</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_65a04e84_85d1_4de3_93bf_fa3c61a6e01b">uuid_ffabd536_0c3b_4a57_a403_90dce6fb42b5</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
@@ -210,10 +208,6 @@
 			<kactus2:route kactus2:connRef="instruction_decoder_instruction_feed_to_instruction_feed" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="clock_0_clk_i_to_clk_i" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="clock_0_rst_i_to_rst_i" kactus2:offPage="false"/>
-			<kactus2:route kactus2:connRef="register_bank_new_value_to_new_value" kactus2:offPage="false">
-				<kactus2:position x="70" y="370"/>
-				<kactus2:position x="170" y="370"/>
-			</kactus2:route>
 			<kactus2:route kactus2:connRef="memory_controller_memory_interface_to_mem_control" kactus2:offPage="false">
 				<kactus2:position x="170" y="100"/>
 				<kactus2:position x="60" y="100"/>
@@ -230,6 +224,7 @@
 				<kactus2:position x="150" y="460"/>
 				<kactus2:position x="170" y="460"/>
 			</kactus2:route>
+			<kactus2:route kactus2:connRef="register_bank_new_value_to_new_value" kactus2:offPage="false"/>
 		</kactus2:routes>
 		<kactus2:adHocVisibilities>
 			<kactus2:adHocVisible portName="clk_i" x="820" y="90"/>

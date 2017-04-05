@@ -49,7 +49,7 @@ module memory_controller #(
     
     // Used to index AUBs to data io.
     integer index;
-    always @(posedge mem_active_i) begin
+    always @* begin
         if (address_i < PERIPHERAL_BASE) begin
             if (we_i == 1) begin
                 // Writing: Pick every byte from the input and place them to correct addresses.
@@ -63,9 +63,6 @@ module memory_controller #(
                     load_value_o[(index*AUB)+:AUB] <= local_memory[address_i + index];
                 end
             end
-            
-            // Signal that instantly ready.
-            mem_rdy_o <= 1;
         end
         else begin
             // JOTAIN :DDD
@@ -74,7 +71,7 @@ module memory_controller #(
     end
     
     // The state.
-    reg [1:0] state;
+    /*reg [1:0] state;
     
     // The available states.
     parameter [1:0]
@@ -82,7 +79,7 @@ module memory_controller #(
         S_WAIT_WRITE     = 2'd1, 
         S_WAIT_READ     = 2'd2;
     
-    /*always @(posedge clk_i or posedge rst_i) begin
+    always @(posedge clk_i or posedge rst_i) begin
         if(rst_i == 1'b1) begin
             // Start with wait
             state <= S_WAIT;

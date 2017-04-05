@@ -354,7 +354,7 @@
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>uuid_9641f7b1_19d4_49d4_95c8_cae15e0c612d</ipxact:left>
+							<ipxact:left>uuid_e3d80a2e_9de3_41be_96a1_724ac21600b8</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -374,12 +374,12 @@
 			<ipxact:file>
 				<ipxact:name>instruction_decoder.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 16:07:27 on 03.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 11:10:08 on 05.04.2017 by Kactus2. </ipxact:description>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
 	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_762fbf84_805d_4c16_bb3b_39c8d2b431a2" resolve="user" usageCount="3">
+		<ipxact:parameter parameterId="uuid_762fbf84_805d_4c16_bb3b_39c8d2b431a2" resolve="user" usageCount="5">
 			<ipxact:name>REGISTER_ID_WIDTH</ipxact:name>
 			<ipxact:description>Bits reserved for identification a single register.</ipxact:description>
 			<ipxact:value>4</ipxact:value>
@@ -387,14 +387,9 @@
 		<ipxact:parameter parameterId="uuid_1ee25c55_7b66_4be1_bb94_c97e8779396d" resolve="immediate" usageCount="1">
 			<ipxact:name>INSTRUCTION_WIDTH</ipxact:name>
 			<ipxact:description>Total width of an instruction</ipxact:description>
-			<ipxact:value>uuid_9641f7b1_19d4_49d4_95c8_cae15e0c612d</ipxact:value>
+			<ipxact:value>uuid_bb614608_50c6_4da1_b086_0955cda25e4f+2*uuid_762fbf84_805d_4c16_bb3b_39c8d2b431a2+uuid_e3d80a2e_9de3_41be_96a1_724ac21600b8</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_46bdcbbd_81e4_4fb2_8c74_219eb3408e96" resolve="immediate">
-			<ipxact:name>OP_CODE_WIDTH</ipxact:name>
-			<ipxact:description>Bits reserved for operation identifiers.</ipxact:description>
-			<ipxact:value>4</ipxact:value>
-		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_9641f7b1_19d4_49d4_95c8_cae15e0c612d" resolve="user" usageCount="2">
+		<ipxact:parameter parameterId="uuid_9641f7b1_19d4_49d4_95c8_cae15e0c612d" resolve="user">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>Width for data in registers and instructions.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
@@ -402,7 +397,17 @@
 		<ipxact:parameter parameterId="uuid_e9d5e74a_fd01_40b3_bad5_65e77c73c003" resolve="immediate" usageCount="1">
 			<ipxact:name>ALU_OP_WIDTH</ipxact:name>
 			<ipxact:description>Bits reserved for identification of alu operation</ipxact:description>
-			<ipxact:value>2</ipxact:value>
+			<ipxact:value>4</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_e3d80a2e_9de3_41be_96a1_724ac21600b8" resolve="immediate" usageCount="2">
+			<ipxact:name>LITERAL_WIDTH</ipxact:name>
+			<ipxact:description>How long literals the instructions may have.</ipxact:description>
+			<ipxact:value>16</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_bb614608_50c6_4da1_b086_0955cda25e4f" resolve="immediate" usageCount="2">
+			<ipxact:name>OP_CODE_WIDTH</ipxact:name>
+			<ipxact:description>Bits reserved for operation identifiers.</ipxact:description>
+			<ipxact:value>4</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

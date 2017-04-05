@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 // File          : Core_tb.v
-// Creation date : 03.04.2017
-// Creation time : 15:50:35
+// Creation date : 05.04.2017
+// Creation time : 09:06:33
 // Description   : 
 // Created by    : TermosPullo
 // Tool : Kactus2 3.4.24 32-bit
@@ -12,7 +12,7 @@
 
 module Core_tb #(
     parameter                              DATA_WIDTH       = 32,    // Width for data in registers and instructions.
-    parameter                              INSTRUCTION_WIDTH = DATA_WIDTH    // Total width of an instruction
+    parameter                              INSTRUCTION_WIDTH = 24    // Total width of an instruction
 ) (
     // These ports are not in any interface
     input          [DATA_WIDTH-1:0]     new_value,
@@ -29,26 +29,28 @@ module Core_tb #(
         rst_o = 1'b0; // deassert reset
         forever #5 clk_o = ~clk_o; // generate a clock
         end
+        
+    localparam INSTRUCTION_COUNT = 20;
 
+    reg [INSTRUCTION_WIDTH-1:0] instruction_memory [INSTRUCTION_COUNT-1:0];
+    
+    integer index;
+ 
+    initial begin
+        $readmemh("program.hex", instruction_memory);
+    end
+        
     initial begin
         @(negedge rst_o); // wait for reset
         @(posedge clk_o);
         @(posedge clk_o);
         @(posedge clk_o);
-        instruction_feed = 32'h13370236;
-        @(posedge clk_o);
-        instruction_feed = 32'hDEAD0246;
-        @(posedge clk_o);
-        instruction_feed = 32'hBEEF0256;
-        @(posedge clk_o);
-        instruction_feed = 32'hB1050266;
-        @(posedge clk_o);
-        instruction_feed = 32'hF00D0276;
-        @(posedge clk_o);
-        @(posedge clk_o);
-        @(posedge clk_o);
-        @(posedge clk_o);
-        @(posedge clk_o);
+        
+        for (index = 0; index < INSTRUCTION_COUNT; index = index + 1) begin
+            instruction_feed = instruction_memory[index];
+            @(posedge clk_o);
+        end 
+ 
         @(posedge clk_o);
         $stop;
     end

@@ -24,12 +24,26 @@
 			<ipxact:file>
 				<ipxact:name>Core.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 16:25:17 on 03.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 11:32:38 on 05.04.2017 by Kactus2. </ipxact:description>
 			</ipxact:file>
 			<ipxact:file>
 				<ipxact:name>CoreExample_0.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 16:25:17 on 03.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 11:32:38 on 05.04.2017 by Kactus2. </ipxact:description>
+			</ipxact:file>
+		</ipxact:fileSet>
+		<ipxact:fileSet>
+			<ipxact:name>testProgram</ipxact:name>
+			<ipxact:description>Contains the program used in the test arrangement.</ipxact:description>
+			<ipxact:file>
+				<ipxact:name>program.asm</ipxact:name>
+				<ipxact:fileType>asmSource</ipxact:fileType>
+				<ipxact:description>The source code of the program in the custom assembly language of the tested core.</ipxact:description>
+			</ipxact:file>
+			<ipxact:file>
+				<ipxact:name>program.hex</ipxact:name>
+				<ipxact:fileType user="hexFile">user</ipxact:fileType>
+				<ipxact:description>The binary executable of the program in the custom binary format of the tested core.</ipxact:description>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>

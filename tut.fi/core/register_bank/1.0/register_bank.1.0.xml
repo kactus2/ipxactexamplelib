@@ -230,7 +230,7 @@
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>uuid_8cf9f778_bf4e_4da5_9647_baa7ec8c8ddf-1</ipxact:left>
+							<ipxact:left>0</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -398,7 +398,7 @@
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>uuid_8cf9f778_bf4e_4da5_9647_baa7ec8c8ddf</ipxact:left>
+							<ipxact:left>uuid_eba73da4_0bde_4c6a_9439_5969b7862379</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -417,13 +417,13 @@
 			<ipxact:file>
 				<ipxact:name>register_bank.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 16:29:09 on 03.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 11:06:15 on 05.04.2017 by Kactus2. </ipxact:description>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
 	<ipxact:description>Stores registers and the logic needed to access them. In case of multiple simultaenous writes, the one with most priority is done.</ipxact:description>
 	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_8cf9f778_bf4e_4da5_9647_baa7ec8c8ddf" resolve="user" usageCount="7">
+		<ipxact:parameter parameterId="uuid_8cf9f778_bf4e_4da5_9647_baa7ec8c8ddf" resolve="user" usageCount="5">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>Width for data in registers and instructions.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
@@ -437,6 +437,11 @@
 			<ipxact:name>REGISTER_COUNT</ipxact:name>
 			<ipxact:description>How many registers are supported in the core.</ipxact:description>
 			<ipxact:value>8</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_eba73da4_0bde_4c6a_9439_5969b7862379" usageCount="1">
+			<ipxact:name>LITERAL_WIDTH</ipxact:name>
+			<ipxact:description>How long literals the instructions may have.</ipxact:description>
+			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

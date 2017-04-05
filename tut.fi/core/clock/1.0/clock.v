@@ -25,6 +25,6 @@ module clock #(
 
 // WARNING: EVERYTHING ON AND ABOVE THIS LINE MAY BE OVERWRITTEN BY KACTUS2!!!
 assign clk_o = clk_i;
-assign rts_o = rst_i;
+assign rst_o = rst_i;
 
 endmodule
