@@ -96,21 +96,6 @@
 				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>new_value</ipxact:name>
-				<ipxact:wire>
-					<ipxact:direction>out</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left>uuid_240da555_796c_42e9_b09d_9769b11e8ac7-1</ipxact:left>
-							<ipxact:right>0</ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
-				</ipxact:wire>
-				<ipxact:vendorExtensions>
-					<kactus2:adHocVisible/>
-				</ipxact:vendorExtensions>
-			</ipxact:port>
-			<ipxact:port>
 				<ipxact:name>mem_address_o</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
@@ -268,10 +253,30 @@
 					</ipxact:wireTypeDefs>
 				</ipxact:wire>
 			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>stall_o</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+					<ipxact:wireTypeDefs>
+						<ipxact:wireTypeDef>
+							<ipxact:typeDefinition></ipxact:typeDefinition>
+						</ipxact:wireTypeDef>
+					</ipxact:wireTypeDefs>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:adHocVisible/>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
 		</ipxact:ports>
 	</ipxact:model>
 	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_240da555_796c_42e9_b09d_9769b11e8ac7" resolve="user" usageCount="3">
+		<ipxact:parameter parameterId="uuid_240da555_796c_42e9_b09d_9769b11e8ac7" resolve="user" usageCount="2">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>Width for data in registers and instructions.</ipxact:description>
 			<ipxact:value>32</ipxact:value>

@@ -106,34 +106,10 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>register_value_1</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>register_value1</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>register_value_2</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>register_value2</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
 								<ipxact:name>alu_active</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
 								<ipxact:name>alu_active_i</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>address</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>register_value2</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 						<ipxact:portMap>
@@ -162,10 +138,34 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>literal</ipxact:name>
+								<ipxact:name>address</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>literal_i</ipxact:name>
+								<ipxact:name>register_output2</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>register_output_1</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>register_output1</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>register_output_2</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>register_output2</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>register_input</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>register_input</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 					</ipxact:portMaps>
@@ -237,7 +237,7 @@
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>register_value1</ipxact:name>
+				<ipxact:name>register_output1</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
@@ -317,28 +317,6 @@
 				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>new_value</ipxact:name>
-				<ipxact:description>Signifies that new value has been written to the bank.</ipxact:description>
-				<ipxact:wire>
-					<ipxact:direction>out</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left>uuid_8cf9f778_bf4e_4da5_9647_baa7ec8c8ddf-1</ipxact:left>
-							<ipxact:right>0</ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
-					<ipxact:wireTypeDefs>
-						<ipxact:wireTypeDef>
-							<ipxact:typeName>reg</ipxact:typeName>
-							<ipxact:typeDefinition></ipxact:typeDefinition>
-						</ipxact:wireTypeDef>
-					</ipxact:wireTypeDefs>
-				</ipxact:wire>
-				<ipxact:vendorExtensions>
-					<kactus2:adHocVisible/>
-				</ipxact:vendorExtensions>
-			</ipxact:port>
-			<ipxact:port>
 				<ipxact:name>we_i</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
@@ -363,7 +341,7 @@
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>register_value2</ipxact:name>
+				<ipxact:name>register_output2</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
@@ -393,12 +371,12 @@
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>literal_i</ipxact:name>
+				<ipxact:name>register_input</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>uuid_eba73da4_0bde_4c6a_9439_5969b7862379</ipxact:left>
+							<ipxact:left>uuid_8cf9f778_bf4e_4da5_9647_baa7ec8c8ddf</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -417,7 +395,10 @@
 			<ipxact:file>
 				<ipxact:name>register_bank.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 11:06:15 on 05.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 11:57:34 on 07.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:vendorExtensions>
+					<kactus2:hash>045159027c4338231ba03b93ae50f97dbc823f3d</kactus2:hash>
+				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
@@ -437,11 +418,6 @@
 			<ipxact:name>REGISTER_COUNT</ipxact:name>
 			<ipxact:description>How many registers are supported in the core.</ipxact:description>
 			<ipxact:value>8</ipxact:value>
-		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_eba73da4_0bde_4c6a_9439_5969b7862379" usageCount="1">
-			<ipxact:name>LITERAL_WIDTH</ipxact:name>
-			<ipxact:description>How long literals the instructions may have.</ipxact:description>
-			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

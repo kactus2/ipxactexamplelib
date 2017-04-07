@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipxact:design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+	<ipxact:vendor>tut.fi</ipxact:vendor>
+	<ipxact:library>testBench</ipxact:library>
+	<ipxact:name>MemoryExample.design</ipxact:name>
+	<ipxact:version>1.0</ipxact:version>
+	<ipxact:componentInstances>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>MemoryExample_0</ipxact:instanceName>
+			<ipxact:componentRef vendor="tut.fi" library="processor" name="MemoryExample" version="1.0"/>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{8e0519c2-57e9-4998-a794-8e34d469f0af}</kactus2:uuid>
+				<kactus2:position x="160" y="60"/>
+				<kactus2:adHocVisibilities>
+					<kactus2:adHocVisible portName="ext_data_i" x="110" y="70"/>
+					<kactus2:adHocVisible portName="ext_data_o" x="110" y="100"/>
+					<kactus2:adHocVisible portName="instruction_feed" x="-110" y="100"/>
+					<kactus2:adHocVisible portName="rst_i" x="-110" y="40"/>
+				</kactus2:adHocVisibilities>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>Memory_tb_0</ipxact:instanceName>
+			<ipxact:componentRef vendor="tut.fi" library="testBench" name="Memory_tb" version="1.0"/>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{b721aefd-80bb-49ef-8938-d51e02e59c5d}</kactus2:uuid>
+				<kactus2:position x="160" y="240"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+	</ipxact:componentInstances>
+	<ipxact:interconnections>
+		<ipxact:interconnection>
+			<ipxact:name>Memory_tb_0_wb_system_to_MemoryExample_0_wb_system</ipxact:name>
+			<ipxact:activeInterface componentRef="Memory_tb_0" busRef="wb_system"/>
+			<ipxact:activeInterface componentRef="MemoryExample_0" busRef="wb_system"/>
+		</ipxact:interconnection>
+	</ipxact:interconnections>
+	<ipxact:adHocConnections>
+		<ipxact:adHocConnection>
+			<ipxact:name>MemoryExample_0_instruction_feed_to_Memory_tb_0_instruction_feed</ipxact:name>
+			<ipxact:portReferences>
+				<ipxact:internalPortReference componentRef="MemoryExample_0" portRef="instruction_feed"/>
+				<ipxact:internalPortReference componentRef="Memory_tb_0" portRef="instruction_feed"/>
+			</ipxact:portReferences>
+		</ipxact:adHocConnection>
+		<ipxact:adHocConnection>
+			<ipxact:name>Memory_tb_0_rst_o_to_MemoryExample_0_rst_i</ipxact:name>
+			<ipxact:portReferences>
+				<ipxact:internalPortReference componentRef="Memory_tb_0" portRef="rst_o"/>
+				<ipxact:internalPortReference componentRef="MemoryExample_0" portRef="rst_i"/>
+			</ipxact:portReferences>
+		</ipxact:adHocConnection>
+		<ipxact:adHocConnection>
+			<ipxact:name>MemoryExample_0_clk_i_to_Memory_tb_0_clk_o</ipxact:name>
+			<ipxact:portReferences>
+				<ipxact:internalPortReference componentRef="MemoryExample_0" portRef="clk_i"/>
+				<ipxact:internalPortReference componentRef="Memory_tb_0" portRef="clk_o"/>
+			</ipxact:portReferences>
+		</ipxact:adHocConnection>
+		<ipxact:adHocConnection>
+			<ipxact:name>MemoryExample_0_stall_o_to_Memory_tb_0_stall_i</ipxact:name>
+			<ipxact:portReferences>
+				<ipxact:internalPortReference componentRef="MemoryExample_0" portRef="stall_o"/>
+				<ipxact:internalPortReference componentRef="Memory_tb_0" portRef="stall_i"/>
+			</ipxact:portReferences>
+		</ipxact:adHocConnection>
+	</ipxact:adHocConnections>
+	<ipxact:vendorExtensions>
+		<kactus2:version>3,4,24,0</kactus2:version>
+		<kactus2:kts_attributes>
+			<kactus2:kts_implementation>HW</kactus2:kts_implementation>
+		</kactus2:kts_attributes>
+		<kactus2:columnLayout>
+			<kactus2:column name="Components" contentType="2" allowedItems="2" minWidth="319" width="319" x="0"/>
+		</kactus2:columnLayout>
+		<kactus2:routes>
+			<kactus2:route kactus2:connRef="MemoryExample_0_instruction_feed_to_Memory_tb_0_instruction_feed" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="Memory_tb_0_rst_o_to_MemoryExample_0_rst_i" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="MemoryExample_0_clk_i_to_Memory_tb_0_clk_o" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="Memory_tb_0_wb_system_to_MemoryExample_0_wb_system" kactus2:offPage="false">
+				<kactus2:position x="270" y="280"/>
+				<kactus2:position x="300" y="280"/>
+				<kactus2:position x="300" y="100"/>
+				<kactus2:position x="270" y="100"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="MemoryExample_0_stall_o_to_Memory_tb_0_stall_i" kactus2:offPage="false">
+				<kactus2:position x="270" y="190"/>
+				<kactus2:position x="290" y="190"/>
+				<kactus2:position x="290" y="340"/>
+				<kactus2:position x="270" y="340"/>
+			</kactus2:route>
+		</kactus2:routes>
+		<kactus2:adHocVisibilities/>
+	</ipxact:vendorExtensions>
+</ipxact:design>

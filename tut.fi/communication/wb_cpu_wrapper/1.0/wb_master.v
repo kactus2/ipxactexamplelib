@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : wb_master.v
-// Creation date : 31.03.2017
-// Creation time : 12:50:31
+// Creation date : 07.04.2017
+// Creation time : 14:55:09
 // Description   : A verilog master that has a register array of data it uses to write to a slave. Each data is written to different address, and then read to verify it worked. Address space is assumed to be contiguous.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.4 32-bit
+// Tool : Kactus2 3.4.19 32-bit
 // Plugin : Verilog generator 2.0d
 // This file was generated based on IP-XACT component tut.fi:communication:wb_cpu_wrapper:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/communication/wb_cpu_wrapper/1.0/wb_cpu_wrapper.1.0.xml
@@ -25,7 +25,6 @@ module wb_master #(
     output reg                          mem_slave_rdy,
 
     // Interface: wb_master
-    // Slave asserts acknowledge.
     input                               ack_i,    // Slave asserts acknowledge.
     input          [DATA_WIDTH-1:0]     dat_i,    // Data from slave to master.
     input                               err_i,    // Indicates abnormal cycle termination.
@@ -36,7 +35,6 @@ module wb_master #(
     output reg                          we_o,    // Write = 1, Read = 0.
 
     // Interface: wb_system
-    // The mandatory clock, as this is synchronous logic.
     input                               clk_i,    // The mandatory clock, as this is synchronous logic.
     input                               rst_i    // The mandatory reset, as this is synchronous logic.
 );
@@ -51,7 +49,8 @@ module wb_master #(
         S_WRITE_INIT        = 3'd1, // Initiating a write to slave.
         S_WAIT_WRITE_ACK    = 3'd2, // Waiting ack for write from slave.
         S_READ_INIT         = 3'd3, // Initiating a read to slave.
-        S_WAIT_READ_ACK     = 3'd4; // Waiting ack for write from slave.
+        S_WAIT_READ_ACK     = 3'd4, // Waiting ack for write from slave. 
+        S_DEASSERT     = 3'd5;
    
     always @(posedge clk_i or posedge rst_i) begin
         if(rst_i == 1'b1) begin
@@ -68,7 +67,6 @@ module wb_master #(
         end
         else begin
             if (state == S_CMD) begin
-               mem_slave_rdy <= 0;
                 // Wait for the master.
                 if (mem_master_rdy == 1'b1) begin
                     // Branch based on if it is read or write.
@@ -105,7 +103,7 @@ module wb_master #(
                     mem_slave_rdy <= 1;
                     
                     // Look for the next operation.
-                    state <=  S_CMD;
+                    state <=  S_DEASSERT;
                 end
             end
             else if(state == S_READ_INIT) begin
@@ -139,8 +137,12 @@ module wb_master #(
                     end
                     
                     // Look for the next operation.
-                    state <=  S_CMD;
+                    state <=  S_DEASSERT;
                 end
+            end
+            else if (state == S_DEASSERT) begin
+                state <= S_CMD;
+                mem_slave_rdy <= 0;
             end
             else
                 $display("ERROR: Unkown state: %d", state);

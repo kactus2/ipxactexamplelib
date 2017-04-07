@@ -206,7 +206,7 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>master_rdy</ipxact:name>
+								<ipxact:name>we</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
 								<ipxact:name>mem_we_in</ipxact:name>
@@ -214,7 +214,7 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>we</ipxact:name>
+								<ipxact:name>master_rdy</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
 								<ipxact:name>mem_master_rdy</ipxact:name>
@@ -556,7 +556,7 @@
 			<ipxact:file>
 				<ipxact:name>wb_master.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 12:50:33 on 31.03.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 14:55:11 on 07.04.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
 					<kactus2:hash>4263ff076bddaac25622271030b6a21c1b54ed99</kactus2:hash>
 				</ipxact:vendorExtensions>

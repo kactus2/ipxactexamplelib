@@ -217,7 +217,7 @@
 			<ipxact:componentInstantiation>
 				<ipxact:name>verilog_implementation</ipxact:name>
 				<ipxact:language>verilog</ipxact:language>
-				<ipxact:moduleName>wb_slave</ipxact:moduleName>
+				<ipxact:moduleName>wb_riemann</ipxact:moduleName>
 				<ipxact:fileSetRef>
 					<ipxact:localName>verilogSource</ipxact:localName>
 				</ipxact:fileSetRef>
@@ -437,9 +437,9 @@
 		<ipxact:fileSet>
 			<ipxact:name>verilogSource</ipxact:name>
 			<ipxact:file>
-				<ipxact:name>wb_slave.v</ipxact:name>
+				<ipxact:name>wb_riemann.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 13:06:45 on 24.03.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 11:57:41 on 06.04.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
 					<kactus2:hash>72324505a2532322090eefe4127ce9c14496e9b1</kactus2:hash>
 				</ipxact:vendorExtensions>

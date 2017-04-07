@@ -2,8 +2,60 @@
 <ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
 	<ipxact:library>testBench</ipxact:library>
-	<ipxact:name>Core_tb</ipxact:name>
+	<ipxact:name>Memory_tb</ipxact:name>
 	<ipxact:version>1.0</ipxact:version>
+	<ipxact:busInterfaces>
+		<ipxact:busInterface>
+			<ipxact:name>wb_system</ipxact:name>
+			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
+			<ipxact:abstractionTypes>
+				<ipxact:abstractionType>
+					<ipxact:abstractionRef vendor="opencores.org" library="interface" name="wishbone.absDef" version="b4"/>
+					<ipxact:portMaps>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>rst</ipxact:name>
+								<ipxact:range>
+									<ipxact:left>0</ipxact:left>
+									<ipxact:right>0</ipxact:right>
+								</ipxact:range>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>rst_o</ipxact:name>
+								<ipxact:partSelect>
+									<ipxact:range>
+										<ipxact:left>0</ipxact:left>
+										<ipxact:right>0</ipxact:right>
+									</ipxact:range>
+								</ipxact:partSelect>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>clk</ipxact:name>
+								<ipxact:range>
+									<ipxact:left>0</ipxact:left>
+									<ipxact:right>0</ipxact:right>
+								</ipxact:range>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>clk_o</ipxact:name>
+								<ipxact:partSelect>
+									<ipxact:range>
+										<ipxact:left>0</ipxact:left>
+										<ipxact:right>0</ipxact:right>
+									</ipxact:range>
+								</ipxact:partSelect>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+					</ipxact:portMaps>
+				</ipxact:abstractionType>
+			</ipxact:abstractionTypes>
+			<ipxact:system>
+				<ipxact:group>ClockSource</ipxact:group>
+			</ipxact:system>
+		</ipxact:busInterface>
+	</ipxact:busInterfaces>
 	<ipxact:model>
 		<ipxact:ports>
 			<ipxact:port>
@@ -84,11 +136,6 @@
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
-					<ipxact:wireTypeDefs>
-						<ipxact:wireTypeDef>
-							<ipxact:typeDefinition></ipxact:typeDefinition>
-						</ipxact:wireTypeDef>
-					</ipxact:wireTypeDefs>
 				</ipxact:wire>
 				<ipxact:vendorExtensions>
 					<kactus2:adHocVisible/>
@@ -100,11 +147,11 @@
 		<ipxact:fileSet>
 			<ipxact:name>verilogSource</ipxact:name>
 			<ipxact:file>
-				<ipxact:name>Core_tb.v</ipxact:name>
+				<ipxact:name>Memory_tb.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 13:04:10 on 07.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 13:50:24 on 07.04.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
-					<kactus2:hash>b5644ea6ae1f29529784001cba86113e1a899028</kactus2:hash>
+					<kactus2:hash>b4661e04bc8835981d39c1bb8600d5c2c26108ab</kactus2:hash>
 				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>

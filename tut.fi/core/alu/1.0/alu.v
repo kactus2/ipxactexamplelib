@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : alu.v
-// Creation date : 03.04.2017
-// Creation time : 14:53:12
+// Creation date : 07.04.2017
+// Creation time : 12:01:56
 // Description   : 
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.23 32-bit
+// Tool : Kactus2 3.4.19 32-bit
 // Plugin : Verilog generator 2.0d
 // This file was generated based on IP-XACT component tut.fi:core:alu:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/core/alu/1.0/alu.1.0.xml
@@ -17,8 +17,8 @@ module alu #(
     // Interface: cpu_system
     input                               alu_active_i,
     input          [ALU_OP_WIDTH-1:0]   alu_op_i,
-    input          [DATA_WIDTH-1:0]     register_value1_i,
-    input          [DATA_WIDTH-1:0]     register_value2_i,
+    input          [DATA_WIDTH-1:0]     register_value_i1,
+    input          [DATA_WIDTH-1:0]     register_value_i2,
     output reg     [DATA_WIDTH-1:0]     alu_result_o
 );
 
@@ -32,10 +32,10 @@ module alu #(
         
     always @* begin
         case(alu_op_i)
-            OP_PLUS: alu_result_o <= register_value1_i + register_value2_i;
-            OP_MINUS: alu_result_o <= register_value1_i - register_value2_i;
-            OP_MUL: alu_result_o <= register_value1_i * register_value2_i;
-            OP_DIV: alu_result_o <= register_value1_i / register_value2_i;
+            OP_PLUS: alu_result_o <= register_value_i1 + register_value_i2;
+            OP_MINUS: alu_result_o <= register_value_i1 - register_value_i2;
+            OP_MUL: alu_result_o <= register_value_i1 * register_value_i2;
+            OP_DIV: alu_result_o <= register_value_i1 / register_value_i2;
             default: begin
                 $display("ERROR: Unknown ALU operation: %d", alu_op_i);
                 alu_result_o <= 0;

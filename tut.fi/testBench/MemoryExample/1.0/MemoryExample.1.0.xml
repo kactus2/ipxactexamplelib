@@ -2,19 +2,19 @@
 <ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
 	<ipxact:library>testBench</ipxact:library>
-	<ipxact:name>Core</ipxact:name>
+	<ipxact:name>MemoryExample</ipxact:name>
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:model>
 		<ipxact:views>
 			<ipxact:view>
 				<ipxact:name>hierarchical_verilog</ipxact:name>
-				<ipxact:designConfigurationInstantiationRef>Core.designcfg_1.0</ipxact:designConfigurationInstantiationRef>
+				<ipxact:designConfigurationInstantiationRef>MemoryExample.designcfg_1.0</ipxact:designConfigurationInstantiationRef>
 			</ipxact:view>
 		</ipxact:views>
 		<ipxact:instantiations>
 			<ipxact:designConfigurationInstantiation>
-				<ipxact:name>Core.designcfg_1.0</ipxact:name>
-				<ipxact:designConfigurationRef vendor="tut.fi" library="testBench" name="Core.verilog.designcfg" version="1.0"/>
+				<ipxact:name>MemoryExample.designcfg_1.0</ipxact:name>
+				<ipxact:designConfigurationRef vendor="tut.fi" library="testBench" name="MemoryExample.verilog.designcfg" version="1.0"/>
 			</ipxact:designConfigurationInstantiation>
 		</ipxact:instantiations>
 	</ipxact:model>
@@ -22,14 +22,19 @@
 		<ipxact:fileSet>
 			<ipxact:name>verilogSource</ipxact:name>
 			<ipxact:file>
-				<ipxact:name>Core.v</ipxact:name>
-				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 13:05:14 on 07.04.2017 by Kactus2. </ipxact:description>
-			</ipxact:file>
-			<ipxact:file>
 				<ipxact:name>CoreExample_0.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 13:05:14 on 07.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 14:55:21 on 07.04.2017 by Kactus2. </ipxact:description>
+			</ipxact:file>
+			<ipxact:file>
+				<ipxact:name>MemoryExample_0.v</ipxact:name>
+				<ipxact:fileType>verilogSource</ipxact:fileType>
+				<ipxact:description>Generated at 14:55:21 on 07.04.2017 by Kactus2. </ipxact:description>
+			</ipxact:file>
+			<ipxact:file>
+				<ipxact:name>MemoryExample.v</ipxact:name>
+				<ipxact:fileType>verilogSource</ipxact:fileType>
+				<ipxact:description>Generated at 14:55:21 on 07.04.2017 by Kactus2. </ipxact:description>
 			</ipxact:file>
 		</ipxact:fileSet>
 		<ipxact:fileSet>
@@ -40,15 +45,10 @@
 				<ipxact:fileType>asmSource</ipxact:fileType>
 				<ipxact:description>The source code of the program in the custom assembly language of the tested core.</ipxact:description>
 			</ipxact:file>
-			<ipxact:file>
-				<ipxact:name>program.hex</ipxact:name>
-				<ipxact:fileType user="hexFile">user</ipxact:fileType>
-				<ipxact:description>The binary executable of the program in the custom binary format of the tested core.</ipxact:description>
-			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
 	<ipxact:vendorExtensions>
-		<kactus2:version>3,4,19,0</kactus2:version>
+		<kactus2:version>3,4,24,0</kactus2:version>
 		<kactus2:kts_attributes>
 			<kactus2:kts_productHier>IP</kactus2:kts_productHier>
 			<kactus2:kts_implementation>HW</kactus2:kts_implementation>

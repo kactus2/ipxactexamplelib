@@ -67,13 +67,13 @@
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{d02ad0c2-7ade-43ff-ab5b-61abfee84bf0}</kactus2:uuid>
 				<kactus2:portPositions>
-					<kactus2:portPosition busRef="mem_control" x="110" y="120"/>
+					<kactus2:portPosition busRef="mem_control" x="110" y="90"/>
 				</kactus2:portPositions>
 				<kactus2:adHocVisibilities>
-					<kactus2:adHocVisible portName="clk_i" x="-110" y="120"/>
+					<kactus2:adHocVisible portName="clk_i" x="-110" y="90"/>
 					<kactus2:adHocVisible portName="instruction_feed" x="-110" y="30"/>
-					<kactus2:adHocVisible portName="new_value" x="-110" y="60"/>
-					<kactus2:adHocVisible portName="rst_i" x="-110" y="90"/>
+					<kactus2:adHocVisible portName="rst_i" x="-110" y="60"/>
+					<kactus2:adHocVisible portName="stall_o" x="-110" y="120"/>
 				</kactus2:adHocVisibilities>
 				<kactus2:position x="280" y="60"/>
 			</ipxact:vendorExtensions>
@@ -257,13 +257,6 @@
 			</ipxact:portReferences>
 		</ipxact:adHocConnection>
 		<ipxact:adHocConnection>
-			<ipxact:name>core_new_value_to_new_value</ipxact:name>
-			<ipxact:portReferences>
-				<ipxact:internalPortReference componentRef="core" portRef="new_value"/>
-				<ipxact:externalPortReference portRef="new_value"/>
-			</ipxact:portReferences>
-		</ipxact:adHocConnection>
-		<ipxact:adHocConnection>
 			<ipxact:name>external_mem_large_store_hash_i_to_tiedValue</ipxact:name>
 			<ipxact:tiedValue>0</ipxact:tiedValue>
 			<ipxact:portReferences>
@@ -275,6 +268,13 @@
 			<ipxact:tiedValue>1</ipxact:tiedValue>
 			<ipxact:portReferences>
 				<ipxact:internalPortReference componentRef="wb_external_mem_hash" portRef="store_hash_i"/>
+			</ipxact:portReferences>
+		</ipxact:adHocConnection>
+		<ipxact:adHocConnection>
+			<ipxact:name>core_stall_o_to_stall_o</ipxact:name>
+			<ipxact:portReferences>
+				<ipxact:internalPortReference componentRef="core" portRef="stall_o"/>
+				<ipxact:externalPortReference portRef="stall_o"/>
 			</ipxact:portReferences>
 		</ipxact:adHocConnection>
 	</ipxact:adHocConnections>
@@ -302,8 +302,8 @@
 				<kactus2:position x="1110" y="100"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="core_mem_control_to_wb_cpu_wrapper_0_contoller" kactus2:offPage="false">
-				<kactus2:position x="390" y="180"/>
-				<kactus2:position x="460" y="180"/>
+				<kactus2:position x="390" y="150"/>
+				<kactus2:position x="460" y="150"/>
 				<kactus2:position x="460" y="550"/>
 				<kactus2:position x="490" y="550"/>
 			</kactus2:route>
@@ -332,12 +332,12 @@
 				<kactus2:position x="710" y="430"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="core_rst_i_to_rst_i" kactus2:offPage="false">
-				<kactus2:position x="60" y="150"/>
-				<kactus2:position x="170" y="150"/>
+				<kactus2:position x="60" y="120"/>
+				<kactus2:position x="170" y="120"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="core_clk_i_to_clk_i" kactus2:offPage="false">
-				<kactus2:position x="60" y="180"/>
-				<kactus2:position x="170" y="180"/>
+				<kactus2:position x="60" y="150"/>
+				<kactus2:position x="170" y="150"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2" kactus2:offPage="false">
 				<kactus2:position x="810" y="340"/>
@@ -349,22 +349,20 @@
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="data_passer_0_ext_data_o_to_ext_data_o" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="data_passer_0_ext_data_i_to_ext_data_i" kactus2:offPage="false"/>
-			<kactus2:route kactus2:connRef="core_instruction_feed_to_instruction_feed" kactus2:offPage="false">
-				<kactus2:position x="60" y="90"/>
-				<kactus2:position x="170" y="90"/>
-			</kactus2:route>
-			<kactus2:route kactus2:connRef="core_new_value_to_new_value" kactus2:offPage="false">
-				<kactus2:position x="70" y="120"/>
-				<kactus2:position x="170" y="120"/>
+			<kactus2:route kactus2:connRef="core_instruction_feed_to_instruction_feed" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="core_new_value_to_new_value" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="core_stall_o_to_stall_o" kactus2:offPage="false">
+				<kactus2:position x="170" y="180"/>
+				<kactus2:position x="70" y="180"/>
 			</kactus2:route>
 		</kactus2:routes>
 		<kactus2:adHocVisibilities>
-			<kactus2:adHocVisible portName="clk_i" x="60" y="180"/>
+			<kactus2:adHocVisible portName="clk_i" x="60" y="150"/>
 			<kactus2:adHocVisible portName="ext_data_i" x="1140" y="490"/>
 			<kactus2:adHocVisible portName="ext_data_o" x="1140" y="460"/>
 			<kactus2:adHocVisible portName="instruction_feed" x="60" y="90"/>
-			<kactus2:adHocVisible portName="new_value" x="60" y="120"/>
-			<kactus2:adHocVisible portName="rst_i" x="60" y="150"/>
+			<kactus2:adHocVisible portName="rst_i" x="60" y="120"/>
+			<kactus2:adHocVisible portName="stall_o" x="60" y="180"/>
 		</kactus2:adHocVisibilities>
 		<kactus2:interfaceGraphics>
 			<kactus2:name>wb_system</kactus2:name>

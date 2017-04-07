@@ -7,7 +7,7 @@
 	<ipxact:busType vendor="tut.fi" library="interface" name="interCPU_bus_example" version="1.0"/>
 	<ipxact:ports>
 		<ipxact:port>
-			<ipxact:logicalName>register_value_1</ipxact:logicalName>
+			<ipxact:logicalName>register_output_1</ipxact:logicalName>
 			<ipxact:description>Value of the first currently active register.</ipxact:description>
 			<ipxact:wire>
 				<ipxact:qualifier>
@@ -94,6 +94,11 @@
 					<ipxact:group>MemoryControl</ipxact:group>
 					<ipxact:presence>required</ipxact:presence>
 					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onSystem>
+				<ipxact:onSystem>
+					<ipxact:group>Decoder</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:direction>in</ipxact:direction>
 				</ipxact:onSystem>
 			</ipxact:wire>
 		</ipxact:port>
@@ -258,7 +263,7 @@
 			</ipxact:wire>
 		</ipxact:port>
 		<ipxact:port>
-			<ipxact:logicalName>register_value_2</ipxact:logicalName>
+			<ipxact:logicalName>register_output_2</ipxact:logicalName>
 			<ipxact:description>Value of the second currently active register.</ipxact:description>
 			<ipxact:wire>
 				<ipxact:qualifier>
@@ -293,8 +298,8 @@
 			</ipxact:wire>
 		</ipxact:port>
 		<ipxact:port>
-			<ipxact:logicalName>literal</ipxact:logicalName>
-			<ipxact:description>Decoded literal value in instruction. The most signficant bit is one, if a literal is being fed to register, else zero.</ipxact:description>
+			<ipxact:logicalName>register_input</ipxact:logicalName>
+			<ipxact:description>The value that is being loaded to register bank. The most signficant bit is one, if it is is being fed to register, else zero.</ipxact:description>
 			<ipxact:wire>
 				<ipxact:qualifier>
 					<ipxact:isData>true</ipxact:isData>

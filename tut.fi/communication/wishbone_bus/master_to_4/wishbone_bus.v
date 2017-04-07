@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : wishbone_bus.v
-// Creation date : 31.03.2017
-// Creation time : 15:04:05
+// Creation date : 06.04.2017
+// Creation time : 11:52:40
 // Description   : Bus used to connect one wishbone master to multiple slaves. Used slave is determined using the address output of the master and parameters of each slave interface.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.6 32-bit
+// Tool : Kactus2 3.4.27 32-bit
 // Plugin : Verilog generator 2.0d
 // This file was generated based on IP-XACT component tut.fi:communication:wishbone_bus:master_to_4
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/communication/wishbone_bus/master_to_4/wishbone_bus.master_to_4.xml
@@ -25,9 +25,9 @@ module wishbone_bus #(
     input          [DATA_WIDTH-1:0]     dat_ms_master,
     input                               stb_master,
     input                               we_master,
-    output                              ack_master,
-    output         [DATA_WIDTH-1:0]     dat_sm_master,
-    output                              err_master,
+    output reg                          ack_master,
+    output reg     [DATA_WIDTH-1:0]     dat_sm_master,
+    output reg                          err_master,
 
     // Interface: slave_0
     input                               ack_slave_0,
@@ -101,7 +101,7 @@ module wishbone_bus #(
     wire slave_3_sel = (adr_master >= SLAVE_3_BASE && adr_master < SLAVE_3_BASE+SLAVE_RANGE) ? 1 : 0;
     
     // Choose master inputs based on the selected slave.
-    always @( * ) begin
+    always @* begin
         if (slave_0_sel) begin
             dat_sm_master <= dat_sm_slave_0;
             ack_master <= ack_slave_0;

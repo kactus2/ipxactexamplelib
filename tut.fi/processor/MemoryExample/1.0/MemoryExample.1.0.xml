@@ -127,7 +127,6 @@
 					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
-							<ipxact:typeName>reg</ipxact:typeName>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
 						</ipxact:wireTypeDef>
 					</ipxact:wireTypeDefs>
@@ -143,7 +142,7 @@
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>uuid_1cedcd48_18d3_4ab1_8168_b840ffeef0c1-1</ipxact:left>
+							<ipxact:left>uuid_172925b5_3a46_4dee_bd29_343828ea26bc-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -153,21 +152,15 @@
 				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>new_value</ipxact:name>
+				<ipxact:name>stall_o</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>uuid_1cedcd48_18d3_4ab1_8168_b840ffeef0c1-1</ipxact:left>
+							<ipxact:left>0</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
-					<ipxact:wireTypeDefs>
-						<ipxact:wireTypeDef>
-							<ipxact:typeName>reg</ipxact:typeName>
-							<ipxact:typeDefinition></ipxact:typeDefinition>
-						</ipxact:wireTypeDef>
-					</ipxact:wireTypeDefs>
 				</ipxact:wire>
 				<ipxact:vendorExtensions>
 					<kactus2:adHocVisible/>
@@ -181,7 +174,7 @@
 			<ipxact:description>Width of the addresses.</ipxact:description>
 			<ipxact:value>$clog2(uuid_f5c2f2c1_588b_45b2_a352_49e3d278c24d)</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_1cedcd48_18d3_4ab1_8168_b840ffeef0c1" resolve="immediate" usageCount="4">
+		<ipxact:parameter parameterId="uuid_1cedcd48_18d3_4ab1_8168_b840ffeef0c1" resolve="immediate" usageCount="2">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>Width for data in registers and instructions.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
@@ -220,6 +213,11 @@
 			<ipxact:name>WB_ADDRESS_BASE</ipxact:name>
 			<ipxact:description>Base address for wishbone in the system memory.</ipxact:description>
 			<ipxact:value>'h0100</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_172925b5_3a46_4dee_bd29_343828ea26bc" usageCount="1">
+			<ipxact:name>INSTRUCTION_WIDTH</ipxact:name>
+			<ipxact:description>Total width of an instruction</ipxact:description>
+			<ipxact:value>28</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

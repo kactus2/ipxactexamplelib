@@ -1,23 +1,23 @@
 //-----------------------------------------------------------------------------
-// File          : wb_slave.v
-// Creation date : 24.03.2017
-// Creation time : 13:06:44
-// Description   : Template component for wishbone slave. Address space is assumed to be contiguous.
+// File          : wb_memory.v
+// Creation date : 06.04.2017
+// Creation time : 11:31:51
+// Description   : A basic wishbone controlled memory, which as an alternative operating mode can create hashes of the written values.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.6 32-bit
+// Tool : Kactus2 3.4.27 32-bit
 // Plugin : Verilog generator 2.0d
-// This file was generated based on IP-XACT component tut.fi:ip.hw:wb_slave_template:1.0
-// whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/ip.hw/wb_slave_template/1.0/wb_slave_template.1.0.xml
+// This file was generated based on IP-XACT component tut.fi:peripheral:wb_external_mem:1.0
+// whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/peripheral/wb_external_mem/1.0/wb_external_mem.1.0.xml
 //-----------------------------------------------------------------------------
 
-module wb_slave #(
+module wb_memory #(
     parameter                              ADDR_WIDTH       = 16,    // The width of the address.
     parameter                              DATA_WIDTH       = 32,    // The width of the both transferred and inputted data.
-    parameter                              DATA_COUNT       = 8,    // How many values there are in the register array.
-    parameter                              BASE_ADDRESS     = 'hFF00    // The first referred address of the master.
+    parameter                              MEMORY_SIZE      = 128,    // How many data slots in AUB there is in the memory.
+    parameter                              BASE_ADDRESS     = 'h0F00,    // The first referred address of the master.
+    parameter                              HASH_KEY         = 'hDEADF00D    // The key used to create the hashes.
 ) (
     // Interface: wb_slave
-    // The address of the data.
     input          [ADDR_WIDTH-1:0]     adr_i,    // The address of the data.
     input                               cyc_i,    // Asserted by master for transfer.
     input          [DATA_WIDTH-1:0]     dat_i,    // Data from master to slave.
@@ -28,16 +28,20 @@ module wb_slave #(
     output reg                          err_o,    // Indicates abnormal cycle termination.
 
     // Interface: wb_system
-    // The mandatory clock, as this is synchronous logic.
     input                               clk_i,    // The mandatory clock, as this is synchronous logic.
-    input                               rst_i    // The mandatory reset, as this is synchronous logic.
+    input                               rst_i,    // The mandatory reset, as this is synchronous logic.
+
+    // These ports are not in any interface
+    input                               store_hash_i    // 1 = store hash, 0 = do not store
 );
+
+    // Remap states:
+    `define store_hash (store_hash_i == 1)
 
 // WARNING: EVERYTHING ON AND ABOVE THIS LINE MAY BE OVERWRITTEN BY KACTUS2!!!
 
     localparam AUB = 8;
     localparam AU_IN_DATA = DATA_WIDTH/AUB;
-    localparam MEMORY_SIZE = DATA_COUNT*4;
     reg [0:AUB-1] memory [0:MEMORY_SIZE-1];
     
     // Used to index AUBs to data io.
