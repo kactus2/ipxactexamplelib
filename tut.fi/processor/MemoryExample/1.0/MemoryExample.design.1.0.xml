@@ -66,9 +66,6 @@
 			</ipxact:componentRef>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{d02ad0c2-7ade-43ff-ab5b-61abfee84bf0}</kactus2:uuid>
-				<kactus2:portPositions>
-					<kactus2:portPosition busRef="mem_control" x="110" y="90"/>
-				</kactus2:portPositions>
 				<kactus2:adHocVisibilities>
 					<kactus2:adHocVisible portName="clk_i" x="-110" y="90"/>
 					<kactus2:adHocVisible portName="instruction_feed" x="-110" y="30"/>
@@ -175,11 +172,6 @@
 			<ipxact:hierInterface busRef="wb_system"/>
 		</ipxact:interconnection>
 		<ipxact:interconnection>
-			<ipxact:name>core_mem_control_to_wb_cpu_wrapper_0_contoller</ipxact:name>
-			<ipxact:activeInterface componentRef="core" busRef="mem_control"/>
-			<ipxact:activeInterface componentRef="wb_cpu_wrapper_0" busRef="contoller"/>
-		</ipxact:interconnection>
-		<ipxact:interconnection>
 			<ipxact:name>wishbone_bus_0_slave_0_to_external_mem_large_wb_slave</ipxact:name>
 			<ipxact:activeInterface componentRef="wishbone_bus_0" busRef="slave_0"/>
 			<ipxact:activeInterface componentRef="external_mem_large" busRef="wb_slave"/>
@@ -218,6 +210,11 @@
 			<ipxact:name>rieman_sum_0_wb_system_to_wb_system</ipxact:name>
 			<ipxact:activeInterface componentRef="riemann_sum_0" busRef="wb_system"/>
 			<ipxact:hierInterface busRef="wb_system"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>core_peripheral_access_to_wb_cpu_wrapper_0_contoller</ipxact:name>
+			<ipxact:activeInterface componentRef="core" busRef="peripheral_access"/>
+			<ipxact:activeInterface componentRef="wb_cpu_wrapper_0" busRef="contoller"/>
 		</ipxact:interconnection>
 	</ipxact:interconnections>
 	<ipxact:adHocConnections>
@@ -301,12 +298,6 @@
 				<kactus2:position x="740" y="520"/>
 				<kactus2:position x="1110" y="100"/>
 			</kactus2:route>
-			<kactus2:route kactus2:connRef="core_mem_control_to_wb_cpu_wrapper_0_contoller" kactus2:offPage="false">
-				<kactus2:position x="390" y="150"/>
-				<kactus2:position x="460" y="150"/>
-				<kactus2:position x="460" y="550"/>
-				<kactus2:position x="490" y="550"/>
-			</kactus2:route>
 			<kactus2:route kactus2:connRef="wishbone_bus_0_slave_0_to_external_mem_large_wb_slave" kactus2:offPage="false">
 				<kactus2:position x="710" y="100"/>
 				<kactus2:position x="810" y="100"/>
@@ -331,14 +322,8 @@
 				<kactus2:position x="810" y="430"/>
 				<kactus2:position x="710" y="430"/>
 			</kactus2:route>
-			<kactus2:route kactus2:connRef="core_rst_i_to_rst_i" kactus2:offPage="false">
-				<kactus2:position x="60" y="120"/>
-				<kactus2:position x="170" y="120"/>
-			</kactus2:route>
-			<kactus2:route kactus2:connRef="core_clk_i_to_clk_i" kactus2:offPage="false">
-				<kactus2:position x="60" y="150"/>
-				<kactus2:position x="170" y="150"/>
-			</kactus2:route>
+			<kactus2:route kactus2:connRef="core_rst_i_to_rst_i" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="core_clk_i_to_clk_i" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2" kactus2:offPage="false">
 				<kactus2:position x="810" y="340"/>
 				<kactus2:position x="710" y="340"/>
@@ -351,9 +336,12 @@
 			<kactus2:route kactus2:connRef="data_passer_0_ext_data_i_to_ext_data_i" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="core_instruction_feed_to_instruction_feed" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="core_new_value_to_new_value" kactus2:offPage="false"/>
-			<kactus2:route kactus2:connRef="core_stall_o_to_stall_o" kactus2:offPage="false">
-				<kactus2:position x="170" y="180"/>
-				<kactus2:position x="70" y="180"/>
+			<kactus2:route kactus2:connRef="core_stall_o_to_stall_o" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="core_peripheral_access_to_wb_cpu_wrapper_0_contoller" kactus2:offPage="false">
+				<kactus2:position x="390" y="100"/>
+				<kactus2:position x="470" y="100"/>
+				<kactus2:position x="470" y="550"/>
+				<kactus2:position x="490" y="550"/>
 			</kactus2:route>
 		</kactus2:routes>
 		<kactus2:adHocVisibilities>

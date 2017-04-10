@@ -6,7 +6,7 @@
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
-			<ipxact:name>mem_control</ipxact:name>
+			<ipxact:name>peripheral_access</ipxact:name>
 			<ipxact:busType vendor="tut.fi" library="interface" name="mem_control_bus_example" version="1.0"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>

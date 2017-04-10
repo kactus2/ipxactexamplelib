@@ -6,7 +6,7 @@
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
-			<ipxact:name>memory_interface</ipxact:name>
+			<ipxact:name>peripheral_access</ipxact:name>
 			<ipxact:busType vendor="tut.fi" library="interface" name="mem_control_bus_example" version="1.0"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -199,9 +199,9 @@
 			<ipxact:width>uuid_11795f77_041d_4548_bcf3_cd41b67482a1</ipxact:width>
 			<ipxact:segments>
 				<ipxact:segment>
-					<ipxact:name>LocalConfig</ipxact:name>
+					<ipxact:name>LocalRegisters</ipxact:name>
 					<ipxact:addressOffset>'h0</ipxact:addressOffset>
-					<ipxact:range>'h40</ipxact:range>
+					<ipxact:range>uuid_5e8681b9_de2f_4521_b331_a3db91c4b49b</ipxact:range>
 				</ipxact:segment>
 				<ipxact:segment>
 					<ipxact:name>Peripherals</ipxact:name>
@@ -210,33 +210,160 @@
 				</ipxact:segment>
 				<ipxact:segment>
 					<ipxact:name>LocalData</ipxact:name>
-					<ipxact:addressOffset>'h40</ipxact:addressOffset>
-					<ipxact:range>uuid_e3b353a9_9c84_4f26_a9bf_8271de5b015c-'h40</ipxact:range>
+					<ipxact:addressOffset>uuid_5e8681b9_de2f_4521_b331_a3db91c4b49b</ipxact:addressOffset>
+					<ipxact:range>uuid_e3b353a9_9c84_4f26_a9bf_8271de5b015c-uuid_5e8681b9_de2f_4521_b331_a3db91c4b49b</ipxact:range>
 				</ipxact:segment>
 			</ipxact:segments>
 			<ipxact:addressUnitBits>8</ipxact:addressUnitBits>
 			<ipxact:localMemoryMap>
 				<ipxact:name>CPU_local_memory</ipxact:name>
+				<ipxact:description>All address blocks accessible directly by memory controller, rather than through peripheral access.</ipxact:description>
 				<ipxact:addressBlock>
-					<ipxact:name>ResetVector</ipxact:name>
-					<ipxact:baseAddress>'h8</ipxact:baseAddress>
-					<ipxact:range>12</ipxact:range>
-					<ipxact:width>32</ipxact:width>
-					<ipxact:usage>register</ipxact:usage>
-				</ipxact:addressBlock>
-				<ipxact:addressBlock>
-					<ipxact:name>InterruptVector</ipxact:name>
-					<ipxact:baseAddress>'h14</ipxact:baseAddress>
-					<ipxact:range>12</ipxact:range>
-					<ipxact:width>32</ipxact:width>
-					<ipxact:usage>register</ipxact:usage>
-				</ipxact:addressBlock>
-				<ipxact:addressBlock>
-					<ipxact:name>DATA</ipxact:name>
+					<ipxact:name>Data</ipxact:name>
 					<ipxact:baseAddress>'h40</ipxact:baseAddress>
 					<ipxact:range>uuid_e3b353a9_9c84_4f26_a9bf_8271de5b015c-'h40</ipxact:range>
-					<ipxact:width>32</ipxact:width>
+					<ipxact:width>uuid_11795f77_041d_4548_bcf3_cd41b67482a1</ipxact:width>
+					<ipxact:usage>memory</ipxact:usage>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+				</ipxact:addressBlock>
+				<ipxact:addressBlock>
+					<ipxact:name>Registers</ipxact:name>
+					<ipxact:baseAddress>'h0</ipxact:baseAddress>
+					<ipxact:range>uuid_5e8681b9_de2f_4521_b331_a3db91c4b49b</ipxact:range>
+					<ipxact:width>uuid_11795f77_041d_4548_bcf3_cd41b67482a1</ipxact:width>
 					<ipxact:usage>register</ipxact:usage>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:register>
+						<ipxact:name>WORK</ipxact:name>
+						<ipxact:description>General purpose register.</ipxact:description>
+						<ipxact:dim>8</ipxact:dim>
+						<ipxact:addressOffset>uuid_86d03535_d756_4fc9_8d59_ba85e57b94ab*7</ipxact:addressOffset>
+						<ipxact:size>uuid_11795f77_041d_4548_bcf3_cd41b67482a1</ipxact:size>
+						<ipxact:field>
+							<ipxact:name>data</ipxact:name>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>uuid_11795f77_041d_4548_bcf3_cd41b67482a1</ipxact:bitWidth>
+						</ipxact:field>
+					</ipxact:register>
+					<ipxact:register>
+						<ipxact:name>MODSTART</ipxact:name>
+						<ipxact:description>Start address for modulo operation</ipxact:description>
+						<ipxact:dim>0</ipxact:dim>
+						<ipxact:addressOffset>uuid_86d03535_d756_4fc9_8d59_ba85e57b94ab*1</ipxact:addressOffset>
+						<ipxact:size>uuid_11795f77_041d_4548_bcf3_cd41b67482a1</ipxact:size>
+						<ipxact:field>
+							<ipxact:name>address</ipxact:name>
+							<ipxact:bitOffset>1</ipxact:bitOffset>
+							<ipxact:bitWidth>uuid_11795f77_041d_4548_bcf3_cd41b67482a1-1</ipxact:bitWidth>
+						</ipxact:field>
+					</ipxact:register>
+					<ipxact:register>
+						<ipxact:name>MODEND</ipxact:name>
+						<ipxact:description>End address for modulo operation</ipxact:description>
+						<ipxact:dim>0</ipxact:dim>
+						<ipxact:addressOffset>uuid_86d03535_d756_4fc9_8d59_ba85e57b94ab*2</ipxact:addressOffset>
+						<ipxact:size>uuid_11795f77_041d_4548_bcf3_cd41b67482a1</ipxact:size>
+						<ipxact:field>
+							<ipxact:name>address</ipxact:name>
+							<ipxact:bitOffset>1</ipxact:bitOffset>
+							<ipxact:bitWidth>uuid_11795f77_041d_4548_bcf3_cd41b67482a1-1</ipxact:bitWidth>
+						</ipxact:field>
+					</ipxact:register>
+					<ipxact:register>
+						<ipxact:name>ALU_STATUS</ipxact:name>
+						<ipxact:description>ALU status bits</ipxact:description>
+						<ipxact:dim>0</ipxact:dim>
+						<ipxact:addressOffset>0</ipxact:addressOffset>
+						<ipxact:size>uuid_11795f77_041d_4548_bcf3_cd41b67482a1</ipxact:size>
+						<ipxact:field>
+							<ipxact:name>c_out</ipxact:name>
+							<ipxact:description>Carry out from MSB.</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+						</ipxact:field>
+						<ipxact:field>
+							<ipxact:name>zero</ipxact:name>
+							<ipxact:description>The result was zero.</ipxact:description>
+							<ipxact:bitOffset>1</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+						</ipxact:field>
+						<ipxact:field>
+							<ipxact:name>overflow</ipxact:name>
+							<ipxact:description>The operation resulted in overflow.</ipxact:description>
+							<ipxact:bitOffset>2</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+						</ipxact:field>
+						<ipxact:field>
+							<ipxact:name>negative</ipxact:name>
+							<ipxact:description>The result is negative.</ipxact:description>
+							<ipxact:bitOffset>3</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+						</ipxact:field>
+					</ipxact:register>
+					<ipxact:register>
+						<ipxact:name>PERIPH_STATUS</ipxact:name>
+						<ipxact:description>Status of the peripheral control.</ipxact:description>
+						<ipxact:dim>0</ipxact:dim>
+						<ipxact:addressOffset>uuid_86d03535_d756_4fc9_8d59_ba85e57b94ab*3</ipxact:addressOffset>
+						<ipxact:size>uuid_11795f77_041d_4548_bcf3_cd41b67482a1</ipxact:size>
+						<ipxact:field>
+							<ipxact:name>state</ipxact:name>
+							<ipxact:description>The current state of peripheral control.</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>2</ipxact:bitWidth>
+						</ipxact:field>
+						<ipxact:field>
+							<ipxact:name>write</ipxact:name>
+							<ipxact:description>1 = writing
+0 = reading</ipxact:description>
+							<ipxact:bitOffset>2</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+						</ipxact:field>
+						<ipxact:field>
+							<ipxact:name>ready</ipxact:name>
+							<ipxact:description>Periphreal operation is complete. Addrested for one cycle only.</ipxact:description>
+							<ipxact:bitOffset>3</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+						</ipxact:field>
+					</ipxact:register>
+					<ipxact:register>
+						<ipxact:name>PERIPH_WRITE</ipxact:name>
+						<ipxact:description>The last value being written to perhiphreals.</ipxact:description>
+						<ipxact:dim>0</ipxact:dim>
+						<ipxact:addressOffset>uuid_86d03535_d756_4fc9_8d59_ba85e57b94ab*5</ipxact:addressOffset>
+						<ipxact:size>uuid_11795f77_041d_4548_bcf3_cd41b67482a1</ipxact:size>
+						<ipxact:field>
+							<ipxact:name>data</ipxact:name>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>uuid_11795f77_041d_4548_bcf3_cd41b67482a1</ipxact:bitWidth>
+						</ipxact:field>
+					</ipxact:register>
+					<ipxact:register>
+						<ipxact:name>PERIPH_READ</ipxact:name>
+						<ipxact:description>The last value that is read from peripherals.</ipxact:description>
+						<ipxact:dim>0</ipxact:dim>
+						<ipxact:addressOffset>uuid_86d03535_d756_4fc9_8d59_ba85e57b94ab*4</ipxact:addressOffset>
+						<ipxact:size>uuid_11795f77_041d_4548_bcf3_cd41b67482a1</ipxact:size>
+						<ipxact:field>
+							<ipxact:name>data</ipxact:name>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>uuid_11795f77_041d_4548_bcf3_cd41b67482a1</ipxact:bitWidth>
+						</ipxact:field>
+					</ipxact:register>
+					<ipxact:register>
+						<ipxact:name>PERIPH_ADDR</ipxact:name>
+						<ipxact:description>The last accessed peripheral address.</ipxact:description>
+						<ipxact:dim>0</ipxact:dim>
+						<ipxact:addressOffset>uuid_86d03535_d756_4fc9_8d59_ba85e57b94ab*6</ipxact:addressOffset>
+						<ipxact:size>uuid_bbfa1cdd_1d38_4f9d_997d_c5872bc60166*uuid_13bb2f35_a7cd_4792_ba5d_7b91ffe4e882</ipxact:size>
+						<ipxact:field>
+							<ipxact:name>address</ipxact:name>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>uuid_bbfa1cdd_1d38_4f9d_997d_c5872bc60166*uuid_13bb2f35_a7cd_4792_ba5d_7b91ffe4e882</ipxact:bitWidth>
+						</ipxact:field>
+					</ipxact:register>
 				</ipxact:addressBlock>
 			</ipxact:localMemoryMap>
 		</ipxact:addressSpace>
@@ -502,12 +629,12 @@
 		</ipxact:fileSet>
 	</ipxact:fileSets>
 	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_11795f77_041d_4548_bcf3_cd41b67482a1" resolve="user" usageCount="5">
+		<ipxact:parameter parameterId="uuid_11795f77_041d_4548_bcf3_cd41b67482a1" resolve="user" usageCount="20">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>Width for data in registers and instructions.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_b6bb8c34_3d40_4189_b91d_6cdce56c33f1" resolve="user" usageCount="2">
+		<ipxact:parameter parameterId="uuid_b6bb8c34_3d40_4189_b91d_6cdce56c33f1" resolve="user" usageCount="4">
 			<ipxact:name>ADDR_WIDTH</ipxact:name>
 			<ipxact:description>Width of the addresses.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
@@ -522,10 +649,30 @@
 			<ipxact:description>The first address for peripherals.</ipxact:description>
 			<ipxact:value>128</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_13bb2f35_a7cd_4792_ba5d_7b91ffe4e882" resolve="immediate">
+		<ipxact:parameter parameterId="uuid_13bb2f35_a7cd_4792_ba5d_7b91ffe4e882" resolve="immediate" usageCount="5">
 			<ipxact:name>AUB</ipxact:name>
-			<ipxact:description>Addressable unit bits</ipxact:description>
+			<ipxact:description>Addressable unit bits, size of byte.</ipxact:description>
 			<ipxact:value>8</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_2ffce492_7d27_445c_b34f_0e1165008ece" resolve="user">
+			<ipxact:name>REGISTER_COUNT</ipxact:name>
+			<ipxact:description>How many registers are supported in the core.</ipxact:description>
+			<ipxact:value>8</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_86d03535_d756_4fc9_8d59_ba85e57b94ab" resolve="immediate" usageCount="8">
+			<ipxact:name>DATA_BYTES</ipxact:name>
+			<ipxact:description>How many bytes in data width.</ipxact:description>
+			<ipxact:value>uuid_11795f77_041d_4548_bcf3_cd41b67482a1/uuid_13bb2f35_a7cd_4792_ba5d_7b91ffe4e882</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_5e8681b9_de2f_4521_b331_a3db91c4b49b" resolve="immediate" usageCount="4">
+			<ipxact:name>CONTROL_RANGE</ipxact:name>
+			<ipxact:description>How many AUBs are reserved for control data.</ipxact:description>
+			<ipxact:value>'h40</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_bbfa1cdd_1d38_4f9d_997d_c5872bc60166" usageCount="2">
+			<ipxact:name>ADDR_BYTES</ipxact:name>
+			<ipxact:description>How many bytes in address width.</ipxact:description>
+			<ipxact:value>uuid_b6bb8c34_3d40_4189_b91d_6cdce56c33f1/uuid_13bb2f35_a7cd_4792_ba5d_7b91ffe4e882</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>
