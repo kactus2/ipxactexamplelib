@@ -10,7 +10,6 @@
 			<ipxact:componentRef vendor="tut.fi" library="core" name="instruction_decoder" version="1.0">
 				<ipxact:configurableElementValues>
 					<ipxact:configurableElementValue referenceId="uuid_9641f7b1_19d4_49d4_95c8_cae15e0c612d">uuid_240da555_796c_42e9_b09d_9769b11e8ac7</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_46bdcbbd_81e4_4fb2_8c74_219eb3408e96">uuid_fd462923_54e9_4b79_8af5_d7cd29d5bfa4</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
 			</ipxact:componentRef>
 			<ipxact:vendorExtensions>
@@ -20,8 +19,8 @@
 					<kactus2:portPosition busRef="cpu_system" x="-110" y="40"/>
 				</kactus2:portPositions>
 				<kactus2:adHocVisibilities>
+					<kactus2:adHocVisible portName="iaddr_o" x="-110" y="100"/>
 					<kactus2:adHocVisible portName="instruction_feed" x="-110" y="70"/>
-					<kactus2:adHocVisible portName="stall_o" x="-110" y="100"/>
 				</kactus2:adHocVisibilities>
 				<kactus2:position x="280" y="180"/>
 			</ipxact:vendorExtensions>
@@ -163,10 +162,10 @@
 			</ipxact:portReferences>
 		</ipxact:adHocConnection>
 		<ipxact:adHocConnection>
-			<ipxact:name>instruction_decoder_stall_o_to_stall_o</ipxact:name>
+			<ipxact:name>instruction_decoder_iaddr_o_to_iaddr_o</ipxact:name>
 			<ipxact:portReferences>
-				<ipxact:internalPortReference componentRef="instruction_decoder" portRef="stall_o"/>
-				<ipxact:externalPortReference portRef="stall_o"/>
+				<ipxact:internalPortReference componentRef="instruction_decoder" portRef="iaddr_o"/>
+				<ipxact:externalPortReference portRef="iaddr_o"/>
 			</ipxact:portReferences>
 		</ipxact:adHocConnection>
 	</ipxact:adHocConnections>
@@ -204,7 +203,10 @@
 				<kactus2:position x="470" y="100"/>
 				<kactus2:position x="490" y="100"/>
 			</kactus2:route>
-			<kactus2:route kactus2:connRef="instruction_decoder_instruction_feed_to_instruction_feed" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="instruction_decoder_instruction_feed_to_instruction_feed" kactus2:offPage="false">
+				<kactus2:position x="60" y="250"/>
+				<kactus2:position x="170" y="250"/>
+			</kactus2:route>
 			<kactus2:route kactus2:connRef="clock_0_clk_i_to_clk_i" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="clock_0_rst_i_to_rst_i" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="register_bank_cpu_system_to_alu_cpu_system" kactus2:offPage="false">
@@ -219,17 +221,20 @@
 				<kactus2:position x="150" y="460"/>
 				<kactus2:position x="170" y="460"/>
 			</kactus2:route>
-			<kactus2:route kactus2:connRef="instruction_decoder_stall_o_to_stall_o" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="memory_controller_peripheral_access_to_peripheral_access" kactus2:offPage="false">
 				<kactus2:position x="170" y="100"/>
 				<kactus2:position x="60" y="100"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="instruction_decoder_iaddr_o_to_iaddr_o" kactus2:offPage="false">
+				<kactus2:position x="170" y="280"/>
+				<kactus2:position x="60" y="280"/>
 			</kactus2:route>
 		</kactus2:routes>
 		<kactus2:adHocVisibilities>
 			<kactus2:adHocVisible portName="clk_i" x="820" y="90"/>
 			<kactus2:adHocVisible portName="instruction_feed" x="60" y="250"/>
 			<kactus2:adHocVisible portName="rst_i" x="820" y="120"/>
-			<kactus2:adHocVisible portName="stall_o" x="60" y="280"/>
+			<kactus2:adHocVisible portName="iaddr_o" x="60" y="280"/>
 		</kactus2:adHocVisibilities>
 		<kactus2:interfaceGraphics>
 			<kactus2:name>bus</kactus2:name>

@@ -7,7 +7,11 @@
 	<ipxact:componentInstances>
 		<ipxact:componentInstance>
 			<ipxact:instanceName>CoreExample_0</ipxact:instanceName>
-			<ipxact:componentRef vendor="tut.fi" library="core" name="CoreExample" version="1.0"/>
+			<ipxact:componentRef vendor="tut.fi" library="core" name="CoreExample" version="1.0">
+				<ipxact:configurableElementValues>
+					<ipxact:configurableElementValue referenceId="uuid_240da555_796c_42e9_b09d_9769b11e8ac7">16</ipxact:configurableElementValue>
+				</ipxact:configurableElementValues>
+			</ipxact:componentRef>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{dd0d42f2-e23b-4da9-93a4-0e939b98ac1c}</kactus2:uuid>
 				<kactus2:position x="160" y="60"/>
@@ -22,16 +26,16 @@
 			<ipxact:instanceName>Core_tb_0</ipxact:instanceName>
 			<ipxact:componentRef vendor="tut.fi" library="testBench" name="Core_tb" version="1.0">
 				<ipxact:configurableElementValues>
-					<ipxact:configurableElementValue referenceId="uuid_a9f7f0ff_484b_4d10_bc65_81578ab405cb">32</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_a9f7f0ff_484b_4d10_bc65_81578ab405cb">16</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
 			</ipxact:componentRef>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{7d1d6bd6-2d68-406d-83cc-19354d621418}</kactus2:uuid>
+				<kactus2:position x="160" y="200"/>
 				<kactus2:adHocVisibilities>
 					<kactus2:adHocVisible portName="instruction_feed" x="110" y="40"/>
 					<kactus2:adHocVisible portName="rst_o" x="-110" y="70"/>
 				</kactus2:adHocVisibilities>
-				<kactus2:position x="160" y="200"/>
 			</ipxact:vendorExtensions>
 		</ipxact:componentInstance>
 	</ipxact:componentInstances>
@@ -58,10 +62,10 @@
 			</ipxact:portReferences>
 		</ipxact:adHocConnection>
 		<ipxact:adHocConnection>
-			<ipxact:name>CoreExample_0_stall_o_to_Core_tb_0_stall_i</ipxact:name>
+			<ipxact:name>CoreExample_0_iaddr_o_to_Core_tb_0_iaddr_o</ipxact:name>
 			<ipxact:portReferences>
-				<ipxact:internalPortReference componentRef="CoreExample_0" portRef="stall_o"/>
-				<ipxact:internalPortReference componentRef="Core_tb_0" portRef="stall_i"/>
+				<ipxact:internalPortReference componentRef="CoreExample_0" portRef="iaddr_o"/>
+				<ipxact:internalPortReference componentRef="Core_tb_0" portRef="iaddr_o"/>
 			</ipxact:portReferences>
 		</ipxact:adHocConnection>
 	</ipxact:adHocConnections>
@@ -83,26 +87,9 @@
 				<kactus2:position x="30" y="230"/>
 				<kactus2:position x="50" y="230"/>
 			</kactus2:route>
-			<kactus2:route kactus2:connRef="Core_tb_0_instruction_feed_to_CoreExample_0_instruction_feed" kactus2:offPage="false">
-				<kactus2:position x="270" y="240"/>
-				<kactus2:position x="290" y="240"/>
-				<kactus2:position x="290" y="120"/>
-				<kactus2:position x="270" y="120"/>
-			</kactus2:route>
-			<kactus2:route kactus2:connRef="Core_tb_0_rst_o_to_CoreExample_0_rst_i" kactus2:offPage="false">
-				<kactus2:position x="50" y="270"/>
-				<kactus2:position x="30" y="270"/>
-				<kactus2:position x="30" y="90"/>
-				<kactus2:position x="50" y="90"/>
-			</kactus2:route>
-			<kactus2:route kactus2:connRef="CoreExample_0_clk_i_to_Core_tb_0_clk_o" kactus2:offPage="false">
-				<kactus2:position x="50" y="120"/>
-				<kactus2:position x="30" y="120"/>
-				<kactus2:position x="30" y="250"/>
-				<kactus2:position x="290" y="250"/>
-				<kactus2:position x="290" y="270"/>
-				<kactus2:position x="270" y="270"/>
-			</kactus2:route>
+			<kactus2:route kactus2:connRef="Core_tb_0_instruction_feed_to_CoreExample_0_instruction_feed" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="Core_tb_0_rst_o_to_CoreExample_0_rst_i" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="CoreExample_0_clk_i_to_Core_tb_0_clk_o" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="Core_tb_0_new_value_to_CoreExample_0_new_value" kactus2:offPage="false">
 				<kactus2:position x="270" y="230"/>
 				<kactus2:position x="290" y="230"/>
@@ -117,12 +104,13 @@
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="CoreExample_0_stall_o_to_Core_tb_0_stall_i" kactus2:offPage="false">
 				<kactus2:position x="270" y="150"/>
-				<kactus2:position x="290" y="150"/>
-				<kactus2:position x="290" y="310"/>
+				<kactus2:position x="300" y="150"/>
+				<kactus2:position x="300" y="310"/>
 				<kactus2:position x="30" y="310"/>
 				<kactus2:position x="30" y="300"/>
 				<kactus2:position x="50" y="300"/>
 			</kactus2:route>
+			<kactus2:route kactus2:connRef="CoreExample_0_iaddr_o_to_Core_tb_0_iaddr_o" kactus2:offPage="false"/>
 		</kactus2:routes>
 		<kactus2:adHocVisibilities/>
 	</ipxact:vendorExtensions>

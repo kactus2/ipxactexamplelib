@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : instruction_decoder.v
-// Creation date : 07.04.2017
-// Creation time : 11:56:45
+// Creation date : 13.04.2017
+// Creation time : 15:14:12
 // Description   : 
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.19 32-bit
+// Tool : Kactus2 3.4.79 32-bit
 // Plugin : Verilog generator 2.0d
 // This file was generated based on IP-XACT component tut.fi:core:instruction_decoder:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/core/instruction_decoder/1.0/instruction_decoder.1.0.xml
@@ -16,13 +16,15 @@ module instruction_decoder #(
     parameter                              OP_CODE_WIDTH    = 4,    // Bits reserved for operation identifiers.
     parameter                              INSTRUCTION_WIDTH = OP_CODE_WIDTH+2*REGISTER_ID_WIDTH+LITERAL_WIDTH,    // Total width of an instruction
     parameter                              DATA_WIDTH       = 16,    // Width for data in registers and instructions.
-    parameter                              ALU_OP_WIDTH     = 4    // Bits reserved for identification of alu operation
+    parameter                              ALU_OP_WIDTH     = 4,    // Bits reserved for identification of alu operation
+    parameter                              INSTRUCTION_ADDRESS_WIDTH = 8    // Width of an instruction address.
 ) (
     // Interface: cpu_clk_sink
     input                               clk_i,    // The mandatory clock, as this is synchronous logic.
     input                               rst_i,    // The mandatory reset, as this is synchronous logic.
 
     // Interface: cpu_system
+    input          [DATA_WIDTH-1:0]     alu_status_i,
     input          [DATA_WIDTH-1:0]     load_value_i,
     input                               mem_rdy_i,
     output reg                          alu_active_o,
@@ -35,7 +37,7 @@ module instruction_decoder #(
 
     // These ports are not in any interface
     input          [INSTRUCTION_WIDTH-1:0] instruction_feed,
-    output                           stall_o
+    output         [INSTRUCTION_ADDRESS_WIDTH-1:0] iaddr_o
 );
 
 // WARNING: EVERYTHING ON AND ABOVE THIS LINE MAY BE OVERWRITTEN BY KACTUS2!!!
@@ -49,14 +51,20 @@ module instruction_decoder #(
         PLUS        = 4'b0100, 
         MINUS       = 4'b0101, 
         MUL         = 4'b0110, 
-        DIV         = 4'b0111;
+        DIV         = 4'b0111, 
+        BRA         = 4'b1000, 
+        BNE        = 4'b1001;
 
     integer instruction;
     integer reg1;
     integer reg2;
     integer literal;
     
-    assign stall_o = mem_active_o;
+    reg [INSTRUCTION_ADDRESS_WIDTH-1:0] instruction_pointer;
+    
+    assign iaddr_o = instruction_pointer;
+    
+    reg [DATA_WIDTH-1:0] last_alu;
     
     always @(posedge clk_i or posedge rst_i) begin
         if(rst_i == 1'b1) begin
@@ -66,6 +74,8 @@ module instruction_decoder #(
             choose_reg2_o <= 0;
             mem_active_o <= 0;
             we_o <= 0;
+            instruction_pointer <= 0;
+            last_alu <= 0;
         end
         else begin
             instruction = instruction_feed[LITERAL_WIDTH+2*REGISTER_ID_WIDTH+OP_CODE_WIDTH-1:LITERAL_WIDTH+2*REGISTER_ID_WIDTH];
@@ -84,6 +94,7 @@ module instruction_decoder #(
                         register_value_o <= 0;
                     end
                     mem_active_o= 0;
+                    instruction_pointer = instruction_pointer + 1;
                 end
             end
             else begin
@@ -114,6 +125,7 @@ module instruction_decoder #(
                 end
                 else begin
                     mem_active_o <= 0;
+                    instruction_pointer = instruction_pointer + 1;
                 end
                 
                 // Activate write enable if storing to memory.
@@ -133,6 +145,8 @@ module instruction_decoder #(
                 else begin
                     register_value_o[DATA_WIDTH] <= 0;
                 end
+                
+                last_alu <= alu_status_i;
             end
         end
     end

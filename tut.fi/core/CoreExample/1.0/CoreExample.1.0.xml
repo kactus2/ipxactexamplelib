@@ -254,12 +254,12 @@
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>stall_o</ipxact:name>
+				<ipxact:name>iaddr_o</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>0</ipxact:left>
+							<ipxact:left>uuid_3795f09f_a36f_477f_a331_5e2aaca9fb60-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -271,6 +271,7 @@
 				</ipxact:wire>
 				<ipxact:vendorExtensions>
 					<kactus2:adHocVisible/>
+					<kactus2:portTags></kactus2:portTags>
 				</ipxact:vendorExtensions>
 			</ipxact:port>
 		</ipxact:ports>
@@ -315,6 +316,11 @@
 			<ipxact:name>INSTRUCTION_WIDTH</ipxact:name>
 			<ipxact:description>Total width of an instruction</ipxact:description>
 			<ipxact:value>28</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_3795f09f_a36f_477f_a331_5e2aaca9fb60" resolve="user" usageCount="1">
+			<ipxact:name>INSTRUCTION_ADDRESS_WIDTH</ipxact:name>
+			<ipxact:description>Width of an instruction address.</ipxact:description>
+			<ipxact:value>8</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

@@ -75,12 +75,12 @@
 				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>stall_i</ipxact:name>
+				<ipxact:name>iaddr_o</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>0</ipxact:left>
+							<ipxact:left>uuid_1af7904a_da9a_442d_80d8_26a3299c8cf5-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -92,6 +92,7 @@
 				</ipxact:wire>
 				<ipxact:vendorExtensions>
 					<kactus2:adHocVisible/>
+					<kactus2:portTags></kactus2:portTags>
 				</ipxact:vendorExtensions>
 			</ipxact:port>
 		</ipxact:ports>
@@ -102,7 +103,7 @@
 			<ipxact:file>
 				<ipxact:name>Core_tb.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 13:04:10 on 07.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 12:39:01 on 13.04.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
 					<kactus2:hash>b5644ea6ae1f29529784001cba86113e1a899028</kactus2:hash>
 				</ipxact:vendorExtensions>
@@ -119,6 +120,11 @@
 			<ipxact:name>INSTRUCTION_WIDTH</ipxact:name>
 			<ipxact:description>Total width of an instruction</ipxact:description>
 			<ipxact:value>28</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_1af7904a_da9a_442d_80d8_26a3299c8cf5" resolve="user" usageCount="1">
+			<ipxact:name>INSTRUCTION_ADDRESS_WIDTH</ipxact:name>
+			<ipxact:description>Width of an instruction address.</ipxact:description>
+			<ipxact:value>8</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

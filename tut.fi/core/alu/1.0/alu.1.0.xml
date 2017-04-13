@@ -52,6 +52,14 @@
 								<ipxact:name>register_value_i2</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>alu_status</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>alu_status_o</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
 					</ipxact:portMaps>
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
@@ -133,6 +141,24 @@
 					</ipxact:vectors>
 				</ipxact:wire>
 			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>alu_status_o</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>uuid_f0339227_14b3_43a1_81d2_5e1c989aa537-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+					<ipxact:wireTypeDefs>
+						<ipxact:wireTypeDef>
+							<ipxact:typeName>reg</ipxact:typeName>
+							<ipxact:typeDefinition></ipxact:typeDefinition>
+						</ipxact:wireTypeDef>
+					</ipxact:wireTypeDefs>
+				</ipxact:wire>
+			</ipxact:port>
 		</ipxact:ports>
 	</ipxact:model>
 	<ipxact:fileSets>
@@ -141,12 +167,15 @@
 			<ipxact:file>
 				<ipxact:name>alu.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 12:01:58 on 07.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 15:10:30 on 13.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:vendorExtensions>
+					<kactus2:hash>dd49bbe6027f62e615d4182ea7ea9a3fe3aa6876</kactus2:hash>
+				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
 	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_f0339227_14b3_43a1_81d2_5e1c989aa537" resolve="user" usageCount="4">
+		<ipxact:parameter parameterId="uuid_f0339227_14b3_43a1_81d2_5e1c989aa537" resolve="user" usageCount="5">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>Width for data in registers and instructions.</ipxact:description>
 			<ipxact:value>16</ipxact:value>

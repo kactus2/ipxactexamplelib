@@ -86,11 +86,6 @@
 					<ipxact:isData>true</ipxact:isData>
 				</ipxact:qualifier>
 				<ipxact:onSystem>
-					<ipxact:group>RegisterBank</ipxact:group>
-					<ipxact:presence>required</ipxact:presence>
-					<ipxact:direction>in</ipxact:direction>
-				</ipxact:onSystem>
-				<ipxact:onSystem>
 					<ipxact:group>MemoryControl</ipxact:group>
 					<ipxact:presence>required</ipxact:presence>
 					<ipxact:direction>out</ipxact:direction>
@@ -311,6 +306,22 @@
 				</ipxact:onSystem>
 				<ipxact:onSystem>
 					<ipxact:group>RegisterBank</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onSystem>
+			</ipxact:wire>
+		</ipxact:port>
+		<ipxact:port>
+			<ipxact:logicalName>alu_status</ipxact:logicalName>
+			<ipxact:description>Status bits regarding the ALU operation.</ipxact:description>
+			<ipxact:wire>
+				<ipxact:onSystem>
+					<ipxact:group>ALU</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onSystem>
+				<ipxact:onSystem>
+					<ipxact:group>Decoder</ipxact:group>
 					<ipxact:presence>required</ipxact:presence>
 					<ipxact:direction>in</ipxact:direction>
 				</ipxact:onSystem>

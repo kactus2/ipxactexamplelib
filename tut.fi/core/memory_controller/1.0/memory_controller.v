@@ -70,6 +70,7 @@ module memory_controller #(
                 // Writing: Pick every byte from the input and place them to correct addresses.
                 for (index = 0; index < AU_IN_DATA; index = index + 1) begin
                     local_memory[address_i + index] <= register_value_i[(index*AUB)+:AUB];
+                    local_load_value <= 'z;
                 end
             end
             else begin
@@ -79,6 +80,8 @@ module memory_controller #(
                 end
             end
         end
+        else
+            local_load_value <= 'z;
     end
     
     // The state.

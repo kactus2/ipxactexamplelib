@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : register_bank.v
-// Creation date : 07.04.2017
-// Creation time : 11:57:29
+// Creation date : 13.04.2017
+// Creation time : 13:47:17
 // Description   : Stores registers and the logic needed to access them. In case of multiple simultaenous writes, the one with most priority is done.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.19 32-bit
+// Tool : Kactus2 3.4.79 32-bit
 // Plugin : Verilog generator 2.0d
 // This file was generated based on IP-XACT component tut.fi:core:register_bank:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/core/register_bank/1.0/register_bank.1.0.xml
@@ -24,7 +24,6 @@ module register_bank #(
     input          [DATA_WIDTH-1:0]     alu_result_i,
     input          [REGISTER_ID_WIDTH-1:0] choose_register_i1,
     input          [REGISTER_ID_WIDTH-1:0] choose_register_i2,
-    input          [DATA_WIDTH-1:0]     load_value_i,
     input                               mem_active_i,
     input                               mem_rdy_i,
     input          [DATA_WIDTH:0]       register_input,

@@ -114,6 +114,14 @@
 								<ipxact:name>register_value_o</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>alu_status</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>alu_status_i</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
 					</ipxact:portMaps>
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
@@ -387,12 +395,37 @@
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>stall_o</ipxact:name>
+				<ipxact:name>iaddr_o</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>uuid_9740ce67_db99_462e_9734_39ecbe404446-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
-							<ipxact:typeName>reg</ipxact:typeName>
+							<ipxact:typeDefinition></ipxact:typeDefinition>
+						</ipxact:wireTypeDef>
+					</ipxact:wireTypeDefs>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:adHocVisible/>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>alu_status_i</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>uuid_9641f7b1_19d4_49d4_95c8_cae15e0c612d-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+					<ipxact:wireTypeDefs>
+						<ipxact:wireTypeDef>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
 						</ipxact:wireTypeDef>
 					</ipxact:wireTypeDefs>
@@ -406,7 +439,7 @@
 			<ipxact:file>
 				<ipxact:name>instruction_decoder.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 11:56:46 on 07.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 15:14:14 on 13.04.2017 by Kactus2. </ipxact:description>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
@@ -421,7 +454,7 @@
 			<ipxact:description>Total width of an instruction</ipxact:description>
 			<ipxact:value>uuid_bb614608_50c6_4da1_b086_0955cda25e4f+2*uuid_762fbf84_805d_4c16_bb3b_39c8d2b431a2+uuid_e3d80a2e_9de3_41be_96a1_724ac21600b8</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_9641f7b1_19d4_49d4_95c8_cae15e0c612d" resolve="user" usageCount="2">
+		<ipxact:parameter parameterId="uuid_9641f7b1_19d4_49d4_95c8_cae15e0c612d" resolve="user" usageCount="3">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>Width for data in registers and instructions.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
@@ -440,6 +473,11 @@
 			<ipxact:name>OP_CODE_WIDTH</ipxact:name>
 			<ipxact:description>Bits reserved for operation identifiers.</ipxact:description>
 			<ipxact:value>4</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_9740ce67_db99_462e_9734_39ecbe404446" resolve="user" usageCount="1">
+			<ipxact:name>INSTRUCTION_ADDRESS_WIDTH</ipxact:name>
+			<ipxact:description>Width of an instruction address.</ipxact:description>
+			<ipxact:value>8</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>
