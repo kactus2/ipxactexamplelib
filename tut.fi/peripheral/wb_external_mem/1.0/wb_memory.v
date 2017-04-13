@@ -42,13 +42,18 @@ module wb_memory #(
 
     localparam AUB = 8;
     localparam AU_IN_DATA = DATA_WIDTH/AUB;
-    reg [0:AUB-1] memory [0:MEMORY_SIZE-1];
+    reg [AUB-1:0] memory [MEMORY_SIZE-1:0];
     
     // Used to index AUBs to data io.
     integer index;
+    // The address is ok = 1, else not ok.
+    integer addr_ok;
 
     // The state.
     reg [0:0] state;
+    
+    // The hash key, saved to register for run-time.
+    reg [DATA_WIDTH-1:0] key;
     
     // The available states.
     parameter [0:0]
@@ -61,13 +66,30 @@ module wb_memory #(
             dat_o <= 0; // No output by default.
             err_o <= 0; // No error by default.
             state <= S_WAIT; // Wait signals from the masters at reset.
+            key <= HASH_KEY;
         end
         else begin
             if (state == S_WAIT) begin
-                // Wait signal from the master.
-                if ( cyc_i == 1 && stb_i == 1 ) begin
-                    // Master ok, check the address.
+                if (`store_hash && we_i == 1) begin
+                    if (adr_i < BASE_ADDRESS + MEMORY_SIZE/2 && adr_i >= BASE_ADDRESS) begin
+                        addr_ok = 1;
+                    end
+                    else begin
+                        addr_ok = 0;
+                    end
+                end
+                else begin
                     if (adr_i < BASE_ADDRESS + MEMORY_SIZE && adr_i >= BASE_ADDRESS) begin
+                        addr_ok = 1;
+                    end
+                    else begin
+                        addr_ok = 0;
+                    end
+                end
+                     
+                // Wait signal from the master.
+                if (cyc_i == 1 && stb_i == 1) begin
+                    if (addr_ok == 1) begin
                         // The specified address in accessible -> proceed.
                         ack_o <= 1;
 
@@ -75,6 +97,13 @@ module wb_memory #(
                             // Writing: Pick every byte from the input and place them to correct addresses.
                             for (index = 0; index < AU_IN_DATA; index = index + 1) begin
                                 memory[adr_i - BASE_ADDRESS + index] <= dat_i[(index*AUB)+:AUB];
+                            end
+                            
+                            // HASHED MODE: Write the hash value to the corresponding location in HASHED addres block.
+                            if (`store_hash) begin
+                                for (index = 0; index < AU_IN_DATA; index = index + 1) begin
+                                    memory[adr_i - BASE_ADDRESS + MEMORY_SIZE/2 + index] <= (dat_i[(index*AUB)+:AUB] ^ key[(index*AUB)+:AUB]);
+                                end
                             end
                         end
                         else begin
@@ -88,7 +117,7 @@ module wb_memory #(
                         // The specified address out-of-scope -> error!
                         err_o <= 1;
                     end
-                
+
                     // Next thing is to deassert.
                     state <= S_DEASSERT;
                 end

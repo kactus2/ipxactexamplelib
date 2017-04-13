@@ -7,19 +7,19 @@
 	<ipxact:designRef vendor="tut.fi" library="ip.hw" name="spi_example.design" version="1.0_adhoc"/>
 	<ipxact:viewConfiguration>
 		<ipxact:instanceName>spi_master_0</ipxact:instanceName>
-		<ipxact:view viewRef="flat"/>
+		<ipxact:view viewRef="flat_verilog"/>
 	</ipxact:viewConfiguration>
 	<ipxact:viewConfiguration>
 		<ipxact:instanceName>spi_slave_0</ipxact:instanceName>
-		<ipxact:view viewRef="flat"/>
+		<ipxact:view viewRef="flat_verilog"/>
 	</ipxact:viewConfiguration>
 	<ipxact:viewConfiguration>
 		<ipxact:instanceName>spi_slave_1</ipxact:instanceName>
-		<ipxact:view viewRef="flat"/>
+		<ipxact:view viewRef="flat_verilog"/>
 	</ipxact:viewConfiguration>
 	<ipxact:viewConfiguration>
 		<ipxact:instanceName>spi_slave_2</ipxact:instanceName>
-		<ipxact:view viewRef="flat"/>
+		<ipxact:view viewRef="flat_verilog"/>
 	</ipxact:viewConfiguration>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,3,506,0</kactus2:version>

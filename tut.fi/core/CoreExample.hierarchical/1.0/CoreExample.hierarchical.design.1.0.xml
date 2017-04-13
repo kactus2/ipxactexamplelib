@@ -51,6 +51,7 @@
 					<ipxact:configurableElementValue referenceId="uuid_b6bb8c34_3d40_4189_b91d_6cdce56c33f1">uuid_6e1d17f1_eadc_4bdc_886b_00a3c4016028</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_e3b353a9_9c84_4f26_a9bf_8271de5b015c">uuid_ad551e0e_7aa5_4972_bb1d_ec97505a773e</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_e835eae8_6310_47c7_a791_8ee2df766ed3">uuid_9d887d27_b1b6_4b29_b7c1_b9916038a6b4</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_2ffce492_7d27_445c_b34f_0e1165008ece">uuid_ffabd536_0c3b_4a57_a403_90dce6fb42b5</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
 			</ipxact:componentRef>
 			<ipxact:vendorExtensions>
@@ -203,10 +204,7 @@
 				<kactus2:position x="470" y="100"/>
 				<kactus2:position x="490" y="100"/>
 			</kactus2:route>
-			<kactus2:route kactus2:connRef="instruction_decoder_instruction_feed_to_instruction_feed" kactus2:offPage="false">
-				<kactus2:position x="60" y="250"/>
-				<kactus2:position x="170" y="250"/>
-			</kactus2:route>
+			<kactus2:route kactus2:connRef="instruction_decoder_instruction_feed_to_instruction_feed" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="clock_0_clk_i_to_clk_i" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="clock_0_rst_i_to_rst_i" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="register_bank_cpu_system_to_alu_cpu_system" kactus2:offPage="false">
@@ -221,10 +219,7 @@
 				<kactus2:position x="150" y="460"/>
 				<kactus2:position x="170" y="460"/>
 			</kactus2:route>
-			<kactus2:route kactus2:connRef="instruction_decoder_stall_o_to_stall_o" kactus2:offPage="false">
-				<kactus2:position x="60" y="280"/>
-				<kactus2:position x="170" y="280"/>
-			</kactus2:route>
+			<kactus2:route kactus2:connRef="instruction_decoder_stall_o_to_stall_o" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="memory_controller_peripheral_access_to_peripheral_access" kactus2:offPage="false">
 				<kactus2:position x="170" y="100"/>
 				<kactus2:position x="60" y="100"/>

@@ -38,7 +38,7 @@ module wb_slave #(
     localparam AUB = 8;
     localparam AU_IN_DATA = DATA_WIDTH/AUB;
     localparam MEMORY_SIZE = DATA_COUNT*4;
-    reg [0:AUB-1] memory [0:MEMORY_SIZE-1];
+    reg [AUB-1:0] memory [MEMORY_SIZE-1:0];
     
     // Used to index AUBs to data io.
     integer index;

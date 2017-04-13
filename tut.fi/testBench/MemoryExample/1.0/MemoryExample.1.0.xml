@@ -24,17 +24,17 @@
 			<ipxact:file>
 				<ipxact:name>CoreExample_0.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 14:55:21 on 07.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 11:04:06 on 13.04.2017 by Kactus2. </ipxact:description>
 			</ipxact:file>
 			<ipxact:file>
 				<ipxact:name>MemoryExample_0.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 14:55:21 on 07.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 11:04:06 on 13.04.2017 by Kactus2. </ipxact:description>
 			</ipxact:file>
 			<ipxact:file>
 				<ipxact:name>MemoryExample.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 14:55:21 on 07.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 11:04:06 on 13.04.2017 by Kactus2. </ipxact:description>
 			</ipxact:file>
 		</ipxact:fileSet>
 		<ipxact:fileSet>

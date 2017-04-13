@@ -1,21 +1,22 @@
 //-----------------------------------------------------------------------------
-// File          : wb_riemann.v
-// Creation date : 06.04.2017
-// Creation time : 11:57:38
-// Description   : Template component for wishbone slave. Address space is assumed to be contiguous.
+// File          : wb_sum_buffer.v
+// Creation date : 13.04.2017
+// Creation time : 11:02:24
+// Description   : Maintains calculated sum of all input values. The output value is the latest result. When new input value is set, the oldest is discarded.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.27 32-bit
+// Tool : Kactus2 3.4.78 32-bit
 // Plugin : Verilog generator 2.0d
-// This file was generated based on IP-XACT component tut.fi:peripheral:riemann_sum:1.0
-// whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/peripheral/riemann_sum/1.0/riemann_sum.1.0.xml
+// This file was generated based on IP-XACT component tut.fi:peripheral:sum_buffer:1.0
+// whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/peripheral/sum_buffer/1.0/sum_buffer.1.0.xml
 //-----------------------------------------------------------------------------
 
-module wb_riemann #(
-    parameter                              BUFFER_SIZE      = 16,    // How much buffer is allocated for both directions.
+module wb_sum_buffer #(
+    parameter                              BUFFER_SIZE      = 4,    // How much buffer is allocated for both directions.
     parameter                              ADDR_WIDTH       = 16,    // The width of the address.
     parameter                              DATA_WIDTH       = 32,    // The width of the both transferred and inputted data.
     parameter                              BASE_ADDRESS     = 'h0F00,    // The first referred address of the master.
-    parameter                              BUFFER_INDEX_WIDTH = $clog2(BUFFER_SIZE)    // How many bits are needed to index the buffer.
+    parameter                              BUFFER_INDEX_WIDTH = $clog2(BUFFER_SIZE),    // How many bits are needed to index the buffer.
+    parameter                              COLUMN_WIDTH     = 1    // Width of each column in sum.
 ) (
     // Interface: wb_slave
     input          [ADDR_WIDTH-1:0]     adr_i,    // The address of the data.
@@ -34,15 +35,19 @@ module wb_riemann #(
 
 // WARNING: EVERYTHING ON AND ABOVE THIS LINE MAY BE OVERWRITTEN BY KACTUS2!!!
 
-    localparam AUB = 8;
-    localparam AU_IN_DATA = DATA_WIDTH/AUB;
-    reg [0:AUB-1] memory [0:BUFFER_SIZE-1];
+    reg [DATA_WIDTH-1:0] memory [BUFFER_SIZE-1:0];
     
-    // Used to index AUBs to data io.
-    integer index;
+    reg [DATA_WIDTH-1:0] result;
+    
+    reg [BUFFER_INDEX_WIDTH-1:0] index;
 
     // The state.
     reg [0:0] state;
+    
+    integer lastValue;
+    integer newValue;
+    
+    integer iterator;
     
     // The available states.
     parameter [0:0]
@@ -55,28 +60,40 @@ module wb_riemann #(
             dat_o <= 0; // No output by default.
             err_o <= 0; // No error by default.
             state <= S_WAIT; // Wait signals from the masters at reset.
+            result <= 0;
+            index <= 0;
+            
+            for (iterator = 0; iterator < BUFFER_SIZE; iterator = iterator +1) begin
+                memory[iterator] <= 0;
+            end
         end
         else begin
             if (state == S_WAIT) begin
                 // Wait signal from the master.
                 if ( cyc_i == 1 && stb_i == 1 ) begin
                     // Master ok, check the address.
-                    if (adr_i < BASE_ADDRESS + BUFFER_SIZE && adr_i >= BASE_ADDRESS) begin
-                        // The specified address in accessible -> proceed.
+                    if (adr_i == BUFFER_SIZE+BASE_ADDRESS && we_i == 1) begin
+                        // Address of the new value.
                         ack_o <= 1;
-
-                        if ( we_i == 1 ) begin
-                            // Writing: Pick every byte from the input and place them to correct addresses.
-                            for (index = 0; index < AU_IN_DATA; index = index + 1) begin
-                                memory[adr_i - BASE_ADDRESS + index] <= dat_i[(index*AUB)+:AUB];
-                            end
+                        
+                        lastValue = memory[index];
+                        
+                        newValue = dat_i * COLUMN_WIDTH;
+                        
+                        memory[index] <= newValue;
+                        result <= result - lastValue + newValue;
+                        
+                        if (index < BUFFER_SIZE-1) begin
+                            index <= index + 1;
                         end
                         else begin
-                            // Reading: Pick every byte from correct addresses and place them to the output.
-                            for (index = 0; index < AU_IN_DATA; index = index + 1) begin
-                                dat_o[(index*AUB)+:AUB] <= memory[adr_i - BASE_ADDRESS + index];
-                            end
+                            index <= 0;
                         end
+                    end
+                    else if (adr_i == BUFFER_SIZE+BASE_ADDRESS+1 && we_i == 0) begin
+                        // Address of the result.
+                        ack_o <= 1;
+                        dat_o = result;
                     end
                     else begin
                         // The specified address out-of-scope -> error!

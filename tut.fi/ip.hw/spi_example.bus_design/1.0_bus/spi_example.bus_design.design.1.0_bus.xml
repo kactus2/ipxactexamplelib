@@ -81,7 +81,6 @@
 			<kactus2:column name="Slaves" contentType="2" allowedItems="2" minWidth="319" width="319" x="320"/>
 			<kactus2:column name="Master" contentType="2" allowedItems="2" minWidth="319" width="319" x="0"/>
 		</kactus2:columnLayout>
-		<kactus2:adHocVisibilities/>
 		<kactus2:routes>
 			<kactus2:route kactus2:connRef="spi_master_0_master_if_to_spi_slave_0_slave_if" kactus2:offPage="false">
 				<kactus2:position x="270" y="100"/>
@@ -100,5 +99,6 @@
 				<kactus2:position x="370" y="280"/>
 			</kactus2:route>
 		</kactus2:routes>
+		<kactus2:adHocVisibilities/>
 	</ipxact:vendorExtensions>
 </ipxact:design>

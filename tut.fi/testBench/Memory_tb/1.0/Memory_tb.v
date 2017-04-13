@@ -32,7 +32,7 @@ module Memory_tb #(
         forever #5 clk_o = ~clk_o; // generate a clock
         end
         
-    localparam INSTRUCTION_COUNT = 30;
+    localparam INSTRUCTION_COUNT = 200;
 
     reg [INSTRUCTION_WIDTH-1:0] instruction_memory [INSTRUCTION_COUNT-1:0];
     
@@ -62,7 +62,7 @@ module Memory_tb #(
             
             total_clk = total_clk + 1;
             
-            if (total_clk > 100)
+            if (total_clk > INSTRUCTION_COUNT*2)
                 $stop;
         end 
  

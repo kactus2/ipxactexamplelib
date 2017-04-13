@@ -29,6 +29,9 @@
 			<ipxact:componentRef vendor="tut.fi" library="template" name="spi_slave" version="1.0"/>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{44f306b6-3fda-4987-a172-f349094cb855}</kactus2:uuid>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="slave_if" x="110" y="40"/>
+				</kactus2:portPositions>
 				<kactus2:adHocVisibilities>
 					<kactus2:adHocVisible portName="clk_in" x="-110" y="40"/>
 					<kactus2:adHocVisible portName="data_in" x="-110" y="60"/>
@@ -36,9 +39,6 @@
 					<kactus2:adHocVisible portName="slave_select_in" x="-110" y="80"/>
 				</kactus2:adHocVisibilities>
 				<kactus2:position x="480" y="60"/>
-				<kactus2:portPositions>
-					<kactus2:portPosition busRef="slave_if" x="110" y="40"/>
-				</kactus2:portPositions>
 			</ipxact:vendorExtensions>
 		</ipxact:componentInstance>
 		<ipxact:componentInstance>
@@ -52,7 +52,7 @@
 					<kactus2:adHocVisible portName="data_out" x="-110" y="70"/>
 					<kactus2:adHocVisible portName="slave_select_in" x="-110" y="100"/>
 				</kactus2:adHocVisibilities>
-				<kactus2:position x="480" y="220"/>
+				<kactus2:position x="480" y="210"/>
 			</ipxact:vendorExtensions>
 		</ipxact:componentInstance>
 		<ipxact:componentInstance>
@@ -66,7 +66,7 @@
 					<kactus2:adHocVisible portName="data_out" x="-110" y="80"/>
 					<kactus2:adHocVisible portName="slave_select_in" x="-110" y="110"/>
 				</kactus2:adHocVisibilities>
-				<kactus2:position x="480" y="370"/>
+				<kactus2:position x="480" y="360"/>
 			</ipxact:vendorExtensions>
 		</ipxact:componentInstance>
 	</ipxact:componentInstances>
@@ -166,69 +166,60 @@
 			<kactus2:column name="Slaves" contentType="2" allowedItems="2" minWidth="319" width="319" x="320"/>
 		</kactus2:columnLayout>
 		<kactus2:routes>
-			<kactus2:route kactus2:connRef="spi_master_0_clk_out_to_spi_slave_0_clk_in" kactus2:offPage="false">
-				<kactus2:position x="270" y="100"/>
-				<kactus2:position x="370" y="100"/>
-			</kactus2:route>
+			<kactus2:route kactus2:connRef="spi_master_0_clk_out_to_spi_slave_0_clk_in" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="spi_master_0_slave_select1_out_to_spi_slave_0_slave_select_in" kactus2:offPage="false">
-				<kactus2:position x="270" y="170"/>
-				<kactus2:position x="370" y="170"/>
-			</kactus2:route>
-			<kactus2:route kactus2:connRef="spi_master_0_data_out_to_spi_slave_0_data_in" kactus2:offPage="false">
-				<kactus2:position x="270" y="120"/>
-				<kactus2:position x="370" y="120"/>
-			</kactus2:route>
-			<kactus2:route kactus2:connRef="spi_master_0_data_out_to_spi_slave_1_data_in" kactus2:offPage="false">
-				<kactus2:position x="270" y="120"/>
-				<kactus2:position x="340" y="120"/>
-				<kactus2:position x="340" y="270"/>
-				<kactus2:position x="370" y="270"/>
-			</kactus2:route>
-			<kactus2:route kactus2:connRef="spi_master_0_data_in_to_spi_slave_0_data_out" kactus2:offPage="false">
 				<kactus2:position x="270" y="140"/>
 				<kactus2:position x="370" y="140"/>
 			</kactus2:route>
+			<kactus2:route kactus2:connRef="spi_master_0_data_out_to_spi_slave_0_data_in" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="spi_master_0_data_out_to_spi_slave_1_data_in" kactus2:offPage="false">
+				<kactus2:position x="270" y="120"/>
+				<kactus2:position x="340" y="120"/>
+				<kactus2:position x="340" y="260"/>
+				<kactus2:position x="370" y="260"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="spi_master_0_data_in_to_spi_slave_0_data_out" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="spi_slave_1_clk_in_to_spi_master_0_clk_out" kactus2:offPage="false">
-				<kactus2:position x="370" y="250"/>
-				<kactus2:position x="350" y="250"/>
+				<kactus2:position x="370" y="240"/>
+				<kactus2:position x="350" y="240"/>
 				<kactus2:position x="350" y="100"/>
 				<kactus2:position x="270" y="100"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="spi_master_0_data_out_to_spi_slave_2_data_in" kactus2:offPage="false">
 				<kactus2:position x="270" y="120"/>
 				<kactus2:position x="340" y="120"/>
-				<kactus2:position x="340" y="430"/>
-				<kactus2:position x="370" y="430"/>
+				<kactus2:position x="340" y="420"/>
+				<kactus2:position x="370" y="420"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="spi_master_0_data_in_to_spi_slave_1_data_out" kactus2:offPage="false">
-				<kactus2:position x="270" y="140"/>
-				<kactus2:position x="330" y="140"/>
-				<kactus2:position x="330" y="290"/>
-				<kactus2:position x="370" y="290"/>
+				<kactus2:position x="270" y="200"/>
+				<kactus2:position x="330" y="200"/>
+				<kactus2:position x="330" y="280"/>
+				<kactus2:position x="370" y="280"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="spi_master_0_data_in_to_spi_slave_2_data_out" kactus2:offPage="false">
-				<kactus2:position x="270" y="140"/>
-				<kactus2:position x="330" y="140"/>
-				<kactus2:position x="330" y="450"/>
-				<kactus2:position x="370" y="450"/>
+				<kactus2:position x="270" y="200"/>
+				<kactus2:position x="330" y="200"/>
+				<kactus2:position x="330" y="440"/>
+				<kactus2:position x="370" y="440"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="spi_slave_2_clk_in_to_spi_master_0_clk_out" kactus2:offPage="false">
-				<kactus2:position x="370" y="410"/>
-				<kactus2:position x="350" y="410"/>
+				<kactus2:position x="370" y="400"/>
+				<kactus2:position x="350" y="400"/>
 				<kactus2:position x="350" y="100"/>
 				<kactus2:position x="270" y="100"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="spi_slave_1_slave_select_in_to_spi_master_0_slave_select2_out" kactus2:offPage="false">
-				<kactus2:position x="370" y="320"/>
-				<kactus2:position x="300" y="320"/>
-				<kactus2:position x="300" y="190"/>
-				<kactus2:position x="270" y="190"/>
+				<kactus2:position x="370" y="310"/>
+				<kactus2:position x="300" y="310"/>
+				<kactus2:position x="300" y="160"/>
+				<kactus2:position x="270" y="160"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="spi_slave_2_slave_select_in_to_spi_master_0_slave_select3_out" kactus2:offPage="false">
-				<kactus2:position x="370" y="480"/>
-				<kactus2:position x="290" y="480"/>
-				<kactus2:position x="290" y="210"/>
-				<kactus2:position x="270" y="210"/>
+				<kactus2:position x="370" y="470"/>
+				<kactus2:position x="290" y="470"/>
+				<kactus2:position x="290" y="180"/>
+				<kactus2:position x="270" y="180"/>
 			</kactus2:route>
 		</kactus2:routes>
 		<kactus2:adHocVisibilities/>

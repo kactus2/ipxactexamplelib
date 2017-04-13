@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : MemoryExample_0.v
-// Creation date : 07.04.2017
-// Creation time : 14:55:19
+// Creation date : 13.04.2017
+// Creation time : 11:04:05
 // Description   : 
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.19 32-bit
+// Tool : Kactus2 3.4.78 32-bit
 // Plugin : Verilog generator 2.0d
 // This file was generated based on IP-XACT component tut.fi:processor:MemoryExample:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/processor/MemoryExample/1.0/MemoryExample.1.0.xml
@@ -22,14 +22,18 @@ module MemoryExample_0 #(
     parameter                              WB_ADDRESS_BASE  = 256,    // Base address for wishbone in the system memory.
     parameter                              INSTRUCTION_WIDTH = 28    // Total width of an instruction
 ) (
+    // Interface: master_if
+    input                               data_in,
+    output                              clk_out,
+    output                              data_out,
+    output                              slave_select_out,
+
     // Interface: wb_system
     input                               clk_i,    // The mandatory clock, as this is synchronous logic.
     input                               rst_i,    // The mandatory reset, as this is synchronous logic.
 
     // These ports are not in any interface
-    input          [15:0]               ext_data_i,    // Data that is passed to the system.
     input          [27:0]               instruction_feed,
-    output         [15:0]               ext_data_o,    // Data that is passed from the system.
     output                              stall_o
 );
 
@@ -45,13 +49,6 @@ module MemoryExample_0 #(
     // wb_cpu_wrapper_0_wb_system_to_wb_system wires:
     wire        wb_cpu_wrapper_0_wb_system_to_wb_systemclk;
     wire        wb_cpu_wrapper_0_wb_system_to_wb_systemrst;
-    // core_mem_control_to_wb_cpu_wrapper_0_contoller wires:
-    wire [9:0]  core_mem_control_to_wb_cpu_wrapper_0_contolleraddress;
-    wire [15:0] core_mem_control_to_wb_cpu_wrapper_0_contollerdata_ms;
-    wire [15:0] core_mem_control_to_wb_cpu_wrapper_0_contollerdata_sm;
-    wire        core_mem_control_to_wb_cpu_wrapper_0_contollermaster_rdy;
-    wire        core_mem_control_to_wb_cpu_wrapper_0_contollerslave_rdy;
-    wire        core_mem_control_to_wb_cpu_wrapper_0_contollerwe;
     // wishbone_bus_0_slave_0_to_external_mem_large_wb_slave wires:
     wire        wishbone_bus_0_slave_0_to_external_mem_large_wb_slaveack;
     wire [9:0]  wishbone_bus_0_slave_0_to_external_mem_large_wb_slaveadr;
@@ -70,30 +67,40 @@ module MemoryExample_0 #(
     wire        wb_external_mem_hash_wb_slave_to_wishbone_bus_0_slave_1err;
     wire        wb_external_mem_hash_wb_slave_to_wishbone_bus_0_slave_1stb;
     wire        wb_external_mem_hash_wb_slave_to_wishbone_bus_0_slave_1we;
-    // data_passer_0_wb_slave_to_wishbone_bus_0_slave_3 wires:
-    wire        data_passer_0_wb_slave_to_wishbone_bus_0_slave_3ack;
-    wire [9:0]  data_passer_0_wb_slave_to_wishbone_bus_0_slave_3adr;
-    wire        data_passer_0_wb_slave_to_wishbone_bus_0_slave_3cyc;
-    wire [15:0] data_passer_0_wb_slave_to_wishbone_bus_0_slave_3dat_ms;
-    wire [15:0] data_passer_0_wb_slave_to_wishbone_bus_0_slave_3dat_sm;
-    wire        data_passer_0_wb_slave_to_wishbone_bus_0_slave_3err;
-    wire        data_passer_0_wb_slave_to_wishbone_bus_0_slave_3stb;
-    wire        data_passer_0_wb_slave_to_wishbone_bus_0_slave_3we;
-    // rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2 wires:
-    wire        rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2ack;
-    wire [9:0]  rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2adr;
-    wire        rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2cyc;
-    wire [15:0] rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2dat_ms;
-    wire [15:0] rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2dat_sm;
-    wire        rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2err;
-    wire        rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2stb;
-    wire        rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2we;
+    // sum_buffer_0_wb_slave_to_wishbone_bus_0_slave_2 wires:
+    wire        sum_buffer_0_wb_slave_to_wishbone_bus_0_slave_2ack;
+    wire [9:0]  sum_buffer_0_wb_slave_to_wishbone_bus_0_slave_2adr;
+    wire        sum_buffer_0_wb_slave_to_wishbone_bus_0_slave_2cyc;
+    wire [15:0] sum_buffer_0_wb_slave_to_wishbone_bus_0_slave_2dat_ms;
+    wire [15:0] sum_buffer_0_wb_slave_to_wishbone_bus_0_slave_2dat_sm;
+    wire        sum_buffer_0_wb_slave_to_wishbone_bus_0_slave_2err;
+    wire        sum_buffer_0_wb_slave_to_wishbone_bus_0_slave_2stb;
+    wire        sum_buffer_0_wb_slave_to_wishbone_bus_0_slave_2we;
+    // core_peripheral_access_to_wb_cpu_wrapper_0_contoller wires:
+    wire [9:0]  core_peripheral_access_to_wb_cpu_wrapper_0_contolleraddress;
+    wire [15:0] core_peripheral_access_to_wb_cpu_wrapper_0_contollerdata_ms;
+    wire [15:0] core_peripheral_access_to_wb_cpu_wrapper_0_contollerdata_sm;
+    wire        core_peripheral_access_to_wb_cpu_wrapper_0_contollermaster_rdy;
+    wire        core_peripheral_access_to_wb_cpu_wrapper_0_contollerslave_rdy;
+    wire        core_peripheral_access_to_wb_cpu_wrapper_0_contollerwe;
+    // wishbone_bus_0_slave_3_to_wb_slave_spi_master_0_wb_slave wires:
+    wire        wishbone_bus_0_slave_3_to_wb_slave_spi_master_0_wb_slaveack;
+    wire [9:0]  wishbone_bus_0_slave_3_to_wb_slave_spi_master_0_wb_slaveadr;
+    wire        wishbone_bus_0_slave_3_to_wb_slave_spi_master_0_wb_slavecyc;
+    wire [15:0] wishbone_bus_0_slave_3_to_wb_slave_spi_master_0_wb_slavedat_ms;
+    wire [15:0] wishbone_bus_0_slave_3_to_wb_slave_spi_master_0_wb_slavedat_sm;
+    wire        wishbone_bus_0_slave_3_to_wb_slave_spi_master_0_wb_slaveerr;
+    wire        wishbone_bus_0_slave_3_to_wb_slave_spi_master_0_wb_slavestb;
+    wire        wishbone_bus_0_slave_3_to_wb_slave_spi_master_0_wb_slavewe;
+    // wb_slave_spi_master_0_master_if_to_master_if wires:
+    wire        wb_slave_spi_master_0_master_if_to_master_ifMISO;
+    wire        wb_slave_spi_master_0_master_if_to_master_ifMOSI;
+    wire        wb_slave_spi_master_0_master_if_to_master_ifSCLK;
+    wire        wb_slave_spi_master_0_master_if_to_master_ifSS;
 
     // Ad-hoc wires:
     wire        core_rst_i_to_rst_i;
     wire        core_clk_i_to_clk_i;
-    wire [15:0] data_passer_0_ext_data_o_to_ext_data_o;
-    wire [15:0] data_passer_0_ext_data_i_to_ext_data_i;
     wire [27:0] core_instruction_feed_to_instruction_feed;
     wire        core_stall_o_to_stall_o;
 
@@ -108,19 +115,6 @@ module MemoryExample_0 #(
     wire        core_mem_we_o;
     wire        core_rst_i;
     wire        core_stall_o;
-    // data_passer_0 port wires:
-    wire        data_passer_0_ack_o;
-    wire [9:0]  data_passer_0_adr_i;
-    wire        data_passer_0_clk_i;
-    wire        data_passer_0_cyc_i;
-    wire [15:0] data_passer_0_dat_i;
-    wire [15:0] data_passer_0_dat_o;
-    wire        data_passer_0_err_o;
-    wire [15:0] data_passer_0_ext_data_i;
-    wire [15:0] data_passer_0_ext_data_o;
-    wire        data_passer_0_rst_i;
-    wire        data_passer_0_stb_i;
-    wire        data_passer_0_we_i;
     // external_mem_large port wires:
     wire        external_mem_large_ack_o;
     wire [9:0]  external_mem_large_adr_i;
@@ -133,17 +127,17 @@ module MemoryExample_0 #(
     wire        external_mem_large_stb_i;
     wire        external_mem_large_store_hash_i;
     wire        external_mem_large_we_i;
-    // riemann_sum_0 port wires:
-    wire        riemann_sum_0_ack_o;
-    wire [9:0]  riemann_sum_0_adr_i;
-    wire        riemann_sum_0_clk_i;
-    wire        riemann_sum_0_cyc_i;
-    wire [15:0] riemann_sum_0_dat_i;
-    wire [15:0] riemann_sum_0_dat_o;
-    wire        riemann_sum_0_err_o;
-    wire        riemann_sum_0_rst_i;
-    wire        riemann_sum_0_stb_i;
-    wire        riemann_sum_0_we_i;
+    // sum_buffer_0 port wires:
+    wire        sum_buffer_0_ack_o;
+    wire [9:0]  sum_buffer_0_adr_i;
+    wire        sum_buffer_0_clk_i;
+    wire        sum_buffer_0_cyc_i;
+    wire [15:0] sum_buffer_0_dat_i;
+    wire [15:0] sum_buffer_0_dat_o;
+    wire        sum_buffer_0_err_o;
+    wire        sum_buffer_0_rst_i;
+    wire        sum_buffer_0_stb_i;
+    wire        sum_buffer_0_we_i;
     // wb_cpu_wrapper_0 port wires:
     wire        wb_cpu_wrapper_0_ack_i;
     wire [9:0]  wb_cpu_wrapper_0_adr_o;
@@ -173,6 +167,21 @@ module MemoryExample_0 #(
     wire        wb_external_mem_hash_stb_i;
     wire        wb_external_mem_hash_store_hash_i;
     wire        wb_external_mem_hash_we_i;
+    // wb_slave_spi_master_0 port wires:
+    wire        wb_slave_spi_master_0_ack_o;
+    wire [9:0]  wb_slave_spi_master_0_adr_i;
+    wire        wb_slave_spi_master_0_clk_i;
+    wire        wb_slave_spi_master_0_clk_out;
+    wire        wb_slave_spi_master_0_cyc_i;
+    wire [15:0] wb_slave_spi_master_0_dat_i;
+    wire [15:0] wb_slave_spi_master_0_dat_o;
+    wire        wb_slave_spi_master_0_data_in;
+    wire        wb_slave_spi_master_0_data_out;
+    wire        wb_slave_spi_master_0_err_o;
+    wire        wb_slave_spi_master_0_rst_i;
+    wire        wb_slave_spi_master_0_slave_select_out;
+    wire        wb_slave_spi_master_0_stb_i;
+    wire        wb_slave_spi_master_0_we_i;
     // wishbone_bus_0 port wires:
     wire        wishbone_bus_0_ack_master;
     wire        wishbone_bus_0_ack_slave_0;
@@ -218,37 +227,26 @@ module MemoryExample_0 #(
     // Assignments for the ports of the encompassing component:
     assign wb_cpu_wrapper_0_wb_system_to_wb_systemclk = clk_i;
     assign core_clk_i_to_clk_i = clk_i;
-    assign data_passer_0_ext_data_i_to_ext_data_i[15:0] = ext_data_i[15:0];
-    assign ext_data_o[15:0] = data_passer_0_ext_data_o_to_ext_data_o[15:0];
+    assign clk_out = wb_slave_spi_master_0_master_if_to_master_ifSCLK;
+    assign wb_slave_spi_master_0_master_if_to_master_ifMISO = data_in;
+    assign data_out = wb_slave_spi_master_0_master_if_to_master_ifMOSI;
     assign core_instruction_feed_to_instruction_feed[27:0] = instruction_feed[27:0];
     assign core_rst_i_to_rst_i = rst_i;
     assign wb_cpu_wrapper_0_wb_system_to_wb_systemrst = rst_i;
+    assign slave_select_out = wb_slave_spi_master_0_master_if_to_master_ifSS;
     assign stall_o = core_stall_o_to_stall_o;
 
     // core assignments:
     assign core_clk_i = core_clk_i_to_clk_i;
     assign core_instruction_feed[27:0] = core_instruction_feed_to_instruction_feed[27:0];
-    assign core_mem_control_to_wb_cpu_wrapper_0_contolleraddress[9:0] = core_mem_address_o[9:0];
-    assign core_mem_data_i[15:0] = core_mem_control_to_wb_cpu_wrapper_0_contollerdata_sm[15:0];
-    assign core_mem_control_to_wb_cpu_wrapper_0_contollerdata_ms[15:0] = core_mem_data_o[15:0];
-    assign core_mem_control_to_wb_cpu_wrapper_0_contollermaster_rdy = core_mem_master_rdy;
-    assign core_mem_slave_rdy = core_mem_control_to_wb_cpu_wrapper_0_contollerslave_rdy;
-    assign core_mem_control_to_wb_cpu_wrapper_0_contollerwe = core_mem_we_o;
+    assign core_peripheral_access_to_wb_cpu_wrapper_0_contolleraddress[9:0] = core_mem_address_o[9:0];
+    assign core_mem_data_i[15:0] = core_peripheral_access_to_wb_cpu_wrapper_0_contollerdata_sm[15:0];
+    assign core_peripheral_access_to_wb_cpu_wrapper_0_contollerdata_ms[15:0] = core_mem_data_o[15:0];
+    assign core_peripheral_access_to_wb_cpu_wrapper_0_contollermaster_rdy = core_mem_master_rdy;
+    assign core_mem_slave_rdy = core_peripheral_access_to_wb_cpu_wrapper_0_contollerslave_rdy;
+    assign core_peripheral_access_to_wb_cpu_wrapper_0_contollerwe = core_mem_we_o;
     assign core_rst_i = core_rst_i_to_rst_i;
     assign core_stall_o_to_stall_o = core_stall_o;
-    // data_passer_0 assignments:
-    assign data_passer_0_wb_slave_to_wishbone_bus_0_slave_3ack = data_passer_0_ack_o;
-    assign data_passer_0_adr_i[9:0] = data_passer_0_wb_slave_to_wishbone_bus_0_slave_3adr[9:0];
-    assign data_passer_0_clk_i = wb_cpu_wrapper_0_wb_system_to_wb_systemclk;
-    assign data_passer_0_cyc_i = data_passer_0_wb_slave_to_wishbone_bus_0_slave_3cyc;
-    assign data_passer_0_dat_i[15:0] = data_passer_0_wb_slave_to_wishbone_bus_0_slave_3dat_ms[15:0];
-    assign data_passer_0_wb_slave_to_wishbone_bus_0_slave_3dat_sm[15:0] = data_passer_0_dat_o[15:0];
-    assign data_passer_0_wb_slave_to_wishbone_bus_0_slave_3err = data_passer_0_err_o;
-    assign data_passer_0_ext_data_i[15:0] = data_passer_0_ext_data_i_to_ext_data_i[15:0];
-    assign data_passer_0_ext_data_o_to_ext_data_o[15:0] = data_passer_0_ext_data_o[15:0];
-    assign data_passer_0_rst_i = wb_cpu_wrapper_0_wb_system_to_wb_systemrst;
-    assign data_passer_0_stb_i = data_passer_0_wb_slave_to_wishbone_bus_0_slave_3stb;
-    assign data_passer_0_we_i = data_passer_0_wb_slave_to_wishbone_bus_0_slave_3we;
     // external_mem_large assignments:
     assign wishbone_bus_0_slave_0_to_external_mem_large_wb_slaveack = external_mem_large_ack_o;
     assign external_mem_large_adr_i[9:0] = wishbone_bus_0_slave_0_to_external_mem_large_wb_slaveadr[9:0];
@@ -261,17 +259,17 @@ module MemoryExample_0 #(
     assign external_mem_large_stb_i = wishbone_bus_0_slave_0_to_external_mem_large_wb_slavestb;
     assign external_mem_large_store_hash_i = 0;
     assign external_mem_large_we_i = wishbone_bus_0_slave_0_to_external_mem_large_wb_slavewe;
-    // riemann_sum_0 assignments:
-    assign rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2ack = riemann_sum_0_ack_o;
-    assign riemann_sum_0_adr_i[9:0] = rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2adr[9:0];
-    assign riemann_sum_0_clk_i = wb_cpu_wrapper_0_wb_system_to_wb_systemclk;
-    assign riemann_sum_0_cyc_i = rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2cyc;
-    assign riemann_sum_0_dat_i[15:0] = rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2dat_ms[15:0];
-    assign rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2dat_sm[15:0] = riemann_sum_0_dat_o[15:0];
-    assign rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2err = riemann_sum_0_err_o;
-    assign riemann_sum_0_rst_i = wb_cpu_wrapper_0_wb_system_to_wb_systemrst;
-    assign riemann_sum_0_stb_i = rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2stb;
-    assign riemann_sum_0_we_i = rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2we;
+    // sum_buffer_0 assignments:
+    assign sum_buffer_0_wb_slave_to_wishbone_bus_0_slave_2ack = sum_buffer_0_ack_o;
+    assign sum_buffer_0_adr_i[9:0] = sum_buffer_0_wb_slave_to_wishbone_bus_0_slave_2adr[9:0];
+    assign sum_buffer_0_clk_i = wb_cpu_wrapper_0_wb_system_to_wb_systemclk;
+    assign sum_buffer_0_cyc_i = sum_buffer_0_wb_slave_to_wishbone_bus_0_slave_2cyc;
+    assign sum_buffer_0_dat_i[15:0] = sum_buffer_0_wb_slave_to_wishbone_bus_0_slave_2dat_ms[15:0];
+    assign sum_buffer_0_wb_slave_to_wishbone_bus_0_slave_2dat_sm[15:0] = sum_buffer_0_dat_o[15:0];
+    assign sum_buffer_0_wb_slave_to_wishbone_bus_0_slave_2err = sum_buffer_0_err_o;
+    assign sum_buffer_0_rst_i = wb_cpu_wrapper_0_wb_system_to_wb_systemrst;
+    assign sum_buffer_0_stb_i = sum_buffer_0_wb_slave_to_wishbone_bus_0_slave_2stb;
+    assign sum_buffer_0_we_i = sum_buffer_0_wb_slave_to_wishbone_bus_0_slave_2we;
     // wb_cpu_wrapper_0 assignments:
     assign wb_cpu_wrapper_0_ack_i = wb_cpu_wrapper_0_wb_master_to_wishbone_bus_0_one_to_many_masterack;
     assign wb_cpu_wrapper_0_wb_master_to_wishbone_bus_0_one_to_many_masteradr[9:0] = wb_cpu_wrapper_0_adr_o[9:0];
@@ -280,12 +278,12 @@ module MemoryExample_0 #(
     assign wb_cpu_wrapper_0_dat_i[15:0] = wb_cpu_wrapper_0_wb_master_to_wishbone_bus_0_one_to_many_masterdat_sm[15:0];
     assign wb_cpu_wrapper_0_wb_master_to_wishbone_bus_0_one_to_many_masterdat_ms[15:0] = wb_cpu_wrapper_0_dat_o[15:0];
     assign wb_cpu_wrapper_0_err_i = wb_cpu_wrapper_0_wb_master_to_wishbone_bus_0_one_to_many_mastererr;
-    assign wb_cpu_wrapper_0_mem_address_in[9:0] = core_mem_control_to_wb_cpu_wrapper_0_contolleraddress[9:0];
-    assign wb_cpu_wrapper_0_mem_data_in[15:0] = core_mem_control_to_wb_cpu_wrapper_0_contollerdata_ms[15:0];
-    assign core_mem_control_to_wb_cpu_wrapper_0_contollerdata_sm[15:0] = wb_cpu_wrapper_0_mem_data_out[15:0];
-    assign wb_cpu_wrapper_0_mem_master_rdy = core_mem_control_to_wb_cpu_wrapper_0_contollermaster_rdy;
-    assign core_mem_control_to_wb_cpu_wrapper_0_contollerslave_rdy = wb_cpu_wrapper_0_mem_slave_rdy;
-    assign wb_cpu_wrapper_0_mem_we_in = core_mem_control_to_wb_cpu_wrapper_0_contollerwe;
+    assign wb_cpu_wrapper_0_mem_address_in[9:0] = core_peripheral_access_to_wb_cpu_wrapper_0_contolleraddress[9:0];
+    assign wb_cpu_wrapper_0_mem_data_in[15:0] = core_peripheral_access_to_wb_cpu_wrapper_0_contollerdata_ms[15:0];
+    assign core_peripheral_access_to_wb_cpu_wrapper_0_contollerdata_sm[15:0] = wb_cpu_wrapper_0_mem_data_out[15:0];
+    assign wb_cpu_wrapper_0_mem_master_rdy = core_peripheral_access_to_wb_cpu_wrapper_0_contollermaster_rdy;
+    assign core_peripheral_access_to_wb_cpu_wrapper_0_contollerslave_rdy = wb_cpu_wrapper_0_mem_slave_rdy;
+    assign wb_cpu_wrapper_0_mem_we_in = core_peripheral_access_to_wb_cpu_wrapper_0_contollerwe;
     assign wb_cpu_wrapper_0_rst_i = wb_cpu_wrapper_0_wb_system_to_wb_systemrst;
     assign wb_cpu_wrapper_0_wb_master_to_wishbone_bus_0_one_to_many_masterstb = wb_cpu_wrapper_0_stb_o;
     assign wb_cpu_wrapper_0_wb_master_to_wishbone_bus_0_one_to_many_masterwe = wb_cpu_wrapper_0_we_o;
@@ -301,47 +299,62 @@ module MemoryExample_0 #(
     assign wb_external_mem_hash_stb_i = wb_external_mem_hash_wb_slave_to_wishbone_bus_0_slave_1stb;
     assign wb_external_mem_hash_store_hash_i = 1;
     assign wb_external_mem_hash_we_i = wb_external_mem_hash_wb_slave_to_wishbone_bus_0_slave_1we;
+    // wb_slave_spi_master_0 assignments:
+    assign wishbone_bus_0_slave_3_to_wb_slave_spi_master_0_wb_slaveack = wb_slave_spi_master_0_ack_o;
+    assign wb_slave_spi_master_0_adr_i[9:0] = wishbone_bus_0_slave_3_to_wb_slave_spi_master_0_wb_slaveadr[9:0];
+    assign wb_slave_spi_master_0_clk_i = wb_cpu_wrapper_0_wb_system_to_wb_systemclk;
+    assign wb_slave_spi_master_0_master_if_to_master_ifSCLK = wb_slave_spi_master_0_clk_out;
+    assign wb_slave_spi_master_0_cyc_i = wishbone_bus_0_slave_3_to_wb_slave_spi_master_0_wb_slavecyc;
+    assign wb_slave_spi_master_0_dat_i[15:0] = wishbone_bus_0_slave_3_to_wb_slave_spi_master_0_wb_slavedat_ms[15:0];
+    assign wishbone_bus_0_slave_3_to_wb_slave_spi_master_0_wb_slavedat_sm[15:0] = wb_slave_spi_master_0_dat_o[15:0];
+    assign wb_slave_spi_master_0_data_in = wb_slave_spi_master_0_master_if_to_master_ifMISO;
+    assign wb_slave_spi_master_0_master_if_to_master_ifMOSI = wb_slave_spi_master_0_data_out;
+    assign wishbone_bus_0_slave_3_to_wb_slave_spi_master_0_wb_slaveerr = wb_slave_spi_master_0_err_o;
+    assign wb_slave_spi_master_0_rst_i = wb_cpu_wrapper_0_wb_system_to_wb_systemrst;
+    assign wb_slave_spi_master_0_master_if_to_master_ifSS = wb_slave_spi_master_0_slave_select_out;
+    assign wb_slave_spi_master_0_stb_i = wishbone_bus_0_slave_3_to_wb_slave_spi_master_0_wb_slavestb;
+    assign wb_slave_spi_master_0_we_i = wishbone_bus_0_slave_3_to_wb_slave_spi_master_0_wb_slavewe;
     // wishbone_bus_0 assignments:
     assign wb_cpu_wrapper_0_wb_master_to_wishbone_bus_0_one_to_many_masterack = wishbone_bus_0_ack_master;
     assign wishbone_bus_0_ack_slave_0 = wishbone_bus_0_slave_0_to_external_mem_large_wb_slaveack;
     assign wishbone_bus_0_ack_slave_1 = wb_external_mem_hash_wb_slave_to_wishbone_bus_0_slave_1ack;
-    assign wishbone_bus_0_ack_slave_2 = rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2ack;
-    assign wishbone_bus_0_ack_slave_3 = data_passer_0_wb_slave_to_wishbone_bus_0_slave_3ack;
+    assign wishbone_bus_0_ack_slave_2 = sum_buffer_0_wb_slave_to_wishbone_bus_0_slave_2ack;
+    assign wishbone_bus_0_ack_slave_3 = wishbone_bus_0_slave_3_to_wb_slave_spi_master_0_wb_slaveack;
     assign wishbone_bus_0_adr_master[9:0] = wb_cpu_wrapper_0_wb_master_to_wishbone_bus_0_one_to_many_masteradr[9:0];
     assign wishbone_bus_0_slave_0_to_external_mem_large_wb_slaveadr[9:0] = wishbone_bus_0_adr_slave_0[9:0];
     assign wb_external_mem_hash_wb_slave_to_wishbone_bus_0_slave_1adr[9:0] = wishbone_bus_0_adr_slave_1[9:0];
-    assign rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2adr[9:0] = wishbone_bus_0_adr_slave_2[9:0];
-    assign data_passer_0_wb_slave_to_wishbone_bus_0_slave_3adr[9:0] = wishbone_bus_0_adr_slave_3[9:0];
+    assign sum_buffer_0_wb_slave_to_wishbone_bus_0_slave_2adr[9:0] = wishbone_bus_0_adr_slave_2[9:0];
+    assign wishbone_bus_0_slave_3_to_wb_slave_spi_master_0_wb_slaveadr[9:0] = wishbone_bus_0_adr_slave_3[9:0];
     assign wishbone_bus_0_cyc_master = wb_cpu_wrapper_0_wb_master_to_wishbone_bus_0_one_to_many_mastercyc;
     assign wishbone_bus_0_slave_0_to_external_mem_large_wb_slavecyc = wishbone_bus_0_cyc_slave_0;
     assign wb_external_mem_hash_wb_slave_to_wishbone_bus_0_slave_1cyc = wishbone_bus_0_cyc_slave_1;
-    assign rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2cyc = wishbone_bus_0_cyc_slave_2;
-    assign data_passer_0_wb_slave_to_wishbone_bus_0_slave_3cyc = wishbone_bus_0_cyc_slave_3;
+    assign sum_buffer_0_wb_slave_to_wishbone_bus_0_slave_2cyc = wishbone_bus_0_cyc_slave_2;
+    assign wishbone_bus_0_slave_3_to_wb_slave_spi_master_0_wb_slavecyc = wishbone_bus_0_cyc_slave_3;
     assign wishbone_bus_0_dat_ms_master[15:0] = wb_cpu_wrapper_0_wb_master_to_wishbone_bus_0_one_to_many_masterdat_ms[15:0];
     assign wishbone_bus_0_slave_0_to_external_mem_large_wb_slavedat_ms[15:0] = wishbone_bus_0_dat_ms_slave_0[15:0];
     assign wb_external_mem_hash_wb_slave_to_wishbone_bus_0_slave_1dat_ms[15:0] = wishbone_bus_0_dat_ms_slave_1[15:0];
-    assign rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2dat_ms[15:0] = wishbone_bus_0_dat_ms_slave_2[15:0];
-    assign data_passer_0_wb_slave_to_wishbone_bus_0_slave_3dat_ms[15:0] = wishbone_bus_0_dat_ms_slave_3[15:0];
+    assign sum_buffer_0_wb_slave_to_wishbone_bus_0_slave_2dat_ms[15:0] = wishbone_bus_0_dat_ms_slave_2[15:0];
+    assign wishbone_bus_0_slave_3_to_wb_slave_spi_master_0_wb_slavedat_ms[15:0] = wishbone_bus_0_dat_ms_slave_3[15:0];
     assign wb_cpu_wrapper_0_wb_master_to_wishbone_bus_0_one_to_many_masterdat_sm[15:0] = wishbone_bus_0_dat_sm_master[15:0];
     assign wishbone_bus_0_dat_sm_slave_0[15:0] = wishbone_bus_0_slave_0_to_external_mem_large_wb_slavedat_sm[15:0];
     assign wishbone_bus_0_dat_sm_slave_1[15:0] = wb_external_mem_hash_wb_slave_to_wishbone_bus_0_slave_1dat_sm[15:0];
-    assign wishbone_bus_0_dat_sm_slave_2[15:0] = rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2dat_sm[15:0];
-    assign wishbone_bus_0_dat_sm_slave_3[15:0] = data_passer_0_wb_slave_to_wishbone_bus_0_slave_3dat_sm[15:0];
+    assign wishbone_bus_0_dat_sm_slave_2[15:0] = sum_buffer_0_wb_slave_to_wishbone_bus_0_slave_2dat_sm[15:0];
+    assign wishbone_bus_0_dat_sm_slave_3[15:0] = wishbone_bus_0_slave_3_to_wb_slave_spi_master_0_wb_slavedat_sm[15:0];
     assign wb_cpu_wrapper_0_wb_master_to_wishbone_bus_0_one_to_many_mastererr = wishbone_bus_0_err_master;
     assign wishbone_bus_0_err_slave_0 = wishbone_bus_0_slave_0_to_external_mem_large_wb_slaveerr;
     assign wishbone_bus_0_err_slave_1 = wb_external_mem_hash_wb_slave_to_wishbone_bus_0_slave_1err;
-    assign wishbone_bus_0_err_slave_2 = rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2err;
-    assign wishbone_bus_0_err_slave_3 = data_passer_0_wb_slave_to_wishbone_bus_0_slave_3err;
+    assign wishbone_bus_0_err_slave_2 = sum_buffer_0_wb_slave_to_wishbone_bus_0_slave_2err;
+    assign wishbone_bus_0_err_slave_3 = wishbone_bus_0_slave_3_to_wb_slave_spi_master_0_wb_slaveerr;
     assign wishbone_bus_0_stb_master = wb_cpu_wrapper_0_wb_master_to_wishbone_bus_0_one_to_many_masterstb;
     assign wishbone_bus_0_slave_0_to_external_mem_large_wb_slavestb = wishbone_bus_0_stb_slave_0;
     assign wb_external_mem_hash_wb_slave_to_wishbone_bus_0_slave_1stb = wishbone_bus_0_stb_slave_1;
-    assign rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2stb = wishbone_bus_0_stb_slave_2;
-    assign data_passer_0_wb_slave_to_wishbone_bus_0_slave_3stb = wishbone_bus_0_stb_slave_3;
+    assign sum_buffer_0_wb_slave_to_wishbone_bus_0_slave_2stb = wishbone_bus_0_stb_slave_2;
+    assign wishbone_bus_0_slave_3_to_wb_slave_spi_master_0_wb_slavestb = wishbone_bus_0_stb_slave_3;
     assign wishbone_bus_0_we_master = wb_cpu_wrapper_0_wb_master_to_wishbone_bus_0_one_to_many_masterwe;
     assign wishbone_bus_0_slave_0_to_external_mem_large_wb_slavewe = wishbone_bus_0_we_slave_0;
     assign wb_external_mem_hash_wb_slave_to_wishbone_bus_0_slave_1we = wishbone_bus_0_we_slave_1;
-    assign rieman_sum_0_wb_slave_to_wishbone_bus_0_slave_2we = wishbone_bus_0_we_slave_2;
-    assign data_passer_0_wb_slave_to_wishbone_bus_0_slave_3we = wishbone_bus_0_we_slave_3;
+    assign sum_buffer_0_wb_slave_to_wishbone_bus_0_slave_2we = wishbone_bus_0_we_slave_2;
+    assign wishbone_bus_0_slave_3_to_wb_slave_spi_master_0_wb_slavewe = wishbone_bus_0_we_slave_3;
 
     // IP-XACT VLNV: tut.fi:core:CoreExample:1.0
     CoreExample_0 #(
@@ -351,7 +364,7 @@ module MemoryExample_0 #(
         .PERIPHERAL_BASE     (256),
         .INSTRUCTION_WIDTH   (28))
     core(
-        // Interface: mem_control
+        // Interface: peripheral_access
         .mem_data_i          (core_mem_data_i),
         .mem_slave_rdy       (core_mem_slave_rdy),
         .mem_address_o       (core_mem_address_o),
@@ -363,29 +376,6 @@ module MemoryExample_0 #(
         .instruction_feed    (core_instruction_feed),
         .rst_i               (core_rst_i),
         .stall_o             (core_stall_o));
-
-    // IP-XACT VLNV: tut.fi:peripheral:data_passer:1.0
-    wb_data_passer #(
-        .ADDR_WIDTH          (10),
-        .DATA_WIDTH          (16),
-        .BASE_ADDRESS        (416),
-        .BUFFER_INDEX_WIDTH  (4))
-    data_passer_0(
-        // Interface: wb_slave
-        .adr_i               (data_passer_0_adr_i),
-        .cyc_i               (data_passer_0_cyc_i),
-        .dat_i               (data_passer_0_dat_i),
-        .stb_i               (data_passer_0_stb_i),
-        .we_i                (data_passer_0_we_i),
-        .ack_o               (data_passer_0_ack_o),
-        .dat_o               (data_passer_0_dat_o),
-        .err_o               (data_passer_0_err_o),
-        // Interface: wb_system
-        .clk_i               (data_passer_0_clk_i),
-        .rst_i               (data_passer_0_rst_i),
-        // These ports are not in any interface
-        .ext_data_i          (data_passer_0_ext_data_i),
-        .ext_data_o          (data_passer_0_ext_data_o));
 
     // IP-XACT VLNV: tut.fi:peripheral:wb_external_mem:1.0
     wb_memory #(
@@ -409,25 +399,24 @@ module MemoryExample_0 #(
         // These ports are not in any interface
         .store_hash_i        (external_mem_large_store_hash_i));
 
-    // IP-XACT VLNV: tut.fi:peripheral:riemann_sum:1.0
-    wb_riemann #(
+    // IP-XACT VLNV: tut.fi:peripheral:sum_buffer:1.0
+    wb_sum_buffer #(
         .ADDR_WIDTH          (10),
         .DATA_WIDTH          (16),
-        .BASE_ADDRESS        (288),
-        .BUFFER_INDEX_WIDTH  (4))
-    riemann_sum_0(
+        .BASE_ADDRESS        (288))
+    sum_buffer_0(
         // Interface: wb_slave
-        .adr_i               (riemann_sum_0_adr_i),
-        .cyc_i               (riemann_sum_0_cyc_i),
-        .dat_i               (riemann_sum_0_dat_i),
-        .stb_i               (riemann_sum_0_stb_i),
-        .we_i                (riemann_sum_0_we_i),
-        .ack_o               (riemann_sum_0_ack_o),
-        .dat_o               (riemann_sum_0_dat_o),
-        .err_o               (riemann_sum_0_err_o),
+        .adr_i               (sum_buffer_0_adr_i),
+        .cyc_i               (sum_buffer_0_cyc_i),
+        .dat_i               (sum_buffer_0_dat_i),
+        .stb_i               (sum_buffer_0_stb_i),
+        .we_i                (sum_buffer_0_we_i),
+        .ack_o               (sum_buffer_0_ack_o),
+        .dat_o               (sum_buffer_0_dat_o),
+        .err_o               (sum_buffer_0_err_o),
         // Interface: wb_system
-        .clk_i               (riemann_sum_0_clk_i),
-        .rst_i               (riemann_sum_0_rst_i));
+        .clk_i               (sum_buffer_0_clk_i),
+        .rst_i               (sum_buffer_0_rst_i));
 
     // IP-XACT VLNV: tut.fi:communication:wb_cpu_wrapper:1.0
     wb_master #(
@@ -477,6 +466,31 @@ module MemoryExample_0 #(
         .rst_i               (wb_external_mem_hash_rst_i),
         // These ports are not in any interface
         .store_hash_i        (wb_external_mem_hash_store_hash_i));
+
+    // IP-XACT VLNV: tut.fi:communication:wb_slave_spi_master:1.0
+    wb_slave_spi_master #(
+        .ADDR_WIDTH          (10),
+        .DATA_WIDTH          (16),
+        .BASE_ADDRESS        (416),
+        .BUFFER_INDEX_WIDTH  (3))
+    wb_slave_spi_master_0(
+        // Interface: master_if
+        .data_in             (wb_slave_spi_master_0_data_in),
+        .clk_out             (wb_slave_spi_master_0_clk_out),
+        .data_out            (wb_slave_spi_master_0_data_out),
+        .slave_select_out    (wb_slave_spi_master_0_slave_select_out),
+        // Interface: wb_slave
+        .adr_i               (wb_slave_spi_master_0_adr_i),
+        .cyc_i               (wb_slave_spi_master_0_cyc_i),
+        .dat_i               (wb_slave_spi_master_0_dat_i),
+        .stb_i               (wb_slave_spi_master_0_stb_i),
+        .we_i                (wb_slave_spi_master_0_we_i),
+        .ack_o               (wb_slave_spi_master_0_ack_o),
+        .dat_o               (wb_slave_spi_master_0_dat_o),
+        .err_o               (wb_slave_spi_master_0_err_o),
+        // Interface: wb_system
+        .clk_i               (wb_slave_spi_master_0_clk_i),
+        .rst_i               (wb_slave_spi_master_0_rst_i));
 
     // IP-XACT VLNV: tut.fi:communication:wishbone_bus:master_to_4
     wishbone_bus #(

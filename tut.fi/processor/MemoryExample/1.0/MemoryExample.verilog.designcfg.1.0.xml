@@ -26,11 +26,7 @@
 		<ipxact:view viewRef="hierarchical_verilog"/>
 	</ipxact:viewConfiguration>
 	<ipxact:viewConfiguration>
-		<ipxact:instanceName>data_passer_0</ipxact:instanceName>
-		<ipxact:view viewRef="flat_verilog"/>
-	</ipxact:viewConfiguration>
-	<ipxact:viewConfiguration>
-		<ipxact:instanceName>riemann_sum_0</ipxact:instanceName>
+		<ipxact:instanceName>wb_slave_spi_master_0</ipxact:instanceName>
 		<ipxact:view viewRef="flat_verilog"/>
 	</ipxact:viewConfiguration>
 	<ipxact:vendorExtensions>

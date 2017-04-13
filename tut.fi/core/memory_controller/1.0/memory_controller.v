@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : memory_controller.v
-// Creation date : 07.04.2017
-// Creation time : 11:57:19
+// Creation date : 11.04.2017
+// Creation time : 11:03:15
 // Description   : 
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.19 32-bit
+// Tool : Kactus2 3.4.21 32-bit
 // Plugin : Verilog generator 2.0d
 // This file was generated based on IP-XACT component tut.fi:core:memory_controller:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/core/memory_controller/1.0/memory_controller.1.0.xml
@@ -12,10 +12,14 @@
 
 module memory_controller #(
     parameter                              DATA_WIDTH       = 16,    // Width for data in registers and instructions.
+    parameter                              AUB              = 8,    // Addressable unit bits, size of byte.
     parameter                              ADDR_WIDTH       = 16,    // Width of the addresses.
     parameter                              MEMORY_SIZE      = 256,    // How many bytes are in memory at total.
     parameter                              PERIPHERAL_BASE  = 128,    // The first address for peripherals.
-    parameter                              AUB              = 8    // Addressable unit bits
+    parameter                              REGISTER_COUNT   = 8,    // How many registers are supported in the core.
+    parameter                              DATA_BYTES       = DATA_WIDTH/AUB,    // How many bytes in data width.
+    parameter                              CONTROL_RANGE    = 'h40,    // How many AUBs are reserved for control data.
+    parameter                              ADDR_BYTES       = ADDR_WIDTH/AUB    // How many bytes in address width.
 ) (
     // Interface: cpu_clk_sink
     input                               clk_i,    // The mandatory clock, as this is synchronous logic.
@@ -29,7 +33,7 @@ module memory_controller #(
     output         [DATA_WIDTH-1:0]     load_value_o,
     output                              mem_rdy_o,
 
-    // Interface: memory_interface
+    // Interface: peripheral_access
     input          [DATA_WIDTH-1:0]     mem_data_i,
     input                               mem_slave_rdy,
     output reg     [ADDR_WIDTH-1:0]     mem_address_o,

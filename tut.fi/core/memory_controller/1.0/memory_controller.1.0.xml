@@ -612,19 +612,13 @@
 			</ipxact:port>
 		</ipxact:ports>
 	</ipxact:model>
-	<ipxact:choices>
-		<ipxact:choice>
-			<ipxact:name>ekavaitoka</ipxact:name>
-			<ipxact:enumeration text="kaks">1</ipxact:enumeration>
-		</ipxact:choice>
-	</ipxact:choices>
 	<ipxact:fileSets>
 		<ipxact:fileSet>
 			<ipxact:name>verilogSource</ipxact:name>
 			<ipxact:file>
 				<ipxact:name>memory_controller.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 11:57:22 on 07.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 11:03:21 on 11.04.2017 by Kactus2. </ipxact:description>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>

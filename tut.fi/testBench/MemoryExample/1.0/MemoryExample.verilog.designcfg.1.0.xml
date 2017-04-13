@@ -6,6 +6,10 @@
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:designRef vendor="tut.fi" library="testBench" name="MemoryExample.design" version="1.0"/>
 	<ipxact:viewConfiguration>
+		<ipxact:instanceName>spi_slave_0</ipxact:instanceName>
+		<ipxact:view viewRef="flat_verilog"/>
+	</ipxact:viewConfiguration>
+	<ipxact:viewConfiguration>
 		<ipxact:instanceName>MemoryExample_0</ipxact:instanceName>
 		<ipxact:view viewRef="hierarchical_verilog"/>
 	</ipxact:viewConfiguration>

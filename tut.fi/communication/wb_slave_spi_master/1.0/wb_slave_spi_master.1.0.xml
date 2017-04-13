@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
-	<ipxact:library>peripheral</ipxact:library>
-	<ipxact:name>riemann_sum</ipxact:name>
+	<ipxact:library>communication</ipxact:library>
+	<ipxact:name>wb_slave_spi_master</ipxact:name>
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
@@ -163,42 +163,113 @@
 				<ipxact:group>ClockSink</ipxact:group>
 			</ipxact:system>
 		</ipxact:busInterface>
+		<ipxact:busInterface>
+			<ipxact:name>master_if</ipxact:name>
+			<ipxact:busType vendor="tut.fi" library="interface" name="SPI" version="1.0"/>
+			<ipxact:abstractionTypes>
+				<ipxact:abstractionType>
+					<ipxact:abstractionRef vendor="tut.fi" library="interface" name="SPI.absDef" version="1.0"/>
+					<ipxact:portMaps>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>SCLK</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>clk_out</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>MISO</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>data_in</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>MOSI</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>data_out</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>SS</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>slave_select_out</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+					</ipxact:portMaps>
+				</ipxact:abstractionType>
+			</ipxact:abstractionTypes>
+			<ipxact:master/>
+		</ipxact:busInterface>
 	</ipxact:busInterfaces>
 	<ipxact:memoryMaps>
 		<ipxact:memoryMap>
 			<ipxact:name>default</ipxact:name>
 			<ipxact:addressBlock>
-				<ipxact:name>control</ipxact:name>
-				<ipxact:baseAddress>uuid_a1a11cf0_8317_4c75_b719_c55f8b393ddc</ipxact:baseAddress>
-				<ipxact:range>8*uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd/8</ipxact:range>
-				<ipxact:width>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:width>
+				<ipxact:name>RECV_BUFFER</ipxact:name>
+				<ipxact:baseAddress>0</ipxact:baseAddress>
+				<ipxact:range>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920</ipxact:range>
+				<ipxact:width>8</ipxact:width>
 				<ipxact:usage>register</ipxact:usage>
 				<ipxact:volatile>true</ipxact:volatile>
-				<ipxact:access>read-write</ipxact:access>
+				<ipxact:access>write-only</ipxact:access>
+			</ipxact:addressBlock>
+			<ipxact:addressBlock>
+				<ipxact:name>control</ipxact:name>
+				<ipxact:baseAddress>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920*2+uuid_1789a5ec_4856_4dfc_99e3_91a0777df0cc</ipxact:baseAddress>
+				<ipxact:range>uuid_800a337a_29d2_423a_b1ca_fd57f6c75983</ipxact:range>
+				<ipxact:width>8</ipxact:width>
+				<ipxact:usage>register</ipxact:usage>
+				<ipxact:volatile>true</ipxact:volatile>
+				<ipxact:access>write-only</ipxact:access>
 				<ipxact:register>
-					<ipxact:name>NEW_VALUE</ipxact:name>
+					<ipxact:name>CONTROL</ipxact:name>
 					<ipxact:dim>0</ipxact:dim>
-					<ipxact:addressOffset>'h0</ipxact:addressOffset>
-					<ipxact:size>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:size>
+					<ipxact:addressOffset>0</ipxact:addressOffset>
+					<ipxact:size>8</ipxact:size>
 					<ipxact:volatile>true</ipxact:volatile>
 					<ipxact:access>write-only</ipxact:access>
 					<ipxact:field>
-						<ipxact:name>value</ipxact:name>
+						<ipxact:name>start_transfer</ipxact:name>
 						<ipxact:bitOffset>0</ipxact:bitOffset>
-						<ipxact:bitWidth>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:bitWidth>
+						<ipxact:bitWidth>1</ipxact:bitWidth>
 					</ipxact:field>
 				</ipxact:register>
+			</ipxact:addressBlock>
+			<ipxact:addressBlock>
+				<ipxact:name>SEND_BUFFER</ipxact:name>
+				<ipxact:baseAddress>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920+uuid_1789a5ec_4856_4dfc_99e3_91a0777df0cc</ipxact:baseAddress>
+				<ipxact:range>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920</ipxact:range>
+				<ipxact:width>8</ipxact:width>
+				<ipxact:usage>register</ipxact:usage>
+				<ipxact:volatile>true</ipxact:volatile>
+				<ipxact:access>read-only</ipxact:access>
+			</ipxact:addressBlock>
+			<ipxact:addressBlock>
+				<ipxact:name>status</ipxact:name>
+				<ipxact:baseAddress>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920</ipxact:baseAddress>
+				<ipxact:range>uuid_1789a5ec_4856_4dfc_99e3_91a0777df0cc</ipxact:range>
+				<ipxact:width>8</ipxact:width>
+				<ipxact:usage>register</ipxact:usage>
+				<ipxact:volatile>true</ipxact:volatile>
+				<ipxact:access>read-only</ipxact:access>
 				<ipxact:register>
-					<ipxact:name>NEW_RESULT</ipxact:name>
+					<ipxact:name>STATUS</ipxact:name>
 					<ipxact:dim>0</ipxact:dim>
-					<ipxact:addressOffset>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd/8</ipxact:addressOffset>
-					<ipxact:size>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:size>
+					<ipxact:addressOffset>'h0</ipxact:addressOffset>
+					<ipxact:size>8</ipxact:size>
 					<ipxact:volatile>true</ipxact:volatile>
 					<ipxact:access>read-only</ipxact:access>
 					<ipxact:field>
-						<ipxact:name>value</ipxact:name>
+						<ipxact:name>transfer_complete</ipxact:name>
 						<ipxact:bitOffset>0</ipxact:bitOffset>
-						<ipxact:bitWidth>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:bitWidth>
+						<ipxact:bitWidth>1</ipxact:bitWidth>
 					</ipxact:field>
 				</ipxact:register>
 			</ipxact:addressBlock>
@@ -216,8 +287,8 @@
 		<ipxact:instantiations>
 			<ipxact:componentInstantiation>
 				<ipxact:name>verilog_implementation</ipxact:name>
-				<ipxact:language>verilog</ipxact:language>
-				<ipxact:moduleName>wb_riemann</ipxact:moduleName>
+				<ipxact:language>Verilog</ipxact:language>
+				<ipxact:moduleName>wb_slave_spi_master</ipxact:moduleName>
 				<ipxact:fileSetRef>
 					<ipxact:localName>verilogSource</ipxact:localName>
 				</ipxact:fileSetRef>
@@ -431,17 +502,87 @@
 					<kactus2:portTags></kactus2:portTags>
 				</ipxact:vendorExtensions>
 			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>clk_out</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+					<ipxact:wireTypeDefs>
+						<ipxact:wireTypeDef>
+							<ipxact:typeDefinition></ipxact:typeDefinition>
+						</ipxact:wireTypeDef>
+					</ipxact:wireTypeDefs>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>data_out</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+					<ipxact:wireTypeDefs>
+						<ipxact:wireTypeDef>
+							<ipxact:typeName>reg</ipxact:typeName>
+							<ipxact:typeDefinition></ipxact:typeDefinition>
+						</ipxact:wireTypeDef>
+					</ipxact:wireTypeDefs>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>data_in</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+					<ipxact:wireTypeDefs>
+						<ipxact:wireTypeDef>
+							<ipxact:typeDefinition></ipxact:typeDefinition>
+						</ipxact:wireTypeDef>
+					</ipxact:wireTypeDefs>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>slave_select_out</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+					<ipxact:wireTypeDefs>
+						<ipxact:wireTypeDef>
+							<ipxact:typeName>reg</ipxact:typeName>
+							<ipxact:typeDefinition></ipxact:typeDefinition>
+						</ipxact:wireTypeDef>
+					</ipxact:wireTypeDefs>
+				</ipxact:wire>
+			</ipxact:port>
 		</ipxact:ports>
 	</ipxact:model>
 	<ipxact:fileSets>
 		<ipxact:fileSet>
 			<ipxact:name>verilogSource</ipxact:name>
 			<ipxact:file>
-				<ipxact:name>wb_riemann.v</ipxact:name>
+				<ipxact:name>wb_slave_spi_master.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 11:57:41 on 06.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 13:13:56 on 12.04.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
-					<kactus2:hash>72324505a2532322090eefe4127ce9c14496e9b1</kactus2:hash>
+					<kactus2:hash>d4b2efc6012dda315886a7c0111bb4c538aca859</kactus2:hash>
 				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>
@@ -453,7 +594,7 @@
 			<ipxact:description>The width of the address.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd" resolve="user" usageCount="10">
+		<ipxact:parameter parameterId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd" resolve="user" usageCount="3">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
 			<ipxact:value>32</ipxact:value>
@@ -463,15 +604,25 @@
 			<ipxact:description>The first referred address of the master.</ipxact:description>
 			<ipxact:value>'h0F00</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_a1a11cf0_8317_4c75_b719_c55f8b393ddc" resolve="immediate" usageCount="3">
+		<ipxact:parameter parameterId="uuid_3928a897_9f75_4ed7_a9be_c68cadf66920" resolve="immediate" usageCount="8">
 			<ipxact:name>BUFFER_SIZE</ipxact:name>
-			<ipxact:description>How much buffer is allocated for both directions.</ipxact:description>
-			<ipxact:value>16</ipxact:value>
+			<ipxact:description>How many bytes is allocated for a buffer.</ipxact:description>
+			<ipxact:value>6</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_85d9e41f_d752_4448_8123_758013175f62" resolve="generated">
+		<ipxact:parameter parameterId="uuid_64739040_c366_4d13_b648_17fcd0cd58c7" resolve="generated">
 			<ipxact:name>BUFFER_INDEX_WIDTH</ipxact:name>
 			<ipxact:description>How many bits are needed to index the buffer.</ipxact:description>
-			<ipxact:value>$clog2(uuid_a1a11cf0_8317_4c75_b719_c55f8b393ddc)</ipxact:value>
+			<ipxact:value>$clog2(uuid_3928a897_9f75_4ed7_a9be_c68cadf66920)</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_800a337a_29d2_423a_b1ca_fd57f6c75983" resolve="immediate" usageCount="1">
+			<ipxact:name>CONTROL_SIZE</ipxact:name>
+			<ipxact:description>How many bytes asre reserved for the control data.</ipxact:description>
+			<ipxact:value>1</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_1789a5ec_4856_4dfc_99e3_91a0777df0cc" resolve="immediate" usageCount="3">
+			<ipxact:name>STATUS_SIZE</ipxact:name>
+			<ipxact:description>How many bytes asre reserved for the status data.</ipxact:description>
+			<ipxact:value>1</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

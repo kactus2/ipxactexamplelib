@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : CoreExample_0.v
-// Creation date : 07.04.2017
-// Creation time : 14:55:19
+// Creation date : 13.04.2017
+// Creation time : 11:04:05
 // Description   : 
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.19 32-bit
+// Tool : Kactus2 3.4.78 32-bit
 // Plugin : Verilog generator 2.0d
 // This file was generated based on IP-XACT component tut.fi:core:CoreExample:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/core/CoreExample/1.0/CoreExample.1.0.xml
@@ -20,7 +20,7 @@ module CoreExample_0 #(
     parameter                              OP_CODE_WIDTH    = 3,    // Bits reserved for operation identifiers.
     parameter                              INSTRUCTION_WIDTH = 28    // Total width of an instruction
 ) (
-    // Interface: mem_control
+    // Interface: peripheral_access
     input          [15:0]               mem_data_i,
     input                               mem_slave_rdy,
     output         [9:0]                mem_address_o,
@@ -52,13 +52,13 @@ module CoreExample_0 #(
     // clock_0_cpu_clk_source_to_register_bank_cpu_clk_sink wires:
     wire        clock_0_cpu_clk_source_to_register_bank_cpu_clk_sinkclk;
     wire        clock_0_cpu_clk_source_to_register_bank_cpu_clk_sinkrst;
-    // memory_controller_memory_interface_to_mem_control wires:
-    wire [9:0]  memory_controller_memory_interface_to_mem_controladdress;
-    wire [15:0] memory_controller_memory_interface_to_mem_controldata_ms;
-    wire [15:0] memory_controller_memory_interface_to_mem_controldata_sm;
-    wire        memory_controller_memory_interface_to_mem_controlmaster_rdy;
-    wire        memory_controller_memory_interface_to_mem_controlslave_rdy;
-    wire        memory_controller_memory_interface_to_mem_controlwe;
+    // memory_controller_peripheral_access_to_peripheral_access wires:
+    wire [9:0]  memory_controller_peripheral_access_to_peripheral_accessaddress;
+    wire [15:0] memory_controller_peripheral_access_to_peripheral_accessdata_ms;
+    wire [15:0] memory_controller_peripheral_access_to_peripheral_accessdata_sm;
+    wire        memory_controller_peripheral_access_to_peripheral_accessmaster_rdy;
+    wire        memory_controller_peripheral_access_to_peripheral_accessslave_rdy;
+    wire        memory_controller_peripheral_access_to_peripheral_accesswe;
 
     // Ad-hoc wires:
     wire [27:0] instruction_decoder_instruction_feed_to_instruction_feed;
@@ -124,12 +124,12 @@ module CoreExample_0 #(
     // Assignments for the ports of the encompassing component:
     assign clock_0_clk_i_to_clk_i = clk_i;
     assign instruction_decoder_instruction_feed_to_instruction_feed[27:0] = instruction_feed[27:0];
-    assign mem_address_o[9:0] = memory_controller_memory_interface_to_mem_controladdress[9:0];
-    assign memory_controller_memory_interface_to_mem_controldata_sm[15:0] = mem_data_i[15:0];
-    assign mem_data_o[15:0] = memory_controller_memory_interface_to_mem_controldata_ms[15:0];
-    assign mem_master_rdy = memory_controller_memory_interface_to_mem_controlmaster_rdy;
-    assign memory_controller_memory_interface_to_mem_controlslave_rdy = mem_slave_rdy;
-    assign mem_we_o = memory_controller_memory_interface_to_mem_controlwe;
+    assign mem_address_o[9:0] = memory_controller_peripheral_access_to_peripheral_accessaddress[9:0];
+    assign memory_controller_peripheral_access_to_peripheral_accessdata_sm[15:0] = mem_data_i[15:0];
+    assign mem_data_o[15:0] = memory_controller_peripheral_access_to_peripheral_accessdata_ms[15:0];
+    assign mem_master_rdy = memory_controller_peripheral_access_to_peripheral_accessmaster_rdy;
+    assign memory_controller_peripheral_access_to_peripheral_accessslave_rdy = mem_slave_rdy;
+    assign mem_we_o = memory_controller_peripheral_access_to_peripheral_accesswe;
     assign clock_0_rst_i_to_rst_i = rst_i;
     assign stall_o = instruction_decoder_stall_o_to_stall_o;
 
@@ -163,13 +163,13 @@ module CoreExample_0 #(
     assign memory_controller_clk_i = clock_0_cpu_clk_source_to_register_bank_cpu_clk_sinkclk;
     assign memory_controller_cpu_system_to_alu_cpu_systemload_value[15:0] = memory_controller_load_value_o[15:0];
     assign memory_controller_mem_active_i = memory_controller_cpu_system_to_alu_cpu_systemmem_active;
-    assign memory_controller_memory_interface_to_mem_controladdress[9:0] = memory_controller_mem_address_o[9:0];
-    assign memory_controller_mem_data_i[15:0] = memory_controller_memory_interface_to_mem_controldata_sm[15:0];
-    assign memory_controller_memory_interface_to_mem_controldata_ms[15:0] = memory_controller_mem_data_o[15:0];
-    assign memory_controller_memory_interface_to_mem_controlmaster_rdy = memory_controller_mem_master_rdy;
+    assign memory_controller_peripheral_access_to_peripheral_accessaddress[9:0] = memory_controller_mem_address_o[9:0];
+    assign memory_controller_mem_data_i[15:0] = memory_controller_peripheral_access_to_peripheral_accessdata_sm[15:0];
+    assign memory_controller_peripheral_access_to_peripheral_accessdata_ms[15:0] = memory_controller_mem_data_o[15:0];
+    assign memory_controller_peripheral_access_to_peripheral_accessmaster_rdy = memory_controller_mem_master_rdy;
     assign memory_controller_cpu_system_to_alu_cpu_systemmem_rdy = memory_controller_mem_rdy_o;
-    assign memory_controller_mem_slave_rdy = memory_controller_memory_interface_to_mem_controlslave_rdy;
-    assign memory_controller_memory_interface_to_mem_controlwe = memory_controller_mem_we_o;
+    assign memory_controller_mem_slave_rdy = memory_controller_peripheral_access_to_peripheral_accessslave_rdy;
+    assign memory_controller_peripheral_access_to_peripheral_accesswe = memory_controller_mem_we_o;
     assign memory_controller_register_value_i[15:0] = memory_controller_cpu_system_to_alu_cpu_systemregister_output_1[15:0];
     assign memory_controller_rst_i = clock_0_cpu_clk_source_to_register_bank_cpu_clk_sinkrst;
     assign memory_controller_we_i = memory_controller_cpu_system_to_alu_cpu_systemmem_we;
@@ -238,7 +238,8 @@ module CoreExample_0 #(
         .DATA_WIDTH          (16),
         .ADDR_WIDTH          (10),
         .MEMORY_SIZE         (1024),
-        .PERIPHERAL_BASE     (256))
+        .PERIPHERAL_BASE     (256),
+        .REGISTER_COUNT      (8))
     memory_controller(
         // Interface: cpu_clk_sink
         .clk_i               (memory_controller_clk_i),
@@ -250,7 +251,7 @@ module CoreExample_0 #(
         .we_i                (memory_controller_we_i),
         .load_value_o        (memory_controller_load_value_o),
         .mem_rdy_o           (memory_controller_mem_rdy_o),
-        // Interface: memory_interface
+        // Interface: peripheral_access
         .mem_data_i          (memory_controller_mem_data_i),
         .mem_slave_rdy       (memory_controller_mem_slave_rdy),
         .mem_address_o       (memory_controller_mem_address_o),
