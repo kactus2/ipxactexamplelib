@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 // File          : instruction_decoder.v
-// Creation date : 13.04.2017
-// Creation time : 15:14:12
+// Creation date : 18.04.2017
+// Creation time : 11:53:33
 // Description   : 
 // Created by    : TermosPullo
 // Tool : Kactus2 3.4.79 32-bit
@@ -16,7 +16,7 @@ module instruction_decoder #(
     parameter                              OP_CODE_WIDTH    = 4,    // Bits reserved for operation identifiers.
     parameter                              INSTRUCTION_WIDTH = OP_CODE_WIDTH+2*REGISTER_ID_WIDTH+LITERAL_WIDTH,    // Total width of an instruction
     parameter                              DATA_WIDTH       = 16,    // Width for data in registers and instructions.
-    parameter                              ALU_OP_WIDTH     = 4,    // Bits reserved for identification of alu operation
+    parameter                              ALU_OP_WIDTH     = 2,    // Bits reserved for identification of alu operation
     parameter                              INSTRUCTION_ADDRESS_WIDTH = 8    // Width of an instruction address.
 ) (
     // Interface: cpu_clk_sink
@@ -55,17 +55,106 @@ module instruction_decoder #(
         BRA         = 4'b1000, 
         BNE        = 4'b1001;
 
-    integer instruction;
-    integer reg1;
-    integer reg2;
-    integer literal;
-    
+    // The address of the currently executed instruction.
     reg [INSTRUCTION_ADDRESS_WIDTH-1:0] instruction_pointer;
     
-    assign iaddr_o = instruction_pointer;
+    // Intermediate values that are result from combinational logic.
+    integer instruction;
+    integer next_reg1;
+    integer next_reg2;
+    reg [DATA_WIDTH:0] literal;
     
-    reg [DATA_WIDTH-1:0] last_alu;
+    reg [INSTRUCTION_ADDRESS_WIDTH-1:0] next_instruction;
+    reg next_mem_active;
+    reg next_we;
+    reg next_alu_active;
+    reg [DATA_WIDTH:0] next_register_value;
     
+    // This output comes directly from combinational logic.
+    assign iaddr_o = next_instruction;
+    
+    // Combinational logic used for decoding, as well as for those outputs that needs to take effect within current cycle.
+    always @* begin
+        if (mem_active_o)begin
+            if (mem_rdy_i) begin
+                if (!we_o) begin
+                    next_register_value[DATA_WIDTH] <= 1;
+                    // Pass literal.
+                    next_register_value[DATA_WIDTH-1:0] <= load_value_i;
+                end
+                else begin
+                    next_register_value <= 0;
+                end
+                next_mem_active <= 0;
+                next_instruction <= instruction_pointer + 1;
+            end
+            else begin
+                next_mem_active <= 1;
+                next_instruction <= instruction_pointer;
+                next_register_value <= 0;
+            end
+            
+            next_we <= we_o;
+            next_alu_active <= 0;
+        end
+        else begin
+            instruction = instruction_feed[LITERAL_WIDTH+2*REGISTER_ID_WIDTH+OP_CODE_WIDTH-1:LITERAL_WIDTH+2*REGISTER_ID_WIDTH];
+            next_reg1 = instruction_feed[LITERAL_WIDTH+2*REGISTER_ID_WIDTH-1:LITERAL_WIDTH+REGISTER_ID_WIDTH];
+            next_reg2 = instruction_feed[LITERAL_WIDTH+REGISTER_ID_WIDTH-1:LITERAL_WIDTH];
+            literal <= instruction_feed[LITERAL_WIDTH-1:0];
+            
+            // Activate ALU if arithmetic operation.
+            if (instruction == PLUS ||
+                instruction == MINUS ||
+                instruction == MUL ||
+                instruction == DIV)
+            begin
+                 next_alu_active <= 1;
+            end
+            else begin
+                next_alu_active <= 0;
+            end
+                    
+            if (instruction == BRA ||
+                (instruction == BNE && !alu_status_i[alu.ZERO]))
+            begin
+                // Branch if branching, obviously excludes data memory operations.
+                next_mem_active <= 0;
+                next_instruction = literal;
+            end
+            else if (instruction == LOAD ||
+                instruction == STORE)
+            begin
+                // Activate memory controller if memory operation.
+                next_mem_active <= 1;
+            end
+            else begin
+                // Else the instruction pointer increases as normal.
+                next_mem_active <= 0;
+                next_instruction = instruction_pointer + 1;
+            end
+            
+            // Activate write enable if storing to memory.
+            if (instruction == STORE) begin
+                next_we <= 1;
+            end
+            else begin
+                next_we <= 0;
+            end
+            
+            // Signify if passing a literal.
+            if (instruction == SET) begin
+                next_register_value[DATA_WIDTH] <= 1;
+                // Pass literal.
+                next_register_value[DATA_WIDTH-1:0] <= literal;
+            end
+            else begin
+                next_register_value[DATA_WIDTH] <= 0;
+            end
+        end
+    end
+    
+    // Since the processor operates on clock cycles, most outputs take effect on the next clock cycle.
     always @(posedge clk_i or posedge rst_i) begin
         if(rst_i == 1'b1) begin
             alu_active_o <= 0;
@@ -75,79 +164,23 @@ module instruction_decoder #(
             mem_active_o <= 0;
             we_o <= 0;
             instruction_pointer <= 0;
-            last_alu <= 0;
         end
         else begin
-            instruction = instruction_feed[LITERAL_WIDTH+2*REGISTER_ID_WIDTH+OP_CODE_WIDTH-1:LITERAL_WIDTH+2*REGISTER_ID_WIDTH];
-            reg1 = instruction_feed[LITERAL_WIDTH+2*REGISTER_ID_WIDTH-1:LITERAL_WIDTH+REGISTER_ID_WIDTH];
-            reg2 = instruction_feed[LITERAL_WIDTH+REGISTER_ID_WIDTH-1:LITERAL_WIDTH];
-            literal = instruction_feed[LITERAL_WIDTH-1:0];
+            // Pass the results of decoding as the operations and outpus of the next cycle.
             
-            if (mem_active_o)begin
-                if (mem_rdy_i) begin
-                    if (!we_o) begin
-                        register_value_o[DATA_WIDTH] <= 1;
-                        // Pass literal.
-                        register_value_o[DATA_WIDTH-1:0] <= load_value_i;
-                    end
-                    else begin
-                        register_value_o <= 0;
-                    end
-                    mem_active_o= 0;
-                    instruction_pointer = instruction_pointer + 1;
-                end
-            end
-            else begin
-                // Pass the register choise.
-                choose_reg1_o <= reg1;
-                choose_reg2_o <= reg2;
-                
-                // Pass ALU operation: It should be part of the instruction, if any.
-                alu_op_o <= instruction[ALU_OP_WIDTH-1:0];
-
-                // Activate ALU if arithmetic operation.
-                if (instruction == PLUS ||
-                    instruction == MINUS ||
-                    instruction == MUL ||
-                    instruction == DIV)
-                begin
-                    alu_active_o <= 1;
-                end
-                else begin
-                    alu_active_o <= 0;
-                end
-                
-                // Activate memory controller if memory operation.
-                if (instruction == LOAD ||
-                    instruction == STORE)
-                begin
-                    mem_active_o <= 1;
-                end
-                else begin
-                    mem_active_o <= 0;
-                    instruction_pointer = instruction_pointer + 1;
-                end
-                
-                // Activate write enable if storing to memory.
-                if (instruction == STORE) begin
-                    we_o <= 1;
-                end
-                else begin
-                    we_o <= 0;
-                end
-                
-                // Signify if passing a literal.
-                if (instruction == SET) begin
-                    register_value_o[DATA_WIDTH] <= 1;
-                    // Pass literal.
-                    register_value_o[DATA_WIDTH-1:0] <= literal;
-                end
-                else begin
-                    register_value_o[DATA_WIDTH] <= 0;
-                end
-                
-                last_alu <= alu_status_i;
-            end
+            // Register bank:
+            choose_reg1_o <= next_reg1;
+            choose_reg2_o <= next_reg2;
+            register_value_o <= next_register_value;
+            
+            // Memory:
+            instruction_pointer <= next_instruction;
+            mem_active_o <= next_mem_active;
+            we_o <= next_we;
+            
+            // Pass ALU operation: It should be part of the instruction, if any.
+            alu_op_o <= instruction[ALU_OP_WIDTH-1:0];
+            alu_active_o <= next_alu_active;
         end
     end
 endmodule

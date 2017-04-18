@@ -439,7 +439,7 @@
 			<ipxact:file>
 				<ipxact:name>instruction_decoder.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 15:14:14 on 13.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 11:53:34 on 18.04.2017 by Kactus2. </ipxact:description>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
@@ -462,7 +462,7 @@
 		<ipxact:parameter parameterId="uuid_e9d5e74a_fd01_40b3_bad5_65e77c73c003" resolve="immediate" usageCount="1">
 			<ipxact:name>ALU_OP_WIDTH</ipxact:name>
 			<ipxact:description>Bits reserved for identification of alu operation</ipxact:description>
-			<ipxact:value>4</ipxact:value>
+			<ipxact:value>2</ipxact:value>
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_e3d80a2e_9de3_41be_96a1_724ac21600b8" resolve="immediate" usageCount="1">
 			<ipxact:name>LITERAL_WIDTH</ipxact:name>

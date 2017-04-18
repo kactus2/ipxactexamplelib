@@ -277,9 +277,10 @@
 						<ipxact:dim>0</ipxact:dim>
 						<ipxact:addressOffset>0</ipxact:addressOffset>
 						<ipxact:size>uuid_11795f77_041d_4548_bcf3_cd41b67482a1</ipxact:size>
+						<ipxact:access>read-only</ipxact:access>
 						<ipxact:field>
-							<ipxact:name>c_out</ipxact:name>
-							<ipxact:description>Carry out from MSB.</ipxact:description>
+							<ipxact:name>div_zero</ipxact:name>
+							<ipxact:description>Tried to division by zero.</ipxact:description>
 							<ipxact:bitOffset>0</ipxact:bitOffset>
 							<ipxact:bitWidth>1</ipxact:bitWidth>
 						</ipxact:field>
@@ -290,14 +291,14 @@
 							<ipxact:bitWidth>1</ipxact:bitWidth>
 						</ipxact:field>
 						<ipxact:field>
-							<ipxact:name>overflow</ipxact:name>
-							<ipxact:description>The operation resulted in overflow.</ipxact:description>
+							<ipxact:name>negative</ipxact:name>
+							<ipxact:description>The result is negative.</ipxact:description>
 							<ipxact:bitOffset>2</ipxact:bitOffset>
 							<ipxact:bitWidth>1</ipxact:bitWidth>
 						</ipxact:field>
 						<ipxact:field>
-							<ipxact:name>negative</ipxact:name>
-							<ipxact:description>The result is negative.</ipxact:description>
+							<ipxact:name>overflow</ipxact:name>
+							<ipxact:description>Carry out from MSB.</ipxact:description>
 							<ipxact:bitOffset>3</ipxact:bitOffset>
 							<ipxact:bitWidth>1</ipxact:bitWidth>
 						</ipxact:field>

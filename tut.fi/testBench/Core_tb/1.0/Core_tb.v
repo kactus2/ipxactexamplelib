@@ -50,7 +50,7 @@ module Core_tb #(
             
             total_clk = total_clk + 1;
             
-            if (total_clk > 300)
+            if (total_clk > 100)
                 $stop;
         end 
  
