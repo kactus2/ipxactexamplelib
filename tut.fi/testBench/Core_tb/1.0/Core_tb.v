@@ -30,6 +30,8 @@ module Core_tb #(
         rst_o = 1'b0; // Deassert reset.
         forever #5 clk_o = ~clk_o; // Generate a clock until simulation terminates.
     end
+    
+    localparam MAX_CLOCKS = 50;
         
     reg [INSTRUCTION_WIDTH-1:0] instruction_memory [(2**INSTRUCTION_WIDTH)-1:0];
     
@@ -50,7 +52,7 @@ module Core_tb #(
             
             total_clk = total_clk + 1;
             
-            if (total_clk > 100)
+            if (total_clk > MAX_CLOCKS)
                 $stop;
         end 
  

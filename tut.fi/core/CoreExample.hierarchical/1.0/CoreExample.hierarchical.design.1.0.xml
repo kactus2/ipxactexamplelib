@@ -83,7 +83,7 @@
 			</ipxact:vendorExtensions>
 		</ipxact:componentInstance>
 		<ipxact:componentInstance>
-			<ipxact:instanceName>clock_0</ipxact:instanceName>
+			<ipxact:instanceName>clock</ipxact:instanceName>
 			<ipxact:componentRef vendor="tut.fi" library="core" name="clock" version="1.0">
 				<ipxact:configurableElementValues>
 					<ipxact:configurableElementValue referenceId="uuid_141e5050_fce5_4fe6_9bf7_5ad03d67b621">1</ipxact:configurableElementValue>
@@ -109,19 +109,19 @@
 			<ipxact:activeInterface componentRef="alu" busRef="cpu_system"/>
 		</ipxact:interconnection>
 		<ipxact:interconnection>
-			<ipxact:name>clock_0_cpu_clk_source_to_register_bank_cpu_clk_sink</ipxact:name>
-			<ipxact:activeInterface componentRef="clock_0" busRef="cpu_clk_source"/>
+			<ipxact:name>clock_cpu_clk_source_to_register_bank_cpu_clk_sink</ipxact:name>
+			<ipxact:activeInterface componentRef="clock" busRef="cpu_clk_source"/>
 			<ipxact:activeInterface componentRef="register_bank" busRef="cpu_clk_sink"/>
 		</ipxact:interconnection>
 		<ipxact:interconnection>
-			<ipxact:name>clock_0_cpu_clk_source_to_memory_controller_cpu_clk_sink</ipxact:name>
-			<ipxact:activeInterface componentRef="clock_0" busRef="cpu_clk_source"/>
+			<ipxact:name>clock_cpu_clk_source_to_memory_controller_cpu_clk_sink</ipxact:name>
+			<ipxact:activeInterface componentRef="clock" busRef="cpu_clk_source"/>
 			<ipxact:activeInterface componentRef="memory_controller" busRef="cpu_clk_sink"/>
 		</ipxact:interconnection>
 		<ipxact:interconnection>
-			<ipxact:name>instruction_decoder_cpu_clk_sink_to_clock_0_cpu_clk_source</ipxact:name>
+			<ipxact:name>instruction_decoder_cpu_clk_sink_to_clock_cpu_clk_source</ipxact:name>
 			<ipxact:activeInterface componentRef="instruction_decoder" busRef="cpu_clk_sink"/>
-			<ipxact:activeInterface componentRef="clock_0" busRef="cpu_clk_source"/>
+			<ipxact:activeInterface componentRef="clock" busRef="cpu_clk_source"/>
 		</ipxact:interconnection>
 		<ipxact:interconnection>
 			<ipxact:name>register_bank_cpu_system_to_alu_cpu_system</ipxact:name>
@@ -148,16 +148,16 @@
 			</ipxact:portReferences>
 		</ipxact:adHocConnection>
 		<ipxact:adHocConnection>
-			<ipxact:name>clock_0_clk_i_to_clk_i</ipxact:name>
+			<ipxact:name>clock_clk_i_to_clk_i</ipxact:name>
 			<ipxact:portReferences>
-				<ipxact:internalPortReference componentRef="clock_0" portRef="clk_i"/>
+				<ipxact:internalPortReference componentRef="clock" portRef="clk_i"/>
 				<ipxact:externalPortReference portRef="clk_i"/>
 			</ipxact:portReferences>
 		</ipxact:adHocConnection>
 		<ipxact:adHocConnection>
-			<ipxact:name>clock_0_rst_i_to_rst_i</ipxact:name>
+			<ipxact:name>clock_rst_i_to_rst_i</ipxact:name>
 			<ipxact:portReferences>
-				<ipxact:internalPortReference componentRef="clock_0" portRef="rst_i"/>
+				<ipxact:internalPortReference componentRef="clock" portRef="rst_i"/>
 				<ipxact:externalPortReference portRef="rst_i"/>
 			</ipxact:portReferences>
 		</ipxact:adHocConnection>
@@ -187,28 +187,25 @@
 				<kactus2:position x="150" y="460"/>
 				<kactus2:position x="170" y="460"/>
 			</kactus2:route>
-			<kactus2:route kactus2:connRef="clock_0_cpu_clk_source_to_register_bank_cpu_clk_sink" kactus2:offPage="false">
+			<kactus2:route kactus2:connRef="clock_cpu_clk_source_to_register_bank_cpu_clk_sink" kactus2:offPage="false">
 				<kactus2:position x="490" y="100"/>
 				<kactus2:position x="470" y="100"/>
 				<kactus2:position x="470" y="370"/>
 				<kactus2:position x="390" y="370"/>
 			</kactus2:route>
-			<kactus2:route kactus2:connRef="clock_0_cpu_clk_source_to_memory_controller_cpu_clk_sink" kactus2:offPage="false">
+			<kactus2:route kactus2:connRef="clock_cpu_clk_source_to_memory_controller_cpu_clk_sink" kactus2:offPage="false">
 				<kactus2:position x="490" y="100"/>
 				<kactus2:position x="390" y="100"/>
 			</kactus2:route>
-			<kactus2:route kactus2:connRef="instruction_decoder_cpu_clk_sink_to_clock_0_cpu_clk_source" kactus2:offPage="false">
+			<kactus2:route kactus2:connRef="instruction_decoder_cpu_clk_sink_to_clock_cpu_clk_source" kactus2:offPage="false">
 				<kactus2:position x="390" y="220"/>
 				<kactus2:position x="470" y="220"/>
 				<kactus2:position x="470" y="100"/>
 				<kactus2:position x="490" y="100"/>
 			</kactus2:route>
-			<kactus2:route kactus2:connRef="instruction_decoder_instruction_feed_to_instruction_feed" kactus2:offPage="false">
-				<kactus2:position x="60" y="250"/>
-				<kactus2:position x="170" y="250"/>
-			</kactus2:route>
-			<kactus2:route kactus2:connRef="clock_0_clk_i_to_clk_i" kactus2:offPage="false"/>
-			<kactus2:route kactus2:connRef="clock_0_rst_i_to_rst_i" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="instruction_decoder_instruction_feed_to_instruction_feed" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="clock_clk_i_to_clk_i" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="clock_rst_i_to_rst_i" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="register_bank_cpu_system_to_alu_cpu_system" kactus2:offPage="false">
 				<kactus2:position x="170" y="370"/>
 				<kactus2:position x="150" y="370"/>
@@ -225,16 +222,13 @@
 				<kactus2:position x="170" y="100"/>
 				<kactus2:position x="60" y="100"/>
 			</kactus2:route>
-			<kactus2:route kactus2:connRef="instruction_decoder_iaddr_o_to_iaddr_o" kactus2:offPage="false">
-				<kactus2:position x="170" y="280"/>
-				<kactus2:position x="60" y="280"/>
-			</kactus2:route>
+			<kactus2:route kactus2:connRef="instruction_decoder_iaddr_o_to_iaddr_o" kactus2:offPage="false"/>
 		</kactus2:routes>
 		<kactus2:adHocVisibilities>
 			<kactus2:adHocVisible portName="clk_i" x="820" y="90"/>
+			<kactus2:adHocVisible portName="iaddr_o" x="60" y="280"/>
 			<kactus2:adHocVisible portName="instruction_feed" x="60" y="250"/>
 			<kactus2:adHocVisible portName="rst_i" x="820" y="120"/>
-			<kactus2:adHocVisible portName="iaddr_o" x="60" y="280"/>
 		</kactus2:adHocVisibilities>
 		<kactus2:interfaceGraphics>
 			<kactus2:name>bus</kactus2:name>

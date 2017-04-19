@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 // File          : instruction_decoder.v
 // Creation date : 18.04.2017
-// Creation time : 11:53:33
+// Creation time : 14:45:09
 // Description   : 
 // Created by    : TermosPullo
 // Tool : Kactus2 3.4.79 32-bit
@@ -16,7 +16,7 @@ module instruction_decoder #(
     parameter                              OP_CODE_WIDTH    = 4,    // Bits reserved for operation identifiers.
     parameter                              INSTRUCTION_WIDTH = OP_CODE_WIDTH+2*REGISTER_ID_WIDTH+LITERAL_WIDTH,    // Total width of an instruction
     parameter                              DATA_WIDTH       = 16,    // Width for data in registers and instructions.
-    parameter                              ALU_OP_WIDTH     = 2,    // Bits reserved for identification of alu operation
+    parameter                              ALU_OP_WIDTH     = 3,    // Bits reserved for identification of alu operation
     parameter                              INSTRUCTION_ADDRESS_WIDTH = 8    // Width of an instruction address.
 ) (
     // Interface: cpu_clk_sink
@@ -32,7 +32,8 @@ module instruction_decoder #(
     output reg     [REGISTER_ID_WIDTH-1:0] choose_reg1_o,
     output reg     [REGISTER_ID_WIDTH-1:0] choose_reg2_o,
     output reg                          mem_active_o,
-    output reg     [DATA_WIDTH:0]       register_value_o,
+    output reg                          register_active_o,
+    output reg     [DATA_WIDTH-1:0]     register_value_o,
     output reg                          we_o,
 
     // These ports are not in any interface
@@ -48,12 +49,14 @@ module instruction_decoder #(
         SET         = 4'b0001, 
         LOAD        = 4'b0010, 
         STORE       = 4'b0011, 
-        PLUS        = 4'b0100, 
-        MINUS       = 4'b0101, 
-        MUL         = 4'b0110, 
-        DIV         = 4'b0111, 
-        BRA         = 4'b1000, 
-        BNE        = 4'b1001;
+        BRA         = 4'b0100, 
+        BNE        = 4'b0101,
+        PLUS        = 4'b1000, 
+        MINUS       = 4'b1001, 
+        MUL         = 4'b1010, 
+        DIV         = 4'b1011, 
+        CMP         = 4'b1100, 
+        END         = 4'b1111;
 
     // The address of the currently executed instruction.
     reg [INSTRUCTION_ADDRESS_WIDTH-1:0] instruction_pointer;
@@ -69,6 +72,7 @@ module instruction_decoder #(
     reg next_we;
     reg next_alu_active;
     reg [DATA_WIDTH:0] next_register_value;
+    reg next_register_active;
     
     // This output comes directly from combinational logic.
     assign iaddr_o = next_instruction;
@@ -78,11 +82,12 @@ module instruction_decoder #(
         if (mem_active_o)begin
             if (mem_rdy_i) begin
                 if (!we_o) begin
-                    next_register_value[DATA_WIDTH] <= 1;
+                    next_register_active <= 1;
                     // Pass literal.
-                    next_register_value[DATA_WIDTH-1:0] <= load_value_i;
+                    next_register_value <= load_value_i;
                 end
                 else begin
+                    next_register_active <= 0;
                     next_register_value <= 0;
                 end
                 next_mem_active <= 0;
@@ -92,6 +97,7 @@ module instruction_decoder #(
                 next_mem_active <= 1;
                 next_instruction <= instruction_pointer;
                 next_register_value <= 0;
+                next_register_active <= 0;
             end
             
             next_we <= we_o;
@@ -144,12 +150,12 @@ module instruction_decoder #(
             
             // Signify if passing a literal.
             if (instruction == SET) begin
-                next_register_value[DATA_WIDTH] <= 1;
+                next_register_active <= 1;
                 // Pass literal.
-                next_register_value[DATA_WIDTH-1:0] <= literal;
+                next_register_value <= literal;
             end
             else begin
-                next_register_value[DATA_WIDTH] <= 0;
+                next_register_active <= 0;
             end
         end
     end
@@ -164,6 +170,8 @@ module instruction_decoder #(
             mem_active_o <= 0;
             we_o <= 0;
             instruction_pointer <= 0;
+            register_value_o <= 0;
+            register_active_o <= 0;
         end
         else begin
             // Pass the results of decoding as the operations and outpus of the next cycle.
@@ -172,6 +180,8 @@ module instruction_decoder #(
             choose_reg1_o <= next_reg1;
             choose_reg2_o <= next_reg2;
             register_value_o <= next_register_value;
+            register_active_o <= next_register_active;
+            alu_active_o <= next_alu_active;
             
             // Memory:
             instruction_pointer <= next_instruction;
@@ -180,7 +190,6 @@ module instruction_decoder #(
             
             // Pass ALU operation: It should be part of the instruction, if any.
             alu_op_o <= instruction[ALU_OP_WIDTH-1:0];
-            alu_active_o <= next_alu_active;
         end
     end
 endmodule

@@ -22,14 +22,6 @@
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>alu_active</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>alu_active_i</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
 								<ipxact:name>alu_operation</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
@@ -82,18 +74,6 @@
 					<ipxact:vectors>
 						<ipxact:vector>
 							<ipxact:left>uuid_f15fb8e9_f134_4f57_a2aa_ca45cfbaf22e-1</ipxact:left>
-							<ipxact:right>0</ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
-				</ipxact:wire>
-			</ipxact:port>
-			<ipxact:port>
-				<ipxact:name>alu_active_i</ipxact:name>
-				<ipxact:wire>
-					<ipxact:direction>in</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left>0</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -167,7 +147,7 @@
 			<ipxact:file>
 				<ipxact:name>alu.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 15:10:30 on 13.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 14:44:55 on 18.04.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
 					<kactus2:hash>dd49bbe6027f62e615d4182ea7ea9a3fe3aa6876</kactus2:hash>
 				</ipxact:vendorExtensions>
@@ -183,7 +163,7 @@
 		<ipxact:parameter parameterId="uuid_f15fb8e9_f134_4f57_a2aa_ca45cfbaf22e" resolve="immediate" usageCount="1">
 			<ipxact:name>ALU_OP_WIDTH</ipxact:name>
 			<ipxact:description>Bits reserved for identification of alu operation</ipxact:description>
-			<ipxact:value>2</ipxact:value>
+			<ipxact:value>3</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

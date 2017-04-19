@@ -25,7 +25,7 @@
 			<ipxact:file>
 				<ipxact:name>Core.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 15:14:21 on 13.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 14:47:23 on 18.04.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
 					<kactus2:hash>3d88c025ccc022150c147b068deb15b92ed14a1b</kactus2:hash>
 				</ipxact:vendorExtensions>
@@ -33,7 +33,7 @@
 			<ipxact:file>
 				<ipxact:name>CoreExample_0.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 15:14:21 on 13.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 14:47:23 on 18.04.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
 					<kactus2:hash>4158d32fd755e1309862c1b6378166e5d2967e4e</kactus2:hash>
 				</ipxact:vendorExtensions>
@@ -51,17 +51,17 @@
 				</ipxact:vendorExtensions>
 			</ipxact:file>
 			<ipxact:file>
+				<ipxact:name>src/branchProgram.asm</ipxact:name>
+				<ipxact:fileType>asmSource</ipxact:fileType>
+				<ipxact:description>Program containing loops.</ipxact:description>
+			</ipxact:file>
+			<ipxact:file>
 				<ipxact:name>src/memoryProgram.asm</ipxact:name>
 				<ipxact:fileType>asmSource</ipxact:fileType>
 				<ipxact:description>Program containing memory operations.</ipxact:description>
 				<ipxact:vendorExtensions>
 					<kactus2:hash>e401ca722f301c9d8861ae5cc90994a9</kactus2:hash>
 				</ipxact:vendorExtensions>
-			</ipxact:file>
-			<ipxact:file>
-				<ipxact:name>src/branchProgram.asm</ipxact:name>
-				<ipxact:fileType>asmSource</ipxact:fileType>
-				<ipxact:description>Program containing loops.</ipxact:description>
 			</ipxact:file>
 		</ipxact:fileSet>
 		<ipxact:fileSet>
@@ -76,17 +76,17 @@
 				</ipxact:vendorExtensions>
 			</ipxact:file>
 			<ipxact:file>
+				<ipxact:name>bin/branchProgram.hex</ipxact:name>
+				<ipxact:fileType user="hexFile">user</ipxact:fileType>
+				<ipxact:description>Program containing loops.</ipxact:description>
+			</ipxact:file>
+			<ipxact:file>
 				<ipxact:name>bin/memoryProgram.hex</ipxact:name>
 				<ipxact:fileType user="hexFile">user</ipxact:fileType>
 				<ipxact:description>Program containing memory operations.</ipxact:description>
 				<ipxact:vendorExtensions>
 					<kactus2:hash>5d525820f31536b83faf291c2b666923</kactus2:hash>
 				</ipxact:vendorExtensions>
-			</ipxact:file>
-			<ipxact:file>
-				<ipxact:name>bin/branchProgram.hex</ipxact:name>
-				<ipxact:fileType user="hexFile">user</ipxact:fileType>
-				<ipxact:description>Program containing loops.</ipxact:description>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>

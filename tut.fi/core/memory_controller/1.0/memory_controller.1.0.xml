@@ -216,7 +216,7 @@
 			</ipxact:segments>
 			<ipxact:addressUnitBits>8</ipxact:addressUnitBits>
 			<ipxact:localMemoryMap>
-				<ipxact:name>CPU_local_memory</ipxact:name>
+				<ipxact:name>cpu_local_memory</ipxact:name>
 				<ipxact:description>All address blocks accessible directly by memory controller, rather than through peripheral access.</ipxact:description>
 				<ipxact:addressBlock>
 					<ipxact:name>Data</ipxact:name>
@@ -358,11 +358,11 @@
 						<ipxact:description>The last accessed peripheral address.</ipxact:description>
 						<ipxact:dim>0</ipxact:dim>
 						<ipxact:addressOffset>uuid_86d03535_d756_4fc9_8d59_ba85e57b94ab*6</ipxact:addressOffset>
-						<ipxact:size>uuid_bbfa1cdd_1d38_4f9d_997d_c5872bc60166*uuid_13bb2f35_a7cd_4792_ba5d_7b91ffe4e882</ipxact:size>
+						<ipxact:size>uuid_11795f77_041d_4548_bcf3_cd41b67482a1</ipxact:size>
 						<ipxact:field>
 							<ipxact:name>address</ipxact:name>
 							<ipxact:bitOffset>0</ipxact:bitOffset>
-							<ipxact:bitWidth>uuid_bbfa1cdd_1d38_4f9d_997d_c5872bc60166*uuid_13bb2f35_a7cd_4792_ba5d_7b91ffe4e882</ipxact:bitWidth>
+							<ipxact:bitWidth>uuid_11795f77_041d_4548_bcf3_cd41b67482a1</ipxact:bitWidth>
 						</ipxact:field>
 					</ipxact:register>
 				</ipxact:addressBlock>
@@ -620,16 +620,19 @@
 				<ipxact:name>memory_controller.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
 				<ipxact:description>Generated at 11:03:21 on 11.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:vendorExtensions>
+					<kactus2:hash>a00df7c8f2494bc20249786ca3ea2c8a3df34ebc</kactus2:hash>
+				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
 	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_11795f77_041d_4548_bcf3_cd41b67482a1" resolve="user" usageCount="20">
+		<ipxact:parameter parameterId="uuid_11795f77_041d_4548_bcf3_cd41b67482a1" resolve="user" usageCount="22">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>Width for data in registers and instructions.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_b6bb8c34_3d40_4189_b91d_6cdce56c33f1" resolve="user" usageCount="4">
+		<ipxact:parameter parameterId="uuid_b6bb8c34_3d40_4189_b91d_6cdce56c33f1" resolve="user" usageCount="3">
 			<ipxact:name>ADDR_WIDTH</ipxact:name>
 			<ipxact:description>Width of the addresses.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
@@ -644,7 +647,7 @@
 			<ipxact:description>The first address for peripherals.</ipxact:description>
 			<ipxact:value>128</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_13bb2f35_a7cd_4792_ba5d_7b91ffe4e882" resolve="immediate" usageCount="5">
+		<ipxact:parameter parameterId="uuid_13bb2f35_a7cd_4792_ba5d_7b91ffe4e882" resolve="immediate" usageCount="2">
 			<ipxact:name>AUB</ipxact:name>
 			<ipxact:description>Addressable unit bits, size of byte.</ipxact:description>
 			<ipxact:value>8</ipxact:value>
@@ -663,11 +666,6 @@
 			<ipxact:name>CONTROL_RANGE</ipxact:name>
 			<ipxact:description>How many AUBs are reserved for control data.</ipxact:description>
 			<ipxact:value>'h40</ipxact:value>
-		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_bbfa1cdd_1d38_4f9d_997d_c5872bc60166" usageCount="2">
-			<ipxact:name>ADDR_BYTES</ipxact:name>
-			<ipxact:description>How many bytes in address width.</ipxact:description>
-			<ipxact:value>uuid_b6bb8c34_3d40_4189_b91d_6cdce56c33f1/uuid_13bb2f35_a7cd_4792_ba5d_7b91ffe4e882</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

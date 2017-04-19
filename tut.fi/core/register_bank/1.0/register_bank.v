@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 // File          : register_bank.v
-// Creation date : 13.04.2017
-// Creation time : 13:47:17
+// Creation date : 18.04.2017
+// Creation time : 14:43:51
 // Description   : Stores registers and the logic needed to access them. In case of multiple simultaenous writes, the one with most priority is done.
 // Created by    : TermosPullo
 // Tool : Kactus2 3.4.79 32-bit
@@ -24,10 +24,8 @@ module register_bank #(
     input          [DATA_WIDTH-1:0]     alu_result_i,
     input          [REGISTER_ID_WIDTH-1:0] choose_register_i1,
     input          [REGISTER_ID_WIDTH-1:0] choose_register_i2,
-    input                               mem_active_i,
-    input                               mem_rdy_i,
-    input          [DATA_WIDTH:0]       register_input,
-    input                               we_i,
+    input                               register_active_i,
+    input          [DATA_WIDTH-1:0]     register_input,
     output reg     [DATA_WIDTH-1:0]     register_output1,
     output reg     [DATA_WIDTH-1:0]     register_output2
 );
@@ -56,7 +54,7 @@ module register_bank #(
                 // Alu is expected to yield a value: Save to the register.
                 registers[choose_register_i1] <= alu_result_i;
             end
-            else if (register_input[DATA_WIDTH] == 1'b1) begin
+            else if (register_active_i) begin
                 // Alu is expected to yield a value: Save to the register.
                 registers[choose_register_i1] <= register_input[DATA_WIDTH-1:0];
             end

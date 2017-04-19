@@ -168,9 +168,9 @@
 		<ipxact:memoryMap>
 			<ipxact:name>default</ipxact:name>
 			<ipxact:addressBlock>
-				<ipxact:name>control</ipxact:name>
+				<ipxact:name>AddressBlock</ipxact:name>
 				<ipxact:baseAddress>uuid_a1a11cf0_8317_4c75_b719_c55f8b393ddc</ipxact:baseAddress>
-				<ipxact:range>8*uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd/8</ipxact:range>
+				<ipxact:range>2*uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd/8</ipxact:range>
 				<ipxact:width>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:width>
 				<ipxact:usage>register</ipxact:usage>
 				<ipxact:volatile>true</ipxact:volatile>
@@ -439,7 +439,7 @@
 			<ipxact:file>
 				<ipxact:name>wb_sum_buffer.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 11:02:27 on 13.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 13:45:51 on 18.04.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
 					<kactus2:hash>6237fc51524ff2cfddd3a2c8ad883074de1dd6b5</kactus2:hash>
 				</ipxact:vendorExtensions>
@@ -466,7 +466,7 @@
 		<ipxact:parameter parameterId="uuid_a1a11cf0_8317_4c75_b719_c55f8b393ddc" resolve="immediate" usageCount="3">
 			<ipxact:name>BUFFER_SIZE</ipxact:name>
 			<ipxact:description>How much buffer is allocated for both directions.</ipxact:description>
-			<ipxact:value>4</ipxact:value>
+			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_85d9e41f_d752_4448_8123_758013175f62" resolve="immediate">
 			<ipxact:name>BUFFER_INDEX_WIDTH</ipxact:name>

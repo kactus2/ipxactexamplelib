@@ -212,7 +212,7 @@
 		<ipxact:memoryMap>
 			<ipxact:name>default</ipxact:name>
 			<ipxact:addressBlock>
-				<ipxact:name>RECV_BUFFER</ipxact:name>
+				<ipxact:name>RecvBuffer</ipxact:name>
 				<ipxact:baseAddress>0</ipxact:baseAddress>
 				<ipxact:range>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920</ipxact:range>
 				<ipxact:width>8</ipxact:width>
@@ -221,7 +221,7 @@
 				<ipxact:access>write-only</ipxact:access>
 			</ipxact:addressBlock>
 			<ipxact:addressBlock>
-				<ipxact:name>control</ipxact:name>
+				<ipxact:name>Control</ipxact:name>
 				<ipxact:baseAddress>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920*2+uuid_1789a5ec_4856_4dfc_99e3_91a0777df0cc</ipxact:baseAddress>
 				<ipxact:range>uuid_800a337a_29d2_423a_b1ca_fd57f6c75983</ipxact:range>
 				<ipxact:width>8</ipxact:width>
@@ -243,7 +243,7 @@
 				</ipxact:register>
 			</ipxact:addressBlock>
 			<ipxact:addressBlock>
-				<ipxact:name>SEND_BUFFER</ipxact:name>
+				<ipxact:name>SendBuffer</ipxact:name>
 				<ipxact:baseAddress>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920+uuid_1789a5ec_4856_4dfc_99e3_91a0777df0cc</ipxact:baseAddress>
 				<ipxact:range>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920</ipxact:range>
 				<ipxact:width>8</ipxact:width>
@@ -252,7 +252,7 @@
 				<ipxact:access>read-only</ipxact:access>
 			</ipxact:addressBlock>
 			<ipxact:addressBlock>
-				<ipxact:name>status</ipxact:name>
+				<ipxact:name>Status</ipxact:name>
 				<ipxact:baseAddress>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920</ipxact:baseAddress>
 				<ipxact:range>uuid_1789a5ec_4856_4dfc_99e3_91a0777df0cc</ipxact:range>
 				<ipxact:width>8</ipxact:width>
@@ -580,7 +580,7 @@
 			<ipxact:file>
 				<ipxact:name>wb_slave_spi_master.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 13:13:56 on 12.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 13:45:47 on 18.04.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
 					<kactus2:hash>d4b2efc6012dda315886a7c0111bb4c538aca859</kactus2:hash>
 				</ipxact:vendorExtensions>
@@ -607,7 +607,7 @@
 		<ipxact:parameter parameterId="uuid_3928a897_9f75_4ed7_a9be_c68cadf66920" resolve="immediate" usageCount="8">
 			<ipxact:name>BUFFER_SIZE</ipxact:name>
 			<ipxact:description>How many bytes is allocated for a buffer.</ipxact:description>
-			<ipxact:value>6</ipxact:value>
+			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_64739040_c366_4d13_b648_17fcd0cd58c7" resolve="generated">
 			<ipxact:name>BUFFER_INDEX_WIDTH</ipxact:name>

@@ -32,19 +32,13 @@
 		</ipxact:port>
 		<ipxact:port>
 			<ipxact:logicalName>alu_active</ipxact:logicalName>
-			<ipxact:description>Signifies that ALU is expected to perform.</ipxact:description>
+			<ipxact:description>Signifies that output of ALU shall be loaded to an active register.</ipxact:description>
 			<ipxact:wire>
 				<ipxact:onSystem>
 					<ipxact:group>Decoder</ipxact:group>
 					<ipxact:presence>required</ipxact:presence>
 					<ipxact:width>1</ipxact:width>
 					<ipxact:direction>out</ipxact:direction>
-				</ipxact:onSystem>
-				<ipxact:onSystem>
-					<ipxact:group>ALU</ipxact:group>
-					<ipxact:presence>required</ipxact:presence>
-					<ipxact:width>1</ipxact:width>
-					<ipxact:direction>in</ipxact:direction>
 				</ipxact:onSystem>
 				<ipxact:onSystem>
 					<ipxact:group>RegisterBank</ipxact:group>
@@ -66,12 +60,6 @@
 				</ipxact:onSystem>
 				<ipxact:onSystem>
 					<ipxact:group>MemoryControl</ipxact:group>
-					<ipxact:presence>required</ipxact:presence>
-					<ipxact:width>1</ipxact:width>
-					<ipxact:direction>in</ipxact:direction>
-				</ipxact:onSystem>
-				<ipxact:onSystem>
-					<ipxact:group>RegisterBank</ipxact:group>
 					<ipxact:presence>required</ipxact:presence>
 					<ipxact:width>1</ipxact:width>
 					<ipxact:direction>in</ipxact:direction>
@@ -101,12 +89,6 @@
 			<ipxact:logicalName>mem_rdy</ipxact:logicalName>
 			<ipxact:description>Signifies that memory controller has done the operation and the result is ready.</ipxact:description>
 			<ipxact:wire>
-				<ipxact:onSystem>
-					<ipxact:group>RegisterBank</ipxact:group>
-					<ipxact:presence>required</ipxact:presence>
-					<ipxact:width>1</ipxact:width>
-					<ipxact:direction>in</ipxact:direction>
-				</ipxact:onSystem>
 				<ipxact:onSystem>
 					<ipxact:group>MemoryControl</ipxact:group>
 					<ipxact:presence>required</ipxact:presence>
@@ -230,12 +212,6 @@
 					<ipxact:width>1</ipxact:width>
 					<ipxact:direction>in</ipxact:direction>
 				</ipxact:onSystem>
-				<ipxact:onSystem>
-					<ipxact:group>RegisterBank</ipxact:group>
-					<ipxact:presence>required</ipxact:presence>
-					<ipxact:width>1</ipxact:width>
-					<ipxact:direction>in</ipxact:direction>
-				</ipxact:onSystem>
 			</ipxact:wire>
 		</ipxact:port>
 		<ipxact:port>
@@ -294,7 +270,7 @@
 		</ipxact:port>
 		<ipxact:port>
 			<ipxact:logicalName>register_input</ipxact:logicalName>
-			<ipxact:description>The value that is being loaded to register bank. The most signficant bit is one, if it is is being fed to register, else zero.</ipxact:description>
+			<ipxact:description>The value that is being loaded to register bank.</ipxact:description>
 			<ipxact:wire>
 				<ipxact:qualifier>
 					<ipxact:isData>true</ipxact:isData>
@@ -323,6 +299,24 @@
 				<ipxact:onSystem>
 					<ipxact:group>Decoder</ipxact:group>
 					<ipxact:presence>required</ipxact:presence>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onSystem>
+			</ipxact:wire>
+		</ipxact:port>
+		<ipxact:port>
+			<ipxact:logicalName>register_active</ipxact:logicalName>
+			<ipxact:description>Signifies that a value is being fed to the register bank.</ipxact:description>
+			<ipxact:wire>
+				<ipxact:onSystem>
+					<ipxact:group>Decoder</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onSystem>
+				<ipxact:onSystem>
+					<ipxact:group>RegisterBank</ipxact:group>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
 					<ipxact:direction>in</ipxact:direction>
 				</ipxact:onSystem>
 			</ipxact:wire>

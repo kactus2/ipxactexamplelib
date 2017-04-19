@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 // File          : CoreExample_0.v
-// Creation date : 13.04.2017
-// Creation time : 15:14:20
+// Creation date : 18.04.2017
+// Creation time : 14:47:21
 // Description   : 
 // Created by    : TermosPullo
 // Tool : Kactus2 3.4.79 32-bit
@@ -39,7 +39,7 @@ module CoreExample_0 #(
     // memory_controller_cpu_system_to_alu_cpu_system wires:
     wire [15:0] memory_controller_cpu_system_to_alu_cpu_systemaddress;
     wire        memory_controller_cpu_system_to_alu_cpu_systemalu_active;
-    wire [3:0]  memory_controller_cpu_system_to_alu_cpu_systemalu_operation;
+    wire [2:0]  memory_controller_cpu_system_to_alu_cpu_systemalu_operation;
     wire [15:0] memory_controller_cpu_system_to_alu_cpu_systemalu_result;
     wire [15:0] memory_controller_cpu_system_to_alu_cpu_systemalu_status;
     wire [3:0]  memory_controller_cpu_system_to_alu_cpu_systemchoose_register_1;
@@ -48,7 +48,8 @@ module CoreExample_0 #(
     wire        memory_controller_cpu_system_to_alu_cpu_systemmem_active;
     wire        memory_controller_cpu_system_to_alu_cpu_systemmem_rdy;
     wire        memory_controller_cpu_system_to_alu_cpu_systemmem_we;
-    wire [16:0] memory_controller_cpu_system_to_alu_cpu_systemregister_input;
+    wire        memory_controller_cpu_system_to_alu_cpu_systemregister_active;
+    wire [15:0] memory_controller_cpu_system_to_alu_cpu_systemregister_input;
     wire [15:0] memory_controller_cpu_system_to_alu_cpu_systemregister_output_1;
     wire [15:0] memory_controller_cpu_system_to_alu_cpu_systemregister_output_2;
     // clock_0_cpu_clk_source_to_register_bank_cpu_clk_sink wires:
@@ -69,8 +70,7 @@ module CoreExample_0 #(
     wire [7:0]  instruction_decoder_iaddr_o_to_iaddr_o;
 
     // alu port wires:
-    wire        alu_alu_active_i;
-    wire [1:0]  alu_alu_op_i;
+    wire [2:0]  alu_alu_op_i;
     wire [15:0] alu_alu_result_o;
     wire [15:0] alu_alu_status_o;
     wire [15:0] alu_register_value_i1;
@@ -82,7 +82,7 @@ module CoreExample_0 #(
     wire        clock_0_rst_o;
     // instruction_decoder port wires:
     wire        instruction_decoder_alu_active_o;
-    wire [3:0]  instruction_decoder_alu_op_o;
+    wire [2:0]  instruction_decoder_alu_op_o;
     wire [15:0] instruction_decoder_alu_status_i;
     wire [3:0]  instruction_decoder_choose_reg1_o;
     wire [3:0]  instruction_decoder_choose_reg2_o;
@@ -92,7 +92,8 @@ module CoreExample_0 #(
     wire [15:0] instruction_decoder_load_value_i;
     wire        instruction_decoder_mem_active_o;
     wire        instruction_decoder_mem_rdy_i;
-    wire [16:0] instruction_decoder_register_value_o;
+    wire        instruction_decoder_register_active_o;
+    wire [15:0] instruction_decoder_register_value_o;
     wire        instruction_decoder_rst_i;
     wire        instruction_decoder_we_o;
     // memory_controller port wires:
@@ -116,13 +117,11 @@ module CoreExample_0 #(
     wire [3:0]  register_bank_choose_register_i1;
     wire [3:0]  register_bank_choose_register_i2;
     wire        register_bank_clk_i;
-    wire        register_bank_mem_active_i;
-    wire        register_bank_mem_rdy_i;
-    wire [16:0] register_bank_register_input;
+    wire        register_bank_register_active_i;
+    wire [15:0] register_bank_register_input;
     wire [15:0] register_bank_register_output1;
     wire [15:0] register_bank_register_output2;
     wire        register_bank_rst_i;
-    wire        register_bank_we_i;
 
     // Assignments for the ports of the encompassing component:
     assign clock_0_clk_i_to_clk_i = clk_i;
@@ -137,8 +136,7 @@ module CoreExample_0 #(
     assign clock_0_rst_i_to_rst_i = rst_i;
 
     // alu assignments:
-    assign alu_alu_active_i = memory_controller_cpu_system_to_alu_cpu_systemalu_active;
-    assign alu_alu_op_i[1:0] = memory_controller_cpu_system_to_alu_cpu_systemalu_operation[1:0];
+    assign alu_alu_op_i[2:0] = memory_controller_cpu_system_to_alu_cpu_systemalu_operation[2:0];
     assign memory_controller_cpu_system_to_alu_cpu_systemalu_result[15:0] = alu_alu_result_o[15:0];
     assign memory_controller_cpu_system_to_alu_cpu_systemalu_status[15:0] = alu_alu_status_o[15:0];
     assign alu_register_value_i1[15:0] = memory_controller_cpu_system_to_alu_cpu_systemregister_output_1[15:0];
@@ -150,7 +148,7 @@ module CoreExample_0 #(
     assign clock_0_cpu_clk_source_to_register_bank_cpu_clk_sinkrst = clock_0_rst_o;
     // instruction_decoder assignments:
     assign memory_controller_cpu_system_to_alu_cpu_systemalu_active = instruction_decoder_alu_active_o;
-    assign memory_controller_cpu_system_to_alu_cpu_systemalu_operation[3:0] = instruction_decoder_alu_op_o[3:0];
+    assign memory_controller_cpu_system_to_alu_cpu_systemalu_operation[2:0] = instruction_decoder_alu_op_o[2:0];
     assign instruction_decoder_alu_status_i[15:0] = memory_controller_cpu_system_to_alu_cpu_systemalu_status[15:0];
     assign memory_controller_cpu_system_to_alu_cpu_systemchoose_register_1[3:0] = instruction_decoder_choose_reg1_o[3:0];
     assign memory_controller_cpu_system_to_alu_cpu_systemchoose_register_2[3:0] = instruction_decoder_choose_reg2_o[3:0];
@@ -160,7 +158,8 @@ module CoreExample_0 #(
     assign instruction_decoder_load_value_i[15:0] = memory_controller_cpu_system_to_alu_cpu_systemload_value[15:0];
     assign memory_controller_cpu_system_to_alu_cpu_systemmem_active = instruction_decoder_mem_active_o;
     assign instruction_decoder_mem_rdy_i = memory_controller_cpu_system_to_alu_cpu_systemmem_rdy;
-    assign memory_controller_cpu_system_to_alu_cpu_systemregister_input[16:0] = instruction_decoder_register_value_o[16:0];
+    assign memory_controller_cpu_system_to_alu_cpu_systemregister_active = instruction_decoder_register_active_o;
+    assign memory_controller_cpu_system_to_alu_cpu_systemregister_input[15:0] = instruction_decoder_register_value_o[15:0];
     assign instruction_decoder_rst_i = clock_0_cpu_clk_source_to_register_bank_cpu_clk_sinkrst;
     assign memory_controller_cpu_system_to_alu_cpu_systemmem_we = instruction_decoder_we_o;
     // memory_controller assignments:
@@ -184,21 +183,18 @@ module CoreExample_0 #(
     assign register_bank_choose_register_i1[3:0] = memory_controller_cpu_system_to_alu_cpu_systemchoose_register_1[3:0];
     assign register_bank_choose_register_i2[3:0] = memory_controller_cpu_system_to_alu_cpu_systemchoose_register_2[3:0];
     assign register_bank_clk_i = clock_0_cpu_clk_source_to_register_bank_cpu_clk_sinkclk;
-    assign register_bank_mem_active_i = memory_controller_cpu_system_to_alu_cpu_systemmem_active;
-    assign register_bank_mem_rdy_i = memory_controller_cpu_system_to_alu_cpu_systemmem_rdy;
-    assign register_bank_register_input[16:0] = memory_controller_cpu_system_to_alu_cpu_systemregister_input[16:0];
+    assign register_bank_register_active_i = memory_controller_cpu_system_to_alu_cpu_systemregister_active;
+    assign register_bank_register_input[15:0] = memory_controller_cpu_system_to_alu_cpu_systemregister_input[15:0];
     assign memory_controller_cpu_system_to_alu_cpu_systemregister_output_1[15:0] = register_bank_register_output1[15:0];
     assign memory_controller_cpu_system_to_alu_cpu_systemaddress[15:0] = register_bank_register_output2[15:0];
     assign memory_controller_cpu_system_to_alu_cpu_systemregister_output_2[15:0] = register_bank_register_output2[15:0];
     assign register_bank_rst_i = clock_0_cpu_clk_source_to_register_bank_cpu_clk_sinkrst;
-    assign register_bank_we_i = memory_controller_cpu_system_to_alu_cpu_systemmem_we;
 
     // IP-XACT VLNV: tut.fi:core:alu:1.0
     alu #(
         .DATA_WIDTH          (16))
     alu(
         // Interface: cpu_system
-        .alu_active_i        (alu_alu_active_i),
         .alu_op_i            (alu_alu_op_i),
         .register_value_i1   (alu_register_value_i1),
         .register_value_i2   (alu_register_value_i2),
@@ -234,6 +230,7 @@ module CoreExample_0 #(
         .choose_reg1_o       (instruction_decoder_choose_reg1_o),
         .choose_reg2_o       (instruction_decoder_choose_reg2_o),
         .mem_active_o        (instruction_decoder_mem_active_o),
+        .register_active_o   (instruction_decoder_register_active_o),
         .register_value_o    (instruction_decoder_register_value_o),
         .we_o                (instruction_decoder_we_o),
         // These ports are not in any interface
@@ -280,10 +277,8 @@ module CoreExample_0 #(
         .alu_result_i        (register_bank_alu_result_i),
         .choose_register_i1  (register_bank_choose_register_i1),
         .choose_register_i2  (register_bank_choose_register_i2),
-        .mem_active_i        (register_bank_mem_active_i),
-        .mem_rdy_i           (register_bank_mem_rdy_i),
+        .register_active_i   (register_bank_register_active_i),
         .register_input      (register_bank_register_input),
-        .we_i                (register_bank_we_i),
         .register_output1    (register_bank_register_output1),
         .register_output2    (register_bank_register_output2));
 

@@ -127,18 +127,24 @@
 				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>stall_i</ipxact:name>
+				<ipxact:name>iaddr_o</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>0</ipxact:left>
+							<ipxact:left>uuid_7295574e_1959_452c_94b0_8a84c801ac9e-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
+					<ipxact:wireTypeDefs>
+						<ipxact:wireTypeDef>
+							<ipxact:typeDefinition></ipxact:typeDefinition>
+						</ipxact:wireTypeDef>
+					</ipxact:wireTypeDefs>
 				</ipxact:wire>
 				<ipxact:vendorExtensions>
 					<kactus2:adHocVisible/>
+					<kactus2:portTags></kactus2:portTags>
 				</ipxact:vendorExtensions>
 			</ipxact:port>
 		</ipxact:ports>
@@ -149,7 +155,7 @@
 			<ipxact:file>
 				<ipxact:name>Memory_tb.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 13:50:24 on 07.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 13:30:28 on 18.04.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
 					<kactus2:hash>b4661e04bc8835981d39c1bb8600d5c2c26108ab</kactus2:hash>
 				</ipxact:vendorExtensions>
@@ -162,10 +168,15 @@
 			<ipxact:description>Width for data in registers and instructions.</ipxact:description>
 			<ipxact:value>32</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_e8ddf738_e12d_440f_a6b0_75d32bf0da26" resolve="user" usageCount="1">
+		<ipxact:parameter parameterId="uuid_e8ddf738_e12d_440f_a6b0_75d32bf0da26" resolve="user">
 			<ipxact:name>INSTRUCTION_WIDTH</ipxact:name>
 			<ipxact:description>Total width of an instruction</ipxact:description>
 			<ipxact:value>28</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_7295574e_1959_452c_94b0_8a84c801ac9e" resolve="user" usageCount="1">
+			<ipxact:name>INSTRUCTION_ADDRESS_WIDTH</ipxact:name>
+			<ipxact:description>Width of an instruction address.</ipxact:description>
+			<ipxact:value>8</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

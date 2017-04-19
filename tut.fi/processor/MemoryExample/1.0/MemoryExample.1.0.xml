@@ -152,21 +152,6 @@
 				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>stall_o</ipxact:name>
-				<ipxact:wire>
-					<ipxact:direction>out</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left>0</ipxact:left>
-							<ipxact:right>0</ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
-				</ipxact:wire>
-				<ipxact:vendorExtensions>
-					<kactus2:adHocVisible/>
-				</ipxact:vendorExtensions>
-			</ipxact:port>
-			<ipxact:port>
 				<ipxact:name>clk_out</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
@@ -213,6 +198,27 @@
 						</ipxact:vector>
 					</ipxact:vectors>
 				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>iaddr_o</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>uuid_086362f4_6935_47d0_8be7_c67ab3ae7d56-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+					<ipxact:wireTypeDefs>
+						<ipxact:wireTypeDef>
+							<ipxact:typeDefinition></ipxact:typeDefinition>
+						</ipxact:wireTypeDef>
+					</ipxact:wireTypeDefs>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:adHocVisible/>
+					<kactus2:portTags></kactus2:portTags>
+				</ipxact:vendorExtensions>
 			</ipxact:port>
 		</ipxact:ports>
 	</ipxact:model>
@@ -262,10 +268,15 @@
 			<ipxact:description>Base address for wishbone in the system memory.</ipxact:description>
 			<ipxact:value>'h0100</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_172925b5_3a46_4dee_bd29_343828ea26bc" usageCount="1">
+		<ipxact:parameter parameterId="uuid_172925b5_3a46_4dee_bd29_343828ea26bc" resolve="immediate" usageCount="1">
 			<ipxact:name>INSTRUCTION_WIDTH</ipxact:name>
 			<ipxact:description>Total width of an instruction</ipxact:description>
 			<ipxact:value>28</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_086362f4_6935_47d0_8be7_c67ab3ae7d56" resolve="immediate" usageCount="1">
+			<ipxact:name>INSTRUCTION_ADDRESS_WIDTH</ipxact:name>
+			<ipxact:description>Width of an instruction address.</ipxact:description>
+			<ipxact:value>8</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

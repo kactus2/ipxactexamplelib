@@ -42,7 +42,7 @@ module spi_slave #(
     always @(posedge clk_in or posedge rst_in) begin
         if(rst_in == 1'b1) begin
             data_recv <= 0;
-            data_send <= 8'hAD;
+            data_send <= 8'hAA;
             send_iterator <= 1;
             recv_iterator <= 0;
             data_out <= 1'bz;
@@ -57,13 +57,16 @@ module spi_slave #(
                     data_recv[recv_iterator] <= data_in;
                     recv_iterator <= recv_iterator + 1;
                 end
+                else
+                    data_send <= data_recv;
                     
                  if (send_iterator < BYTE_SIZE - 1) begin
                     send_iterator <= send_iterator + 1;
                  end
                  
-                 if (recv_iterator >= BYTE_SIZE-1)
+                 if (recv_iterator >= BYTE_SIZE - 1) begin
                     transferred <= 1;
+                 end
             end
             else begin
                 if (slave_select_in == 1'b0) begin

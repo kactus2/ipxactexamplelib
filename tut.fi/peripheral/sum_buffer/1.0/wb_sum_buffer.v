@@ -1,17 +1,17 @@
 //-----------------------------------------------------------------------------
 // File          : wb_sum_buffer.v
-// Creation date : 13.04.2017
-// Creation time : 11:02:24
+// Creation date : 18.04.2017
+// Creation time : 13:45:49
 // Description   : Maintains calculated sum of all input values. The output value is the latest result. When new input value is set, the oldest is discarded.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.78 32-bit
+// Tool : Kactus2 3.4.79 32-bit
 // Plugin : Verilog generator 2.0d
 // This file was generated based on IP-XACT component tut.fi:peripheral:sum_buffer:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/peripheral/sum_buffer/1.0/sum_buffer.1.0.xml
 //-----------------------------------------------------------------------------
 
 module wb_sum_buffer #(
-    parameter                              BUFFER_SIZE      = 4,    // How much buffer is allocated for both directions.
+    parameter                              BUFFER_SIZE      = 16,    // How much buffer is allocated for both directions.
     parameter                              ADDR_WIDTH       = 16,    // The width of the address.
     parameter                              DATA_WIDTH       = 32,    // The width of the both transferred and inputted data.
     parameter                              BASE_ADDRESS     = 'h0F00,    // The first referred address of the master.
@@ -40,6 +40,9 @@ module wb_sum_buffer #(
     reg [DATA_WIDTH-1:0] result;
     
     reg [BUFFER_INDEX_WIDTH-1:0] index;
+    
+    localparam AUB = 8;
+    localparam AU_IN_DATA = DATA_WIDTH/AUB;
 
     // The state.
     reg [0:0] state;
@@ -90,7 +93,7 @@ module wb_sum_buffer #(
                             index <= 0;
                         end
                     end
-                    else if (adr_i == BUFFER_SIZE+BASE_ADDRESS+1 && we_i == 0) begin
+                    else if (adr_i == BUFFER_SIZE+BASE_ADDRESS+AU_IN_DATA && we_i == 0) begin
                         // Address of the result.
                         ack_o <= 1;
                         dat_o = result;

@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 // File          : alu.v
-// Creation date : 13.04.2017
-// Creation time : 15:10:28
+// Creation date : 18.04.2017
+// Creation time : 14:44:52
 // Description   : 
 // Created by    : TermosPullo
 // Tool : Kactus2 3.4.79 32-bit
@@ -12,10 +12,9 @@
 
 module alu #(
     parameter                              DATA_WIDTH       = 16,    // Width for data in registers and instructions.
-    parameter                              ALU_OP_WIDTH     = 2    // Bits reserved for identification of alu operation
+    parameter                              ALU_OP_WIDTH     = 3    // Bits reserved for identification of alu operation
 ) (
     // Interface: cpu_system
-    input                               alu_active_i,
     input          [ALU_OP_WIDTH-1:0]   alu_op_i,
     input          [DATA_WIDTH-1:0]     register_value_i1,
     input          [DATA_WIDTH-1:0]     register_value_i2,
@@ -26,10 +25,11 @@ module alu #(
 // WARNING: EVERYTHING ON AND ABOVE THIS LINE MAY BE OVERWRITTEN BY KACTUS2!!!
     // The available states.
     parameter [ALU_OP_WIDTH-1:0]
-        OP_PLUS         = 2'd0, 
-        OP_MINUS        = 2'd1, 
-        OP_MUL          = 2'd2, 
-        OP_DIV          = 2'd3;
+        OP_PLUS         = 3'b000, 
+        OP_MINUS        = 3'b001, 
+        OP_MUL          = 3'b010, 
+        OP_DIV          = 3'b011, 
+        OP_CMP          = 3'b100;
         
     parameter [1:0]
         C_OUT           = 2'd3, 
@@ -56,6 +56,7 @@ module alu #(
                     operation_result <= register_value_i1 / register_value_i2;
                 end
             end
+            OP_CMP : operation_result <= register_value_i1 != register_value_i2;
             default: begin
                 $display("ERROR: Unknown ALU operation: %d", alu_op_i);
                 operation_result <= 0;

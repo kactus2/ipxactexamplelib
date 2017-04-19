@@ -1,17 +1,17 @@
 //-----------------------------------------------------------------------------
 // File          : wb_slave_spi_master.v
-// Creation date : 12.04.2017
-// Creation time : 13:13:50
+// Creation date : 18.04.2017
+// Creation time : 13:45:46
 // Description   : Template component for wishbone slave. Address space is assumed to be contiguous.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.21 32-bit
+// Tool : Kactus2 3.4.79 32-bit
 // Plugin : Verilog generator 2.0d
 // This file was generated based on IP-XACT component tut.fi:communication:wb_slave_spi_master:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/communication/wb_slave_spi_master/1.0/wb_slave_spi_master.1.0.xml
 //-----------------------------------------------------------------------------
 
 module wb_slave_spi_master #(
-    parameter                              BUFFER_SIZE      = 6,    // How many bytes is allocated for a buffer.
+    parameter                              BUFFER_SIZE      = 16,    // How many bytes is allocated for a buffer.
     parameter                              ADDR_WIDTH       = 16,    // The width of the address.
     parameter                              DATA_WIDTH       = 32,    // The width of the both transferred and inputted data.
     parameter                              BASE_ADDRESS     = 'h0F00,    // The first referred address of the master.
@@ -136,7 +136,7 @@ module wb_slave_spi_master #(
     reg [BYTE_INDEX_SIZE-1:0] send_iterator;
     reg [BYTE_INDEX_SIZE-1:0] recv_iterator;
 
-    reg [BYTE_SIZE-1:0] data_recv;
+    reg [BYTE_SIZE-2:0] data_recv;
     reg [BYTE_SIZE-1:0] data_send;
     
     // The state.
@@ -174,7 +174,6 @@ module wb_slave_spi_master #(
             if (spi_state == S_SPI_WAIT) begin
                 if (start_transfer && transfer_complete) begin
                     spi_state <= S_SPI_INIT_NEXT;
-                    buffer_send[BUFFER_SIZE][BYTE_SIZE-1] = 1;
                     transfer_complete <= 0;
                 end
             end
@@ -198,11 +197,10 @@ module wb_slave_spi_master #(
                     send_iterator <= send_iterator + 1;
             end
             else if (spi_state == S_SPI_DEASSERT) begin
-                data_recv[BYTE_SIZE-1] <= data_in;
                 slave_select_out <= 1;
                 data_out <= 1'bz;
                 
-                buffer_recv[buffer_index] <= data_recv;
+                buffer_recv[buffer_index] <= {data_in,data_recv[6:0]};
                 
                 send_iterator <= 0;
                 recv_iterator <= 0;
