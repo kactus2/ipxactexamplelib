@@ -212,7 +212,7 @@
 		<ipxact:memoryMap>
 			<ipxact:name>default</ipxact:name>
 			<ipxact:addressBlock>
-				<ipxact:name>RecvBuffer</ipxact:name>
+				<ipxact:name>recv_buffer</ipxact:name>
 				<ipxact:baseAddress>0</ipxact:baseAddress>
 				<ipxact:range>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920</ipxact:range>
 				<ipxact:width>8</ipxact:width>
@@ -221,7 +221,7 @@
 				<ipxact:access>write-only</ipxact:access>
 			</ipxact:addressBlock>
 			<ipxact:addressBlock>
-				<ipxact:name>Control</ipxact:name>
+				<ipxact:name>control</ipxact:name>
 				<ipxact:baseAddress>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920*2+uuid_1789a5ec_4856_4dfc_99e3_91a0777df0cc</ipxact:baseAddress>
 				<ipxact:range>uuid_800a337a_29d2_423a_b1ca_fd57f6c75983</ipxact:range>
 				<ipxact:width>8</ipxact:width>
@@ -229,7 +229,7 @@
 				<ipxact:volatile>true</ipxact:volatile>
 				<ipxact:access>write-only</ipxact:access>
 				<ipxact:register>
-					<ipxact:name>CONTROL</ipxact:name>
+					<ipxact:name>control</ipxact:name>
 					<ipxact:dim>0</ipxact:dim>
 					<ipxact:addressOffset>0</ipxact:addressOffset>
 					<ipxact:size>8</ipxact:size>
@@ -243,7 +243,7 @@
 				</ipxact:register>
 			</ipxact:addressBlock>
 			<ipxact:addressBlock>
-				<ipxact:name>SendBuffer</ipxact:name>
+				<ipxact:name>send_buffer</ipxact:name>
 				<ipxact:baseAddress>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920+uuid_1789a5ec_4856_4dfc_99e3_91a0777df0cc</ipxact:baseAddress>
 				<ipxact:range>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920</ipxact:range>
 				<ipxact:width>8</ipxact:width>
@@ -252,7 +252,7 @@
 				<ipxact:access>read-only</ipxact:access>
 			</ipxact:addressBlock>
 			<ipxact:addressBlock>
-				<ipxact:name>Status</ipxact:name>
+				<ipxact:name>status</ipxact:name>
 				<ipxact:baseAddress>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920</ipxact:baseAddress>
 				<ipxact:range>uuid_1789a5ec_4856_4dfc_99e3_91a0777df0cc</ipxact:range>
 				<ipxact:width>8</ipxact:width>
@@ -260,7 +260,7 @@
 				<ipxact:volatile>true</ipxact:volatile>
 				<ipxact:access>read-only</ipxact:access>
 				<ipxact:register>
-					<ipxact:name>STATUS</ipxact:name>
+					<ipxact:name>status</ipxact:name>
 					<ipxact:dim>0</ipxact:dim>
 					<ipxact:addressOffset>'h0</ipxact:addressOffset>
 					<ipxact:size>8</ipxact:size>

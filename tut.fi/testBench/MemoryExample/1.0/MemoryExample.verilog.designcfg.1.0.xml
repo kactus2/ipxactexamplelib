@@ -13,6 +13,10 @@
 		<ipxact:instanceName>MemoryExample_0</ipxact:instanceName>
 		<ipxact:view viewRef="hierarchical_verilog"/>
 	</ipxact:viewConfiguration>
+	<ipxact:viewConfiguration>
+		<ipxact:instanceName>Memory_tb_0</ipxact:instanceName>
+		<ipxact:view viewRef="flat_verilog"/>
+	</ipxact:viewConfiguration>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,4,24,0</kactus2:version>
 		<kactus2:kts_attributes>

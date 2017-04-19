@@ -168,7 +168,7 @@
 		<ipxact:memoryMap>
 			<ipxact:name>default</ipxact:name>
 			<ipxact:addressBlock>
-				<ipxact:name>AddressBlock</ipxact:name>
+				<ipxact:name>registers</ipxact:name>
 				<ipxact:baseAddress>uuid_a1a11cf0_8317_4c75_b719_c55f8b393ddc</ipxact:baseAddress>
 				<ipxact:range>2*uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd/8</ipxact:range>
 				<ipxact:width>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:width>
@@ -176,7 +176,7 @@
 				<ipxact:volatile>true</ipxact:volatile>
 				<ipxact:access>read-write</ipxact:access>
 				<ipxact:register>
-					<ipxact:name>NEW_VALUE</ipxact:name>
+					<ipxact:name>new_value</ipxact:name>
 					<ipxact:dim>0</ipxact:dim>
 					<ipxact:addressOffset>'h0</ipxact:addressOffset>
 					<ipxact:size>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:size>
@@ -189,7 +189,7 @@
 					</ipxact:field>
 				</ipxact:register>
 				<ipxact:register>
-					<ipxact:name>NEW_RESULT</ipxact:name>
+					<ipxact:name>new_result</ipxact:name>
 					<ipxact:dim>0</ipxact:dim>
 					<ipxact:addressOffset>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd/8</ipxact:addressOffset>
 					<ipxact:size>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:size>

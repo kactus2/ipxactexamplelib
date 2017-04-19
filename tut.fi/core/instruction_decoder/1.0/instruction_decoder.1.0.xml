@@ -192,8 +192,18 @@
 		<ipxact:views>
 			<ipxact:view>
 				<ipxact:name>flat_verilog</ipxact:name>
+				<ipxact:componentInstantiationRef>verilog_implementation</ipxact:componentInstantiationRef>
 			</ipxact:view>
 		</ipxact:views>
+		<ipxact:instantiations>
+			<ipxact:componentInstantiation>
+				<ipxact:name>verilog_implementation</ipxact:name>
+				<ipxact:language>Verilog</ipxact:language>
+				<ipxact:fileSetRef>
+					<ipxact:localName>verilogSource</ipxact:localName>
+				</ipxact:fileSetRef>
+			</ipxact:componentInstantiation>
+		</ipxact:instantiations>
 		<ipxact:ports>
 			<ipxact:port>
 				<ipxact:name>alu_op_o</ipxact:name>

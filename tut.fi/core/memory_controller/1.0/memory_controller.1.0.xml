@@ -199,17 +199,17 @@
 			<ipxact:width>uuid_11795f77_041d_4548_bcf3_cd41b67482a1</ipxact:width>
 			<ipxact:segments>
 				<ipxact:segment>
-					<ipxact:name>LocalRegisters</ipxact:name>
+					<ipxact:name>local_registers</ipxact:name>
 					<ipxact:addressOffset>'h0</ipxact:addressOffset>
 					<ipxact:range>uuid_5e8681b9_de2f_4521_b331_a3db91c4b49b</ipxact:range>
 				</ipxact:segment>
 				<ipxact:segment>
-					<ipxact:name>Peripherals</ipxact:name>
+					<ipxact:name>peripherals</ipxact:name>
 					<ipxact:addressOffset>uuid_e3b353a9_9c84_4f26_a9bf_8271de5b015c</ipxact:addressOffset>
 					<ipxact:range>uuid_e835eae8_6310_47c7_a791_8ee2df766ed3-uuid_e3b353a9_9c84_4f26_a9bf_8271de5b015c</ipxact:range>
 				</ipxact:segment>
 				<ipxact:segment>
-					<ipxact:name>LocalData</ipxact:name>
+					<ipxact:name>local_data</ipxact:name>
 					<ipxact:addressOffset>uuid_5e8681b9_de2f_4521_b331_a3db91c4b49b</ipxact:addressOffset>
 					<ipxact:range>uuid_e3b353a9_9c84_4f26_a9bf_8271de5b015c-uuid_5e8681b9_de2f_4521_b331_a3db91c4b49b</ipxact:range>
 				</ipxact:segment>
@@ -219,7 +219,7 @@
 				<ipxact:name>cpu_local_memory</ipxact:name>
 				<ipxact:description>All address blocks accessible directly by memory controller, rather than through peripheral access.</ipxact:description>
 				<ipxact:addressBlock>
-					<ipxact:name>Data</ipxact:name>
+					<ipxact:name>data</ipxact:name>
 					<ipxact:baseAddress>'h40</ipxact:baseAddress>
 					<ipxact:range>uuid_e3b353a9_9c84_4f26_a9bf_8271de5b015c-'h40</ipxact:range>
 					<ipxact:width>uuid_11795f77_041d_4548_bcf3_cd41b67482a1</ipxact:width>
@@ -228,7 +228,7 @@
 					<ipxact:access>read-write</ipxact:access>
 				</ipxact:addressBlock>
 				<ipxact:addressBlock>
-					<ipxact:name>Registers</ipxact:name>
+					<ipxact:name>registers</ipxact:name>
 					<ipxact:baseAddress>'h0</ipxact:baseAddress>
 					<ipxact:range>uuid_5e8681b9_de2f_4521_b331_a3db91c4b49b</ipxact:range>
 					<ipxact:width>uuid_11795f77_041d_4548_bcf3_cd41b67482a1</ipxact:width>
@@ -236,7 +236,7 @@
 					<ipxact:volatile>true</ipxact:volatile>
 					<ipxact:access>read-write</ipxact:access>
 					<ipxact:register>
-						<ipxact:name>WORK</ipxact:name>
+						<ipxact:name>work</ipxact:name>
 						<ipxact:description>General purpose register.</ipxact:description>
 						<ipxact:dim>8</ipxact:dim>
 						<ipxact:addressOffset>uuid_86d03535_d756_4fc9_8d59_ba85e57b94ab*7</ipxact:addressOffset>
@@ -248,7 +248,7 @@
 						</ipxact:field>
 					</ipxact:register>
 					<ipxact:register>
-						<ipxact:name>MODSTART</ipxact:name>
+						<ipxact:name>modstart</ipxact:name>
 						<ipxact:description>Start address for modulo operation</ipxact:description>
 						<ipxact:dim>0</ipxact:dim>
 						<ipxact:addressOffset>uuid_86d03535_d756_4fc9_8d59_ba85e57b94ab*1</ipxact:addressOffset>
@@ -260,7 +260,7 @@
 						</ipxact:field>
 					</ipxact:register>
 					<ipxact:register>
-						<ipxact:name>MODEND</ipxact:name>
+						<ipxact:name>modend</ipxact:name>
 						<ipxact:description>End address for modulo operation</ipxact:description>
 						<ipxact:dim>0</ipxact:dim>
 						<ipxact:addressOffset>uuid_86d03535_d756_4fc9_8d59_ba85e57b94ab*2</ipxact:addressOffset>
@@ -272,7 +272,7 @@
 						</ipxact:field>
 					</ipxact:register>
 					<ipxact:register>
-						<ipxact:name>ALU_STATUS</ipxact:name>
+						<ipxact:name>alu_status</ipxact:name>
 						<ipxact:description>ALU status bits</ipxact:description>
 						<ipxact:dim>0</ipxact:dim>
 						<ipxact:addressOffset>0</ipxact:addressOffset>
@@ -304,7 +304,7 @@
 						</ipxact:field>
 					</ipxact:register>
 					<ipxact:register>
-						<ipxact:name>PERIPH_STATUS</ipxact:name>
+						<ipxact:name>periph_status</ipxact:name>
 						<ipxact:description>Status of the peripheral control.</ipxact:description>
 						<ipxact:dim>0</ipxact:dim>
 						<ipxact:addressOffset>uuid_86d03535_d756_4fc9_8d59_ba85e57b94ab*3</ipxact:addressOffset>
@@ -330,7 +330,7 @@
 						</ipxact:field>
 					</ipxact:register>
 					<ipxact:register>
-						<ipxact:name>PERIPH_WRITE</ipxact:name>
+						<ipxact:name>periph_write</ipxact:name>
 						<ipxact:description>The last value being written to perhiphreals.</ipxact:description>
 						<ipxact:dim>0</ipxact:dim>
 						<ipxact:addressOffset>uuid_86d03535_d756_4fc9_8d59_ba85e57b94ab*5</ipxact:addressOffset>
@@ -342,7 +342,7 @@
 						</ipxact:field>
 					</ipxact:register>
 					<ipxact:register>
-						<ipxact:name>PERIPH_READ</ipxact:name>
+						<ipxact:name>periph_read</ipxact:name>
 						<ipxact:description>The last value that is read from peripherals.</ipxact:description>
 						<ipxact:dim>0</ipxact:dim>
 						<ipxact:addressOffset>uuid_86d03535_d756_4fc9_8d59_ba85e57b94ab*4</ipxact:addressOffset>
@@ -354,7 +354,7 @@
 						</ipxact:field>
 					</ipxact:register>
 					<ipxact:register>
-						<ipxact:name>PERIPH_ADDR</ipxact:name>
+						<ipxact:name>periph_addr</ipxact:name>
 						<ipxact:description>The last accessed peripheral address.</ipxact:description>
 						<ipxact:dim>0</ipxact:dim>
 						<ipxact:addressOffset>uuid_86d03535_d756_4fc9_8d59_ba85e57b94ab*6</ipxact:addressOffset>
@@ -373,8 +373,18 @@
 		<ipxact:views>
 			<ipxact:view>
 				<ipxact:name>flat_verilog</ipxact:name>
+				<ipxact:componentInstantiationRef>verilog_implementation</ipxact:componentInstantiationRef>
 			</ipxact:view>
 		</ipxact:views>
+		<ipxact:instantiations>
+			<ipxact:componentInstantiation>
+				<ipxact:name>verilog_implementation</ipxact:name>
+				<ipxact:language>Verilog</ipxact:language>
+				<ipxact:fileSetRef>
+					<ipxact:localName>verilogSource</ipxact:localName>
+				</ipxact:fileSetRef>
+			</ipxact:componentInstantiation>
+		</ipxact:instantiations>
 		<ipxact:ports>
 			<ipxact:port>
 				<ipxact:name>we_i</ipxact:name>

@@ -8,10 +8,18 @@
 		<ipxact:views>
 			<ipxact:view>
 				<ipxact:name>hierarchical_verilog</ipxact:name>
+				<ipxact:componentInstantiationRef>verilog_implementation</ipxact:componentInstantiationRef>
 				<ipxact:designConfigurationInstantiationRef>MemoryExample.designcfg_1.0</ipxact:designConfigurationInstantiationRef>
 			</ipxact:view>
 		</ipxact:views>
 		<ipxact:instantiations>
+			<ipxact:componentInstantiation>
+				<ipxact:name>verilog_implementation</ipxact:name>
+				<ipxact:language>Verilog</ipxact:language>
+				<ipxact:fileSetRef>
+					<ipxact:localName>verilogSource</ipxact:localName>
+				</ipxact:fileSetRef>
+			</ipxact:componentInstantiation>
 			<ipxact:designConfigurationInstantiation>
 				<ipxact:name>MemoryExample.designcfg_1.0</ipxact:name>
 				<ipxact:designConfigurationRef vendor="tut.fi" library="testBench" name="MemoryExample.verilog.designcfg" version="1.0"/>

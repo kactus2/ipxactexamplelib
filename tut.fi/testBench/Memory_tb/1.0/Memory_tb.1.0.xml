@@ -57,6 +57,21 @@
 		</ipxact:busInterface>
 	</ipxact:busInterfaces>
 	<ipxact:model>
+		<ipxact:views>
+			<ipxact:view>
+				<ipxact:name>flat_verilog</ipxact:name>
+				<ipxact:componentInstantiationRef>verilog_implementation</ipxact:componentInstantiationRef>
+			</ipxact:view>
+		</ipxact:views>
+		<ipxact:instantiations>
+			<ipxact:componentInstantiation>
+				<ipxact:name>verilog_implementation</ipxact:name>
+				<ipxact:language>Verilog</ipxact:language>
+				<ipxact:fileSetRef>
+					<ipxact:localName>verilogSource</ipxact:localName>
+				</ipxact:fileSetRef>
+			</ipxact:componentInstantiation>
+		</ipxact:instantiations>
 		<ipxact:ports>
 			<ipxact:port>
 				<ipxact:name>instruction_feed</ipxact:name>
@@ -157,7 +172,7 @@
 				<ipxact:fileType>verilogSource</ipxact:fileType>
 				<ipxact:description>Generated at 13:30:28 on 18.04.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
-					<kactus2:hash>b4661e04bc8835981d39c1bb8600d5c2c26108ab</kactus2:hash>
+					<kactus2:hash>2e778a9503f34728b49ef4654cc5069d6fa6279c</kactus2:hash>
 				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>
