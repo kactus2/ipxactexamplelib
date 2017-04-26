@@ -2,60 +2,8 @@
 <ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
 	<ipxact:library>testBench</ipxact:library>
-	<ipxact:name>Memory_tb</ipxact:name>
-	<ipxact:version>1.0</ipxact:version>
-	<ipxact:busInterfaces>
-		<ipxact:busInterface>
-			<ipxact:name>wb_system</ipxact:name>
-			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
-			<ipxact:abstractionTypes>
-				<ipxact:abstractionType>
-					<ipxact:abstractionRef vendor="opencores.org" library="interface" name="wishbone.absDef" version="b4"/>
-					<ipxact:portMaps>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>rst</ipxact:name>
-								<ipxact:range>
-									<ipxact:left>0</ipxact:left>
-									<ipxact:right>0</ipxact:right>
-								</ipxact:range>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>rst_o</ipxact:name>
-								<ipxact:partSelect>
-									<ipxact:range>
-										<ipxact:left>0</ipxact:left>
-										<ipxact:right>0</ipxact:right>
-									</ipxact:range>
-								</ipxact:partSelect>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>clk</ipxact:name>
-								<ipxact:range>
-									<ipxact:left>0</ipxact:left>
-									<ipxact:right>0</ipxact:right>
-								</ipxact:range>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>clk_o</ipxact:name>
-								<ipxact:partSelect>
-									<ipxact:range>
-										<ipxact:left>0</ipxact:left>
-										<ipxact:right>0</ipxact:right>
-									</ipxact:range>
-								</ipxact:partSelect>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-					</ipxact:portMaps>
-				</ipxact:abstractionType>
-			</ipxact:abstractionTypes>
-			<ipxact:system>
-				<ipxact:group>ClockSource</ipxact:group>
-			</ipxact:system>
-		</ipxact:busInterface>
-	</ipxact:busInterfaces>
+	<ipxact:name>instruction_memory</ipxact:name>
+	<ipxact:version>1.1</ipxact:version>
 	<ipxact:model>
 		<ipxact:views>
 			<ipxact:view>
@@ -96,10 +44,10 @@
 				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>clk_o</ipxact:name>
+				<ipxact:name>clk_i</ipxact:name>
 				<ipxact:description>The mandatory clock, as this is synchronous logic.</ipxact:description>
 				<ipxact:wire>
-					<ipxact:direction>out</ipxact:direction>
+					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
 							<ipxact:left>0</ipxact:left>
@@ -108,7 +56,6 @@
 					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
-							<ipxact:typeName>reg</ipxact:typeName>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
 						</ipxact:wireTypeDef>
 					</ipxact:wireTypeDefs>
@@ -119,10 +66,10 @@
 				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>rst_o</ipxact:name>
+				<ipxact:name>rst_i</ipxact:name>
 				<ipxact:description>The mandatory reset, as this is synchronous logic.</ipxact:description>
 				<ipxact:wire>
-					<ipxact:direction>out</ipxact:direction>
+					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
 							<ipxact:left>0</ipxact:left>
@@ -131,7 +78,6 @@
 					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
-							<ipxact:typeName>reg</ipxact:typeName>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
 						</ipxact:wireTypeDef>
 					</ipxact:wireTypeDefs>
@@ -167,22 +113,15 @@
 	<ipxact:fileSets>
 		<ipxact:fileSet>
 			<ipxact:name>verilogSource</ipxact:name>
+			<ipxact:group>generatedFiles</ipxact:group>
 			<ipxact:file>
-				<ipxact:name>Memory_tb.v</ipxact:name>
+				<ipxact:name>instruction_memory.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 13:30:28 on 18.04.2017 by Kactus2. </ipxact:description>
-				<ipxact:vendorExtensions>
-					<kactus2:hash>2e778a9503f34728b49ef4654cc5069d6fa6279c</kactus2:hash>
-				</ipxact:vendorExtensions>
+				<ipxact:description>Generated at 16:40:45 on 26.04.2017 by Kactus2. </ipxact:description>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
 	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_a9f7f0ff_484b_4d10_bc65_81578ab405cb" resolve="user">
-			<ipxact:name>DATA_WIDTH</ipxact:name>
-			<ipxact:description>Width for data in registers and instructions.</ipxact:description>
-			<ipxact:value>32</ipxact:value>
-		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_e8ddf738_e12d_440f_a6b0_75d32bf0da26" resolve="user">
 			<ipxact:name>INSTRUCTION_WIDTH</ipxact:name>
 			<ipxact:description>Total width of an instruction</ipxact:description>

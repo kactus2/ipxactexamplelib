@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : CoreExample_0.v
-// Creation date : 19.04.2017
-// Creation time : 11:50:27
+// Creation date : 26.04.2017
+// Creation time : 16:34:45
 // Description   : 
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.73 32-bit
+// Tool : Kactus2 3.4.74 32-bit
 // Plugin : Verilog generator 2.0d
 // This file was generated based on IP-XACT component tut.fi:core:CoreExample:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/core/CoreExample/1.0/CoreExample.1.0.xml

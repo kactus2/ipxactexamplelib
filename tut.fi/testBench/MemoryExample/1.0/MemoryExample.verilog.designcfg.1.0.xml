@@ -14,7 +14,11 @@
 		<ipxact:view viewRef="hierarchical_verilog"/>
 	</ipxact:viewConfiguration>
 	<ipxact:viewConfiguration>
-		<ipxact:instanceName>Memory_tb_0</ipxact:instanceName>
+		<ipxact:instanceName>instruction_memory_0</ipxact:instanceName>
+		<ipxact:view viewRef="flat_verilog"/>
+	</ipxact:viewConfiguration>
+	<ipxact:viewConfiguration>
+		<ipxact:instanceName>clock_generator_0</ipxact:instanceName>
 		<ipxact:view viewRef="flat_verilog"/>
 	</ipxact:viewConfiguration>
 	<ipxact:vendorExtensions>

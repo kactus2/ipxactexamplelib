@@ -439,14 +439,14 @@
 			<ipxact:file>
 				<ipxact:name>wb_sum_buffer.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 13:45:51 on 18.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 10:25:37 on 20.04.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
 					<kactus2:hash>6237fc51524ff2cfddd3a2c8ad883074de1dd6b5</kactus2:hash>
 				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
-	<ipxact:description>Maintains calculated sum of all input values. The output value is the latest result. When new input value is set, the oldest is discarded.</ipxact:description>
+	<ipxact:description>Maintains calculated sum of input values. The output value is the latest result. When new input value is set, the oldest is discarded and deducted from the result.</ipxact:description>
 	<ipxact:parameters>
 		<ipxact:parameter parameterId="uuid_3452fcca_4cd2_458f_a644_4c6530ea74ed" resolve="user" usageCount="1">
 			<ipxact:name>ADDR_WIDTH</ipxact:name>

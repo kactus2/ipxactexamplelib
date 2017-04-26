@@ -19,6 +19,9 @@
 				<ipxact:fileSetRef>
 					<ipxact:localName>verilogSource</ipxact:localName>
 				</ipxact:fileSetRef>
+				<ipxact:fileSetRef>
+					<ipxact:localName>testBinary</ipxact:localName>
+				</ipxact:fileSetRef>
 			</ipxact:componentInstantiation>
 			<ipxact:designConfigurationInstantiation>
 				<ipxact:name>MemoryExample.designcfg_1.0</ipxact:name>
@@ -30,26 +33,27 @@
 		<ipxact:fileSet>
 			<ipxact:name>verilogSource</ipxact:name>
 			<ipxact:description>The generated hierarchical Verilog modules used in the test arrangement.</ipxact:description>
+			<ipxact:group>generatedFiles</ipxact:group>
 			<ipxact:file>
 				<ipxact:name>CoreExample_0.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 15:02:48 on 18.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 16:34:48 on 26.04.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
-					<kactus2:hash>2f04c7d9a113526a0848ea75788b26f7fce0040a</kactus2:hash>
+					<kactus2:hash>a78a0c3f892a667989528f8ab80837336ff0c6a7</kactus2:hash>
 				</ipxact:vendorExtensions>
 			</ipxact:file>
 			<ipxact:file>
 				<ipxact:name>MemoryExample_0.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 15:02:48 on 18.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 16:34:48 on 26.04.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
-					<kactus2:hash>15f07ee0a524e1b0fc6b40a9f71da29805baf47c</kactus2:hash>
+					<kactus2:hash>5c89d82e98ebf18f2d908bfd774268e75b673adf</kactus2:hash>
 				</ipxact:vendorExtensions>
 			</ipxact:file>
 			<ipxact:file>
 				<ipxact:name>MemoryExample.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 15:02:48 on 18.04.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 16:34:48 on 26.04.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
 					<kactus2:hash>0574142fc6ac2bf405d4d65cad3a97896a4483fc</kactus2:hash>
 				</ipxact:vendorExtensions>
@@ -62,19 +66,25 @@
 				<ipxact:name>src/spiProgram.asm</ipxact:name>
 				<ipxact:fileType>asmSource</ipxact:fileType>
 				<ipxact:description>Program that executes an SPI transfer using the peripheral.</ipxact:description>
+				<ipxact:vendorExtensions>
+					<kactus2:hash>4448d89e1ad75a854d9c8cdcb2c30176</kactus2:hash>
+				</ipxact:vendorExtensions>
 			</ipxact:file>
 			<ipxact:file>
 				<ipxact:name>src/storageProgram.asm</ipxact:name>
 				<ipxact:fileType>asmSource</ipxact:fileType>
 				<ipxact:description>Program that stores and loads from external memory.</ipxact:description>
 				<ipxact:vendorExtensions>
-					<kactus2:hash>60197d7e2b5c16d4154d96e7535d0e8f</kactus2:hash>
+					<kactus2:hash>7d0d27d297f81de5270b9b1b03c746d6</kactus2:hash>
 				</ipxact:vendorExtensions>
 			</ipxact:file>
 			<ipxact:file>
 				<ipxact:name>src/sumProgram.asm</ipxact:name>
 				<ipxact:fileType>asmSource</ipxact:fileType>
-				<ipxact:description>Program that utilized the sum accelerator.</ipxact:description>
+				<ipxact:description>Program that utilizes the sum accelerator.</ipxact:description>
+				<ipxact:vendorExtensions>
+					<kactus2:hash>3925ebd26b509a2494e5a1c76a97c57f</kactus2:hash>
+				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>
 		<ipxact:fileSet>
@@ -84,19 +94,25 @@
 				<ipxact:name>bin/spiProgram.hex</ipxact:name>
 				<ipxact:fileType user="hexFile">user</ipxact:fileType>
 				<ipxact:description>Program that executes an SPI transfer using the peripheral.</ipxact:description>
+				<ipxact:vendorExtensions>
+					<kactus2:hash>bf84e268a6194fff47b1f24dc6796637</kactus2:hash>
+				</ipxact:vendorExtensions>
 			</ipxact:file>
 			<ipxact:file>
 				<ipxact:name>bin/storageProgram.hex</ipxact:name>
 				<ipxact:fileType user="hexFile">user</ipxact:fileType>
 				<ipxact:description>Program that stores and loads from external memory.</ipxact:description>
 				<ipxact:vendorExtensions>
-					<kactus2:hash>7163f190c753b537b8d997a467cb1093</kactus2:hash>
+					<kactus2:hash>cae2c883390274045b5ec9797539aa6a</kactus2:hash>
 				</ipxact:vendorExtensions>
 			</ipxact:file>
 			<ipxact:file>
 				<ipxact:name>bin/sumProgram.hex</ipxact:name>
 				<ipxact:fileType user="hexFile">user</ipxact:fileType>
-				<ipxact:description>Program that utilized the sum accelerator.</ipxact:description>
+				<ipxact:description>Program that utilizes the sum accelerator.</ipxact:description>
+				<ipxact:vendorExtensions>
+					<kactus2:hash>5a7071f71c980ee08e7f95c635c189eb</kactus2:hash>
+				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>

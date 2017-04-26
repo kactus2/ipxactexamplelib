@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : wb_sum_buffer.v
-// Creation date : 18.04.2017
-// Creation time : 13:45:49
-// Description   : Maintains calculated sum of all input values. The output value is the latest result. When new input value is set, the oldest is discarded.
+// Creation date : 20.04.2017
+// Creation time : 10:25:17
+// Description   : Maintains calculated sum of input values. The output value is the latest result. When new input value is set, the oldest is discarded and deducted from the result.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.79 32-bit
+// Tool : Kactus2 3.4.88 32-bit
 // Plugin : Verilog generator 2.0d
 // This file was generated based on IP-XACT component tut.fi:peripheral:sum_buffer:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/peripheral/sum_buffer/1.0/sum_buffer.1.0.xml

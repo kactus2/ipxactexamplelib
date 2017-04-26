@@ -22,6 +22,7 @@
 		<ipxact:fileSet>
 			<ipxact:name>verilogSource</ipxact:name>
 			<ipxact:description>The generated hierarchical Verilog modules used in the test arrangement.</ipxact:description>
+			<ipxact:group>generatedFiles</ipxact:group>
 			<ipxact:file>
 				<ipxact:name>Core.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
