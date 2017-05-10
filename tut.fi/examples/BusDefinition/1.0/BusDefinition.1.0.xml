@@ -7,48 +7,48 @@
 	<ipxact:description>This catalog contains all the IP-XACT files used in the Bus Definition video tutorial for Kactus2. The top-level component is tut.fi:ip.hw:spi_example:1.0.</ipxact:description>
 	<ipxact:busDefinitions>
 		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="interface" name="SPI" version="1.0"/>
-			<ipxact:name>../../../interface/SPI/1.0/SPI.1.0.xml</ipxact:name>
+			<ipxact:vlnv vendor="tut.fi" library="interface" name="spi" version="1.0"/>
+			<ipxact:name>../../../interface/spi/1.0/spi.1.0.xml</ipxact:name>
 		</ipxact:ipxactFile>
 	</ipxact:busDefinitions>
 	<ipxact:abstractionDefinitions>
 		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="interface" name="SPI.absDef" version="1.0"/>
-			<ipxact:name>../../../interface/SPI/1.0/SPI.absDef.1.0.xml</ipxact:name>
+			<ipxact:vlnv vendor="tut.fi" library="interface" name="spi.absDef" version="1.0"/>
+			<ipxact:name>../../../interface/spi/1.0/spi.absDef.1.0.xml</ipxact:name>
 		</ipxact:ipxactFile>
 	</ipxact:abstractionDefinitions>
 	<ipxact:components>
 		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="template" name="spi_master" version="1.0"/>
-			<ipxact:name>../../../template/spi_master/1.0/spi_master.1.0.xml</ipxact:name>
+			<ipxact:vlnv vendor="tut.fi" library="communication.template" name="spi_master" version="1.0"/>
+			<ipxact:name>../../../communication.template/spi_master/1.0/spi_master.1.0.xml</ipxact:name>
 		</ipxact:ipxactFile>
 		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="template" name="spi_slave" version="1.0"/>
-			<ipxact:name>../../../template/spi_slave/1.0/spi_slave.1.0.xml</ipxact:name>
+			<ipxact:vlnv vendor="tut.fi" library="communication.template" name="spi_slave" version="1.0"/>
+			<ipxact:name>../../../communication.template/spi_slave/1.0/spi_slave.1.0.xml</ipxact:name>
 		</ipxact:ipxactFile>
 		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="ip.hw" name="spi_example" version="1.0"/>
-			<ipxact:name>../../../ip.hw/spi_example/1.0/spi_example.1.0.xml</ipxact:name>
+			<ipxact:vlnv vendor="tut.fi" library="other.subsystem" name="spi_example" version="1.0"/>
+			<ipxact:name>../../../other.subsystem/spi_example/1.0/spi_example.1.0.xml</ipxact:name>
 		</ipxact:ipxactFile>
 	</ipxact:components>
 	<ipxact:designs>
 		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="ip.hw" name="spi_example.bus_design.design" version="1.0_bus"/>
-			<ipxact:name>../../../ip.hw/spi_example.bus_design/1.0_bus/spi_example.bus_design.design.1.0_bus.xml</ipxact:name>
+			<ipxact:vlnv vendor="tut.fi" library="other.subsystem" name="spi_example.design" version="1.0_adhoc"/>
+			<ipxact:name>../../../other.subsystem/spi_example/1.0/spi_example.design.1.0_adhoc.xml</ipxact:name>
 		</ipxact:ipxactFile>
 		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="ip.hw" name="spi_example.design" version="1.0_adhoc"/>
-			<ipxact:name>../../../ip.hw/spi_example/1.0/spi_example.design.1.0_adhoc.xml</ipxact:name>
+			<ipxact:vlnv vendor="tut.fi" library="other.subsystem" name="spi_example.design" version="1.0_bus"/>
+			<ipxact:name>../../../other.subsystem/spi_example/1.0/spi_example.design.1.0_bus.xml</ipxact:name>
 		</ipxact:ipxactFile>
 	</ipxact:designs>
 	<ipxact:designConfigurations>
 		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="ip.hw" name="spi_example.designcfg" version="1.0_adhoc"/>
-			<ipxact:name>../../../ip.hw/spi_example/1.0/spi_example.designcfg.1.0_adhoc.xml</ipxact:name>
+			<ipxact:vlnv vendor="tut.fi" library="other.subsystem" name="spi_example.designcfg" version="1.0_adhoc"/>
+			<ipxact:name>../../../other.subsystem/spi_example/1.0/spi_example.designcfg.1.0_adhoc.xml</ipxact:name>
 		</ipxact:ipxactFile>
 		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="ip.hw" name="spi_example.bus_design.designcfg" version="1.0_bus"/>
-			<ipxact:name>../../../ip.hw/spi_example.bus_design/1.0_bus/spi_example.bus_design.designcfg.1.0_bus.xml</ipxact:name>
+			<ipxact:vlnv vendor="tut.fi" library="other.subsystem" name="spi_example.designcfg" version="1.0_bus"/>
+			<ipxact:name>../../../other.subsystem/spi_example/1.0/spi_example.designcfg.1.0_bus.xml</ipxact:name>
 		</ipxact:ipxactFile>
 	</ipxact:designConfigurations>
 	<ipxact:vendorExtensions>

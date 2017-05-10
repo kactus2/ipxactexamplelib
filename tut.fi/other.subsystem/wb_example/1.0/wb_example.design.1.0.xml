@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipxact:design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+	<ipxact:vendor>tut.fi</ipxact:vendor>
+	<ipxact:library>other.subsystem</ipxact:library>
+	<ipxact:name>wb_example.design</ipxact:name>
+	<ipxact:version>1.0</ipxact:version>
+	<ipxact:componentInstances>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>wishbone_0</ipxact:instanceName>
+			<ipxact:displayName>The bus</ipxact:displayName>
+			<ipxact:description>The bus used in this design to connect a master to two slaves.</ipxact:description>
+			<ipxact:componentRef vendor="tut.fi" library="communication.bus" name="wishbone" version="1.0"/>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{702b5195-24be-4bc5-9b9f-88c5dcbc2da7}</kactus2:uuid>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="one_to_many_master" x="-110" y="40"/>
+					<kactus2:portPosition busRef="slave_0" x="110" y="40"/>
+					<kactus2:portPosition busRef="slave_1" x="110" y="130"/>
+					<kactus2:portPosition busRef="slave_2" x="-110" y="70"/>
+					<kactus2:portPosition busRef="slave_3" x="-110" y="100"/>
+				</kactus2:portPositions>
+				<kactus2:position x="600" y="60"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>hierarchical_wb_slave_0</ipxact:instanceName>
+			<ipxact:displayName>Hierarchical bus slave</ipxact:displayName>
+			<ipxact:description>The first slave connected to bus. Has the same base address as the master.</ipxact:description>
+			<ipxact:componentRef vendor="tut.fi" library="peripheral.subsystem" name="hierarchical_wb_slave" version="1.0">
+				<ipxact:configurableElementValues>
+					<ipxact:configurableElementValue referenceId="uuid_223a95ba_e4b0_4773_9f25_14d3b85116f7">uuid_971a9685_1ec7_4781_bd5d_3dfa2fcc51ae/2</ipxact:configurableElementValue>
+				</ipxact:configurableElementValues>
+			</ipxact:componentRef>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{e4470e70-9e02-4a80-8989-175ef8ccd503}</kactus2:uuid>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="bus_slave" x="-110" y="40"/>
+					<kactus2:portPosition busRef="wb_slave" x="-110" y="40"/>
+					<kactus2:portPosition busRef="wb_system" x="110" y="40"/>
+				</kactus2:portPositions>
+				<kactus2:position x="920" y="60"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>wb_dual_master_0</ipxact:instanceName>
+			<ipxact:displayName>The master</ipxact:displayName>
+			<ipxact:description>The chosen master in this design. The second interface has the same base address as the direct slave.</ipxact:description>
+			<ipxact:componentRef vendor="tut.fi" library="peripheral.logic" name="wb_dual_master" version="1.0"/>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{60e38560-184b-4766-b2ed-df4f974cf968}</kactus2:uuid>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="master_1" x="110" y="100"/>
+					<kactus2:portPosition busRef="wb_system" x="-110" y="100"/>
+				</kactus2:portPositions>
+				<kactus2:adHocVisibilities>
+					<kactus2:adHocVisible portName="done" x="-110" y="70"/>
+					<kactus2:adHocVisible portName="start" x="-110" y="40"/>
+				</kactus2:adHocVisibilities>
+				<kactus2:position x="280" y="60"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>wb_slave_0</ipxact:instanceName>
+			<ipxact:displayName>Bus slave</ipxact:displayName>
+			<ipxact:description>The another slave connected to bus. This ones base address is master + half of the total memory.</ipxact:description>
+			<ipxact:componentRef vendor="tut.fi" library="communication.template" name="wb_slave" version="1.0">
+				<ipxact:configurableElementValues>
+					<ipxact:configurableElementValue referenceId="uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba">uuid_971a9685_1ec7_4781_bd5d_3dfa2fcc51ae/2</ipxact:configurableElementValue>
+				</ipxact:configurableElementValues>
+			</ipxact:componentRef>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{b5ea84b5-078f-4e70-9c13-6ec09c437ff1}</kactus2:uuid>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="wb_slave" x="-110" y="40"/>
+					<kactus2:portPosition busRef="wb_system" x="110" y="40"/>
+				</kactus2:portPositions>
+				<kactus2:position x="920" y="150"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>wb_slave_1</ipxact:instanceName>
+			<ipxact:displayName>Direct slave</ipxact:displayName>
+			<ipxact:description>The slave in the design which is directly connected to the master.</ipxact:description>
+			<ipxact:componentRef vendor="tut.fi" library="communication.template" name="wb_slave" version="1.0">
+				<ipxact:configurableElementValues>
+					<ipxact:configurableElementValue referenceId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd">uuid_bb96c047_ce50_4dbb_99c0_87a80a753f91</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba">uuid_971a9685_1ec7_4781_bd5d_3dfa2fcc51ae</ipxact:configurableElementValue>
+				</ipxact:configurableElementValues>
+			</ipxact:componentRef>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{90d45775-95e4-4814-8339-6095ca14d8b4}</kactus2:uuid>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="wb_slave" x="-110" y="40"/>
+					<kactus2:portPosition busRef="wb_system" x="110" y="40"/>
+				</kactus2:portPositions>
+				<kactus2:position x="920" y="240"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+	</ipxact:componentInstances>
+	<ipxact:interconnections>
+		<ipxact:interconnection>
+			<ipxact:name>hierarchical_wb_slave_0_wb_slave_to_wishbone_0_slave_0</ipxact:name>
+			<ipxact:activeInterface componentRef="hierarchical_wb_slave_0" busRef="wb_slave"/>
+			<ipxact:activeInterface componentRef="wishbone_0" busRef="slave_0"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>hierarchical_wb_slave_0_wb_system_to_wb_system</ipxact:name>
+			<ipxact:activeInterface componentRef="hierarchical_wb_slave_0" busRef="wb_system"/>
+			<ipxact:hierInterface busRef="wb_system"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>wb_dual_master_0_wb_system_to_wb_system</ipxact:name>
+			<ipxact:activeInterface componentRef="wb_dual_master_0" busRef="wb_system"/>
+			<ipxact:hierInterface busRef="wb_system"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>wishbone_0_slave_1_to_wb_slave_0_wb_slave</ipxact:name>
+			<ipxact:activeInterface componentRef="wishbone_0" busRef="slave_1"/>
+			<ipxact:activeInterface componentRef="wb_slave_0" busRef="wb_slave"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>wb_slave_1_wb_slave_to_wb_dual_master_0_master_1</ipxact:name>
+			<ipxact:activeInterface componentRef="wb_slave_1" busRef="wb_slave"/>
+			<ipxact:activeInterface componentRef="wb_dual_master_0" busRef="master_1"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>wishbone_0_one_to_many_master_to_wb_dual_master_0_master_0</ipxact:name>
+			<ipxact:activeInterface componentRef="wishbone_0" busRef="one_to_many_master"/>
+			<ipxact:activeInterface componentRef="wb_dual_master_0" busRef="master_0"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>wb_slave_0_wb_system_to_wb_system</ipxact:name>
+			<ipxact:activeInterface componentRef="wb_slave_0" busRef="wb_system"/>
+			<ipxact:hierInterface busRef="wb_system"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>wb_slave_1_wb_system_to_wb_system</ipxact:name>
+			<ipxact:activeInterface componentRef="wb_slave_1" busRef="wb_system"/>
+			<ipxact:hierInterface busRef="wb_system"/>
+		</ipxact:interconnection>
+	</ipxact:interconnections>
+	<ipxact:adHocConnections>
+		<ipxact:adHocConnection>
+			<ipxact:name>wb_dual_master_0_start_to_start</ipxact:name>
+			<ipxact:portReferences>
+				<ipxact:internalPortReference componentRef="wb_dual_master_0" portRef="start"/>
+				<ipxact:externalPortReference portRef="start"/>
+			</ipxact:portReferences>
+		</ipxact:adHocConnection>
+		<ipxact:adHocConnection>
+			<ipxact:name>wb_dual_master_0_done_to_done</ipxact:name>
+			<ipxact:portReferences>
+				<ipxact:internalPortReference componentRef="wb_dual_master_0" portRef="done"/>
+				<ipxact:externalPortReference portRef="done"/>
+			</ipxact:portReferences>
+		</ipxact:adHocConnection>
+	</ipxact:adHocConnections>
+	<ipxact:vendorExtensions>
+		<kactus2:version>3,4,104,0</kactus2:version>
+		<kactus2:kts_attributes>
+			<kactus2:kts_implementation>HW</kactus2:kts_implementation>
+		</kactus2:kts_attributes>
+		<kactus2:columnLayout>
+			<kactus2:column name="IO" contentType="0" allowedItems="1" minWidth="119" width="119" x="1080"/>
+			<kactus2:column name="Buses" contentType="1" allowedItems="12" minWidth="319" width="319" x="440"/>
+			<kactus2:column name="Components" contentType="2" allowedItems="2" minWidth="319" width="319" x="120"/>
+			<kactus2:column name="IO" contentType="0" allowedItems="1" minWidth="119" width="119" x="0"/>
+			<kactus2:column name="Components" contentType="2" allowedItems="2" minWidth="319" width="319" x="760"/>
+		</kactus2:columnLayout>
+		<kactus2:routes>
+			<kactus2:route kactus2:connRef="hierarchical_wb_slave_0_wb_slave_to_wishbone_0_slave_0" kactus2:offPage="false">
+				<kactus2:position x="810" y="100"/>
+				<kactus2:position x="740" y="100"/>
+				<kactus2:position x="740" y="160"/>
+				<kactus2:position x="720" y="160"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="hierarchical_wb_slave_0_wb_system_to_wb_system" kactus2:offPage="true">
+				<kactus2:position x="1060" y="100"/>
+				<kactus2:position x="1110" y="100"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="wb_dual_master_0_start_to_start" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="wb_dual_master_0_done_to_done" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="wb_dual_master_0_wb_system_to_wb_system" kactus2:offPage="true">
+				<kactus2:position x="140" y="160"/>
+				<kactus2:position x="1110" y="100"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="wishbone_0_slave_1_to_wb_slave_0_wb_slave" kactus2:offPage="false">
+				<kactus2:position x="710" y="190"/>
+				<kactus2:position x="810" y="190"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="wb_slave_1_wb_slave_to_wb_dual_master_0_master_1" kactus2:offPage="false">
+				<kactus2:position x="810" y="280"/>
+				<kactus2:position x="410" y="280"/>
+				<kactus2:position x="410" y="160"/>
+				<kactus2:position x="390" y="160"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="wishbone_0_one_to_many_master_to_wb_dual_master_0_master_0" kactus2:offPage="false">
+				<kactus2:position x="490" y="100"/>
+				<kactus2:position x="390" y="100"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="wb_slave_0_wb_system_to_wb_system" kactus2:offPage="true">
+				<kactus2:position x="1060" y="190"/>
+				<kactus2:position x="1110" y="100"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="wb_slave_1_wb_system_to_wb_system" kactus2:offPage="true">
+				<kactus2:position x="1060" y="280"/>
+				<kactus2:position x="1110" y="100"/>
+			</kactus2:route>
+		</kactus2:routes>
+		<kactus2:adHocVisibilities>
+			<kactus2:adHocVisible portName="done" x="60" y="130"/>
+			<kactus2:adHocVisible portName="start" x="60" y="100"/>
+		</kactus2:adHocVisibilities>
+		<kactus2:interfaceGraphics>
+			<kactus2:name>wb_system</kactus2:name>
+			<kactus2:position x="1140" y="100"/>
+			<kactus2:direction x="-1" y="0"/>
+		</kactus2:interfaceGraphics>
+	</ipxact:vendorExtensions>
+</ipxact:design>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipxact:design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+	<ipxact:vendor>tut.fi</ipxact:vendor>
+	<ipxact:library>peripheral.subsystem</ipxact:library>
+	<ipxact:name>hierarchical_wb_slave.design</ipxact:name>
+	<ipxact:version>1.0</ipxact:version>
+	<ipxact:componentInstances>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>sub_slave</ipxact:instanceName>
+			<ipxact:description>An instantiation of the same wishbone slave as used in wb_example design.</ipxact:description>
+			<ipxact:componentRef vendor="tut.fi" library="communication.template" name="wb_slave" version="1.0">
+				<ipxact:configurableElementValues>
+					<ipxact:configurableElementValue referenceId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd">uuid_9f8a68d3_a06c_447d_a93c_86c6f2df980b</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba">uuid_223a95ba_e4b0_4773_9f25_14d3b85116f7</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_3452fcca_4cd2_458f_a644_4c6530ea74ed">uuid_08e3f0c7_e9a6_479b_9e70_b614f5d809fc</ipxact:configurableElementValue>
+				</ipxact:configurableElementValues>
+			</ipxact:componentRef>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{9b53ce56-eca5-44a1-b3ab-2b27a7e01c4e}</kactus2:uuid>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="wb_slave" x="-110" y="80"/>
+					<kactus2:portPosition busRef="wb_system" x="-110" y="40"/>
+				</kactus2:portPositions>
+				<kactus2:position x="280" y="60"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+	</ipxact:componentInstances>
+	<ipxact:interconnections>
+		<ipxact:interconnection>
+			<ipxact:name>sub_slave_wb_system_to_wb_system</ipxact:name>
+			<ipxact:activeInterface componentRef="sub_slave" busRef="wb_system"/>
+			<ipxact:hierInterface busRef="wb_system"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>sub_slave_wb_slave_to_wb_slave</ipxact:name>
+			<ipxact:activeInterface componentRef="sub_slave" busRef="wb_slave"/>
+			<ipxact:hierInterface busRef="wb_slave"/>
+		</ipxact:interconnection>
+	</ipxact:interconnections>
+	<ipxact:vendorExtensions>
+		<kactus2:version>3,0,114,0</kactus2:version>
+		<kactus2:kts_attributes>
+			<kactus2:kts_implementation>HW</kactus2:kts_implementation>
+		</kactus2:kts_attributes>
+		<kactus2:columnLayout>
+			<kactus2:column name="Components" contentType="2" allowedItems="2" minWidth="319" width="319" x="120"/>
+			<kactus2:column name="IO" contentType="0" allowedItems="1" minWidth="119" width="119" x="0"/>
+		</kactus2:columnLayout>
+		<kactus2:routes>
+			<kactus2:route kactus2:connRef="sub_slave_wb_system_to_wb_system" kactus2:offPage="false">
+				<kactus2:position x="170" y="100"/>
+				<kactus2:position x="60" y="100"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="sub_slave_wb_slave_to_wb_slave" kactus2:offPage="false">
+				<kactus2:position x="170" y="140"/>
+				<kactus2:position x="60" y="140"/>
+			</kactus2:route>
+		</kactus2:routes>
+		<kactus2:interfaceGraphics>
+			<kactus2:name>bus_slave</kactus2:name>
+			<kactus2:position x="60" y="150"/>
+			<kactus2:direction x="1" y="0"/>
+		</kactus2:interfaceGraphics>
+		<kactus2:interfaceGraphics>
+			<kactus2:name>wb_slave</kactus2:name>
+			<kactus2:position x="60" y="140"/>
+			<kactus2:direction x="1" y="0"/>
+		</kactus2:interfaceGraphics>
+		<kactus2:interfaceGraphics>
+			<kactus2:name>wb_system</kactus2:name>
+			<kactus2:position x="60" y="100"/>
+			<kactus2:direction x="1" y="0"/>
+		</kactus2:interfaceGraphics>
+		<kactus2:adHocVisibilities/>
+	</ipxact:vendorExtensions>
+</ipxact:design>

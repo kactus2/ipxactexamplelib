@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipxact:design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+	<ipxact:vendor>tut.fi</ipxact:vendor>
+	<ipxact:library>other.subsystem</ipxact:library>
+	<ipxact:name>spi_example.design</ipxact:name>
+	<ipxact:version>1.0_bus</ipxact:version>
+	<ipxact:componentInstances>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>spi_master_0</ipxact:instanceName>
+			<ipxact:componentRef vendor="tut.fi" library="communication.template" name="spi_master" version="1.0"/>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{c606df0e-793f-4cd8-8b96-357b585d0df1}</kactus2:uuid>
+				<kactus2:position x="160" y="60"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>spi_slave_0</ipxact:instanceName>
+			<ipxact:componentRef vendor="tut.fi" library="communication.template" name="spi_slave" version="1.0"/>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{5dd0c57c-f4d8-4336-b7b0-c5ad0bb3ed4f}</kactus2:uuid>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="slave_if" x="-110" y="40"/>
+				</kactus2:portPositions>
+				<kactus2:position x="480" y="60"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>spi_slave_1</ipxact:instanceName>
+			<ipxact:componentRef vendor="tut.fi" library="communication.template" name="spi_slave" version="1.0">
+				<ipxact:configurableElementValues>
+					<ipxact:configurableElementValue referenceId="uuid_df08f9de_fbe0_4c6c_a979_aeb9011ef1e4">1</ipxact:configurableElementValue>
+				</ipxact:configurableElementValues>
+			</ipxact:componentRef>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{756b8b6f-4345-451e-83e3-d81b43e7fb89}</kactus2:uuid>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="slave_if" x="-110" y="40"/>
+				</kactus2:portPositions>
+				<kactus2:position x="480" y="150"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>spi_slave_2</ipxact:instanceName>
+			<ipxact:componentRef vendor="tut.fi" library="communication.template" name="spi_slave" version="1.0">
+				<ipxact:configurableElementValues>
+					<ipxact:configurableElementValue referenceId="uuid_df08f9de_fbe0_4c6c_a979_aeb9011ef1e4">2</ipxact:configurableElementValue>
+				</ipxact:configurableElementValues>
+			</ipxact:componentRef>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{a7b77f03-94db-4cc2-8966-ea33c2fb71e0}</kactus2:uuid>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="slave_if" x="-110" y="40"/>
+				</kactus2:portPositions>
+				<kactus2:position x="480" y="240"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+	</ipxact:componentInstances>
+	<ipxact:interconnections>
+		<ipxact:interconnection>
+			<ipxact:name>spi_master_0_master_if_to_spi_slave_0_slave_if</ipxact:name>
+			<ipxact:activeInterface componentRef="spi_master_0" busRef="master_if"/>
+			<ipxact:activeInterface componentRef="spi_slave_0" busRef="slave_if"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>spi_master_0_master_if_to_spi_slave_1_slave_if</ipxact:name>
+			<ipxact:activeInterface componentRef="spi_master_0" busRef="master_if"/>
+			<ipxact:activeInterface componentRef="spi_slave_1" busRef="slave_if"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>spi_master_0_master_if_to_spi_slave_2_slave_if</ipxact:name>
+			<ipxact:activeInterface componentRef="spi_master_0" busRef="master_if"/>
+			<ipxact:activeInterface componentRef="spi_slave_2" busRef="slave_if"/>
+		</ipxact:interconnection>
+	</ipxact:interconnections>
+	<ipxact:vendorExtensions>
+		<kactus2:version>3,3,506,0</kactus2:version>
+		<kactus2:kts_attributes>
+			<kactus2:kts_implementation>HW</kactus2:kts_implementation>
+		</kactus2:kts_attributes>
+		<kactus2:columnLayout>
+			<kactus2:column name="Slaves" contentType="2" allowedItems="2" minWidth="319" width="319" x="320"/>
+			<kactus2:column name="Master" contentType="2" allowedItems="2" minWidth="319" width="319" x="0"/>
+		</kactus2:columnLayout>
+		<kactus2:routes>
+			<kactus2:route kactus2:connRef="spi_master_0_master_if_to_spi_slave_0_slave_if" kactus2:offPage="false">
+				<kactus2:position x="270" y="100"/>
+				<kactus2:position x="370" y="100"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="spi_master_0_master_if_to_spi_slave_1_slave_if" kactus2:offPage="false">
+				<kactus2:position x="270" y="100"/>
+				<kactus2:position x="350" y="100"/>
+				<kactus2:position x="350" y="190"/>
+				<kactus2:position x="370" y="190"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="spi_master_0_master_if_to_spi_slave_2_slave_if" kactus2:offPage="false">
+				<kactus2:position x="270" y="100"/>
+				<kactus2:position x="350" y="100"/>
+				<kactus2:position x="350" y="280"/>
+				<kactus2:position x="370" y="280"/>
+			</kactus2:route>
+		</kactus2:routes>
+		<kactus2:adHocVisibilities/>
+	</ipxact:vendorExtensions>
+</ipxact:design>

@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+	<ipxact:vendor>tut.fi</ipxact:vendor>
+	<ipxact:library>cpu.structure</ipxact:library>
+	<ipxact:name>cpu_example</ipxact:name>
+	<ipxact:version>1.0</ipxact:version>
+	<ipxact:busInterfaces>
+		<ipxact:busInterface>
+			<ipxact:name>wb_system</ipxact:name>
+			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
+			<ipxact:abstractionTypes>
+				<ipxact:abstractionType>
+					<ipxact:abstractionRef vendor="opencores.org" library="interface" name="wishbone.absDef" version="b4"/>
+					<ipxact:portMaps>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>rst</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>rst_i</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>clk</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>clk_i</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+					</ipxact:portMaps>
+				</ipxact:abstractionType>
+			</ipxact:abstractionTypes>
+			<ipxact:system>
+				<ipxact:group>ClockSink</ipxact:group>
+			</ipxact:system>
+		</ipxact:busInterface>
+		<ipxact:busInterface>
+			<ipxact:name>master_if</ipxact:name>
+			<ipxact:busType vendor="tut.fi" library="interface" name="spi" version="1.0"/>
+			<ipxact:abstractionTypes>
+				<ipxact:abstractionType>
+					<ipxact:abstractionRef vendor="tut.fi" library="interface" name="spi.absDef" version="1.0"/>
+					<ipxact:portMaps>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>SCLK</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>clk_out</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>SS</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>slave_select_out</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>MOSI</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>data_out</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>MISO</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>data_in</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+					</ipxact:portMaps>
+				</ipxact:abstractionType>
+			</ipxact:abstractionTypes>
+			<ipxact:master/>
+		</ipxact:busInterface>
+	</ipxact:busInterfaces>
+	<ipxact:model>
+		<ipxact:views>
+			<ipxact:view>
+				<ipxact:name>hierarchical_verilog</ipxact:name>
+				<ipxact:designConfigurationInstantiationRef>verilog_configuration</ipxact:designConfigurationInstantiationRef>
+			</ipxact:view>
+		</ipxact:views>
+		<ipxact:instantiations>
+			<ipxact:designConfigurationInstantiation>
+				<ipxact:name>verilog_configuration</ipxact:name>
+				<ipxact:designConfigurationRef vendor="tut.fi" library="cpu.structure" name="cpu_example.verilog.designcfg" version="1.0"/>
+			</ipxact:designConfigurationInstantiation>
+		</ipxact:instantiations>
+		<ipxact:ports>
+			<ipxact:port>
+				<ipxact:name>clk_i</ipxact:name>
+				<ipxact:description>The mandatory clock, as this is synchronous logic.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:adHocVisible/>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>rst_i</ipxact:name>
+				<ipxact:description>The mandatory reset, as this is synchronous logic.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:adHocVisible/>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>instruction_feed</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>uuid_172925b5_3a46_4dee_bd29_343828ea26bc-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:adHocVisible/>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>clk_out</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>data_out</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>data_in</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>slave_select_out</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>iaddr_o</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>uuid_086362f4_6935_47d0_8be7_c67ab3ae7d56-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:adHocVisible/>
+					<kactus2:portTags></kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+		</ipxact:ports>
+	</ipxact:model>
+	<ipxact:parameters>
+		<ipxact:parameter parameterId="uuid_51264501_3c28_4520_85cf_509d0483d12d" resolve="immediate">
+			<ipxact:name>ADDR_WIDTH</ipxact:name>
+			<ipxact:description>Width of the addresses.</ipxact:description>
+			<ipxact:value>$clog2(uuid_f5c2f2c1_588b_45b2_a352_49e3d278c24d)</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_1cedcd48_18d3_4ab1_8168_b840ffeef0c1" resolve="immediate">
+			<ipxact:name>DATA_WIDTH</ipxact:name>
+			<ipxact:description>Width for data in registers and instructions.</ipxact:description>
+			<ipxact:value>16</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_f5c2f2c1_588b_45b2_a352_49e3d278c24d" resolve="immediate" usageCount="1">
+			<ipxact:name>SUPPORTED_MEMORY</ipxact:name>
+			<ipxact:description>How much the system supports memory in total.</ipxact:description>
+			<ipxact:value>'h400</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_bf25fb78_f9e5_464e_ac38_8da3fda16d60" resolve="immediate" usageCount="1">
+			<ipxact:name>WB_SLAVE0_BASE</ipxact:name>
+			<ipxact:description>Base address for wishbone slave 0.</ipxact:description>
+			<ipxact:value>'h0020</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_7098bf49_6fc4_4971_b79c_dbf456e8fa22" resolve="immediate" usageCount="3">
+			<ipxact:name>WB_SLAVE_RANGE</ipxact:name>
+			<ipxact:description>How much space is allocated for each slave.</ipxact:description>
+			<ipxact:value>'h080</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_60efb6b8_d845_4ed7_92c5_ab0aeda62fc2" resolve="immediate" usageCount="1">
+			<ipxact:name>WB_SLAVE1_BASE</ipxact:name>
+			<ipxact:description>Base address for wishbone slave 1.</ipxact:description>
+			<ipxact:value>uuid_bf25fb78_f9e5_464e_ac38_8da3fda16d60+uuid_7098bf49_6fc4_4971_b79c_dbf456e8fa22</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_96d9f335_6814_4ab6_8c68_3fef0c331938" resolve="immediate" usageCount="1">
+			<ipxact:name>WB_SLAVE2_BASE</ipxact:name>
+			<ipxact:description>Base address for wishbone slave 2.</ipxact:description>
+			<ipxact:value>uuid_60efb6b8_d845_4ed7_92c5_ab0aeda62fc2+uuid_7098bf49_6fc4_4971_b79c_dbf456e8fa22</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_f700130c_5c67_4b2c_a33f_91a6e2f5239c" resolve="immediate">
+			<ipxact:name>WB_SLAVE3_BASE</ipxact:name>
+			<ipxact:description>Base address for wishbone slave 3.</ipxact:description>
+			<ipxact:value>uuid_96d9f335_6814_4ab6_8c68_3fef0c331938+uuid_7098bf49_6fc4_4971_b79c_dbf456e8fa22</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_34e837d0_846a_486c_84b3_a29e2f957b9f" resolve="immediate">
+			<ipxact:name>WB_ADDRESS_BASE</ipxact:name>
+			<ipxact:description>Base address for wishbone in the system memory.</ipxact:description>
+			<ipxact:value>'h0100</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_172925b5_3a46_4dee_bd29_343828ea26bc" resolve="immediate" usageCount="1">
+			<ipxact:name>INSTRUCTION_WIDTH</ipxact:name>
+			<ipxact:description>Total width of an instruction</ipxact:description>
+			<ipxact:value>28</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_086362f4_6935_47d0_8be7_c67ab3ae7d56" resolve="immediate" usageCount="1">
+			<ipxact:name>INSTRUCTION_ADDRESS_WIDTH</ipxact:name>
+			<ipxact:description>Width of an instruction address.</ipxact:description>
+			<ipxact:value>8</ipxact:value>
+		</ipxact:parameter>
+	</ipxact:parameters>
+	<ipxact:vendorExtensions>
+		<kactus2:version>3,4,3,0</kactus2:version>
+		<kactus2:kts_attributes>
+			<kactus2:kts_productHier>IP</kactus2:kts_productHier>
+			<kactus2:kts_implementation>HW</kactus2:kts_implementation>
+			<kactus2:kts_firmness>Fixed</kactus2:kts_firmness>
+		</kactus2:kts_attributes>
+	</ipxact:vendorExtensions>
+</ipxact:component>

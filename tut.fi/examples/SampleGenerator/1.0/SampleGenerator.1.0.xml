@@ -7,24 +7,24 @@
 	<ipxact:description>This catalog contains all the IP-XACT files used in the example generator plugin &quot;Sample Generator&quot;. The top-level component is tut.fi:product:GenerationSample:1.0.</ipxact:description>
 	<ipxact:components>
 		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="product" name="GenerationSample" version="1.0"/>
-			<ipxact:name>../../../product/GenerationSample/1.0/GenerationSample.1.0.xml</ipxact:name>
+			<ipxact:vlnv vendor="tut.fi" library="other.subsystem" name="generation_sample" version="1.0"/>
+			<ipxact:name>../../../other.subsystem/GenerationSample/1.0/generation_sample.1.0.xml</ipxact:name>
 		</ipxact:ipxactFile>
 		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="ip.hw" name="SampleIP" version="1.0"/>
-			<ipxact:name>../../../ip.hw/SampleIP/1.0/SampleIP.1.0.xml</ipxact:name>
+			<ipxact:vlnv vendor="tut.fi" library="other" name="sample_ip" version="1.0"/>
+			<ipxact:name>../../../other/sample_ip/1.0/sample_ip.1.0.xml</ipxact:name>
 		</ipxact:ipxactFile>
 	</ipxact:components>
 	<ipxact:designs>
 		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="product" name="GenerationSample.design" version="1.0"/>
-			<ipxact:name>../../../product/GenerationSample.Design/1.0/GenerationSample.design.1.0.xml</ipxact:name>
+			<ipxact:vlnv vendor="tut.fi" library="other.subsystem" name="generation_sample.design" version="1.0"/>
+			<ipxact:name>../../../other.subsystem/GenerationSample/1.0/generation_sample.design.1.0.xml</ipxact:name>
 		</ipxact:ipxactFile>
 	</ipxact:designs>
 	<ipxact:designConfigurations>
 		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="product" name="GenerationSample.designcfg" version="1.0"/>
-			<ipxact:name>../../../product/GenerationSample.Design/1.0/GenerationSample.designcfg.1.0.xml</ipxact:name>
+			<ipxact:vlnv vendor="tut.fi" library="other.subsystem" name="generation_sample.designcfg" version="1.0"/>
+			<ipxact:name>../../../other.subsystem/GenerationSample/1.0/generation_sample.designcfg.1.0.xml</ipxact:name>
 		</ipxact:ipxactFile>
 	</ipxact:designConfigurations>
 	<ipxact:vendorExtensions>

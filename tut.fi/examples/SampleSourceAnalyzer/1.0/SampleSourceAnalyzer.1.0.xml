@@ -7,8 +7,8 @@
 	<ipxact:description>This catalog contains all the IP-XACT files used in the example generator plugin &quot;Sample Source Analyzer&quot;</ipxact:description>
 	<ipxact:components>
 		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="ip.sw" name="LoremIpsum" version="1.1"/>
-			<ipxact:name>../../../ip.sw/LoremIpsum/1.1/LoremIpsum.1.1.xml</ipxact:name>
+			<ipxact:vlnv vendor="tut.fi" library="other" name="lorem_ipsum" version="1.0"/>
+			<ipxact:name>../../../other/lorem_ipsum/1.0/lorem_ipsum.1.0.xml</ipxact:name>
 		</ipxact:ipxactFile>
 	</ipxact:components>
 	<ipxact:vendorExtensions>

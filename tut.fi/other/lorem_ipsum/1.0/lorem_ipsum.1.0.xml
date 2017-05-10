@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+	<ipxact:vendor>tut.fi</ipxact:vendor>
+	<ipxact:library>other</ipxact:library>
+	<ipxact:name>lorem_ipsum</ipxact:name>
+	<ipxact:version>1.0</ipxact:version>
+	<ipxact:fileSets>
+		<ipxact:fileSet>
+			<ipxact:name>content</ipxact:name>
+			<ipxact:file>
+				<ipxact:name>content/Bot.txt</ipxact:name>
+				<ipxact:fileType user="textFile">user</ipxact:fileType>
+			</ipxact:file>
+			<ipxact:file>
+				<ipxact:name>content/LoremIpsum.txt</ipxact:name>
+				<ipxact:fileType user="textFile">user</ipxact:fileType>
+			</ipxact:file>
+			<ipxact:file>
+				<ipxact:name>content/MidLevelA.txt</ipxact:name>
+				<ipxact:fileType user="textFile">user</ipxact:fileType>
+			</ipxact:file>
+			<ipxact:file>
+				<ipxact:name>content/MidLevelB.txt</ipxact:name>
+				<ipxact:fileType user="textFile">user</ipxact:fileType>
+			</ipxact:file>
+			<ipxact:file>
+				<ipxact:name>content/TopDog.txt</ipxact:name>
+				<ipxact:fileType user="textFile">user</ipxact:fileType>
+			</ipxact:file>
+		</ipxact:fileSet>
+	</ipxact:fileSets>
+	<ipxact:vendorExtensions>
+		<kactus2:version>3,0,66,0</kactus2:version>
+		<kactus2:kts_attributes>
+			<kactus2:kts_implementation>SW</kactus2:kts_implementation>
+		</kactus2:kts_attributes>
+	</ipxact:vendorExtensions>
+</ipxact:component>

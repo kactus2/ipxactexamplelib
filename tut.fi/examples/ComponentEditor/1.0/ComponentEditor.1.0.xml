@@ -7,20 +7,20 @@
 	<ipxact:description>This catalog contains all the IP-XACT files used in the Component Editor video tutorial for Kactus2. The top-level component is tut.fi:soc:wb_slave:1.0.</ipxact:description>
 	<ipxact:busDefinitions>
 		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="librecores.org" library="ip.ifc" name="wishbone" version="b3"/>
-			<ipxact:name>../../../../librecores.org/ip.ifc/wishbone/b3/wishbone.b3.xml</ipxact:name>
+			<ipxact:vlnv vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
+			<ipxact:name>../../../../opencores.org/interface/wishbone/b4/wishbone.b4.xml</ipxact:name>
 		</ipxact:ipxactFile>
 	</ipxact:busDefinitions>
 	<ipxact:abstractionDefinitions>
 		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="librecores.org" library="ip.ifc" name="wishbone.absDef" version="b3"/>
-			<ipxact:name>../../../../librecores.org/ip.ifc/wishbone/b3/wishbone.absDef.b3.xml</ipxact:name>
+			<ipxact:vlnv vendor="opencores.org" library="interface" name="wishbone.absDef" version="b4"/>
+			<ipxact:name>../../../../opencores.org/interface/wishbone/b4/wishbone.absDef.b4.xml</ipxact:name>
 		</ipxact:ipxactFile>
 	</ipxact:abstractionDefinitions>
 	<ipxact:components>
 		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="ip.hw" name="wb_slave" version="1.0"/>
-			<ipxact:name>../../../ip.hw/wb_slave/1.0/wb_slave.1.0.xml</ipxact:name>
+			<ipxact:vlnv vendor="tut.fi" library="communication.template" name="wb_slave" version="1.0"/>
+			<ipxact:name>../../../communication.template/wb_slave/1.0/wb_slave.1.0.xml</ipxact:name>
 		</ipxact:ipxactFile>
 	</ipxact:components>
 	<ipxact:vendorExtensions>

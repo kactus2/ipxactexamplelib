@@ -7,8 +7,8 @@
 	<ipxact:description>This catalog contains all the IP-XACT files used in the example generator plugin &quot;Sample Importer&quot;</ipxact:description>
 	<ipxact:components>
 		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="ip.hw" name="SampleIP" version="1.0"/>
-			<ipxact:name>../../../ip.hw/SampleIP/1.0/SampleIP.1.0.xml</ipxact:name>
+			<ipxact:vlnv vendor="tut.fi" library="other" name="sample_ip" version="1.0"/>
+			<ipxact:name>../../../other/sample_ip/1.0/sample_ip.1.0.xml</ipxact:name>
 		</ipxact:ipxactFile>
 	</ipxact:components>
 	<ipxact:vendorExtensions>

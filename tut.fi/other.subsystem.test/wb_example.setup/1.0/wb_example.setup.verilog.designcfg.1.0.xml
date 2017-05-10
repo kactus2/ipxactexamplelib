@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipxact:designConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+	<ipxact:vendor>tut.fi</ipxact:vendor>
+	<ipxact:library>other.subsystem.test</ipxact:library>
+	<ipxact:name>wb_example.setup.verilog.designcfg</ipxact:name>
+	<ipxact:version>1.0</ipxact:version>
+	<ipxact:designRef vendor="tut.fi" library="other.subsystem.test" name="wb_example.setup.design" version="1.0"/>
+	<ipxact:viewConfiguration>
+		<ipxact:instanceName>clock_generator_0</ipxact:instanceName>
+		<ipxact:view viewRef="flat_verilog"/>
+	</ipxact:viewConfiguration>
+	<ipxact:viewConfiguration>
+		<ipxact:instanceName>wb_example_0</ipxact:instanceName>
+		<ipxact:view viewRef="hierarchical_verilog"/>
+	</ipxact:viewConfiguration>
+	<ipxact:viewConfiguration>
+		<ipxact:instanceName>wb_example.bench_0</ipxact:instanceName>
+		<ipxact:view viewRef="flat_verilog"/>
+	</ipxact:viewConfiguration>
+	<ipxact:vendorExtensions>
+		<kactus2:version>3,4,107,0</kactus2:version>
+		<kactus2:kts_attributes>
+			<kactus2:kts_implementation>HW</kactus2:kts_implementation>
+		</kactus2:kts_attributes>
+	</ipxact:vendorExtensions>
+</ipxact:designConfiguration>
