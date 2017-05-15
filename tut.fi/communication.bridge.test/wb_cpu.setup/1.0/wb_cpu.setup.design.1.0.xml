@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipxact:design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+	<ipxact:vendor>tut.fi</ipxact:vendor>
+	<ipxact:library>communication.bridge.test</ipxact:library>
+	<ipxact:name>wb_cpu.setup.design</ipxact:name>
+	<ipxact:version>1.0</ipxact:version>
+	<ipxact:componentInstances>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>wb_cpu.bench_0</ipxact:instanceName>
+			<ipxact:componentRef vendor="tut.fi" library="communication.bridge.test" name="wb_cpu.bench" version="1.0"/>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{8b213746-9fd5-4e18-acf7-7856f432c61c}</kactus2:uuid>
+				<kactus2:position x="160" y="60"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>wb_cpu_0</ipxact:instanceName>
+			<ipxact:componentRef vendor="tut.fi" library="communication.bridge" name="wb_cpu" version="1.0"/>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{55ff64e6-2cb5-4d57-85cb-6d5a06119651}</kactus2:uuid>
+				<kactus2:position x="160" y="180"/>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="contoller" x="110" y="40"/>
+					<kactus2:portPosition busRef="wb_master" x="110" y="70"/>
+				</kactus2:portPositions>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>clock_generator_0</ipxact:instanceName>
+			<ipxact:componentRef vendor="tut.fi" library="other.test" name="clock_generator" version="1.1"/>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{25915abb-c307-48fb-8c4d-69652d658e0a}</kactus2:uuid>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="wb_system" x="-110" y="40"/>
+				</kactus2:portPositions>
+				<kactus2:position x="160" y="300"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+	</ipxact:componentInstances>
+	<ipxact:interconnections>
+		<ipxact:interconnection>
+			<ipxact:name>wb_cpu_0_wb_master_to_wb_cpu.bench_0_wb_slave</ipxact:name>
+			<ipxact:activeInterface componentRef="wb_cpu_0" busRef="wb_master"/>
+			<ipxact:activeInterface componentRef="wb_cpu.bench_0" busRef="wb_slave"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>wb_cpu_0_wb_system_to_clock_generator_0_wb_system</ipxact:name>
+			<ipxact:activeInterface componentRef="wb_cpu_0" busRef="wb_system"/>
+			<ipxact:activeInterface componentRef="clock_generator_0" busRef="wb_system"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>clock_generator_0_wb_system_to_wb_cpu.bench_0_wb_system</ipxact:name>
+			<ipxact:activeInterface componentRef="clock_generator_0" busRef="wb_system"/>
+			<ipxact:activeInterface componentRef="wb_cpu.bench_0" busRef="wb_system"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>wb_cpu_0_contoller_to_wb_cpu.bench_0_memory_interface</ipxact:name>
+			<ipxact:activeInterface componentRef="wb_cpu_0" busRef="contoller"/>
+			<ipxact:activeInterface componentRef="wb_cpu.bench_0" busRef="memory_interface"/>
+		</ipxact:interconnection>
+	</ipxact:interconnections>
+	<ipxact:vendorExtensions>
+		<kactus2:version>3,4,104,0</kactus2:version>
+		<kactus2:kts_attributes>
+			<kactus2:kts_implementation>HW</kactus2:kts_implementation>
+		</kactus2:kts_attributes>
+		<kactus2:columnLayout>
+			<kactus2:column name="Components" contentType="4" allowedItems="14" minWidth="319" width="319" x="0"/>
+		</kactus2:columnLayout>
+		<kactus2:adHocVisibilities/>
+		<kactus2:routes>
+			<kactus2:route kactus2:connRef="wb_cpu_0_wb_master_to_wb_cpu.bench_0_wb_slave" kactus2:offPage="false">
+				<kactus2:position x="270" y="250"/>
+				<kactus2:position x="300" y="250"/>
+				<kactus2:position x="300" y="100"/>
+				<kactus2:position x="270" y="100"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="wb_cpu_0_wb_system_to_clock_generator_0_wb_system" kactus2:offPage="false">
+				<kactus2:position x="50" y="220"/>
+				<kactus2:position x="30" y="220"/>
+				<kactus2:position x="30" y="340"/>
+				<kactus2:position x="50" y="340"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="clock_generator_0_wb_system_to_wb_cpu.bench_0_wb_system" kactus2:offPage="false">
+				<kactus2:position x="50" y="340"/>
+				<kactus2:position x="30" y="340"/>
+				<kactus2:position x="30" y="100"/>
+				<kactus2:position x="50" y="100"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="wb_cpu_0_contoller_to_wb_cpu.bench_0_memory_interface" kactus2:offPage="false">
+				<kactus2:position x="270" y="220"/>
+				<kactus2:position x="290" y="220"/>
+				<kactus2:position x="290" y="130"/>
+				<kactus2:position x="270" y="130"/>
+			</kactus2:route>
+		</kactus2:routes>
+	</ipxact:vendorExtensions>
+</ipxact:design>

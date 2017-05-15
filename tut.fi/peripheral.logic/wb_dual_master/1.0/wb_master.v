@@ -41,7 +41,7 @@ module wb_master #(
         S_READ_INIT                = 3'd3, // Initiating a read to slave.
         S_WAIT_READ_ACK     = 3'd4; // Waiting ack for wrtite from slave.
    
-    always @(posedge clk or negedge rst) begin
+    always @(posedge clk or posedge rst) begin
         if(rst == 1'b0) begin
             // Initialize dat with data.
             dat[0] = 32'h00000000;

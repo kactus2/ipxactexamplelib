@@ -65,25 +65,60 @@
 					<kactus2:adHocVisible/>
 				</ipxact:vendorExtensions>
 			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>clk_i</ipxact:name>
+				<ipxact:description>The mandatory clock, as this is synchronous logic.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:adHocVisible/>
+					<kactus2:portTags></kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>rst_i</ipxact:name>
+				<ipxact:description>The mandatory reset, as this is synchronous logic.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:adHocVisible/>
+					<kactus2:portTags></kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
 		</ipxact:ports>
 	</ipxact:model>
 	<ipxact:fileSets>
 		<ipxact:fileSet>
 			<ipxact:name>verilogSource</ipxact:name>
+			<ipxact:group>generatedFiles</ipxact:group>
 			<ipxact:file>
-				<ipxact:name>TestIntitializer.v</ipxact:name>
+				<ipxact:name>TestInitializer.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 14:33:15 on 30.01.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 16:20:34 on 10.05.2017 by Kactus2. </ipxact:description>
 			</ipxact:file>
 		</ipxact:fileSet>
 		<ipxact:fileSet>
 			<ipxact:name>systemCSource</ipxact:name>
 			<ipxact:file>
-				<ipxact:name>TestIntitializer.cpp</ipxact:name>
+				<ipxact:name>TestInitializer.cpp</ipxact:name>
 				<ipxact:fileType>cppSource</ipxact:fileType>
 			</ipxact:file>
 			<ipxact:file>
-				<ipxact:name>TestIntitializer.hh</ipxact:name>
+				<ipxact:name>TestInitializer.hh</ipxact:name>
 				<ipxact:fileType>cppSource</ipxact:fileType>
 				<ipxact:isIncludeFile>true</ipxact:isIncludeFile>
 			</ipxact:file>

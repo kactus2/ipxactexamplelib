@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
-	<ipxact:library>other.subsystem.test</ipxact:library>
-	<ipxact:name>wb_example.setup</ipxact:name>
+	<ipxact:library>communication.bridge.test</ipxact:library>
+	<ipxact:name>wb_cpu.setup</ipxact:name>
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:model>
 		<ipxact:views>
@@ -23,7 +23,7 @@
 			</ipxact:componentInstantiation>
 			<ipxact:designConfigurationInstantiation>
 				<ipxact:name>verilog_design_configuration</ipxact:name>
-				<ipxact:designConfigurationRef vendor="tut.fi" library="other.subsystem.test" name="wb_example.setup.verilog.designcfg" version="1.0"/>
+				<ipxact:designConfigurationRef vendor="tut.fi" library="communication.bridge.test" name="wb_cpu.setup.verilog.designcfg" version="1.0"/>
 			</ipxact:designConfigurationInstantiation>
 		</ipxact:instantiations>
 	</ipxact:model>
@@ -32,24 +32,19 @@
 			<ipxact:name>verilogSource</ipxact:name>
 			<ipxact:group>generatedFiles</ipxact:group>
 			<ipxact:file>
-				<ipxact:name>hierarchical_wb_slave_0.v</ipxact:name>
-				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 14:02:40 on 15.05.2017 by Kactus2. </ipxact:description>
-			</ipxact:file>
-			<ipxact:file>
 				<ipxact:name>test_setup.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 14:02:40 on 15.05.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 14:10:13 on 15.05.2017 by Kactus2. </ipxact:description>
 			</ipxact:file>
 			<ipxact:file>
-				<ipxact:name>wb_example_0.v</ipxact:name>
+				<ipxact:name>wb_cpu.setup.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 14:02:40 on 15.05.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 14:07:26 on 15.05.2017 by Kactus2. </ipxact:description>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
 	<ipxact:vendorExtensions>
-		<kactus2:version>3,4,107,0</kactus2:version>
+		<kactus2:version>3,4,104,0</kactus2:version>
 		<kactus2:kts_attributes>
 			<kactus2:kts_productHier>IP</kactus2:kts_productHier>
 			<kactus2:kts_implementation>HW</kactus2:kts_implementation>

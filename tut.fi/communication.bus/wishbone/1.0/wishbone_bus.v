@@ -122,6 +122,11 @@ module wishbone_bus #(
             ack_master <= ack_slave_3;
             err_master <= err_slave_3;
         end
+        else begin
+            dat_sm_master <= 0;
+            ack_master <= 0;
+            err_master <= 0;
+        end
     end
     
     // Choose strobe based on the selected slave.

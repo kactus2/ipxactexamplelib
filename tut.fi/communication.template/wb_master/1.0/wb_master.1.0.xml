@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
-	<ipxact:library>communication.template.test</ipxact:library>
-	<ipxact:name>wb_test_master</ipxact:name>
+	<ipxact:library>communication.template</ipxact:library>
+	<ipxact:name>wb_master</ipxact:name>
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
@@ -360,17 +360,49 @@
 					<kactus2:portTags></kactus2:portTags>
 				</ipxact:vendorExtensions>
 			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>start</ipxact:name>
+				<ipxact:description>Input used to signal that is is ok to start the masters.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>done</ipxact:name>
+				<ipxact:description>Output used to signal that the masters are done sending.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+					<ipxact:wireTypeDefs>
+						<ipxact:wireTypeDef>
+							<ipxact:typeName>reg</ipxact:typeName>
+						</ipxact:wireTypeDef>
+					</ipxact:wireTypeDefs>
+				</ipxact:wire>
+			</ipxact:port>
 		</ipxact:ports>
 	</ipxact:model>
 	<ipxact:fileSets>
 		<ipxact:fileSet>
 			<ipxact:name>verilogSource</ipxact:name>
+			<ipxact:group>generatedFiles</ipxact:group>
 			<ipxact:file>
 				<ipxact:name>wb_master.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 12:21:53 on 30.03.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 14:00:42 on 15.05.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
-					<kactus2:hash>c2474675a35a02e7c6096b69dd5463d282462292</kactus2:hash>
+					<kactus2:hash>62d627b97660856092089947c566b505de0273a2</kactus2:hash>
 				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>
@@ -396,6 +428,11 @@
 			<ipxact:name>BASE_ADDRESS</ipxact:name>
 			<ipxact:description>The first referred address of the master.</ipxact:description>
 			<ipxact:value>'h0F00</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_0e2e8ccf_60ab_43b6_a4e8_29a580cf0e1b" resolve="user">
+			<ipxact:name>SEND_ERR_ADDR</ipxact:name>
+			<ipxact:description>If one, the initial phase will use an erroneous address.</ipxact:description>
+			<ipxact:value>0</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>

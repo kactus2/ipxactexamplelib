@@ -2,11 +2,15 @@
 <ipxact:designConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
 	<ipxact:library>communication.template.test</ipxact:library>
-	<ipxact:name>wb_slave.setup.verilog.designcfg</ipxact:name>
+	<ipxact:name>spi.setup.verilog.designcfg</ipxact:name>
 	<ipxact:version>1.0</ipxact:version>
-	<ipxact:designRef vendor="tut.fi" library="communication.template.test" name="wb_slave.setup.design" version="1.0"/>
+	<ipxact:designRef vendor="tut.fi" library="communication.template.test" name="spi.setup.design" version="1.0"/>
 	<ipxact:viewConfiguration>
-		<ipxact:instanceName>wb_slave_0</ipxact:instanceName>
+		<ipxact:instanceName>spi_master_0</ipxact:instanceName>
+		<ipxact:view viewRef="flat_verilog"/>
+	</ipxact:viewConfiguration>
+	<ipxact:viewConfiguration>
+		<ipxact:instanceName>spi_slave_0</ipxact:instanceName>
 		<ipxact:view viewRef="flat_verilog"/>
 	</ipxact:viewConfiguration>
 	<ipxact:viewConfiguration>

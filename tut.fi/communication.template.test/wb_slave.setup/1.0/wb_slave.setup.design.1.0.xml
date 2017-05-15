@@ -14,20 +14,28 @@
 			</ipxact:vendorExtensions>
 		</ipxact:componentInstance>
 		<ipxact:componentInstance>
-			<ipxact:instanceName>wb_test_master_0</ipxact:instanceName>
-			<ipxact:componentRef vendor="tut.fi" library="communication.template.test" name="wb_test_master" version="1.0"/>
-			<ipxact:vendorExtensions>
-				<kactus2:uuid>{005e1e49-2669-4df8-b16c-c7452e48c8fc}</kactus2:uuid>
-				<kactus2:position x="160" y="150"/>
-			</ipxact:vendorExtensions>
-		</ipxact:componentInstance>
-		<ipxact:componentInstance>
 			<ipxact:instanceName>clock_generator_0</ipxact:instanceName>
 			<ipxact:componentRef vendor="tut.fi" library="other.test" name="clock_generator" version="1.1"/>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{01af2f11-f390-442a-9aad-c5585f79abcd}</kactus2:uuid>
 				<kactus2:position x="160" y="240"/>
 				<kactus2:portPositions>
+					<kactus2:portPosition busRef="wb_system" x="-110" y="40"/>
+				</kactus2:portPositions>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>wb_master_0</ipxact:instanceName>
+			<ipxact:componentRef vendor="tut.fi" library="communication.template" name="wb_master" version="1.0">
+				<ipxact:configurableElementValues>
+					<ipxact:configurableElementValue referenceId="uuid_0e2e8ccf_60ab_43b6_a4e8_29a580cf0e1b">1</ipxact:configurableElementValue>
+				</ipxact:configurableElementValues>
+			</ipxact:componentRef>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{b14d74fb-ab18-4961-89a9-4900b4a5a6f8}</kactus2:uuid>
+				<kactus2:position x="160" y="150"/>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="wb_master" x="110" y="40"/>
 					<kactus2:portPosition busRef="wb_system" x="-110" y="40"/>
 				</kactus2:portPositions>
 			</ipxact:vendorExtensions>
@@ -40,13 +48,13 @@
 			<ipxact:activeInterface componentRef="clock_generator_0" busRef="wb_system"/>
 		</ipxact:interconnection>
 		<ipxact:interconnection>
-			<ipxact:name>clock_generator_0_wb_system_to_wb_test_master_0_wb_system</ipxact:name>
+			<ipxact:name>clock_generator_0_wb_system_to_wb_master_0_wb_system</ipxact:name>
 			<ipxact:activeInterface componentRef="clock_generator_0" busRef="wb_system"/>
-			<ipxact:activeInterface componentRef="wb_test_master_0" busRef="wb_system"/>
+			<ipxact:activeInterface componentRef="wb_master_0" busRef="wb_system"/>
 		</ipxact:interconnection>
 		<ipxact:interconnection>
-			<ipxact:name>wb_test_master_0_wb_master_to_wb_slave_0_wb_slave</ipxact:name>
-			<ipxact:activeInterface componentRef="wb_test_master_0" busRef="wb_master"/>
+			<ipxact:name>wb_master_0_wb_master_to_wb_slave_0_wb_slave</ipxact:name>
+			<ipxact:activeInterface componentRef="wb_master_0" busRef="wb_master"/>
 			<ipxact:activeInterface componentRef="wb_slave_0" busRef="wb_slave"/>
 		</ipxact:interconnection>
 	</ipxact:interconnections>
@@ -58,7 +66,6 @@
 		<kactus2:columnLayout>
 			<kactus2:column name="Components" contentType="2" allowedItems="2" minWidth="319" width="319" x="0"/>
 		</kactus2:columnLayout>
-		<kactus2:adHocVisibilities/>
 		<kactus2:routes>
 			<kactus2:route kactus2:connRef="wb_slave_0_wb_system_to_clock_generator_0_wb_system" kactus2:offPage="false">
 				<kactus2:position x="50" y="100"/>
@@ -66,18 +73,19 @@
 				<kactus2:position x="30" y="280"/>
 				<kactus2:position x="50" y="280"/>
 			</kactus2:route>
-			<kactus2:route kactus2:connRef="clock_generator_0_wb_system_to_wb_test_master_0_wb_system" kactus2:offPage="false">
+			<kactus2:route kactus2:connRef="clock_generator_0_wb_system_to_wb_master_0_wb_system" kactus2:offPage="false">
 				<kactus2:position x="50" y="280"/>
 				<kactus2:position x="30" y="280"/>
 				<kactus2:position x="30" y="190"/>
 				<kactus2:position x="50" y="190"/>
 			</kactus2:route>
-			<kactus2:route kactus2:connRef="wb_test_master_0_wb_master_to_wb_slave_0_wb_slave" kactus2:offPage="false">
+			<kactus2:route kactus2:connRef="wb_master_0_wb_master_to_wb_slave_0_wb_slave" kactus2:offPage="false">
 				<kactus2:position x="270" y="190"/>
 				<kactus2:position x="290" y="190"/>
 				<kactus2:position x="290" y="100"/>
 				<kactus2:position x="270" y="100"/>
 			</kactus2:route>
 		</kactus2:routes>
+		<kactus2:adHocVisibilities/>
 	</ipxact:vendorExtensions>
 </ipxact:design>

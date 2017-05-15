@@ -98,6 +98,24 @@
 								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>err</ipxact:name>
+								<ipxact:range>
+									<ipxact:left>0</ipxact:left>
+									<ipxact:right>0</ipxact:right>
+								</ipxact:range>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>err_i_0</ipxact:name>
+								<ipxact:partSelect>
+									<ipxact:range>
+										<ipxact:left>0</ipxact:left>
+										<ipxact:right>0</ipxact:right>
+									</ipxact:range>
+								</ipxact:partSelect>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
 					</ipxact:portMaps>
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
@@ -198,6 +216,14 @@
 										<ipxact:right>0</ipxact:right>
 									</ipxact:range>
 								</ipxact:partSelect>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>err</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>err_i_1</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 					</ipxact:portMaps>
@@ -535,22 +561,40 @@
 					<kactus2:adHocVisible/>
 				</ipxact:vendorExtensions>
 			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>err_i_0</ipxact:name>
+				<ipxact:description>Indicates abnormal cycle termination.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags></kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>err_i_1</ipxact:name>
+				<ipxact:description>Indicates abnormal cycle termination.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags></kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
 		</ipxact:ports>
 	</ipxact:model>
 	<ipxact:fileSets>
 		<ipxact:fileSet>
 			<ipxact:name>verilogSource</ipxact:name>
+			<ipxact:group>generatedFiles</ipxact:group>
 			<ipxact:file>
 				<ipxact:name>master.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 11:48:59 on 03.02.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 11:13:13 on 15.05.2017 by Kactus2. </ipxact:description>
 			</ipxact:file>
 			<ipxact:file>
-				<ipxact:name>wb_master.v</ipxact:name>
+				<ipxact:name>../../../communication.template/wb_master/1.0/wb_master.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:vendorExtensions>
-					<kactus2:hash>c2474675a35a02e7c6096b69dd5463d282462292</kactus2:hash>
-				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>
 		<ipxact:fileSet>
@@ -604,7 +648,7 @@
 			<ipxact:description>The first referred address of master0.</ipxact:description>
 			<ipxact:value>0</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_1df2671d_ba36_4c32_9873_65ad286aedf3">
+		<ipxact:parameter parameterId="uuid_1df2671d_ba36_4c32_9873_65ad286aedf3" resolve="immediate">
 			<ipxact:name>AUB</ipxact:name>
 			<ipxact:description>Addressable unit bits of the memory.</ipxact:description>
 			<ipxact:value>8</ipxact:value>

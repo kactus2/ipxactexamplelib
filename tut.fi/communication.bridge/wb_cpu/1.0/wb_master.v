@@ -66,7 +66,8 @@ module wb_master #(
             mem_slave_rdy <= 0;
         end
         else begin
-            if (state == S_CMD) begin
+        case(state)
+            S_CMD: begin
                 // Wait for the master.
                 if (mem_master_rdy == 1'b1) begin
                     // Branch based on if it is read or write.
@@ -78,7 +79,7 @@ module wb_master #(
                     end
                 end
             end
-            else if (state == S_WRITE_INIT) begin
+            S_WRITE_INIT: begin
                 // Assert signals indicating we are ready to transfer.
                 cyc_o <= 1;
                 stb_o <= 1;
@@ -92,7 +93,7 @@ module wb_master #(
                 // Next we shall wait for acknowledgement.
                 state <= S_WAIT_WRITE_ACK;
             end
-            else if(state ==  S_WAIT_WRITE_ACK) begin
+            S_WAIT_WRITE_ACK: begin
                 if (err_i == 1'b1 || ack_i == 1'b1) begin
                     // Deassert initiator signals.
                     cyc_o <= 0;
@@ -106,7 +107,7 @@ module wb_master #(
                     state <=  S_DEASSERT;
                 end
             end
-            else if(state == S_READ_INIT) begin
+            S_READ_INIT: begin
                 // Assert signals indicating we are ready to transfer.
                 cyc_o <= 1;
                 stb_o <= 1;
@@ -119,7 +120,7 @@ module wb_master #(
                 // Next we shall wait for acknowledgement.
                 state <= S_WAIT_READ_ACK;
             end
-            else if(state == S_WAIT_READ_ACK) begin
+            S_WAIT_READ_ACK: begin
                 if (err_i == 1'b1 || ack_i == 1'b1) begin
                     // Deassert initiator signals.
                     cyc_o <= 0;
@@ -140,12 +141,14 @@ module wb_master #(
                     state <=  S_DEASSERT;
                 end
             end
-            else if (state == S_DEASSERT) begin
+            S_DEASSERT: begin
                 state <= S_CMD;
                 mem_slave_rdy <= 0;
             end
-            else
+            default: begin
                 $display("ERROR: Unkown state: %d", state);
+            end
+        endcase
         end
     end
    

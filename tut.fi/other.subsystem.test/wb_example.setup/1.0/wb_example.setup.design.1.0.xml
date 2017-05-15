@@ -10,7 +10,11 @@
 			<ipxact:componentRef vendor="tut.fi" library="other.test" name="clock_generator" version="1.1"/>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{a9262cf8-afa3-46cf-8433-079ebefd6d81}</kactus2:uuid>
-				<kactus2:position x="160" y="60"/>
+				<kactus2:position x="160" y="180"/>
+				<kactus2:adHocVisibilities>
+					<kactus2:adHocVisible portName="clk_o" x="110" y="70"/>
+					<kactus2:adHocVisible portName="rst_o" x="-110" y="70"/>
+				</kactus2:adHocVisibilities>
 			</ipxact:vendorExtensions>
 		</ipxact:componentInstance>
 		<ipxact:componentInstance>
@@ -18,7 +22,7 @@
 			<ipxact:componentRef vendor="tut.fi" library="other.subsystem" name="wb_example" version="1.0"/>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{70936c6f-2030-430e-b37b-3aa66bae96d9}</kactus2:uuid>
-				<kactus2:position x="160" y="150"/>
+				<kactus2:position x="160" y="60"/>
 				<kactus2:adHocVisibilities>
 					<kactus2:adHocVisible portName="done" x="-110" y="70"/>
 				</kactus2:adHocVisibilities>
@@ -33,7 +37,11 @@
 			</ipxact:componentRef>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{9a66d00a-92b8-48b5-8306-9d13ef340e89}</kactus2:uuid>
-				<kactus2:position x="160" y="270"/>
+				<kactus2:position x="160" y="300"/>
+				<kactus2:adHocVisibilities>
+					<kactus2:adHocVisible portName="clk_i" x="110" y="30"/>
+					<kactus2:adHocVisible portName="rst_i" x="-110" y="30"/>
+				</kactus2:adHocVisibilities>
 			</ipxact:vendorExtensions>
 		</ipxact:componentInstance>
 	</ipxact:componentInstances>
@@ -59,6 +67,20 @@
 				<ipxact:internalPortReference componentRef="wb_example.bench_0" portRef="done"/>
 			</ipxact:portReferences>
 		</ipxact:adHocConnection>
+		<ipxact:adHocConnection>
+			<ipxact:name>wb_example.bench_0_clk_i_to_clock_generator_0_clk_o</ipxact:name>
+			<ipxact:portReferences>
+				<ipxact:internalPortReference componentRef="wb_example.bench_0" portRef="clk_i"/>
+				<ipxact:internalPortReference componentRef="clock_generator_0" portRef="clk_o"/>
+			</ipxact:portReferences>
+		</ipxact:adHocConnection>
+		<ipxact:adHocConnection>
+			<ipxact:name>wb_example.bench_0_rst_i_to_clock_generator_0_rst_o</ipxact:name>
+			<ipxact:portReferences>
+				<ipxact:internalPortReference componentRef="wb_example.bench_0" portRef="rst_i"/>
+				<ipxact:internalPortReference componentRef="clock_generator_0" portRef="rst_o"/>
+			</ipxact:portReferences>
+		</ipxact:adHocConnection>
 	</ipxact:adHocConnections>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,4,107,0</kactus2:version>
@@ -70,13 +92,25 @@
 		</kactus2:columnLayout>
 		<kactus2:routes>
 			<kactus2:route kactus2:connRef="clock_generator_0_wb_system_to_wb_example_0_wb_system" kactus2:offPage="false">
-				<kactus2:position x="270" y="100"/>
+				<kactus2:position x="270" y="220"/>
+				<kactus2:position x="290" y="220"/>
 				<kactus2:position x="290" y="100"/>
-				<kactus2:position x="290" y="190"/>
-				<kactus2:position x="270" y="190"/>
+				<kactus2:position x="270" y="100"/>
 			</kactus2:route>
-			<kactus2:route kactus2:connRef="wb_example_0_start_to_wb_example.bench_0_start" kactus2:offPage="false"/>
-			<kactus2:route kactus2:connRef="wb_example_0_done_to_wb_example.bench_0_done" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="wb_example_0_start_to_wb_example.bench_0_start" kactus2:offPage="false">
+				<kactus2:position x="270" y="130"/>
+				<kactus2:position x="300" y="130"/>
+				<kactus2:position x="300" y="360"/>
+				<kactus2:position x="270" y="360"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="wb_example_0_done_to_wb_example.bench_0_done" kactus2:offPage="false">
+				<kactus2:position x="50" y="130"/>
+				<kactus2:position x="10" y="130"/>
+				<kactus2:position x="10" y="360"/>
+				<kactus2:position x="50" y="360"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="wb_example.bench_0_clk_i_to_clock_generator_0_clk_o" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="wb_example.bench_0_rst_i_to_clock_generator_0_rst_o" kactus2:offPage="false"/>
 		</kactus2:routes>
 		<kactus2:adHocVisibilities/>
 	</ipxact:vendorExtensions>

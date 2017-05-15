@@ -171,18 +171,19 @@ module wb_slave_spi_master #(
             transfer_complete <= 1;
         end
         else begin
-            if (spi_state == S_SPI_WAIT) begin
+        case(spi_state)
+            S_SPI_WAIT: begin
                 if (start_transfer && transfer_complete) begin
                     spi_state <= S_SPI_INIT_NEXT;
                     transfer_complete <= 0;
                 end
             end
-            else if (spi_state == S_SPI_INIT_NEXT) begin
+            S_SPI_INIT_NEXT: begin
                 data_send <= buffer_send[buffer_index];
                 slave_select_out <= 0;
                 spi_state <= S_SPI_TRANSFER;
             end
-            else if (spi_state == S_SPI_TRANSFER) begin
+            S_SPI_TRANSFER: begin
                 data_out <= data_send[send_iterator];
                     
                  if (send_iterator > 0 && recv_iterator < BYTE_SIZE-1) begin
@@ -196,7 +197,7 @@ module wb_slave_spi_master #(
                  else
                     send_iterator <= send_iterator + 1;
             end
-            else if (spi_state == S_SPI_DEASSERT) begin
+            S_SPI_DEASSERT: begin
                 slave_select_out <= 1;
                 data_out <= 1'bz;
                 
@@ -218,8 +219,10 @@ module wb_slave_spi_master #(
                     buffer_index <= 0;
                  end
             end
-            else
+            default: begin
                 $display("ERROR: Unkown spi_state: %d", spi_state);
+            end
+        endcase
         end
     end
 endmodule

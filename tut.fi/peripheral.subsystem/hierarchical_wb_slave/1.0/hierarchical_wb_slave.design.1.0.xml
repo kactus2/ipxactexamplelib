@@ -13,6 +13,7 @@
 					<ipxact:configurableElementValue referenceId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd">uuid_9f8a68d3_a06c_447d_a93c_86c6f2df980b</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba">uuid_223a95ba_e4b0_4773_9f25_14d3b85116f7</ipxact:configurableElementValue>
 					<ipxact:configurableElementValue referenceId="uuid_3452fcca_4cd2_458f_a644_4c6530ea74ed">uuid_08e3f0c7_e9a6_479b_9e70_b614f5d809fc</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_11833df7_86a0_48e2_8577_f3cc38000d57">uuid_840dfc69_aac3_4021_828e_1650b9d38269</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
 			</ipxact:componentRef>
 			<ipxact:vendorExtensions>

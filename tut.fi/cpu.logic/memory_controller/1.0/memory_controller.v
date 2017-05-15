@@ -108,7 +108,8 @@ module memory_controller #(
             mem_we_o <= 0;
         end
         else begin
-            if (state == S_WAIT) begin
+        case(state)
+            S_WAIT: begin
                 if (periph_mem_active == 1) begin
                     if (we_i == 1) begin
                         mem_we_o <= 1;
@@ -123,7 +124,7 @@ module memory_controller #(
                     mem_address_o <= address_i - PERIPHERAL_BASE;
                 end
             end
-            else if (state == S_WAIT_WRITE) begin
+            S_WAIT_WRITE: begin
                 mem_master_rdy <= 0;
                 if (mem_slave_rdy == 1) begin
                     state <= S_DEASSERT;
@@ -133,7 +134,7 @@ module memory_controller #(
                     mem_we_o  <= 0;
                 end
             end
-            else if (state == S_WAIT_READ) begin
+            S_WAIT_READ: begin
                 mem_master_rdy <= 0;
                 if (mem_slave_rdy == 1) begin
                     state <= S_DEASSERT;
@@ -141,12 +142,14 @@ module memory_controller #(
                     periph_mem_rdy <= 1;
                 end
             end
-            else if (state == S_DEASSERT) begin
+            S_DEASSERT: begin
                 state <= S_WAIT;
                 periph_mem_rdy <= 0;
             end
-            else
+            default: begin
                 $display("ERROR: Unkown state: %d", state);
+            end
+        endcase
         end
     end
 endmodule
