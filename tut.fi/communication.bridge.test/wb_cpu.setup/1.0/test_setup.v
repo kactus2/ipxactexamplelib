@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : test_setup.v
-// Creation date : 15.05.2017
-// Creation time : 14:10:11
+// Creation date : 16.05.2017
+// Creation time : 13:48:34
 // Description   : 
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.104 32-bit
+// Tool : Kactus2 3.4.106 32-bit
 // Plugin : Verilog generator 2.0e
 // This file was generated based on IP-XACT component tut.fi:communication.bridge.test:wb_cpu.setup:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/communication.bridge.test/wb_cpu.setup/1.0/wb_cpu.setup.1.0.xml

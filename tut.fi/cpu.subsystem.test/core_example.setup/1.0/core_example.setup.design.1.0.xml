@@ -10,11 +10,16 @@
 			<ipxact:componentRef vendor="tut.fi" library="cpu.subsystem" name="core_example" version="1.0"/>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{da39331b-ff28-43e9-bb8b-0d2d87b367af}</kactus2:uuid>
-				<kactus2:position x="160" y="60"/>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="instructions" x="110" y="40"/>
+					<kactus2:portPosition busRef="local_data" x="110" y="100"/>
+					<kactus2:portPosition busRef="peripheral_access" x="110" y="70"/>
+				</kactus2:portPositions>
 				<kactus2:adHocVisibilities>
-					<kactus2:adHocVisible portName="clk_i" x="-110" y="100"/>
-					<kactus2:adHocVisible portName="instruction_feed" x="110" y="100"/>
+					<kactus2:adHocVisible portName="clk_i" x="-110" y="70"/>
+					<kactus2:adHocVisible portName="rst_i" x="-110" y="40"/>
 				</kactus2:adHocVisibilities>
+				<kactus2:position x="160" y="180"/>
 			</ipxact:vendorExtensions>
 		</ipxact:componentInstance>
 		<ipxact:componentInstance>
@@ -22,10 +27,10 @@
 			<ipxact:componentRef vendor="tut.fi" library="cpu.logic.test" name="instruction_memory" version="1.0"/>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{b01d29ac-2934-47b7-88d2-4449654b1937}</kactus2:uuid>
-				<kactus2:position x="160" y="240"/>
+				<kactus2:position x="160" y="60"/>
 				<kactus2:adHocVisibilities>
-					<kactus2:adHocVisible portName="iaddr_o" x="110" y="70"/>
-					<kactus2:adHocVisible portName="rst_i" x="-110" y="70"/>
+					<kactus2:adHocVisible portName="rst_i" x="-110" y="40"/>
+					<kactus2:adHocVisible portName="clk_i" x="-110" y="70"/>
 				</kactus2:adHocVisibilities>
 			</ipxact:vendorExtensions>
 		</ipxact:componentInstance>
@@ -34,22 +39,39 @@
 			<ipxact:componentRef vendor="tut.fi" library="other.test" name="clock_generator" version="1.1"/>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{7317249d-53bf-4820-a02b-7dc790532f51}</kactus2:uuid>
-				<kactus2:position x="160" y="390"/>
 				<kactus2:adHocVisibilities>
 					<kactus2:adHocVisible portName="clk_o" x="-110" y="70"/>
 					<kactus2:adHocVisible portName="rst_o" x="-110" y="40"/>
 				</kactus2:adHocVisibilities>
+				<kactus2:position x="160" y="450"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>data_memory_0</ipxact:instanceName>
+			<ipxact:componentRef vendor="tut.fi" library="cpu.logic.test" name="data_memory" version="1.0"/>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{6712f6d4-ec54-4514-a3e5-b1db48c31632}</kactus2:uuid>
+				<kactus2:adHocVisibilities>
+					<kactus2:adHocVisible portName="rst_i" x="-110" y="40"/>
+					<kactus2:adHocVisible portName="clk_i" x="-110" y="70"/>
+				</kactus2:adHocVisibilities>
+				<kactus2:position x="160" y="330"/>
 			</ipxact:vendorExtensions>
 		</ipxact:componentInstance>
 	</ipxact:componentInstances>
+	<ipxact:interconnections>
+		<ipxact:interconnection>
+			<ipxact:name>core_example_0_instructions_to_instruction_memory_0_slave</ipxact:name>
+			<ipxact:activeInterface componentRef="core_example_0" busRef="instructions"/>
+			<ipxact:activeInterface componentRef="instruction_memory_0" busRef="slave"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>data_memory_0_slave_to_core_example_0_local_data</ipxact:name>
+			<ipxact:activeInterface componentRef="data_memory_0" busRef="slave"/>
+			<ipxact:activeInterface componentRef="core_example_0" busRef="local_data"/>
+		</ipxact:interconnection>
+	</ipxact:interconnections>
 	<ipxact:adHocConnections>
-		<ipxact:adHocConnection>
-			<ipxact:name>instruction_memory_0_instruction_feed_to_core_example_0_instruction_feed</ipxact:name>
-			<ipxact:portReferences>
-				<ipxact:internalPortReference componentRef="instruction_memory_0" portRef="instruction_feed"/>
-				<ipxact:internalPortReference componentRef="core_example_0" portRef="instruction_feed"/>
-			</ipxact:portReferences>
-		</ipxact:adHocConnection>
 		<ipxact:adHocConnection>
 			<ipxact:name>clock_generator_0_clk_o_to_instruction_memory_0_clk_i</ipxact:name>
 			<ipxact:portReferences>
@@ -79,10 +101,17 @@
 			</ipxact:portReferences>
 		</ipxact:adHocConnection>
 		<ipxact:adHocConnection>
-			<ipxact:name>core_example_0_iaddr_o_to_instruction_memory_0_iaddr_o</ipxact:name>
+			<ipxact:name>data_memory_0_rst_i_to_clock_generator_0_rst_o</ipxact:name>
 			<ipxact:portReferences>
-				<ipxact:internalPortReference componentRef="core_example_0" portRef="iaddr_o"/>
-				<ipxact:internalPortReference componentRef="instruction_memory_0" portRef="iaddr_o"/>
+				<ipxact:internalPortReference componentRef="data_memory_0" portRef="rst_i"/>
+				<ipxact:internalPortReference componentRef="clock_generator_0" portRef="rst_o"/>
+			</ipxact:portReferences>
+		</ipxact:adHocConnection>
+		<ipxact:adHocConnection>
+			<ipxact:name>data_memory_0_clk_i_to_clock_generator_0_clk_o</ipxact:name>
+			<ipxact:portReferences>
+				<ipxact:internalPortReference componentRef="data_memory_0" portRef="clk_i"/>
+				<ipxact:internalPortReference componentRef="clock_generator_0" portRef="clk_o"/>
 			</ipxact:portReferences>
 		</ipxact:adHocConnection>
 	</ipxact:adHocConnections>
@@ -95,26 +124,53 @@
 			<kactus2:column name="Components" contentType="2" allowedItems="2" minWidth="319" width="319" x="0"/>
 		</kactus2:columnLayout>
 		<kactus2:routes>
-			<kactus2:route kactus2:connRef="instruction_memory_0_instruction_feed_to_core_example_0_instruction_feed" kactus2:offPage="false"/>
-			<kactus2:route kactus2:connRef="clock_generator_0_clk_o_to_instruction_memory_0_clk_i" kactus2:offPage="false"/>
-			<kactus2:route kactus2:connRef="clock_generator_0_clk_o_to_core_example_0_clk_i" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="clock_generator_0_clk_o_to_instruction_memory_0_clk_i" kactus2:offPage="false">
+				<kactus2:position x="50" y="520"/>
+				<kactus2:position x="30" y="520"/>
+				<kactus2:position x="30" y="130"/>
+				<kactus2:position x="50" y="130"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="clock_generator_0_clk_o_to_core_example_0_clk_i" kactus2:offPage="false">
+				<kactus2:position x="50" y="520"/>
+				<kactus2:position x="30" y="520"/>
+				<kactus2:position x="30" y="250"/>
+				<kactus2:position x="50" y="250"/>
+			</kactus2:route>
 			<kactus2:route kactus2:connRef="core_example_0_rst_i_to_clock_generator_0_rst_o" kactus2:offPage="false">
-				<kactus2:position x="50" y="190"/>
-				<kactus2:position x="20" y="190"/>
-				<kactus2:position x="20" y="430"/>
-				<kactus2:position x="50" y="430"/>
+				<kactus2:position x="50" y="220"/>
+				<kactus2:position x="20" y="220"/>
+				<kactus2:position x="20" y="490"/>
+				<kactus2:position x="50" y="490"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="clock_generator_0_rst_o_to_instruction_memory_0_rst_i" kactus2:offPage="false">
-				<kactus2:position x="50" y="430"/>
-				<kactus2:position x="20" y="430"/>
-				<kactus2:position x="20" y="310"/>
-				<kactus2:position x="50" y="310"/>
+				<kactus2:position x="50" y="490"/>
+				<kactus2:position x="20" y="490"/>
+				<kactus2:position x="20" y="100"/>
+				<kactus2:position x="50" y="100"/>
 			</kactus2:route>
-			<kactus2:route kactus2:connRef="core_example_0_iaddr_o_to_instruction_memory_0_iaddr_o" kactus2:offPage="false">
-				<kactus2:position x="270" y="190"/>
-				<kactus2:position x="300" y="190"/>
-				<kactus2:position x="300" y="310"/>
-				<kactus2:position x="270" y="310"/>
+			<kactus2:route kactus2:connRef="core_example_0_instructions_to_instruction_memory_0_slave" kactus2:offPage="false">
+				<kactus2:position x="270" y="220"/>
+				<kactus2:position x="290" y="220"/>
+				<kactus2:position x="290" y="100"/>
+				<kactus2:position x="270" y="100"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="data_memory_0_slave_to_core_example_0_local_data" kactus2:offPage="false">
+				<kactus2:position x="270" y="370"/>
+				<kactus2:position x="290" y="370"/>
+				<kactus2:position x="290" y="280"/>
+				<kactus2:position x="270" y="280"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="data_memory_0_rst_i_to_clock_generator_0_rst_o" kactus2:offPage="false">
+				<kactus2:position x="50" y="370"/>
+				<kactus2:position x="20" y="370"/>
+				<kactus2:position x="20" y="490"/>
+				<kactus2:position x="50" y="490"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="data_memory_0_clk_i_to_clock_generator_0_clk_o" kactus2:offPage="false">
+				<kactus2:position x="50" y="400"/>
+				<kactus2:position x="30" y="400"/>
+				<kactus2:position x="30" y="520"/>
+				<kactus2:position x="50" y="520"/>
 			</kactus2:route>
 		</kactus2:routes>
 		<kactus2:adHocVisibilities/>

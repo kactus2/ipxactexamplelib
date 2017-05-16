@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : core_example_0.v
 // Creation date : 16.05.2017
-// Creation time : 08:45:40
+// Creation time : 13:47:33
 // Description   : 
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.105 32-bit
+// Tool : Kactus2 3.4.106 32-bit
 // Plugin : Verilog generator 2.0e
 // This file was generated based on IP-XACT component tut.fi:cpu.subsystem:core_example:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/cpu.subsystem/core_example/1.0/core_example.1.0.xml
@@ -21,6 +21,16 @@ module core_example_0 #(
     parameter                              INSTRUCTION_WIDTH = 28,    // Total width of an instruction
     parameter                              INSTRUCTION_ADDRESS_WIDTH = 8    // Width of an instruction address.
 ) (
+    // Interface: instructions
+    input          [27:0]               instruction_feed,
+    output         [7:0]                iaddr_o,
+
+    // Interface: local_data
+    input          [15:0]               local_read_data,
+    output         [9:0]                local_address_o,
+    output         [15:0]               local_write_data,
+    output                              local_write_o,
+
     // Interface: peripheral_access
     input          [15:0]               mem_data_i,
     input                               mem_slave_rdy,
@@ -31,9 +41,7 @@ module core_example_0 #(
 
     // These ports are not in any interface
     input                               clk_i,    // The mandatory clock, as this is synchronous logic.
-    input          [27:0]               instruction_feed,
-    input                               rst_i,    // The mandatory reset, as this is synchronous logic.
-    output         [7:0]                iaddr_o
+    input                               rst_i    // The mandatory reset, as this is synchronous logic.
 );
 
     // memory_controller_cpu_system_to_alu_cpu_system wires:
@@ -47,6 +55,7 @@ module core_example_0 #(
     wire [15:0] memory_controller_cpu_system_to_alu_cpu_systemload_value;
     wire        memory_controller_cpu_system_to_alu_cpu_systemmem_active;
     wire        memory_controller_cpu_system_to_alu_cpu_systemmem_rdy;
+    wire        memory_controller_cpu_system_to_alu_cpu_systemmem_read_rdy;
     wire        memory_controller_cpu_system_to_alu_cpu_systemmem_we;
     wire        memory_controller_cpu_system_to_alu_cpu_systemregister_active;
     wire [15:0] memory_controller_cpu_system_to_alu_cpu_systemregister_input;
@@ -62,12 +71,18 @@ module core_example_0 #(
     wire        memory_controller_peripheral_access_to_peripheral_accessmaster_rdy;
     wire        memory_controller_peripheral_access_to_peripheral_accessslave_rdy;
     wire        memory_controller_peripheral_access_to_peripheral_accesswe;
+    // instruction_decoder_instruction_feed_to_instructions wires:
+    wire [7:0]  instruction_decoder_instruction_feed_to_instructionsaddress;
+    wire [27:0] instruction_decoder_instruction_feed_to_instructionsread_data;
+    // memory_controller_local_data_to_local_data wires:
+    wire [9:0]  memory_controller_local_data_to_local_dataaddress;
+    wire [15:0] memory_controller_local_data_to_local_dataread_data;
+    wire        memory_controller_local_data_to_local_datawrite;
+    wire [15:0] memory_controller_local_data_to_local_datawrite_data;
 
     // Ad-hoc wires:
-    wire [27:0] instruction_decoder_instruction_feed_to_instruction_feed;
     wire        clock_clk_i_to_clk_i;
     wire        clock_rst_i_to_rst_i;
-    wire [7:0]  instruction_decoder_iaddr_o_to_iaddr_o;
 
     // alu port wires:
     wire [2:0]  alu_alu_op_i;
@@ -100,12 +115,17 @@ module core_example_0 #(
     wire [9:0]  memory_controller_address_i;
     wire        memory_controller_clk_i;
     wire [15:0] memory_controller_load_value_o;
+    wire [9:0]  memory_controller_local_address_o;
+    wire [15:0] memory_controller_local_read_data;
+    wire [15:0] memory_controller_local_write_data;
+    wire        memory_controller_local_write_o;
     wire        memory_controller_mem_active_i;
     wire [9:0]  memory_controller_mem_address_o;
     wire [15:0] memory_controller_mem_data_i;
     wire [15:0] memory_controller_mem_data_o;
     wire        memory_controller_mem_master_rdy;
     wire        memory_controller_mem_rdy_o;
+    wire        memory_controller_mem_read_rdy_o;
     wire        memory_controller_mem_slave_rdy;
     wire        memory_controller_mem_we_o;
     wire [15:0] memory_controller_register_value_i;
@@ -117,6 +137,8 @@ module core_example_0 #(
     wire [2:0]  register_bank_choose_register_i1;
     wire [2:0]  register_bank_choose_register_i2;
     wire        register_bank_clk_i;
+    wire [15:0] register_bank_load_value_i;
+    wire        register_bank_mem_read_rdy_i;
     wire        register_bank_register_active_i;
     wire [15:0] register_bank_register_input;
     wire [15:0] register_bank_register_output1;
@@ -125,8 +147,12 @@ module core_example_0 #(
 
     // Assignments for the ports of the encompassing component:
     assign clock_clk_i_to_clk_i = clk_i;
-    assign iaddr_o[7:0] = instruction_decoder_iaddr_o_to_iaddr_o[7:0];
-    assign instruction_decoder_instruction_feed_to_instruction_feed[27:0] = instruction_feed[27:0];
+    assign iaddr_o[7:0] = instruction_decoder_instruction_feed_to_instructionsaddress[7:0];
+    assign instruction_decoder_instruction_feed_to_instructionsread_data[27:0] = instruction_feed[27:0];
+    assign local_address_o[9:0] = memory_controller_local_data_to_local_dataaddress[9:0];
+    assign memory_controller_local_data_to_local_dataread_data[15:0] = local_read_data[15:0];
+    assign local_write_data[15:0] = memory_controller_local_data_to_local_datawrite_data[15:0];
+    assign local_write_o = memory_controller_local_data_to_local_datawrite;
     assign mem_address_o[9:0] = memory_controller_peripheral_access_to_peripheral_accessaddress[9:0];
     assign memory_controller_peripheral_access_to_peripheral_accessdata_sm[15:0] = mem_data_i[15:0];
     assign mem_data_o[15:0] = memory_controller_peripheral_access_to_peripheral_accessdata_ms[15:0];
@@ -153,8 +179,8 @@ module core_example_0 #(
     assign memory_controller_cpu_system_to_alu_cpu_systemchoose_register_1[3:0] = instruction_decoder_choose_reg1_o[3:0];
     assign memory_controller_cpu_system_to_alu_cpu_systemchoose_register_2[3:0] = instruction_decoder_choose_reg2_o[3:0];
     assign instruction_decoder_clk_i = clock_cpu_clk_source_to_register_bank_cpu_clk_sinkclk;
-    assign instruction_decoder_iaddr_o_to_iaddr_o[7:0] = instruction_decoder_iaddr_o[7:0];
-    assign instruction_decoder_instruction_feed[27:0] = instruction_decoder_instruction_feed_to_instruction_feed[27:0];
+    assign instruction_decoder_instruction_feed_to_instructionsaddress[7:0] = instruction_decoder_iaddr_o[7:0];
+    assign instruction_decoder_instruction_feed[27:0] = instruction_decoder_instruction_feed_to_instructionsread_data[27:0];
     assign instruction_decoder_load_value_i[15:0] = memory_controller_cpu_system_to_alu_cpu_systemload_value[15:0];
     assign memory_controller_cpu_system_to_alu_cpu_systemmem_active = instruction_decoder_mem_active_o;
     assign instruction_decoder_mem_rdy_i = memory_controller_cpu_system_to_alu_cpu_systemmem_rdy;
@@ -166,12 +192,17 @@ module core_example_0 #(
     assign memory_controller_address_i[9:0] = memory_controller_cpu_system_to_alu_cpu_systemaddress[9:0];
     assign memory_controller_clk_i = clock_cpu_clk_source_to_register_bank_cpu_clk_sinkclk;
     assign memory_controller_cpu_system_to_alu_cpu_systemload_value[15:0] = memory_controller_load_value_o[15:0];
+    assign memory_controller_local_data_to_local_dataaddress[9:0] = memory_controller_local_address_o[9:0];
+    assign memory_controller_local_read_data[15:0] = memory_controller_local_data_to_local_dataread_data[15:0];
+    assign memory_controller_local_data_to_local_datawrite_data[15:0] = memory_controller_local_write_data[15:0];
+    assign memory_controller_local_data_to_local_datawrite = memory_controller_local_write_o;
     assign memory_controller_mem_active_i = memory_controller_cpu_system_to_alu_cpu_systemmem_active;
     assign memory_controller_peripheral_access_to_peripheral_accessaddress[9:0] = memory_controller_mem_address_o[9:0];
     assign memory_controller_mem_data_i[15:0] = memory_controller_peripheral_access_to_peripheral_accessdata_sm[15:0];
     assign memory_controller_peripheral_access_to_peripheral_accessdata_ms[15:0] = memory_controller_mem_data_o[15:0];
     assign memory_controller_peripheral_access_to_peripheral_accessmaster_rdy = memory_controller_mem_master_rdy;
     assign memory_controller_cpu_system_to_alu_cpu_systemmem_rdy = memory_controller_mem_rdy_o;
+    assign memory_controller_cpu_system_to_alu_cpu_systemmem_read_rdy = memory_controller_mem_read_rdy_o;
     assign memory_controller_mem_slave_rdy = memory_controller_peripheral_access_to_peripheral_accessslave_rdy;
     assign memory_controller_peripheral_access_to_peripheral_accesswe = memory_controller_mem_we_o;
     assign memory_controller_register_value_i[15:0] = memory_controller_cpu_system_to_alu_cpu_systemregister_output_1[15:0];
@@ -183,6 +214,8 @@ module core_example_0 #(
     assign register_bank_choose_register_i1[2:0] = memory_controller_cpu_system_to_alu_cpu_systemchoose_register_1[2:0];
     assign register_bank_choose_register_i2[2:0] = memory_controller_cpu_system_to_alu_cpu_systemchoose_register_2[2:0];
     assign register_bank_clk_i = clock_cpu_clk_source_to_register_bank_cpu_clk_sinkclk;
+    assign register_bank_load_value_i[15:0] = memory_controller_cpu_system_to_alu_cpu_systemload_value[15:0];
+    assign register_bank_mem_read_rdy_i = memory_controller_cpu_system_to_alu_cpu_systemmem_read_rdy;
     assign register_bank_register_active_i = memory_controller_cpu_system_to_alu_cpu_systemregister_active;
     assign register_bank_register_input[15:0] = memory_controller_cpu_system_to_alu_cpu_systemregister_input[15:0];
     assign memory_controller_cpu_system_to_alu_cpu_systemregister_output_1[15:0] = register_bank_register_output1[15:0];
@@ -233,7 +266,7 @@ module core_example_0 #(
         .register_active_o   (instruction_decoder_register_active_o),
         .register_value_o    (instruction_decoder_register_value_o),
         .we_o                (instruction_decoder_we_o),
-        // These ports are not in any interface
+        // Interface: instructions
         .instruction_feed    (instruction_decoder_instruction_feed),
         .iaddr_o             (instruction_decoder_iaddr_o));
 
@@ -255,6 +288,12 @@ module core_example_0 #(
         .we_i                (memory_controller_we_i),
         .load_value_o        (memory_controller_load_value_o),
         .mem_rdy_o           (memory_controller_mem_rdy_o),
+        .mem_read_rdy_o      (memory_controller_mem_read_rdy_o),
+        // Interface: local_data
+        .local_read_data     (memory_controller_local_read_data),
+        .local_address_o     (memory_controller_local_address_o),
+        .local_write_data    (memory_controller_local_write_data),
+        .local_write_o       (memory_controller_local_write_o),
         // Interface: peripheral_access
         .mem_data_i          (memory_controller_mem_data_i),
         .mem_slave_rdy       (memory_controller_mem_slave_rdy),
@@ -277,6 +316,8 @@ module core_example_0 #(
         .alu_result_i        (register_bank_alu_result_i),
         .choose_register_i1  (register_bank_choose_register_i1),
         .choose_register_i2  (register_bank_choose_register_i2),
+        .load_value_i        (register_bank_load_value_i),
+        .mem_read_rdy_i      (register_bank_mem_read_rdy_i),
         .register_active_i   (register_bank_register_active_i),
         .register_input      (register_bank_register_input),
         .register_output1    (register_bank_register_output1),

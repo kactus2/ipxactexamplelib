@@ -21,6 +21,10 @@
 		<ipxact:instanceName>cpu_example_0</ipxact:instanceName>
 		<ipxact:view viewRef="hierarchical_verilog"/>
 	</ipxact:viewConfiguration>
+	<ipxact:viewConfiguration>
+		<ipxact:instanceName>data_memory_0</ipxact:instanceName>
+		<ipxact:view viewRef="flat_verilog"/>
+	</ipxact:viewConfiguration>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,4,123,0</kactus2:version>
 		<kactus2:kts_attributes>

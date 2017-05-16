@@ -1,13 +1,13 @@
 //-----------------------------------------------------------------------------
 // File          : wb_slave_mem_master.v
-// Creation date : 31.03.2017
-// Creation time : 14:39:59
+// Creation date : 16.05.2017
+// Creation time : 13:49:38
 // Description   : Used to test wishbone cpu wrapper from both master and slave side.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.6 32-bit
-// Plugin : Verilog generator 2.0d
-// This file was generated based on IP-XACT component tut.fi:testBench:wb_cpu_wrapper_tb:1.0
-// whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/testBench/wb_cpu_wrapper_tb/1.0/wb_cpu_wrapper_tb.1.0.xml
+// Tool : Kactus2 3.4.106 32-bit
+// Plugin : Verilog generator 2.0e
+// This file was generated based on IP-XACT component tut.fi:communication.bridge.test:wb_cpu.bench:1.0
+// whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/communication.bridge.test/wb_cpu.bench/1.0/wb_cpu.bench.1.0.xml
 //-----------------------------------------------------------------------------
 
 module wb_slave_mem_master #(
@@ -25,7 +25,6 @@ module wb_slave_mem_master #(
     output reg                          mem_we_o,
 
     // Interface: wb_slave
-    // The address of the data.
     input          [ADDR_WIDTH-1:0]     adr_i,    // The address of the data.
     input                               cyc_i,    // Asserted by master for transfer.
     input          [DATA_WIDTH-1:0]     dat_i,    // Data from master to slave.
@@ -36,7 +35,6 @@ module wb_slave_mem_master #(
     output reg                          err_o,    // Indicates abnormal cycle termination.
 
     // Interface: wb_system
-    // The mandatory clock, as this is synchronous logic.
     input                               clk_i,    // The mandatory clock, as this is synchronous logic.
     input                               rst_i    // The mandatory reset, as this is synchronous logic.
 );

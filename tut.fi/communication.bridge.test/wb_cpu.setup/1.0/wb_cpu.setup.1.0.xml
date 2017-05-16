@@ -34,7 +34,7 @@
 			<ipxact:file>
 				<ipxact:name>test_setup.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 14:10:13 on 15.05.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 13:48:36 on 16.05.2017 by Kactus2. </ipxact:description>
 			</ipxact:file>
 			<ipxact:file>
 				<ipxact:name>wb_cpu.setup.v</ipxact:name>

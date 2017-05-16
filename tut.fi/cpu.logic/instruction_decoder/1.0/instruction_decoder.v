@@ -1,13 +1,13 @@
 //-----------------------------------------------------------------------------
 // File          : instruction_decoder.v
-// Creation date : 18.04.2017
-// Creation time : 14:45:09
+// Creation date : 16.05.2017
+// Creation time : 09:02:07
 // Description   : 
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.79 32-bit
-// Plugin : Verilog generator 2.0d
-// This file was generated based on IP-XACT component tut.fi:core:instruction_decoder:1.0
-// whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/core/instruction_decoder/1.0/instruction_decoder.1.0.xml
+// Tool : Kactus2 3.4.106 32-bit
+// Plugin : Verilog generator 2.0e
+// This file was generated based on IP-XACT component tut.fi:cpu.logic:instruction_decoder:1.0
+// whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/cpu.logic/instruction_decoder/1.0/instruction_decoder.1.0.xml
 //-----------------------------------------------------------------------------
 
 module instruction_decoder #(
@@ -36,7 +36,7 @@ module instruction_decoder #(
     output reg     [DATA_WIDTH-1:0]     register_value_o,
     output reg                          we_o,
 
-    // These ports are not in any interface
+    // Interface: instructions
     input          [INSTRUCTION_WIDTH-1:0] instruction_feed,
     output         [INSTRUCTION_ADDRESS_WIDTH-1:0] iaddr_o
 );
@@ -81,25 +81,16 @@ module instruction_decoder #(
     always @* begin
         if (mem_active_o)begin
             if (mem_rdy_i) begin
-                if (!we_o) begin
-                    next_register_active <= 1;
-                    // Pass literal.
-                    next_register_value <= load_value_i;
-                end
-                else begin
-                    next_register_active <= 0;
-                    next_register_value <= 0;
-                end
                 next_mem_active <= 0;
                 next_instruction <= instruction_pointer + 1;
             end
             else begin
                 next_mem_active <= 1;
                 next_instruction <= instruction_pointer;
-                next_register_value <= 0;
-                next_register_active <= 0;
             end
             
+            next_register_value <= 0;
+            next_register_active <= 0;
             next_we <= we_o;
             next_alu_active <= 0;
         end
@@ -128,11 +119,11 @@ module instruction_decoder #(
                 next_mem_active <= 0;
                 next_instruction = literal;
             end
-            else if (operation == LOAD ||
-                operation == STORE)
+            else if (operation == LOAD || operation == STORE)
             begin
                 // Activate memory controller if memory operation.
                 next_mem_active <= 1;
+                next_instruction = instruction_pointer;
             end
             else begin
                 // Else the instruction pointer increases as normal.

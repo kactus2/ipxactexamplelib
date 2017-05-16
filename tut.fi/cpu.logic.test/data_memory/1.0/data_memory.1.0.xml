@@ -2,7 +2,7 @@
 <ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
 	<ipxact:library>cpu.logic.test</ipxact:library>
-	<ipxact:name>instruction_memory</ipxact:name>
+	<ipxact:name>data_memory</ipxact:name>
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
@@ -17,7 +17,23 @@
 								<ipxact:name>read_data</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>instruction_feed</ipxact:name>
+								<ipxact:name>read_data</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>write_data</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>write_data</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>write</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>write</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 						<ipxact:portMap>
@@ -25,7 +41,7 @@
 								<ipxact:name>address</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>iaddr_o</ipxact:name>
+								<ipxact:name>adr_i</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 					</ipxact:portMaps>
@@ -52,12 +68,12 @@
 		</ipxact:instantiations>
 		<ipxact:ports>
 			<ipxact:port>
-				<ipxact:name>instruction_feed</ipxact:name>
+				<ipxact:name>read_data</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>uuid_e8ddf738_e12d_440f_a6b0_75d32bf0da26-1</ipxact:left>
+							<ipxact:left>uuid_e8a51461_67cf_40dd_8517_7fbe90c1b038-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -106,12 +122,12 @@
 				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>iaddr_o</ipxact:name>
+				<ipxact:name>adr_i</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>uuid_7295574e_1959_452c_94b0_8a84c801ac9e-1</ipxact:left>
+							<ipxact:left>uuid_c2a19fd3_6557_4a78_9796_9a7306bf8931-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -120,12 +136,41 @@
 					<kactus2:portTags></kactus2:portTags>
 				</ipxact:vendorExtensions>
 			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>write_data</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>uuid_e8a51461_67cf_40dd_8517_7fbe90c1b038-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>write</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+			</ipxact:port>
 		</ipxact:ports>
 	</ipxact:model>
 	<ipxact:fileSets>
 		<ipxact:fileSet>
 			<ipxact:name>verilogSource</ipxact:name>
 			<ipxact:group>generatedFiles</ipxact:group>
+			<ipxact:file>
+				<ipxact:name>data_memory.v</ipxact:name>
+				<ipxact:fileType>verilogSource</ipxact:fileType>
+				<ipxact:description>Generated at 10:33:39 on 16.05.2017 by Kactus2. </ipxact:description>
+			</ipxact:file>
 			<ipxact:file>
 				<ipxact:name>instruction_memory.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
@@ -134,14 +179,22 @@
 		</ipxact:fileSet>
 	</ipxact:fileSets>
 	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_e8ddf738_e12d_440f_a6b0_75d32bf0da26" resolve="user">
-			<ipxact:name>INSTRUCTION_WIDTH</ipxact:name>
-			<ipxact:description>Total width of an instruction</ipxact:description>
-			<ipxact:value>28</ipxact:value>
+		<ipxact:parameter parameterId="uuid_e8a51461_67cf_40dd_8517_7fbe90c1b038" resolve="user" usageCount="2">
+			<ipxact:name>DATA_WIDTH</ipxact:name>
+			<ipxact:description>Width for data.</ipxact:description>
+			<ipxact:value>32</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_7295574e_1959_452c_94b0_8a84c801ac9e" resolve="user" usageCount="1">
-			<ipxact:name>INSTRUCTION_ADDRESS_WIDTH</ipxact:name>
-			<ipxact:description>Width of an instruction address.</ipxact:description>
+		<ipxact:parameter parameterId="uuid_c2a19fd3_6557_4a78_9796_9a7306bf8931" resolve="user" usageCount="1">
+			<ipxact:name>ADDR_WIDTH</ipxact:name>
+			<ipxact:description>Width of the addresses.</ipxact:description>
+			<ipxact:value>9</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_c98bf258_93f4_4ebf_b7f8_3de391261024" resolve="user">
+			<ipxact:name>MEMORY_SIZE</ipxact:name>
+			<ipxact:value>128</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_d2d93f59_05c9_4f81_b11e_d1c62224f083" resolve="user">
+			<ipxact:name>AUB</ipxact:name>
 			<ipxact:value>8</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>

@@ -1,13 +1,13 @@
 //-----------------------------------------------------------------------------
 // File          : register_bank.v
-// Creation date : 18.04.2017
-// Creation time : 14:43:51
+// Creation date : 16.05.2017
+// Creation time : 11:39:39
 // Description   : Stores registers and the logic needed to access them. In case of multiple simultaenous writes, the one with most priority is done.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.79 32-bit
-// Plugin : Verilog generator 2.0d
-// This file was generated based on IP-XACT component tut.fi:core:register_bank:1.0
-// whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/core/register_bank/1.0/register_bank.1.0.xml
+// Tool : Kactus2 3.4.106 32-bit
+// Plugin : Verilog generator 2.0e
+// This file was generated based on IP-XACT component tut.fi:cpu.logic:register_bank:1.0
+// whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/cpu.logic/register_bank/1.0/register_bank.1.0.xml
 //-----------------------------------------------------------------------------
 
 module register_bank #(
@@ -24,6 +24,8 @@ module register_bank #(
     input          [DATA_WIDTH-1:0]     alu_result_i,
     input          [REGISTER_ID_WIDTH-1:0] choose_register_i1,
     input          [REGISTER_ID_WIDTH-1:0] choose_register_i2,
+    input          [DATA_WIDTH-1:0]     load_value_i,
+    input                               mem_read_rdy_i,
     input                               register_active_i,
     input          [DATA_WIDTH-1:0]     register_input,
     output reg     [DATA_WIDTH-1:0]     register_output1,
@@ -53,6 +55,10 @@ module register_bank #(
             if (alu_active_i) begin
                 // Alu is expected to yield a value: Save to the register.
                 registers[choose_register_i1] <= alu_result_i;
+            end
+            else if (mem_read_rdy_i) begin
+                // Alu is expected to yield a value: Save to the register.
+                registers[choose_register_i1] <= load_value_i;
             end
             else if (register_active_i) begin
                 // Alu is expected to yield a value: Save to the register.

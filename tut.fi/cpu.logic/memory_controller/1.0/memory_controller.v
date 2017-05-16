@@ -1,13 +1,13 @@
 //-----------------------------------------------------------------------------
 // File          : memory_controller.v
-// Creation date : 11.04.2017
-// Creation time : 11:03:15
+// Creation date : 16.05.2017
+// Creation time : 11:39:33
 // Description   : 
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.21 32-bit
-// Plugin : Verilog generator 2.0d
-// This file was generated based on IP-XACT component tut.fi:core:memory_controller:1.0
-// whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/core/memory_controller/1.0/memory_controller.1.0.xml
+// Tool : Kactus2 3.4.106 32-bit
+// Plugin : Verilog generator 2.0e
+// This file was generated based on IP-XACT component tut.fi:cpu.logic:memory_controller:1.0
+// whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/cpu.logic/memory_controller/1.0/memory_controller.1.0.xml
 //-----------------------------------------------------------------------------
 
 module memory_controller #(
@@ -18,8 +18,7 @@ module memory_controller #(
     parameter                              PERIPHERAL_BASE  = 128,    // The first address for peripherals.
     parameter                              REGISTER_COUNT   = 8,    // How many registers are supported in the core.
     parameter                              DATA_BYTES       = DATA_WIDTH/AUB,    // How many bytes in data width.
-    parameter                              CONTROL_RANGE    = 'h40,    // How many AUBs are reserved for control data.
-    parameter                              ADDR_BYTES       = ADDR_WIDTH/AUB    // How many bytes in address width.
+    parameter                              CONTROL_RANGE    = 'h40    // How many AUBs are reserved for control data.
 ) (
     // Interface: cpu_clk_sink
     input                               clk_i,    // The mandatory clock, as this is synchronous logic.
@@ -32,6 +31,13 @@ module memory_controller #(
     input                               we_i,
     output         [DATA_WIDTH-1:0]     load_value_o,
     output                              mem_rdy_o,
+    output                              mem_read_rdy_o,
+
+    // Interface: local_data
+    input          [DATA_WIDTH-1:0]     local_read_data,
+    output         [ADDR_WIDTH-1:0]     local_address_o,
+    output         [DATA_WIDTH-1:0]     local_write_data,
+    output                              local_write_o,
 
     // Interface: peripheral_access
     input          [DATA_WIDTH-1:0]     mem_data_i,
@@ -43,51 +49,52 @@ module memory_controller #(
 );
 
 // WARNING: EVERYTHING ON AND ABOVE THIS LINE MAY BE OVERWRITTEN BY KACTUS2!!!
-
-    // Effectively this is how many bytes in fits a word.
-    localparam AU_IN_DATA = DATA_WIDTH/AUB;
-
-    // The local memory is assumed to extend until peripheral base begins.
-    reg [AUB-1:0] local_memory [PERIPHERAL_BASE-1:0];
     
     // Choose the active address block, if any.
     wire local_mem_active = mem_active_i && address_i < PERIPHERAL_BASE;
     wire periph_mem_active = mem_active_i && address_i >= PERIPHERAL_BASE;
     reg periph_mem_rdy;
+    reg local_mem_rdy;
     
-    reg [DATA_WIDTH-1:0] local_load_value;
     reg [DATA_WIDTH-1:0] periph_load_value;
+    // 1 = Last operation was read, else zero.
+    reg read_operation;
     
-    assign load_value_o = periph_mem_active ? periph_load_value: local_load_value;
+    assign load_value_o = periph_mem_active ? periph_load_value : local_read_data;
     
-    assign mem_rdy_o = local_mem_active | periph_mem_rdy;
+    assign local_write_data = register_value_i;
+    assign local_write_o = we_i;
+    assign local_address_o = address_i;
     
-    // Used to index AUBs to data io.
-    integer index;
-    always @* begin
-        if (local_mem_active) begin
-            if (we_i == 1) begin
-                // Writing: Pick every byte from the input and place them to correct addresses.
-                for (index = 0; index < AU_IN_DATA; index = index + 1) begin
-                    local_memory[address_i + index] <= register_value_i[(index*AUB)+:AUB];
-                    local_load_value <= 'z;
-                end
+    assign mem_rdy_o = local_mem_rdy | periph_mem_rdy;
+    assign mem_read_rdy_o = mem_rdy_o && read_operation;
+    
+    always @(posedge clk_i or posedge rst_i) begin
+        if(rst_i == 1'b1) begin
+            local_mem_rdy <= 0;
+            read_operation <= 0;
+        end
+        else begin
+            if (local_mem_active) begin
+                local_mem_rdy <= 1;
             end
             else begin
-                // Reading: Pick every byte from correct addresses and place them to the output.
-                for (index = 0; index < AU_IN_DATA; index = index + 1) begin
-                    local_load_value[(index*AUB)+:AUB] <= local_memory[address_i + index];
-                end
+                local_mem_rdy <= 0;
+            end
+            
+            if (local_mem_active || mem_active_i) begin
+                read_operation <= ~we_i;
+            end
+            else begin
+                read_operation <= 0;
             end
         end
-        else
-            local_load_value <= 'z;
     end
     
-    // The state.
+    // The state of peripheral access.
     reg [1:0] state;
     
-    // The available states.
+    // The available states for peripheral access.
     parameter [1:0]
         S_WAIT          = 2'd0, 
         S_WAIT_WRITE     = 2'd1, 

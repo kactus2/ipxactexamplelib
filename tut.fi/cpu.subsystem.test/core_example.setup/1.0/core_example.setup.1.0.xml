@@ -35,12 +35,12 @@
 			<ipxact:file>
 				<ipxact:name>core_example_0.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 13:47:21 on 10.05.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 11:43:31 on 16.05.2017 by Kactus2. </ipxact:description>
 			</ipxact:file>
 			<ipxact:file>
 				<ipxact:name>test_setup.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 13:47:21 on 10.05.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 11:43:31 on 16.05.2017 by Kactus2. </ipxact:description>
 			</ipxact:file>
 		</ipxact:fileSet>
 		<ipxact:fileSet>

@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : cpu_example_0.v
 // Creation date : 16.05.2017
-// Creation time : 08:45:40
+// Creation time : 13:47:33
 // Description   : 
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.105 32-bit
+// Tool : Kactus2 3.4.106 32-bit
 // Plugin : Verilog generator 2.0e
 // This file was generated based on IP-XACT component tut.fi:cpu.structure:cpu_example:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/cpu.structure/cpu_example/1.0/cpu_example.1.0.xml
@@ -23,6 +23,16 @@ module cpu_example_0 #(
     parameter                              INSTRUCTION_WIDTH = 28,    // Total width of an instruction
     parameter                              INSTRUCTION_ADDRESS_WIDTH = 8    // Width of an instruction address.
 ) (
+    // Interface: instructions
+    input          [27:0]               instruction_feed,
+    output         [7:0]                iaddr_o,
+
+    // Interface: local_data
+    input          [15:0]               local_read_data,
+    output         [9:0]                local_address_o,
+    output         [15:0]               local_write_data,
+    output                              local_write_o,
+
     // Interface: master_if
     input                               data_in,
     output                              clk_out,
@@ -31,11 +41,7 @@ module cpu_example_0 #(
 
     // Interface: wb_system
     input                               clk_i,    // The mandatory clock, as this is synchronous logic.
-    input                               rst_i,    // The mandatory reset, as this is synchronous logic.
-
-    // These ports are not in any interface
-    input          [27:0]               instruction_feed,
-    output         [7:0]                iaddr_o
+    input                               rst_i    // The mandatory reset, as this is synchronous logic.
 );
 
     // wishbone_bridge_wb_master_to_wishbone_bus_one_to_many_master wires:
@@ -98,17 +104,27 @@ module cpu_example_0 #(
     wire        wb_slave_spi_master_master_if_to_master_ifMOSI;
     wire        wb_slave_spi_master_master_if_to_master_ifSCLK;
     wire        wb_slave_spi_master_master_if_to_master_ifSS;
+    // core_instructions_to_instructions wires:
+    wire [7:0]  core_instructions_to_instructionsaddress;
+    wire [27:0] core_instructions_to_instructionsread_data;
+    // core_local_data_to_local_data wires:
+    wire [9:0]  core_local_data_to_local_dataaddress;
+    wire [15:0] core_local_data_to_local_dataread_data;
+    wire        core_local_data_to_local_datawrite;
+    wire [15:0] core_local_data_to_local_datawrite_data;
 
     // Ad-hoc wires:
-    wire        core_rst_i_to_rst_i;
     wire        core_clk_i_to_clk_i;
-    wire [27:0] core_instruction_feed_to_instruction_feed;
-    wire [7:0]  core_iaddr_o_to_iaddr_o;
+    wire        core_rst_i_to_rst_i;
 
     // core port wires:
     wire        core_clk_i;
     wire [7:0]  core_iaddr_o;
     wire [27:0] core_instruction_feed;
+    wire [9:0]  core_local_address_o;
+    wire [15:0] core_local_read_data;
+    wire [15:0] core_local_write_data;
+    wire        core_local_write_o;
     wire [9:0]  core_mem_address_o;
     wire [15:0] core_mem_data_i;
     wire [15:0] core_mem_data_o;
@@ -231,16 +247,24 @@ module cpu_example_0 #(
     assign clk_out = wb_slave_spi_master_master_if_to_master_ifSCLK;
     assign wb_slave_spi_master_master_if_to_master_ifMISO = data_in;
     assign data_out = wb_slave_spi_master_master_if_to_master_ifMOSI;
-    assign iaddr_o[7:0] = core_iaddr_o_to_iaddr_o[7:0];
-    assign core_instruction_feed_to_instruction_feed[27:0] = instruction_feed[27:0];
+    assign iaddr_o[7:0] = core_instructions_to_instructionsaddress[7:0];
+    assign core_instructions_to_instructionsread_data[27:0] = instruction_feed[27:0];
+    assign local_address_o[9:0] = core_local_data_to_local_dataaddress[9:0];
+    assign core_local_data_to_local_dataread_data[15:0] = local_read_data[15:0];
+    assign local_write_data[15:0] = core_local_data_to_local_datawrite_data[15:0];
+    assign local_write_o = core_local_data_to_local_datawrite;
     assign core_rst_i_to_rst_i = rst_i;
     assign wishbone_bridge_wb_system_to_wb_systemrst = rst_i;
     assign slave_select_out = wb_slave_spi_master_master_if_to_master_ifSS;
 
     // core assignments:
     assign core_clk_i = core_clk_i_to_clk_i;
-    assign core_iaddr_o_to_iaddr_o[7:0] = core_iaddr_o[7:0];
-    assign core_instruction_feed[27:0] = core_instruction_feed_to_instruction_feed[27:0];
+    assign core_instructions_to_instructionsaddress[7:0] = core_iaddr_o[7:0];
+    assign core_instruction_feed[27:0] = core_instructions_to_instructionsread_data[27:0];
+    assign core_local_data_to_local_dataaddress[9:0] = core_local_address_o[9:0];
+    assign core_local_read_data[15:0] = core_local_data_to_local_dataread_data[15:0];
+    assign core_local_data_to_local_datawrite_data[15:0] = core_local_write_data[15:0];
+    assign core_local_data_to_local_datawrite = core_local_write_o;
     assign core_peripheral_access_to_wishbone_bridge_contolleraddress[9:0] = core_mem_address_o[9:0];
     assign core_mem_data_i[15:0] = core_peripheral_access_to_wishbone_bridge_contollerdata_sm[15:0];
     assign core_peripheral_access_to_wishbone_bridge_contollerdata_ms[15:0] = core_mem_data_o[15:0];
@@ -366,6 +390,14 @@ module cpu_example_0 #(
         .INSTRUCTION_WIDTH   (28),
         .INSTRUCTION_ADDRESS_WIDTH(8))
     core(
+        // Interface: instructions
+        .instruction_feed    (core_instruction_feed),
+        .iaddr_o             (core_iaddr_o),
+        // Interface: local_data
+        .local_read_data     (core_local_read_data),
+        .local_address_o     (core_local_address_o),
+        .local_write_data    (core_local_write_data),
+        .local_write_o       (core_local_write_o),
         // Interface: peripheral_access
         .mem_data_i          (core_mem_data_i),
         .mem_slave_rdy       (core_mem_slave_rdy),
@@ -375,9 +407,7 @@ module cpu_example_0 #(
         .mem_we_o            (core_mem_we_o),
         // These ports are not in any interface
         .clk_i               (core_clk_i),
-        .instruction_feed    (core_instruction_feed),
-        .rst_i               (core_rst_i),
-        .iaddr_o             (core_iaddr_o));
+        .rst_i               (core_rst_i));
 
     // IP-XACT VLNV: tut.fi:peripheral.logic:wb_external_mem:1.0
     wb_memory #(
