@@ -7,10 +7,10 @@
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
 			<ipxact:name>peripheral_access</ipxact:name>
-			<ipxact:busType vendor="tut.fi" library="interface" name="mem_control" version="1.0"/>
+			<ipxact:busType vendor="tut.fi" library="interface" name="peripheral_control" version="1.0"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
-					<ipxact:abstractionRef vendor="tut.fi" library="interface" name="mem_control.absDef" version="1.0"/>
+					<ipxact:abstractionRef vendor="tut.fi" library="interface" name="peripheral_control.absDef" version="1.0"/>
 					<ipxact:portMaps>
 						<ipxact:portMap>
 							<ipxact:logicalPort>

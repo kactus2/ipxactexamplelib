@@ -2,13 +2,13 @@
 <ipxact:abstractionDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
 	<ipxact:library>interface</ipxact:library>
-	<ipxact:name>mem_control.absDef</ipxact:name>
+	<ipxact:name>peripheral_control.absDef</ipxact:name>
 	<ipxact:version>1.0</ipxact:version>
-	<ipxact:busType vendor="tut.fi" library="interface" name="mem_control" version="1.0"/>
+	<ipxact:busType vendor="tut.fi" library="interface" name="peripheral_control" version="1.0"/>
 	<ipxact:ports>
 		<ipxact:port>
 			<ipxact:logicalName>address</ipxact:logicalName>
-			<ipxact:description>Target address of the memory operation</ipxact:description>
+			<ipxact:description>Target address of the transfer.</ipxact:description>
 			<ipxact:wire>
 				<ipxact:qualifier>
 					<ipxact:isAddress>true</ipxact:isAddress>
@@ -59,7 +59,7 @@
 		</ipxact:port>
 		<ipxact:port>
 			<ipxact:logicalName>we</ipxact:logicalName>
-			<ipxact:description>1 = Controller writes from the address. 0 = Controller reads from the address.</ipxact:description>
+			<ipxact:description>1 = Controller writes to the address. 0 = Controller reads from the address.</ipxact:description>
 			<ipxact:wire>
 				<ipxact:onMaster>
 					<ipxact:presence>required</ipxact:presence>

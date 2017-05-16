@@ -1,11 +1,11 @@
 //-----------------------------------------------------------------------------
 // File          : core_example_0.v
-// Creation date : 09.05.2017
-// Creation time : 15:47:48
+// Creation date : 16.05.2017
+// Creation time : 08:45:40
 // Description   : 
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.104 32-bit
-// Plugin : Verilog generator 2.0d
+// Tool : Kactus2 3.4.105 32-bit
+// Plugin : Verilog generator 2.0e
 // This file was generated based on IP-XACT component tut.fi:cpu.subsystem:core_example:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/cpu.subsystem/core_example/1.0/core_example.1.0.xml
 //-----------------------------------------------------------------------------
@@ -17,7 +17,7 @@ module core_example_0 #(
     parameter                              SUPPORTED_MEMORY = 1024,    // How much the system supports memory in total.
     parameter                              REGISTER_COUNT   = 8,    // How many registers are supported in the core.
     parameter                              PERIPHERAL_BASE  = 256,    // The first address for peripherals.
-    parameter                              OP_CODE_WIDTH    = 3,    // Bits reserved for operation identifiers.
+    parameter                              OP_CODE_WIDTH    = 4,    // Bits reserved for operation identifiers.
     parameter                              INSTRUCTION_WIDTH = 28,    // Total width of an instruction
     parameter                              INSTRUCTION_ADDRESS_WIDTH = 8    // Width of an instruction address.
 ) (
