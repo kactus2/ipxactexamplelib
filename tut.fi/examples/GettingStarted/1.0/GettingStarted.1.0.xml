@@ -4,61 +4,13 @@
 	<ipxact:library>examples</ipxact:library>
 	<ipxact:name>GettingStarted</ipxact:name>
 	<ipxact:version>1.0</ipxact:version>
-	<ipxact:description>This catalog contains all the IP-XACT files used in the Getting Started video tutorial for Kactus2. The top-level component is tut.fi:soc:SampleHW:1.0.</ipxact:description>
-	<ipxact:busDefinitions>
+	<ipxact:description>This catalog contains all the IP-XACT files used in the Getting Started video tutorial for Kactus2.</ipxact:description>
+	<ipxact:catalogs>
 		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
-			<ipxact:name>../../../../opencores.org/interface/wishbone/b4/wishbone.b4.xml</ipxact:name>
+			<ipxact:vlnv vendor="tut.fi" library="other.subsystem" name="wb_example.documents" version="1.0"/>
+			<ipxact:name>../../../other.subsystem/wb_example.documents/1.0/wb_example.documents.1.0.xml</ipxact:name>
 		</ipxact:ipxactFile>
-	</ipxact:busDefinitions>
-	<ipxact:abstractionDefinitions>
-		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="opencores.org" library="interface" name="wishbone.absDef" version="b4"/>
-			<ipxact:name>../../../../opencores.org/interface/wishbone/b4/wishbone.absDef.b4.xml</ipxact:name>
-		</ipxact:ipxactFile>
-	</ipxact:abstractionDefinitions>
-	<ipxact:components>
-		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="other.subsystem" name="wb_example" version="1.0"/>
-			<ipxact:name>../../../other.subsystem/wb_example/1.0/wb_example.1.0.xml</ipxact:name>
-		</ipxact:ipxactFile>
-		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="communication.bus" name="wishbone" version="1.0"/>
-			<ipxact:name>../../../communication.bus/wishbone/1.0/wishbone.1.0.xml</ipxact:name>
-		</ipxact:ipxactFile>
-		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="peripheral.subsystem" name="hierarchical_wb_slave" version="1.0"/>
-			<ipxact:name>../../../peripheral.subsystem/hierarchical_wb_slave/1.0/hierarchical_wb_slave.1.0.xml</ipxact:name>
-		</ipxact:ipxactFile>
-		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="peripheral.logic" name="wb_dual_master" version="1.0"/>
-			<ipxact:name>../../../peripheral.logic/wb_dual_master/1.0/wb_dual_master.1.0.xml</ipxact:name>
-		</ipxact:ipxactFile>
-		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="communication.template" name="wb_slave" version="1.0"/>
-			<ipxact:name>../../../communication.template/wb_slave/1.0/wb_slave.1.0.xml</ipxact:name>
-		</ipxact:ipxactFile>
-	</ipxact:components>
-	<ipxact:designs>
-		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="other.subsystem" name="wb_example.design" version="1.0"/>
-			<ipxact:name>../../../other.subsystem/wb_example/1.0/wb_example.design.1.0.xml</ipxact:name>
-		</ipxact:ipxactFile>
-		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="peripheral.subsystem" name="hierarchical_wb_slave.design" version="1.0"/>
-			<ipxact:name>../../../peripheral.subsystem/hierarchical_wb_slave/1.0/hierarchical_wb_slave.design.1.0.xml</ipxact:name>
-		</ipxact:ipxactFile>
-	</ipxact:designs>
-	<ipxact:designConfigurations>
-		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="other.subsystem" name="wb_example.verilog.designcfg" version="1.0"/>
-			<ipxact:name>../../../other.subsystem/wb_example/1.0/wb_example.verilog.designcfg.1.0.xml</ipxact:name>
-		</ipxact:ipxactFile>
-		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="peripheral.subsystem" name="hierarchical_wb_slave.verilog.designcfg" version="1.0"/>
-			<ipxact:name>../../../peripheral.subsystem/hierarchical_wb_slave/1.0/hierarchical_wb_slave.verilog.designcfg.1.0.xml</ipxact:name>
-		</ipxact:ipxactFile>
-	</ipxact:designConfigurations>
+	</ipxact:catalogs>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,3,279,0</kactus2:version>
 	</ipxact:vendorExtensions>

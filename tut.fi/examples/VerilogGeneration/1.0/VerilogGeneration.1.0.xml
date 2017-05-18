@@ -4,7 +4,13 @@
 	<ipxact:library>examples</ipxact:library>
 	<ipxact:name>VerilogGeneration</ipxact:name>
 	<ipxact:version>1.0</ipxact:version>
-	<ipxact:description>This catalog contains all the IP-XACT files used in the Verilog Generation video tutorial for Kactus2. The top-level component is tut.fi:chip:SampleTB:1.0.</ipxact:description>
+	<ipxact:description>This catalog contains all the IP-XACT files used in the Verilog Generation video tutorial for Kactus2. The top-level component is tut.fi:other.subsystem.test:wb_example.setup:1.0.</ipxact:description>
+	<ipxact:catalogs>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tut.fi" library="other.subsystem" name="wb_example.documents" version="1.0"/>
+			<ipxact:name>../../../other.subsystem/wb_example.documents/1.0/wb_example.documents.1.0.xml</ipxact:name>
+		</ipxact:ipxactFile>
+	</ipxact:catalogs>
 	<ipxact:busDefinitions>
 		<ipxact:ipxactFile>
 			<ipxact:vlnv vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
@@ -30,57 +36,17 @@
 			<ipxact:vlnv vendor="tut.fi" library="other.test" name="clock_generator" version="1.1"/>
 			<ipxact:name>../../../other.test/clock_generator/1.1/clock_generator.1.1.xml</ipxact:name>
 		</ipxact:ipxactFile>
-		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="other.subsystem" name="wb_example" version="1.0"/>
-			<ipxact:name>../../../other.subsystem/wb_example/1.0/wb_example.1.0.xml</ipxact:name>
-		</ipxact:ipxactFile>
-		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="communication.bus" name="wishbone" version="1.0"/>
-			<ipxact:name>../../../communication.bus/wishbone/1.0/wishbone.1.0.xml</ipxact:name>
-		</ipxact:ipxactFile>
-		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="peripheral.subsystem" name="hierarchical_wb_slave" version="1.0"/>
-			<ipxact:name>../../../peripheral.subsystem/hierarchical_wb_slave/1.0/hierarchical_wb_slave.1.0.xml</ipxact:name>
-		</ipxact:ipxactFile>
-		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="peripheral.logic" name="wb_dual_master" version="1.0"/>
-			<ipxact:name>../../../peripheral.logic/wb_dual_master/1.0/wb_dual_master.1.0.xml</ipxact:name>
-		</ipxact:ipxactFile>
-		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="communication.template" name="wb_slave" version="1.0"/>
-			<ipxact:name>../../../communication.template/wb_slave/1.0/wb_slave.1.0.xml</ipxact:name>
-		</ipxact:ipxactFile>
 	</ipxact:components>
 	<ipxact:designs>
 		<ipxact:ipxactFile>
 			<ipxact:vlnv vendor="tut.fi" library="other.subsystem.test" name="wb_example.setup.design" version="1.0"/>
 			<ipxact:name>../../../other.subsystem.test/wb_example.setup/1.0/wb_example.setup.design.1.0.xml</ipxact:name>
 		</ipxact:ipxactFile>
-		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="other.subsystem" name="wb_example.design" version="1.0"/>
-			<ipxact:name>../../../other.subsystem/wb_example/1.0/wb_example.design.1.0.xml</ipxact:name>
-		</ipxact:ipxactFile>
-		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="peripheral.subsystem" name="hierarchical_wb_slave.design" version="1.0"/>
-			<ipxact:name>../../../peripheral.subsystem/hierarchical_wb_slave/1.0/hierarchical_wb_slave.design.1.0.xml</ipxact:name>
-		</ipxact:ipxactFile>
 	</ipxact:designs>
 	<ipxact:designConfigurations>
 		<ipxact:ipxactFile>
 			<ipxact:vlnv vendor="tut.fi" library="other.subsystem.test" name="wb_example.setup.verilog.designcfg" version="1.0"/>
 			<ipxact:name>../../../other.subsystem.test/wb_example.setup/1.0/wb_example.setup.verilog.designcfg.1.0.xml</ipxact:name>
-		</ipxact:ipxactFile>
-		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="other.subsystem" name="wb_example.verilog.designcfg" version="1.0"/>
-			<ipxact:name>../../../other.subsystem/wb_example/1.0/wb_example.verilog.designcfg.1.0.xml</ipxact:name>
-		</ipxact:ipxactFile>
-		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="peripheral.subsystem" name="hierarchical_wb_slave.verilog.designcfg" version="1.0"/>
-			<ipxact:name>../../../peripheral.subsystem/hierarchical_wb_slave/1.0/hierarchical_wb_slave.verilog.designcfg.1.0.xml</ipxact:name>
-		</ipxact:ipxactFile>
-		<ipxact:ipxactFile>
-			<ipxact:vlnv vendor="tut.fi" library="peripheral.subsystem" name="hierarchical_wb_slave.systemc.designcfg" version="1.0"/>
-			<ipxact:name>../../../peripheral.subsystem/hierarchical_wb_slave/1.0/hierarchical_wb_slave.systemc.designcfg.1.0.xml</ipxact:name>
 		</ipxact:ipxactFile>
 	</ipxact:designConfigurations>
 	<ipxact:vendorExtensions>

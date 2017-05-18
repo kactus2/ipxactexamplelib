@@ -39,9 +39,9 @@
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{83013d12-9d73-405c-ac28-25c207ef3efc}</kactus2:uuid>
 				<kactus2:portPositions>
+					<kactus2:portPosition busRef="instructions" x="-110" y="40"/>
 					<kactus2:portPosition busRef="local_data" x="-110" y="70"/>
 					<kactus2:portPosition busRef="peripheral_access" x="110" y="40"/>
-					<kactus2:portPosition busRef="instructions" x="-110" y="40"/>
 				</kactus2:portPositions>
 				<kactus2:adHocVisibilities>
 					<kactus2:adHocVisible portName="clk_i" x="-110" y="100"/>
@@ -331,10 +331,7 @@
 				<kactus2:position x="170" y="100"/>
 				<kactus2:position x="60" y="100"/>
 			</kactus2:route>
-			<kactus2:route kactus2:connRef="core_rst_i_to_rst_i" kactus2:offPage="false">
-				<kactus2:position x="60" y="190"/>
-				<kactus2:position x="170" y="190"/>
-			</kactus2:route>
+			<kactus2:route kactus2:connRef="core_rst_i_to_rst_i" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="core_local_data_to_local_data" kactus2:offPage="false">
 				<kactus2:position x="170" y="130"/>
 				<kactus2:position x="60" y="130"/>
