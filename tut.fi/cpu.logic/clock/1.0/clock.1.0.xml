@@ -7,6 +7,7 @@
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
 			<ipxact:name>cpu_clk_source</ipxact:name>
+			<ipxact:description>The clock and reset are passed to other CPU components through this interface.</ipxact:description>
 			<ipxact:busType vendor="tut.fi" library="interface" name="intra_cpu" version="1.0"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -75,7 +76,7 @@
 		<ipxact:ports>
 			<ipxact:port>
 				<ipxact:name>clk_o</ipxact:name>
-				<ipxact:description>The clock that is divided to other components.</ipxact:description>
+				<ipxact:description>The clock that is passed to other components.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
@@ -91,7 +92,7 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>rst_o</ipxact:name>
-				<ipxact:description>The reset that is divided to other components.</ipxact:description>
+				<ipxact:description>The reset that is passed to other components.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
@@ -151,13 +152,7 @@
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
-	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_141e5050_fce5_4fe6_9bf7_5ad03d67b621" resolve="user">
-			<ipxact:name>SCALE</ipxact:name>
-			<ipxact:description>Divides the input clock by this value.</ipxact:description>
-			<ipxact:value>2</ipxact:value>
-		</ipxact:parameter>
-	</ipxact:parameters>
+	<ipxact:description>An intermediate for clock source, basicly bundles the clock and reset to an interface.</ipxact:description>
 	<ipxact:vendorExtensions>
 		<kactus2:kts_attributes>
 			<kactus2:kts_productHier>IP</kactus2:kts_productHier>

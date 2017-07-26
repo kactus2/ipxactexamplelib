@@ -7,6 +7,7 @@
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
 			<ipxact:name>cpu_system</ipxact:name>
+			<ipxact:description>Connects the component to other CPU components.</ipxact:description>
 			<ipxact:busType vendor="tut.fi" library="interface" name="intra_cpu" version="1.0"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -139,6 +140,7 @@
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>cpu_clk_sink</ipxact:name>
+			<ipxact:description>The clock and reset comes through this interface.</ipxact:description>
 			<ipxact:busType vendor="tut.fi" library="interface" name="intra_cpu" version="1.0"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -189,6 +191,7 @@
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>instructions</ipxact:name>
+			<ipxact:description>Connects to the instruction memory.</ipxact:description>
 			<ipxact:busType vendor="tut.fi" library="interface" name="local_memory" version="1.1"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -286,6 +289,7 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>instruction_feed</ipxact:name>
+				<ipxact:description>The instruction that was requested in the previous clock cycle.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
@@ -419,6 +423,7 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>iaddr_o</ipxact:name>
+				<ipxact:description>The address of the next instruction.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
@@ -471,6 +476,7 @@
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
+	<ipxact:description>Decodes instructions for core_example, contains the bulk of the control logic. NOTICE: Most of the ports are described in intra_cpu.absdef.</ipxact:description>
 	<ipxact:parameters>
 		<ipxact:parameter parameterId="uuid_762fbf84_805d_4c16_bb3b_39c8d2b431a2" resolve="user" usageCount="5">
 			<ipxact:name>REGISTER_ID_WIDTH</ipxact:name>

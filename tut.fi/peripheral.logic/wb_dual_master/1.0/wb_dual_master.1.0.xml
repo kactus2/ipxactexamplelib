@@ -7,6 +7,7 @@
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
 			<ipxact:name>master_0</ipxact:name>
+			<ipxact:description>A wishbone master interface.</ipxact:description>
 			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -127,6 +128,7 @@
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>master_1</ipxact:name>
+			<ipxact:description>A wishbone master interface.</ipxact:description>
 			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -237,6 +239,7 @@
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>wb_system</ipxact:name>
+			<ipxact:description>Grouping for wishbone system signals. The clock and reset are used for all logic in this module.</ipxact:description>
 			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -318,17 +321,20 @@
 		<ipxact:views>
 			<ipxact:view>
 				<ipxact:name>flat_verilog</ipxact:name>
+				<ipxact:description>Points to the Verilog implementation of the component.</ipxact:description>
 				<ipxact:envIdentifier>verilog:Kactus2:</ipxact:envIdentifier>
 				<ipxact:componentInstantiationRef>flat_verilog_component</ipxact:componentInstantiationRef>
 			</ipxact:view>
 			<ipxact:view>
 				<ipxact:name>flat_systemc</ipxact:name>
+				<ipxact:description>Points to the SystemC implementation of the component.</ipxact:description>
 				<ipxact:componentInstantiationRef>systemC_instantiation</ipxact:componentInstantiationRef>
 			</ipxact:view>
 		</ipxact:views>
 		<ipxact:instantiations>
 			<ipxact:componentInstantiation>
 				<ipxact:name>flat_verilog_component</ipxact:name>
+				<ipxact:description>Points to the Verilog sources of the component.</ipxact:description>
 				<ipxact:language>verilog</ipxact:language>
 				<ipxact:moduleName>master</ipxact:moduleName>
 				<ipxact:moduleParameters>
@@ -344,7 +350,8 @@
 			</ipxact:componentInstantiation>
 			<ipxact:componentInstantiation>
 				<ipxact:name>systemC_instantiation</ipxact:name>
-				<ipxact:language>cppSource</ipxact:language>
+				<ipxact:description>Points to the Systemc sources of the component.</ipxact:description>
+				<ipxact:language>C++</ipxact:language>
 				<ipxact:fileSetRef>
 					<ipxact:localName>systemCSource</ipxact:localName>
 				</ipxact:fileSetRef>
@@ -586,23 +593,34 @@
 	<ipxact:fileSets>
 		<ipxact:fileSet>
 			<ipxact:name>verilogSource</ipxact:name>
+			<ipxact:description>Verilog source files, mutually exclusive with SystemC source files.</ipxact:description>
 			<ipxact:group>generatedFiles</ipxact:group>
 			<ipxact:file>
 				<ipxact:name>master.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
 				<ipxact:description>Generated at 11:13:13 on 15.05.2017 by Kactus2. </ipxact:description>
+				<ipxact:vendorExtensions>
+					<kactus2:hash>a977d064f4c3b776a8636d958817179b79e25395</kactus2:hash>
+				</ipxact:vendorExtensions>
 			</ipxact:file>
 			<ipxact:file>
 				<ipxact:name>../../../communication.template/wb_master/1.0/wb_master.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
+				<ipxact:vendorExtensions>
+					<kactus2:hash>bee7caffd246847b99539655764a74a1a65924d6</kactus2:hash>
+				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>
 		<ipxact:fileSet>
 			<ipxact:name>systemCSource</ipxact:name>
+			<ipxact:description>SystemC source files, mutually exclusive with Verilog source files.</ipxact:description>
 			<ipxact:file>
 				<ipxact:name>master.hh</ipxact:name>
 				<ipxact:fileType>cppSource</ipxact:fileType>
 				<ipxact:isIncludeFile>true</ipxact:isIncludeFile>
+				<ipxact:vendorExtensions>
+					<kactus2:hash>6bc0e3cd33580c185f4143bd80d7a194e1124fee</kactus2:hash>
+				</ipxact:vendorExtensions>
 			</ipxact:file>
 			<ipxact:file>
 				<ipxact:name>wb_master.cpp</ipxact:name>
@@ -621,7 +639,7 @@
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
-	<ipxact:description>A component containing two wishbone master interfaces and thus two wishbone master module instantiations. Its operation is governed by external start signal, and will send a done signal after both master modules have sent and received everything.</ipxact:description>
+	<ipxact:description>A component containing two wishbone master interfaces and thus two wishbone master module instantiations. Its operation is governed by external start signal, and will send a done signal after both master modules have sent and received everything in the internal constant array.</ipxact:description>
 	<ipxact:parameters>
 		<ipxact:parameter parameterId="uuid_ed7d4652_1c14_4647_90dd_881ec00146f8" resolve="user" usageCount="2">
 			<ipxact:name>ADDR_WIDTH</ipxact:name>
@@ -640,7 +658,7 @@
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_fe30a511_9701_4142_b340_223777d1b857" resolve="user" usageCount="6">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
-			<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
+			<ipxact:description>The width of both input and output data.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_e2414448_9d04_40bd_af10_8061a5e4ae7c" resolve="user" usageCount="1">
@@ -655,6 +673,11 @@
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>
+		<kactus2:kts_attributes>
+			<kactus2:kts_productHier>IP</kactus2:kts_productHier>
+			<kactus2:kts_implementation>HW</kactus2:kts_implementation>
+			<kactus2:kts_firmness>Mutable</kactus2:kts_firmness>
+		</kactus2:kts_attributes>
 		<kactus2:fileDependencies>
 			<kactus2:fileDependency manual="false" bidirectional="false" locked="false">
 				<kactus2:fileRef1>wb_master.cpp</kactus2:fileRef1>
@@ -671,11 +694,21 @@
 				<kactus2:fileRef2>$External$/systemc.h</kactus2:fileRef2>
 				<ipxact:description></ipxact:description>
 			</kactus2:fileDependency>
+			<kactus2:fileDependency manual="false" bidirectional="false" locked="false">
+				<kactus2:fileRef1>master.hh</kactus2:fileRef1>
+				<kactus2:fileRef2>$External$/header.hh</kactus2:fileRef2>
+				<ipxact:description></ipxact:description>
+			</kactus2:fileDependency>
+			<kactus2:fileDependency manual="false" bidirectional="false" locked="false">
+				<kactus2:fileRef1>master.hh</kactus2:fileRef1>
+				<kactus2:fileRef2>$External$/systemc.h</kactus2:fileRef2>
+				<ipxact:description></ipxact:description>
+			</kactus2:fileDependency>
+			<kactus2:fileDependency manual="false" bidirectional="false" locked="false">
+				<kactus2:fileRef1>master.hh</kactus2:fileRef1>
+				<kactus2:fileRef2>wb_master.hh</kactus2:fileRef2>
+				<ipxact:description></ipxact:description>
+			</kactus2:fileDependency>
 		</kactus2:fileDependencies>
-		<kactus2:kts_attributes>
-			<kactus2:kts_productHier>IP</kactus2:kts_productHier>
-			<kactus2:kts_implementation>HW</kactus2:kts_implementation>
-			<kactus2:kts_firmness>Mutable</kactus2:kts_firmness>
-		</kactus2:kts_attributes>
 	</ipxact:vendorExtensions>
 </ipxact:component>

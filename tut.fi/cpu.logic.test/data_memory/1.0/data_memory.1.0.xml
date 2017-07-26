@@ -170,14 +170,13 @@
 				<ipxact:name>data_memory.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
 				<ipxact:description>Generated at 10:33:39 on 16.05.2017 by Kactus2. </ipxact:description>
-			</ipxact:file>
-			<ipxact:file>
-				<ipxact:name>instruction_memory.v</ipxact:name>
-				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 09:01:58 on 16.05.2017 by Kactus2. </ipxact:description>
+				<ipxact:vendorExtensions>
+					<kactus2:hash>866adc8f854881d6feb62604bfaa6df223ac13f6</kactus2:hash>
+				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
+	<ipxact:description>Used to supplant data memory in simulations. NOTICE: Ports are described in interfaces.local_memory.</ipxact:description>
 	<ipxact:parameters>
 		<ipxact:parameter parameterId="uuid_e8a51461_67cf_40dd_8517_7fbe90c1b038" resolve="user" usageCount="2">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
@@ -191,10 +190,12 @@
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_c98bf258_93f4_4ebf_b7f8_3de391261024" resolve="user">
 			<ipxact:name>MEMORY_SIZE</ipxact:name>
+			<ipxact:description>Size of the memory in AUBs.</ipxact:description>
 			<ipxact:value>128</ipxact:value>
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_d2d93f59_05c9_4f81_b11e_d1c62224f083" resolve="user">
 			<ipxact:name>AUB</ipxact:name>
+			<ipxact:description>Addressable unit bits.</ipxact:description>
 			<ipxact:value>8</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>

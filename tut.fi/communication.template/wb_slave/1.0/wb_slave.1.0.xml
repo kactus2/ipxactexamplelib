@@ -6,7 +6,39 @@
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
+			<ipxact:name>wb_system</ipxact:name>
+			<ipxact:description>A wishbone slave interface.</ipxact:description>
+			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
+			<ipxact:abstractionTypes>
+				<ipxact:abstractionType>
+					<ipxact:abstractionRef vendor="opencores.org" library="interface" name="wishbone.absDef" version="b4"/>
+					<ipxact:portMaps>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>rst</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>rst_i</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>clk</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>clk_i</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+					</ipxact:portMaps>
+				</ipxact:abstractionType>
+			</ipxact:abstractionTypes>
+			<ipxact:system>
+				<ipxact:group>ClockSink</ipxact:group>
+			</ipxact:system>
+		</ipxact:busInterface>
+		<ipxact:busInterface>
 			<ipxact:name>wb_slave</ipxact:name>
+			<ipxact:description>Grouping for wishbone system signals. The clock and reset are used for all logic in this module.</ipxact:description>
 			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -131,52 +163,25 @@
 			</ipxact:abstractionTypes>
 			<ipxact:slave/>
 		</ipxact:busInterface>
-		<ipxact:busInterface>
-			<ipxact:name>wb_system</ipxact:name>
-			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
-			<ipxact:abstractionTypes>
-				<ipxact:abstractionType>
-					<ipxact:abstractionRef vendor="opencores.org" library="interface" name="wishbone.absDef" version="b4"/>
-					<ipxact:portMaps>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>rst</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>rst_i</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>clk</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>clk_i</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-					</ipxact:portMaps>
-				</ipxact:abstractionType>
-			</ipxact:abstractionTypes>
-			<ipxact:system>
-				<ipxact:group>ClockSink</ipxact:group>
-			</ipxact:system>
-		</ipxact:busInterface>
 	</ipxact:busInterfaces>
 	<ipxact:model>
 		<ipxact:views>
 			<ipxact:view>
 				<ipxact:name>flat_verilog</ipxact:name>
+				<ipxact:description>Points to the Verilog implementation of the component.</ipxact:description>
 				<ipxact:envIdentifier>verilog:Kactus2:</ipxact:envIdentifier>
 				<ipxact:componentInstantiationRef>verilog_implementation</ipxact:componentInstantiationRef>
 			</ipxact:view>
 			<ipxact:view>
 				<ipxact:name>flat_systemc</ipxact:name>
+				<ipxact:description>Points to the SystemC implementation of the component.</ipxact:description>
 				<ipxact:componentInstantiationRef>systemc_implementation</ipxact:componentInstantiationRef>
 			</ipxact:view>
 		</ipxact:views>
 		<ipxact:instantiations>
 			<ipxact:componentInstantiation>
 				<ipxact:name>verilog_implementation</ipxact:name>
+				<ipxact:description>Points to the Verilog sources of the component.</ipxact:description>
 				<ipxact:language>Verilog</ipxact:language>
 				<ipxact:moduleName>wb_slave</ipxact:moduleName>
 				<ipxact:fileSetRef>
@@ -185,7 +190,11 @@
 			</ipxact:componentInstantiation>
 			<ipxact:componentInstantiation>
 				<ipxact:name>systemc_implementation</ipxact:name>
-				<ipxact:language>CPP</ipxact:language>
+				<ipxact:description>Points to the Systemc sources of the component.</ipxact:description>
+				<ipxact:language>C++</ipxact:language>
+				<ipxact:fileSetRef>
+					<ipxact:localName>systemCSource</ipxact:localName>
+				</ipxact:fileSetRef>
 			</ipxact:componentInstantiation>
 		</ipxact:instantiations>
 		<ipxact:ports>
@@ -363,24 +372,32 @@
 	<ipxact:fileSets>
 		<ipxact:fileSet>
 			<ipxact:name>verilogSource</ipxact:name>
+			<ipxact:description>Verilog source files, mutually exclusive with SystemC source files.</ipxact:description>
 			<ipxact:file>
 				<ipxact:name>wb_slave.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
 				<ipxact:description>Generated at 12:18:45 on 30.03.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
-					<kactus2:hash>72324505a2532322090eefe4127ce9c14496e9b1</kactus2:hash>
+					<kactus2:hash>04ff722b8bafce684a91995a3b56d806f8a3f854</kactus2:hash>
 				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>
 		<ipxact:fileSet>
 			<ipxact:name>systemCSource</ipxact:name>
+			<ipxact:description>SystemC source files, mutually exclusive with Verilog source files.</ipxact:description>
 			<ipxact:file>
 				<ipxact:name>wb_slave.cpp</ipxact:name>
 				<ipxact:fileType>cppSource</ipxact:fileType>
+				<ipxact:vendorExtensions>
+					<kactus2:hash>d3581e9899ae04024091c75de075821daa90b687</kactus2:hash>
+				</ipxact:vendorExtensions>
 			</ipxact:file>
 			<ipxact:file>
 				<ipxact:name>wb_slave.hh</ipxact:name>
 				<ipxact:fileType>cppSource</ipxact:fileType>
+				<ipxact:vendorExtensions>
+					<kactus2:hash>c9495a546ce25feda2bd4a0febbb183472e6ec09</kactus2:hash>
+				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
@@ -393,7 +410,7 @@
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd" resolve="user" usageCount="3">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
-			<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
+			<ipxact:description>The width of both input and output data.</ipxact:description>
 			<ipxact:value>32</ipxact:value>
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba" resolve="user">

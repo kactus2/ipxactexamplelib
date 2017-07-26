@@ -20,6 +20,7 @@
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
+	<ipxact:description>Used to demonstrate workings of some sample plugins.</ipxact:description>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,0,66,0</kactus2:version>
 		<kactus2:kts_attributes>

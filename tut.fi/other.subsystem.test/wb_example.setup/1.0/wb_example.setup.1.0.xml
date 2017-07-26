@@ -48,6 +48,7 @@
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
+	<ipxact:description>Test arrangement for verifying the wishbone example design.</ipxact:description>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,4,107,0</kactus2:version>
 		<kactus2:kts_attributes>

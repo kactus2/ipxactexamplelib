@@ -1,13 +1,13 @@
 //-----------------------------------------------------------------------------
 // File          : wb_master.v
-// Creation date : 07.04.2017
-// Creation time : 14:55:09
-// Description   : A verilog master that has a register array of data it uses to write to a slave. Each data is written to different address, and then read to verify it worked. Address space is assumed to be contiguous.
+// Creation date : 25.07.2017
+// Creation time : 15:41:44
+// Description   : A bridge between a CPU and wishbone bus.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.19 32-bit
-// Plugin : Verilog generator 2.0d
-// This file was generated based on IP-XACT component tut.fi:communication:wb_cpu_wrapper:1.0
-// whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/communication/wb_cpu_wrapper/1.0/wb_cpu_wrapper.1.0.xml
+// Tool : Kactus2 3.4.110 32-bit
+// Plugin : Verilog generator 2.0e
+// This file was generated based on IP-XACT component tut.fi:communication.bridge:wb_cpu:1.0
+// whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/communication.bridge/wb_cpu/1.0/wb_cpu.1.0.xml
 //-----------------------------------------------------------------------------
 
 module wb_master #(
@@ -17,24 +17,28 @@ module wb_master #(
     parameter                              RANGE            = 'h0200    // Number of addresses accesible by the component.
 ) (
     // Interface: contoller
-    input          [ADDR_WIDTH-1:0]     mem_address_in,
-    input          [DATA_WIDTH-1:0]     mem_data_in,
-    input                               mem_master_rdy,
-    input                               mem_we_in,
-    output reg     [DATA_WIDTH-1:0]     mem_data_out,
-    output reg                          mem_slave_rdy,
+    // Is used by a controller to initiate transfers through the bridge.
+    input          [ADDR_WIDTH-1:0]     mem_address_in,    // Target address of a peripheral operation
+    input          [DATA_WIDTH-1:0]     mem_data_in,    // Data from controller.
+    input                               mem_master_rdy,    // Data is provided and transfer can be executed.
+    input                               mem_we_in,    // Controllers writes = 1, Controller reads = 0.
+    output reg     [DATA_WIDTH-1:0]     mem_data_out,    // Data to controller.
+    output reg                          mem_slave_rdy,    // Slave has executed the transfer.
 
     // Interface: wb_master
-    input                               ack_i,    // Slave asserts acknowledge.
-    input          [DATA_WIDTH-1:0]     dat_i,    // Data from slave to master.
-    input                               err_i,    // Indicates abnormal cycle termination.
-    output reg     [ADDR_WIDTH-1:0]     adr_o,    // The address of the data.
-    output reg                          cyc_o,    // Asserted by master for transfer.
-    output reg     [DATA_WIDTH-1:0]     dat_o,    // Data from master to slave.
-    output reg                          stb_o,    // Asserted by master for transfer.
-    output reg                          we_o,    // Write = 1, Read = 0.
+    // Connects to wishbone slave or mirrored master accessible through this bride.
+    input                               wb_ack_i,    // Slave asserts acknowledge.
+    input          [DATA_WIDTH-1:0]     wb_dat_i,    // Data from slave to master.
+    input                               wb_err_i,    // Indicates abnormal cycle termination.
+    output reg     [ADDR_WIDTH-1:0]     wb_adr_o,    // The address of the data.
+    output reg                          wb_cyc_o,    // Asserted by master for transfer.
+    output reg     [DATA_WIDTH-1:0]     wb_dat_o,    // Data from master to slave.
+    output reg                          wb_stb_o,    // Asserted by master for transfer.
+    output reg                          wb_we_o,    // Write = 1, Read = 0.
 
     // Interface: wb_system
+    // Grouping for wishbone system signals. The clock and reset are used for all logic
+    // in this module.
     input                               clk_i,    // The mandatory clock, as this is synchronous logic.
     input                               rst_i    // The mandatory reset, as this is synchronous logic.
 );

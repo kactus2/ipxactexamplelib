@@ -7,6 +7,7 @@
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
 			<ipxact:name>wb_master</ipxact:name>
+			<ipxact:description>A wishbone master interface.</ipxact:description>
 			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -133,6 +134,7 @@
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>wb_system</ipxact:name>
+			<ipxact:description>Grouping for wishbone system signals. The clock and reset are used for all logic in this module.</ipxact:description>
 			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>

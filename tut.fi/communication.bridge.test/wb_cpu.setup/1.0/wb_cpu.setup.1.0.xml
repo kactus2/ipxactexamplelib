@@ -43,6 +43,7 @@
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
+	<ipxact:description>Test arrangement for verifying wishbone-to-CPU bridge.</ipxact:description>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,4,104,0</kactus2:version>
 		<kactus2:kts_attributes>

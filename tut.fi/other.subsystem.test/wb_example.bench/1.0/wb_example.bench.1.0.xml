@@ -124,7 +124,7 @@
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
-	<ipxact:description>A bare bones verilog test bench, which is used to assert reset, generate clock, give start signal and finally check after WAIT_TIME, if the done is asserted.</ipxact:description>
+	<ipxact:description>A bare bones wishbone test bench, which is used to assert reset, generate clock, give start signal and finally check after WAIT_TIME, if the done is asserted.</ipxact:description>
 	<ipxact:parameters>
 		<ipxact:parameter parameterId="uuid_d3a6969c_8076_4ad3_9b17_763b80d83ec8" resolve="user" usageCount="1">
 			<ipxact:name>WAIT_TIME</ipxact:name>

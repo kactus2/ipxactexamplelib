@@ -7,6 +7,7 @@
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
 			<ipxact:name>wb_slave</ipxact:name>
+			<ipxact:description>Used to test the bridge from the slave side.</ipxact:description>
 			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -21,7 +22,7 @@
 								</ipxact:range>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>ack_o</ipxact:name>
+								<ipxact:name>wb_ack_o</ipxact:name>
 								<ipxact:partSelect>
 									<ipxact:range>
 										<ipxact:left>0</ipxact:left>
@@ -35,7 +36,7 @@
 								<ipxact:name>adr</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>adr_i</ipxact:name>
+								<ipxact:name>wb_adr_i</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 						<ipxact:portMap>
@@ -47,59 +48,7 @@
 								</ipxact:range>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>cyc_i</ipxact:name>
-								<ipxact:partSelect>
-									<ipxact:range>
-										<ipxact:left>0</ipxact:left>
-										<ipxact:right>0</ipxact:right>
-									</ipxact:range>
-								</ipxact:partSelect>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>dat_sm</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>dat_o</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>dat_ms</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>dat_i</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>stb</ipxact:name>
-								<ipxact:range>
-									<ipxact:left>0</ipxact:left>
-									<ipxact:right>0</ipxact:right>
-								</ipxact:range>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>stb_i</ipxact:name>
-								<ipxact:partSelect>
-									<ipxact:range>
-										<ipxact:left>0</ipxact:left>
-										<ipxact:right>0</ipxact:right>
-									</ipxact:range>
-								</ipxact:partSelect>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>we</ipxact:name>
-								<ipxact:range>
-									<ipxact:left>0</ipxact:left>
-									<ipxact:right>0</ipxact:right>
-								</ipxact:range>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>we_i</ipxact:name>
+								<ipxact:name>wb_cyc_i</ipxact:name>
 								<ipxact:partSelect>
 									<ipxact:range>
 										<ipxact:left>0</ipxact:left>
@@ -117,13 +66,45 @@
 								</ipxact:range>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>err_o</ipxact:name>
+								<ipxact:name>wb_err_o</ipxact:name>
 								<ipxact:partSelect>
 									<ipxact:range>
 										<ipxact:left>0</ipxact:left>
 										<ipxact:right>0</ipxact:right>
 									</ipxact:range>
 								</ipxact:partSelect>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>dat_sm</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>wb_dat_o</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>dat_ms</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>wb_dat_i</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>stb</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>wb_stb_i</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>we</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>wb_we_i</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 					</ipxact:portMaps>
@@ -133,6 +114,7 @@
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>wb_system</ipxact:name>
+			<ipxact:description>Grouping for wishbone system signals. The clock and reset are used for all logic in this module.</ipxact:description>
 			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -163,6 +145,7 @@
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>memory_interface</ipxact:name>
+			<ipxact:description>Used to test the bridge from controller side.</ipxact:description>
 			<ipxact:busType vendor="tut.fi" library="interface" name="peripheral_control" version="1.0"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -242,7 +225,7 @@
 		</ipxact:instantiations>
 		<ipxact:ports>
 			<ipxact:port>
-				<ipxact:name>ack_o</ipxact:name>
+				<ipxact:name>wb_ack_o</ipxact:name>
 				<ipxact:description>Slave asserts acknowledge.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
@@ -263,7 +246,7 @@
 				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>adr_i</ipxact:name>
+				<ipxact:name>wb_adr_i</ipxact:name>
 				<ipxact:description>The address of the data.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
@@ -279,7 +262,7 @@
 				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>cyc_i</ipxact:name>
+				<ipxact:name>wb_cyc_i</ipxact:name>
 				<ipxact:description>Asserted by master for transfer.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
@@ -295,7 +278,7 @@
 				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>dat_o</ipxact:name>
+				<ipxact:name>wb_dat_o</ipxact:name>
 				<ipxact:description>Data from slave to master.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
@@ -316,7 +299,7 @@
 				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>dat_i</ipxact:name>
+				<ipxact:name>wb_dat_i</ipxact:name>
 				<ipxact:description>Data from master to slave.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
@@ -332,7 +315,7 @@
 				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>stb_i</ipxact:name>
+				<ipxact:name>wb_stb_i</ipxact:name>
 				<ipxact:description>Asserted, when this specific slave is selected.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
@@ -348,7 +331,7 @@
 				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>we_i</ipxact:name>
+				<ipxact:name>wb_we_i</ipxact:name>
 				<ipxact:description>Write = 1, Read = 0.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
@@ -390,7 +373,7 @@
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>err_o</ipxact:name>
+				<ipxact:name>wb_err_o</ipxact:name>
 				<ipxact:description>Indicates abnormal cycle termination.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
@@ -412,6 +395,7 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>mem_address_o</ipxact:name>
+				<ipxact:description>Target address of a peripheral operation.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
@@ -429,6 +413,7 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>mem_data_o</ipxact:name>
+				<ipxact:description>Data from bridge.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
@@ -446,6 +431,7 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>mem_data_i</ipxact:name>
+				<ipxact:description>Data to bridge.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
@@ -458,6 +444,7 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>mem_we_o</ipxact:name>
+				<ipxact:description>Controllers writes = 1, Controller reads = 0.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
@@ -475,6 +462,7 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>mem_slave_rdy</ipxact:name>
+				<ipxact:description>Bridge has executed the transfer.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
@@ -487,6 +475,7 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>mem_master_rdy</ipxact:name>
+				<ipxact:description>Data is provided and transfer can be executed.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
@@ -524,7 +513,7 @@
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd" resolve="user" usageCount="5">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
-			<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
+			<ipxact:description>The width of both input and output data.</ipxact:description>
 			<ipxact:value>32</ipxact:value>
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba" resolve="user">

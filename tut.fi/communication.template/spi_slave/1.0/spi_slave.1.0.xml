@@ -7,6 +7,7 @@
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
 			<ipxact:name>slave_if</ipxact:name>
+			<ipxact:description>The interface that bundles SPI signals for this component. Notice that the implementation logic also uses SPI clock.</ipxact:description>
 			<ipxact:busType vendor="tut.fi" library="interface" name="spi" version="1.0"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -73,18 +74,21 @@
 		<ipxact:ports>
 			<ipxact:port>
 				<ipxact:name>clk_in</ipxact:name>
+				<ipxact:description>SPI clock.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>data_in</ipxact:name>
+				<ipxact:description>SPI slave input.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>data_out</ipxact:name>
+				<ipxact:description>SPI slave output.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:wireTypeDefs>
@@ -96,6 +100,7 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>slave_select_in</ipxact:name>
+				<ipxact:description>Signifies that this slave is selected.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 				</ipxact:wire>
@@ -121,15 +126,16 @@
 				<ipxact:fileType>verilogSource</ipxact:fileType>
 				<ipxact:description>Generated at 16:16:14 on 10.04.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
-					<kactus2:hash>577719192b15f206462378d07a80ee9835d98ca7</kactus2:hash>
+					<kactus2:hash>ae909fcb8cf48b936f7d8e5e8cbc2748e430651c</kactus2:hash>
 				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
-	<ipxact:description>A minimalistic example for SPI slave IP-XACT document.</ipxact:description>
+	<ipxact:description>A minimalistic example for SPI slave IP-XACT document. Has a very simple Verilog implementation for smoke testing.</ipxact:description>
 	<ipxact:parameters>
 		<ipxact:parameter parameterId="uuid_df08f9de_fbe0_4c6c_a979_aeb9011ef1e4" resolve="user" usageCount="2">
 			<ipxact:name>SLAVE_ID</ipxact:name>
+			<ipxact:description>Signifies which bit is the logical slave select.</ipxact:description>
 			<ipxact:value>0</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>

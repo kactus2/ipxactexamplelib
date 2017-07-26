@@ -7,6 +7,7 @@
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
 			<ipxact:name>cpu_system</ipxact:name>
+			<ipxact:description>Connects the component to other CPU components.</ipxact:description>
 			<ipxact:busType vendor="tut.fi" library="interface" name="intra_cpu" version="1.0"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -157,11 +158,12 @@
 				<ipxact:fileType>verilogSource</ipxact:fileType>
 				<ipxact:description>Generated at 14:44:55 on 18.04.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
-					<kactus2:hash>dd49bbe6027f62e615d4182ea7ea9a3fe3aa6876</kactus2:hash>
+					<kactus2:hash>9503b6df20a39f5e6f0f8a97d70002b2c17f5172</kactus2:hash>
 				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
+	<ipxact:description>A simple arithmetic logic unit, that has basic arithmetic operations and comparison. Is implemented as combinatoric logic. NOTICE: The ports are described in interface.intra_cpu.</ipxact:description>
 	<ipxact:parameters>
 		<ipxact:parameter parameterId="uuid_f0339227_14b3_43a1_81d2_5e1c989aa537" resolve="user" usageCount="5">
 			<ipxact:name>DATA_WIDTH</ipxact:name>

@@ -7,6 +7,7 @@
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
 			<ipxact:name>wb_slave</ipxact:name>
+			<ipxact:description>Is used by a wishbone master to initiate transfers through the bridge.</ipxact:description>
 			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -135,6 +136,7 @@
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>wb_system</ipxact:name>
+			<ipxact:description>Grouping for wishbone system signals. The clock and reset are used for all logic in this module.</ipxact:description>
 			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -165,6 +167,7 @@
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>master_if</ipxact:name>
+			<ipxact:description>Connects to the SPI slave that is controllable through this bridge.</ipxact:description>
 			<ipxact:busType vendor="tut.fi" library="interface" name="spi" version="1.0"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -466,6 +469,7 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>clk_out</ipxact:name>
+				<ipxact:description>SPI master clock.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
@@ -478,6 +482,7 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>data_out</ipxact:name>
+				<ipxact:description>SPI master output.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
@@ -495,6 +500,7 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>data_in</ipxact:name>
+				<ipxact:description>SPI master input.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
@@ -507,6 +513,7 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>slave_select_out</ipxact:name>
+				<ipxact:description>SPI slave selection.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
@@ -527,6 +534,7 @@
 	<ipxact:fileSets>
 		<ipxact:fileSet>
 			<ipxact:name>verilogSource</ipxact:name>
+			<ipxact:description>The implementation files of the module.</ipxact:description>
 			<ipxact:file>
 				<ipxact:name>wb_slave_spi_master.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
@@ -537,7 +545,7 @@
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
-	<ipxact:description>Template component for wishbone slave. Address space is assumed to be contiguous.</ipxact:description>
+	<ipxact:description>A bridge between an SPI slave and a Wishbone master.</ipxact:description>
 	<ipxact:parameters>
 		<ipxact:parameter parameterId="uuid_3452fcca_4cd2_458f_a644_4c6530ea74ed" resolve="user" usageCount="1">
 			<ipxact:name>ADDR_WIDTH</ipxact:name>
@@ -546,7 +554,7 @@
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd" resolve="user" usageCount="3">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
-			<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
+			<ipxact:description>The width of both input and output data.</ipxact:description>
 			<ipxact:value>32</ipxact:value>
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_11833df7_86a0_48e2_8577_f3cc38000d57" resolve="user">

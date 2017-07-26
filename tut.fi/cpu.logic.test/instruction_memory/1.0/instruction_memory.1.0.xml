@@ -133,6 +133,7 @@
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
+	<ipxact:description>Used to supplant instruction memory in simulations. NOTICE: Ports are described in interfaces.local_memory.</ipxact:description>
 	<ipxact:parameters>
 		<ipxact:parameter parameterId="uuid_e8ddf738_e12d_440f_a6b0_75d32bf0da26" resolve="user">
 			<ipxact:name>INSTRUCTION_WIDTH</ipxact:name>

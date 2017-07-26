@@ -56,7 +56,7 @@
 		<ipxact:ports>
 			<ipxact:port>
 				<ipxact:name>clk_o</ipxact:name>
-				<ipxact:description>The mandatory clock, as this is synchronous logic.</ipxact:description>
+				<ipxact:description>The generated clock.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:wireTypeDefs>
@@ -68,7 +68,7 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>rst_o</ipxact:name>
-				<ipxact:description>The mandatory reset, as this is synchronous logic.</ipxact:description>
+				<ipxact:description>The asserted reset.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:wireTypeDefs>

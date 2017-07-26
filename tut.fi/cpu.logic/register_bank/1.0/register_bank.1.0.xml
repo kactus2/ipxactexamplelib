@@ -7,6 +7,7 @@
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
 			<ipxact:name>cpu_clk_sink</ipxact:name>
+			<ipxact:description>The clock and reset comes through this interface.</ipxact:description>
 			<ipxact:busType vendor="tut.fi" library="interface" name="intra_cpu" version="1.0"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -57,6 +58,7 @@
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>cpu_system</ipxact:name>
+			<ipxact:description>Connects the component to other CPU components.</ipxact:description>
 			<ipxact:busType vendor="tut.fi" library="interface" name="intra_cpu" version="1.0"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -359,7 +361,7 @@
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
-	<ipxact:description>Stores registers and the logic needed to access them. In case of multiple simultaenous writes, the one with most priority is done.</ipxact:description>
+	<ipxact:description>Stores registers and the logic needed to access them. In case of multiple simultaenous writes, the one with most priority is done.  NOTICE: The ports are described in interface.intra_cpu.</ipxact:description>
 	<ipxact:parameters>
 		<ipxact:parameter parameterId="uuid_8cf9f778_bf4e_4da5_9647_baa7ec8c8ddf" resolve="user" usageCount="4">
 			<ipxact:name>DATA_WIDTH</ipxact:name>

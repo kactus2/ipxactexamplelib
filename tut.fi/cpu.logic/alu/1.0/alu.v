@@ -34,7 +34,7 @@ module alu #(
     parameter [1:0]
         C_OUT           = 2'd3, 
         NEGATIVE        = 2'd2,
-        ZERO                = 2'd1, 
+        ZERO            = 2'd1, 
         DIV_ZERO        = 2'd0;
         
     reg [DATA_WIDTH*2-1:0] operation_result;

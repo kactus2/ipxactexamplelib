@@ -7,6 +7,7 @@
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
 			<ipxact:name>one_to_many_master</ipxact:name>
+			<ipxact:description>Connect a wishbone master to this.</ipxact:description>
 			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -123,6 +124,7 @@
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>slave_0</ipxact:name>
+			<ipxact:description>Connect a wishbone slave to this.</ipxact:description>
 			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -244,6 +246,7 @@
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>slave_1</ipxact:name>
+			<ipxact:description>Connect a wishbone slave to this.</ipxact:description>
 			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -365,6 +368,7 @@
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>slave_2</ipxact:name>
+			<ipxact:description>Connect a wishbone slave to this.</ipxact:description>
 			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -486,6 +490,7 @@
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>slave_3</ipxact:name>
+			<ipxact:description>Connect a wishbone slave to this.</ipxact:description>
 			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -1150,39 +1155,46 @@
 				<ipxact:fileType>verilogSource</ipxact:fileType>
 				<ipxact:description>Generated at 11:52:41 on 06.04.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
-					<kactus2:hash>a7bf14a08e285c7a2cd93877bcbb2c2fb49a2744</kactus2:hash>
+					<kactus2:hash>154f2f7d04e70b030a6b6b89f3c3a91f215d8f33</kactus2:hash>
 				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
-	<ipxact:description>Bus used to connect one wishbone master to multiple slaves. Used slave is determined using the address output of the master and parameters of each slave interface.</ipxact:description>
+	<ipxact:description>Bus used to connect one wishbone master to multiple slaves. Used slave is determined using the address output of the master and parameters of each slave interface. As such, it is not required to connect all slave interfaces.</ipxact:description>
 	<ipxact:parameters>
 		<ipxact:parameter parameterId="uuid_5c8126ec_6b47_4c7e_9fbe_8ff0c16f7a5c" resolve="user" usageCount="3">
 			<ipxact:name>ADDR_WIDTH</ipxact:name>
+			<ipxact:description>The width of the address.</ipxact:description>
 			<ipxact:value>32</ipxact:value>
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_f30c27b8_94fc_4cc9_b6c6_2e6299cb0242" resolve="user" usageCount="6">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
+			<ipxact:description>The width of both input and output data.</ipxact:description>
 			<ipxact:value>32</ipxact:value>
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_bcba20bf_5f4d_4408_ab04_e9272e8a2a55" resolve="user" usageCount="1">
 			<ipxact:name>SLAVE_0_BASE</ipxact:name>
+			<ipxact:description>Base address for interface slave_0.</ipxact:description>
 			<ipxact:value>'h0100</ipxact:value>
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_5d21620a_24de_423a_bc89_d4669d9ba8c3" resolve="user" usageCount="1">
 			<ipxact:name>SLAVE_1_BASE</ipxact:name>
+			<ipxact:description>Base address for interface slave_1.</ipxact:description>
 			<ipxact:value>'h0200</ipxact:value>
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_7a0bf7b4_d2dc_4541_ada5_41e31e45bac1" resolve="user" usageCount="1">
 			<ipxact:name>SLAVE_2_BASE</ipxact:name>
+			<ipxact:description>Base address for interface slave_2.</ipxact:description>
 			<ipxact:value>'h0300</ipxact:value>
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_64038f66_68bd_4536_90a9_f4fd43e4eb0e" resolve="user" usageCount="1">
 			<ipxact:name>SLAVE_3_BASE</ipxact:name>
+			<ipxact:description>Base address for interface slave_3.</ipxact:description>
 			<ipxact:value>'h0400</ipxact:value>
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_27458201_6776_47b9_ba3a_9e290a22ff3b" resolve="user" usageCount="4">
 			<ipxact:name>SLAVE_RANGE</ipxact:name>
+			<ipxact:description>The size of the address space allocated to a slave.</ipxact:description>
 			<ipxact:value>'h0040</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>

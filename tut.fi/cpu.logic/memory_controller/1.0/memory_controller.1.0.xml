@@ -7,6 +7,7 @@
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
 			<ipxact:name>peripheral_access</ipxact:name>
+			<ipxact:description>Controller accesses peripherals through this interface.</ipxact:description>
 			<ipxact:busType vendor="tut.fi" library="interface" name="peripheral_control" version="1.0"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -14,34 +15,10 @@
 					<ipxact:portMaps>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>address</ipxact:name>
+								<ipxact:name>slave_rdy</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>mem_address_o</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>data_ms</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>mem_data_o</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>data_sm</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>mem_data_i</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>we</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>mem_we_o</ipxact:name>
+								<ipxact:name>periph_slave_rdy</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 						<ipxact:portMap>
@@ -49,15 +26,39 @@
 								<ipxact:name>master_rdy</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>mem_master_rdy</ipxact:name>
+								<ipxact:name>periph_master_rdy</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>slave_rdy</ipxact:name>
+								<ipxact:name>data_ms</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>mem_slave_rdy</ipxact:name>
+								<ipxact:name>periph_data_o</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>data_sm</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>periph_data_i</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>address</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>periph_address_o</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>we</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>periph_we_o</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 					</ipxact:portMaps>
@@ -71,6 +72,7 @@
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>cpu_clk_sink</ipxact:name>
+			<ipxact:description>The clock and reset comes through this interface.</ipxact:description>
 			<ipxact:busType vendor="tut.fi" library="interface" name="intra_cpu" version="1.0"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -121,6 +123,7 @@
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>cpu_system</ipxact:name>
+			<ipxact:description>Connects the component to other CPU components.</ipxact:description>
 			<ipxact:busType vendor="tut.fi" library="interface" name="intra_cpu" version="1.0"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -128,52 +131,10 @@
 					<ipxact:portMaps>
 						<ipxact:portMap>
 							<ipxact:logicalPort>
-								<ipxact:name>mem_rdy</ipxact:name>
-								<ipxact:range>
-									<ipxact:left>0</ipxact:left>
-									<ipxact:right>0</ipxact:right>
-								</ipxact:range>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>mem_rdy_o</ipxact:name>
-								<ipxact:partSelect>
-									<ipxact:range>
-										<ipxact:left>0</ipxact:left>
-										<ipxact:right>0</ipxact:right>
-									</ipxact:range>
-								</ipxact:partSelect>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>load_value</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>load_value_o</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
 								<ipxact:name>mem_we</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>we_i</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>address</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>address_i</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>mem_active</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>mem_active_i</ipxact:name>
+								<ipxact:name>sys_we_i</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 						<ipxact:portMap>
@@ -181,7 +142,39 @@
 								<ipxact:name>register_output_1</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>register_value_i</ipxact:name>
+								<ipxact:name>sys_data_i</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>load_value</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>sys_data_o</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>mem_active</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>sys_active_i</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>mem_rdy</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>sys_rdy_o</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>address</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>sys_address_i</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 						<ipxact:portMap>
@@ -189,7 +182,7 @@
 								<ipxact:name>mem_read_rdy</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>mem_read_rdy_o</ipxact:name>
+								<ipxact:name>sys_read_rdy_o</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 					</ipxact:portMaps>
@@ -201,6 +194,7 @@
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>local_data</ipxact:name>
+			<ipxact:description>Connects to the local data memory.</ipxact:description>
 			<ipxact:busType vendor="tut.fi" library="interface" name="local_memory" version="1.1"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -439,7 +433,7 @@
 		</ipxact:instantiations>
 		<ipxact:ports>
 			<ipxact:port>
-				<ipxact:name>we_i</ipxact:name>
+				<ipxact:name>sys_we_i</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
@@ -451,7 +445,7 @@
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>mem_active_i</ipxact:name>
+				<ipxact:name>sys_active_i</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
@@ -463,7 +457,7 @@
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>load_value_o</ipxact:name>
+				<ipxact:name>sys_data_o</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
@@ -475,7 +469,7 @@
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>mem_rdy_o</ipxact:name>
+				<ipxact:name>sys_rdy_o</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
@@ -487,7 +481,7 @@
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>mem_address_o</ipxact:name>
+				<ipxact:name>periph_address_o</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
@@ -504,7 +498,7 @@
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>mem_data_o</ipxact:name>
+				<ipxact:name>periph_data_o</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
@@ -521,7 +515,7 @@
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>mem_data_i</ipxact:name>
+				<ipxact:name>periph_data_i</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
@@ -533,7 +527,7 @@
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>mem_we_o</ipxact:name>
+				<ipxact:name>periph_we_o</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
@@ -582,7 +576,7 @@
 				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>register_value_i</ipxact:name>
+				<ipxact:name>sys_data_i</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
@@ -594,7 +588,7 @@
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>address_i</ipxact:name>
+				<ipxact:name>sys_address_i</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
@@ -606,7 +600,7 @@
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>mem_slave_rdy</ipxact:name>
+				<ipxact:name>periph_slave_rdy</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
@@ -618,7 +612,7 @@
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>mem_master_rdy</ipxact:name>
+				<ipxact:name>periph_master_rdy</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
@@ -683,7 +677,7 @@
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>mem_read_rdy_o</ipxact:name>
+				<ipxact:name>sys_read_rdy_o</ipxact:name>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
@@ -710,6 +704,12 @@
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
+	<ipxact:description>Used to control local memory as well as peripherals.
+
+Ports prefixes:
+-local denotes local memory access, explained in interface.local_memory
+-periph denotes peripheral access, explained in interface.peripheral_control
+-sys denotes CPU system bus, explained in interface.intra_cpu</ipxact:description>
 	<ipxact:parameters>
 		<ipxact:parameter parameterId="uuid_11795f77_041d_4548_bcf3_cd41b67482a1" resolve="user" usageCount="24">
 			<ipxact:name>DATA_WIDTH</ipxact:name>

@@ -7,6 +7,7 @@
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
 			<ipxact:name>master_if</ipxact:name>
+			<ipxact:description>The interface that bundles SPI signals for this component. Notice that the implementation logic also uses SPI clock.</ipxact:description>
 			<ipxact:busType vendor="tut.fi" library="interface" name="spi" version="1.0"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -97,12 +98,14 @@
 		<ipxact:ports>
 			<ipxact:port>
 				<ipxact:name>clk_out</ipxact:name>
+				<ipxact:description>SPI clock.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>data_out</ipxact:name>
+				<ipxact:description>SPI master output.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:wireTypeDefs>
@@ -114,12 +117,14 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>data_in</ipxact:name>
+				<ipxact:description>SPI master input.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>slave_select1_out</ipxact:name>
+				<ipxact:description>Select slave 1.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:wireTypeDefs>
@@ -131,6 +136,7 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>slave_select2_out</ipxact:name>
+				<ipxact:description>Select slave 2.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:wireTypeDefs>
@@ -142,6 +148,7 @@
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>slave_select3_out</ipxact:name>
+				<ipxact:description>Select slave 3.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:wireTypeDefs>
@@ -195,12 +202,12 @@
 				<ipxact:fileType>verilogSource</ipxact:fileType>
 				<ipxact:description>Generated at 15:38:05 on 10.04.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
-					<kactus2:hash>6b2199371abc82ca9a6a651ef26ade4adac69fe2</kactus2:hash>
+					<kactus2:hash>8cc189d126aa7f39891495a7589d3adbc522e435</kactus2:hash>
 				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
-	<ipxact:description>A minimalistic example for SPI master IP-XACT document.</ipxact:description>
+	<ipxact:description>A minimalistic example for SPI master IP-XACT document. Has a very simple Verilog implementation for smoke testing.</ipxact:description>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,3,506,0</kactus2:version>
 		<kactus2:kts_attributes>
