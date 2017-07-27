@@ -163,7 +163,7 @@
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
-	<ipxact:description>A simple arithmetic logic unit, that has basic arithmetic operations and comparison. Is implemented as combinatoric logic. NOTICE: The ports are described in interface.intra_cpu.</ipxact:description>
+	<ipxact:description>A simple arithmetic logic unit, that has basic arithmetic operations and comparison. Is implemented as combinational logic. NOTICE: The ports are described in interface.intra_cpu.</ipxact:description>
 	<ipxact:parameters>
 		<ipxact:parameter parameterId="uuid_f0339227_14b3_43a1_81d2_5e1c989aa537" resolve="user" usageCount="5">
 			<ipxact:name>DATA_WIDTH</ipxact:name>

@@ -10,10 +10,6 @@
 		<ipxact:view viewRef="flat_verilog"/>
 	</ipxact:viewConfiguration>
 	<ipxact:viewConfiguration>
-		<ipxact:instanceName>wishbone_bridge</ipxact:instanceName>
-		<ipxact:view viewRef="flat_verilog"/>
-	</ipxact:viewConfiguration>
-	<ipxact:viewConfiguration>
 		<ipxact:instanceName>wb_slave_spi_master</ipxact:instanceName>
 		<ipxact:view viewRef="flat_verilog"/>
 	</ipxact:viewConfiguration>
@@ -32,6 +28,10 @@
 	<ipxact:viewConfiguration>
 		<ipxact:instanceName>core</ipxact:instanceName>
 		<ipxact:view viewRef="hierarchical_verilog"/>
+	</ipxact:viewConfiguration>
+	<ipxact:viewConfiguration>
+		<ipxact:instanceName>wishbone_bridge</ipxact:instanceName>
+		<ipxact:view viewRef="flat_verilog"/>
 	</ipxact:viewConfiguration>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,4,3,0</kactus2:version>

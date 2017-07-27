@@ -2,7 +2,7 @@
 <ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
 	<ipxact:library>communication.bridge</ipxact:library>
-	<ipxact:name>wb_cpu</ipxact:name>
+	<ipxact:name>wb_master_cpu_slave</ipxact:name>
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
@@ -514,7 +514,7 @@
 			<ipxact:file>
 				<ipxact:name>wb_master.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 15:42:14 on 25.07.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 14:33:24 on 27.07.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
 					<kactus2:hash>ca13dc1f370c4fcca49eb86e9eb2de369f07dc91</kactus2:hash>
 				</ipxact:vendorExtensions>

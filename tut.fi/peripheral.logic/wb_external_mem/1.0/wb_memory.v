@@ -70,7 +70,9 @@ module wb_memory #(
         end
         else begin
             if (state == S_WAIT) begin
+                // Deduce the correctness of address.
                 if (`store_hash && we_i == 1) begin
+                    // If we are storing the hash, upper half of the memory may not be written.
                     if (adr_i < BASE_ADDRESS + MEMORY_SIZE/2 && adr_i >= BASE_ADDRESS) begin
                         addr_ok = 1;
                     end
@@ -79,6 +81,7 @@ module wb_memory #(
                     end
                 end
                 else begin
+                    // Else any address within the memory is fair game.
                     if (adr_i < BASE_ADDRESS + MEMORY_SIZE && adr_i >= BASE_ADDRESS) begin
                         addr_ok = 1;
                     end
@@ -99,7 +102,7 @@ module wb_memory #(
                                 memory[adr_i - BASE_ADDRESS + index] <= dat_i[(index*AUB)+:AUB];
                             end
                             
-                            // HASHED MODE: Write the hash value to the corresponding location in HASHED addres block.
+                            // HASHED MODE: Write the hash value to the corresponding location in HASHED address block.
                             if (`store_hash) begin
                                 for (index = 0; index < AU_IN_DATA; index = index + 1) begin
                                     memory[adr_i - BASE_ADDRESS + MEMORY_SIZE/2 + index] <= (dat_i[(index*AUB)+:AUB] ^ key[(index*AUB)+:AUB]);

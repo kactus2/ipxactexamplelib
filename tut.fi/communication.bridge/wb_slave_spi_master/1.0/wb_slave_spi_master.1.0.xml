@@ -166,7 +166,7 @@
 			</ipxact:system>
 		</ipxact:busInterface>
 		<ipxact:busInterface>
-			<ipxact:name>master_if</ipxact:name>
+			<ipxact:name>spi_master</ipxact:name>
 			<ipxact:description>Connects to the SPI slave that is controllable through this bridge.</ipxact:description>
 			<ipxact:busType vendor="tut.fi" library="interface" name="spi" version="1.0"/>
 			<ipxact:abstractionTypes>

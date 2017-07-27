@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : test_setup.v
-// Creation date : 16.05.2017
-// Creation time : 11:43:30
-// Description   : 
+// Creation date : 27.07.2017
+// Creation time : 15:03:15
+// Description   : Test arrangement for the example core with data memory, instuction memory and clock source. Peripheral access is unused, as it is tested in other setups.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.106 32-bit
+// Tool : Kactus2 3.4.110 32-bit
 // Plugin : Verilog generator 2.0e
 // This file was generated based on IP-XACT component tut.fi:cpu.subsystem.test:core_example.setup:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/cpu.subsystem.test/core_example.setup/1.0/core_example.setup.1.0.xml

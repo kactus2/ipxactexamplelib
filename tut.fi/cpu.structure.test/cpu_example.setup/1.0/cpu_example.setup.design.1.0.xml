@@ -34,9 +34,9 @@
 				<kactus2:uuid>{b5db83f7-304f-4c3a-a847-80b5d348c272}</kactus2:uuid>
 				<kactus2:position x="160" y="300"/>
 				<kactus2:portPositions>
-					<kactus2:portPosition busRef="instructions" x="110" y="40"/>
+					<kactus2:portPosition busRef="instructions" x="110" y="80"/>
 					<kactus2:portPosition busRef="local_data" x="110" y="100"/>
-					<kactus2:portPosition busRef="master_if" x="110" y="70"/>
+					<kactus2:portPosition busRef="spi_master" x="110" y="50"/>
 					<kactus2:portPosition busRef="wb_system" x="110" y="130"/>
 				</kactus2:portPositions>
 				<kactus2:adHocVisibilities>
@@ -82,11 +82,6 @@
 	</ipxact:componentInstances>
 	<ipxact:interconnections>
 		<ipxact:interconnection>
-			<ipxact:name>spi_slave_0_slave_if_to_cpu_example_0_master_if</ipxact:name>
-			<ipxact:activeInterface componentRef="spi_slave_0" busRef="slave_if"/>
-			<ipxact:activeInterface componentRef="cpu_example_0" busRef="master_if"/>
-		</ipxact:interconnection>
-		<ipxact:interconnection>
 			<ipxact:name>cpu_example_0_wb_system_to_clock_generator_0_wb_system</ipxact:name>
 			<ipxact:activeInterface componentRef="cpu_example_0" busRef="wb_system"/>
 			<ipxact:activeInterface componentRef="clock_generator_0" busRef="wb_system"/>
@@ -100,6 +95,11 @@
 			<ipxact:name>cpu_example_0_local_data_to_data_memory_0_slave</ipxact:name>
 			<ipxact:activeInterface componentRef="cpu_example_0" busRef="local_data"/>
 			<ipxact:activeInterface componentRef="data_memory_0" busRef="slave"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>spi_slave_0_slave_if_to_cpu_example_0_spi_master</ipxact:name>
+			<ipxact:activeInterface componentRef="spi_slave_0" busRef="slave_if"/>
+			<ipxact:activeInterface componentRef="cpu_example_0" busRef="spi_master"/>
 		</ipxact:interconnection>
 	</ipxact:interconnections>
 	<ipxact:adHocConnections>
@@ -167,12 +167,6 @@
 			<kactus2:route kactus2:connRef="clock_generator_0_rst_o_to_cpu_example_0_rst_i" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="clock_generator_0_clk_o_to_cpu_example_0_clk_i" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="clock_generator_0_clk_o_to_instruction_memory_0_clk_i" kactus2:offPage="false"/>
-			<kactus2:route kactus2:connRef="spi_slave_0_slave_if_to_cpu_example_0_master_if" kactus2:offPage="false">
-				<kactus2:position x="270" y="100"/>
-				<kactus2:position x="290" y="100"/>
-				<kactus2:position x="290" y="370"/>
-				<kactus2:position x="270" y="370"/>
-			</kactus2:route>
 			<kactus2:route kactus2:connRef="cpu_example_0_wb_system_to_clock_generator_0_wb_system" kactus2:offPage="false">
 				<kactus2:position x="270" y="430"/>
 				<kactus2:position x="290" y="430"/>
@@ -182,17 +176,23 @@
 			<kactus2:route kactus2:connRef="instruction_memory_0_slave_to_cpu_example_0_iaddr_o" kactus2:offPage="false">
 				<kactus2:position x="270" y="220"/>
 				<kactus2:position x="300" y="220"/>
-				<kactus2:position x="300" y="340"/>
-				<kactus2:position x="270" y="340"/>
+				<kactus2:position x="300" y="380"/>
+				<kactus2:position x="270" y="380"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="cpu_example_0_local_data_to_data_memory_0_slave" kactus2:offPage="false">
 				<kactus2:position x="270" y="400"/>
-				<kactus2:position x="290" y="400"/>
-				<kactus2:position x="290" y="630"/>
+				<kactus2:position x="300" y="400"/>
+				<kactus2:position x="300" y="630"/>
 				<kactus2:position x="270" y="630"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="clock_generator_0_rst_o_to_data_memory_0_rst_i" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="data_memory_0_clk_i_to_clock_generator_0_clk_o" kactus2:offPage="false"/>
+			<kactus2:route kactus2:connRef="spi_slave_0_slave_if_to_cpu_example_0_spi_master" kactus2:offPage="false">
+				<kactus2:position x="270" y="100"/>
+				<kactus2:position x="290" y="100"/>
+				<kactus2:position x="290" y="350"/>
+				<kactus2:position x="270" y="350"/>
+			</kactus2:route>
 		</kactus2:routes>
 		<kactus2:adHocVisibilities/>
 	</ipxact:vendorExtensions>

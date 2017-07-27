@@ -347,6 +347,7 @@
 			</ipxact:port>
 		</ipxact:ports>
 	</ipxact:model>
+	<ipxact:description>Test arrangement for the example CPU with data memory, instuction memory, clock source, and SPI slave.</ipxact:description>
 	<ipxact:parameters>
 		<ipxact:parameter parameterId="uuid_240da555_796c_42e9_b09d_9769b11e8ac7" resolve="user" usageCount="4">
 			<ipxact:name>DATA_WIDTH</ipxact:name>

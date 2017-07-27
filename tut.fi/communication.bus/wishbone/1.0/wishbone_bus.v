@@ -95,9 +95,9 @@ module wishbone_bus #(
     assign we_slave_3 = we_master;
     
     // Choose selected slave based on the address.
-    wire slave_0_sel = (adr_master >= SLAVE_0_BASE && adr_master < SLAVE_1_BASE) ? 1 : 0;
-    wire slave_1_sel = (adr_master >= SLAVE_1_BASE && adr_master < SLAVE_2_BASE) ? 1 : 0;
-    wire slave_2_sel = (adr_master >= SLAVE_2_BASE && adr_master < SLAVE_3_BASE) ? 1 : 0;
+    wire slave_0_sel = (adr_master >= SLAVE_0_BASE && adr_master < SLAVE_0_BASE+SLAVE_RANGE) ? 1 : 0;
+    wire slave_1_sel = (adr_master >= SLAVE_1_BASE && adr_master < SLAVE_1_BASE+SLAVE_RANGE) ? 1 : 0;
+    wire slave_2_sel = (adr_master >= SLAVE_2_BASE && adr_master < SLAVE_2_BASE+SLAVE_RANGE) ? 1 : 0;
     wire slave_3_sel = (adr_master >= SLAVE_3_BASE && adr_master < SLAVE_3_BASE+SLAVE_RANGE) ? 1 : 0;
     
     // Choose master inputs based on the selected slave.

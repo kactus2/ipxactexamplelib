@@ -35,21 +35,29 @@ module wb_sum_buffer #(
 
 // WARNING: EVERYTHING ON AND ABOVE THIS LINE MAY BE OVERWRITTEN BY KACTUS2!!!
 
+    // The contained buffer.
     reg [DATA_WIDTH-1:0] memory [BUFFER_SIZE-1:0];
     
+    // The result of the operation.
     reg [DATA_WIDTH-1:0] result;
     
+    // The position of the next input data.
     reg [BUFFER_INDEX_WIDTH-1:0] index;
     
+    // Addressable unit bits.
     localparam AUB = 8;
+    // How many AUBs come in each input and output.
     localparam AU_IN_DATA = DATA_WIDTH/AUB;
 
     // The state.
     reg [0:0] state;
     
+    // The value that was previously in the current index.
     integer lastValue;
+    // The value that will be in the current index.
     integer newValue;
     
+    // Used to iterate the buffer.
     integer iterator;
     
     // The available states.
@@ -66,6 +74,7 @@ module wb_sum_buffer #(
             result <= 0;
             index <= 0;
             
+            // The buffer is zeroed in reset.
             for (iterator = 0; iterator < BUFFER_SIZE; iterator = iterator +1) begin
                 memory[iterator] <= 0;
             end
@@ -79,13 +88,19 @@ module wb_sum_buffer #(
                         // Address of the new value.
                         ack_o <= 1;
                         
+                        // Memorize for while what the new value will replace.
                         lastValue = memory[index];
                         
+                        // The new value. Values may be scaled if so desired.
                         newValue = dat_i * COLUMN_WIDTH;
                         
+                        // Place the value in the correct index.
                         memory[index] <= newValue;
+                        
+                        // The result of the sum: Remove the replaced value, add the new value.
                         result <= result - lastValue + newValue;
                         
+                        // Step to the next index, which will be zero if the current index is the last.
                         if (index < BUFFER_SIZE-1) begin
                             index <= index + 1;
                         end
@@ -94,7 +109,7 @@ module wb_sum_buffer #(
                         end
                     end
                     else if (adr_i == BUFFER_SIZE+BASE_ADDRESS+AU_IN_DATA && we_i == 0) begin
-                        // Address of the result.
+                        // Address of the result was read, so output it.
                         ack_o <= 1;
                         dat_o = result;
                     end

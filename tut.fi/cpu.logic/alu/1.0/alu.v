@@ -23,32 +23,38 @@ module alu #(
 );
 
 // WARNING: EVERYTHING ON AND ABOVE THIS LINE MAY BE OVERWRITTEN BY KACTUS2!!!
-    // The available states.
+    // The available operations.
     parameter [ALU_OP_WIDTH-1:0]
         OP_PLUS         = 3'b000, 
         OP_MINUS        = 3'b001, 
         OP_MUL          = 3'b010, 
         OP_DIV          = 3'b011, 
         OP_CMP          = 3'b100;
-        
+
+    // The available status bits.
     parameter [1:0]
         C_OUT           = 2'd3, 
         NEGATIVE        = 2'd2,
         ZERO            = 2'd1, 
         DIV_ZERO        = 2'd0;
         
+    // Result of the operation.
     reg [DATA_WIDTH*2-1:0] operation_result;
+    // 1 = Division with zero attempted.
     integer div_zero;
         
     always @* begin
+        // By default, it did not happen.
         div_zero = 0;
     
+        // Select a case depending on operation. Most are pretty straightforward execution.
         case(alu_op_i)
             OP_PLUS: operation_result <= register_value_i1 + register_value_i2;
             OP_MINUS: operation_result <= register_value_i1 - register_value_i2;
             OP_MUL: operation_result <= register_value_i1 * register_value_i2;
             OP_DIV: begin
                 if (register_value_i2 == 0) begin
+                    // Tried division by zero. Also result is then zero.
                     operation_result <= 0;
                     div_zero = 1;
                 end
@@ -58,17 +64,24 @@ module alu #(
             end
             OP_CMP : operation_result <= register_value_i1 != register_value_i2;
             default: begin
+                // Unsupported opcode -> Result is zero.
                 $display("ERROR: Unknown ALU operation: %d", alu_op_i);
                 operation_result <= 0;
             end
         endcase
         
-        alu_result_o <= operation_result;
+        // Output the result.
+        alu_result_o <= operation_result[DATA_WIDTH-1:0];
         
+        // Undefined status bits are always zero.
         alu_status_o[DATA_WIDTH-1:C_OUT+1] = 0;
+        // Carry out is always the least significant overflow bit.
         alu_status_o[C_OUT] = operation_result[DATA_WIDTH];
+        // If applicable, the most significant output bit is the sign.
         alu_status_o[NEGATIVE] = operation_result[DATA_WIDTH-1];
+        // Zero bit should be obvious.
         alu_status_o[ZERO] = (operation_result == 0);
+        // Division by zero is was resolved earlier.
         alu_status_o[DIV_ZERO] = div_zero;
     end
 endmodule

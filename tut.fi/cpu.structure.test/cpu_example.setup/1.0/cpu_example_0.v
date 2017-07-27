@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : cpu_example_0.v
-// Creation date : 16.05.2017
-// Creation time : 13:47:33
-// Description   : 
+// Creation date : 27.07.2017
+// Creation time : 15:50:23
+// Description   : An example CPU with example core and a number of wishbone peripherals, one of which is SPI bridge.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.106 32-bit
+// Tool : Kactus2 3.4.110 32-bit
 // Plugin : Verilog generator 2.0e
 // This file was generated based on IP-XACT component tut.fi:cpu.structure:cpu_example:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/cpu.structure/cpu_example/1.0/cpu_example.1.0.xml
@@ -33,7 +33,7 @@ module cpu_example_0 #(
     output         [15:0]               local_write_data,
     output                              local_write_o,
 
-    // Interface: master_if
+    // Interface: spi_master
     input                               data_in,
     output                              clk_out,
     output                              data_out,
@@ -99,11 +99,6 @@ module cpu_example_0 #(
     wire        wishbone_bus_slave_3_to_wb_slave_spi_master_wb_slaveerr;
     wire        wishbone_bus_slave_3_to_wb_slave_spi_master_wb_slavestb;
     wire        wishbone_bus_slave_3_to_wb_slave_spi_master_wb_slavewe;
-    // wb_slave_spi_master_master_if_to_master_if wires:
-    wire        wb_slave_spi_master_master_if_to_master_ifMISO;
-    wire        wb_slave_spi_master_master_if_to_master_ifMOSI;
-    wire        wb_slave_spi_master_master_if_to_master_ifSCLK;
-    wire        wb_slave_spi_master_master_if_to_master_ifSS;
     // core_instructions_to_instructions wires:
     wire [7:0]  core_instructions_to_instructionsaddress;
     wire [27:0] core_instructions_to_instructionsread_data;
@@ -112,6 +107,11 @@ module cpu_example_0 #(
     wire [15:0] core_local_data_to_local_dataread_data;
     wire        core_local_data_to_local_datawrite;
     wire [15:0] core_local_data_to_local_datawrite_data;
+    // wb_slave_spi_master_spi_master_to_spi_master wires:
+    wire        wb_slave_spi_master_spi_master_to_spi_masterMISO;
+    wire        wb_slave_spi_master_spi_master_to_spi_masterMOSI;
+    wire        wb_slave_spi_master_spi_master_to_spi_masterSCLK;
+    wire        wb_slave_spi_master_spi_master_to_spi_masterSS;
 
     // Ad-hoc wires:
     wire        core_clk_i_to_clk_i;
@@ -183,13 +183,7 @@ module cpu_example_0 #(
     wire        wb_slave_spi_master_stb_i;
     wire        wb_slave_spi_master_we_i;
     // wishbone_bridge port wires:
-    wire        wishbone_bridge_ack_i;
-    wire [9:0]  wishbone_bridge_adr_o;
     wire        wishbone_bridge_clk_i;
-    wire        wishbone_bridge_cyc_o;
-    wire [15:0] wishbone_bridge_dat_i;
-    wire [15:0] wishbone_bridge_dat_o;
-    wire        wishbone_bridge_err_i;
     wire [9:0]  wishbone_bridge_mem_address_in;
     wire [15:0] wishbone_bridge_mem_data_in;
     wire [15:0] wishbone_bridge_mem_data_out;
@@ -197,8 +191,14 @@ module cpu_example_0 #(
     wire        wishbone_bridge_mem_slave_rdy;
     wire        wishbone_bridge_mem_we_in;
     wire        wishbone_bridge_rst_i;
-    wire        wishbone_bridge_stb_o;
-    wire        wishbone_bridge_we_o;
+    wire        wishbone_bridge_wb_ack_i;
+    wire [9:0]  wishbone_bridge_wb_adr_o;
+    wire        wishbone_bridge_wb_cyc_o;
+    wire [15:0] wishbone_bridge_wb_dat_i;
+    wire [15:0] wishbone_bridge_wb_dat_o;
+    wire        wishbone_bridge_wb_err_i;
+    wire        wishbone_bridge_wb_stb_o;
+    wire        wishbone_bridge_wb_we_o;
     // wishbone_bus port wires:
     wire        wishbone_bus_ack_master;
     wire        wishbone_bus_ack_slave_0;
@@ -244,9 +244,9 @@ module cpu_example_0 #(
     // Assignments for the ports of the encompassing component:
     assign wishbone_bridge_wb_system_to_wb_systemclk = clk_i;
     assign core_clk_i_to_clk_i = clk_i;
-    assign clk_out = wb_slave_spi_master_master_if_to_master_ifSCLK;
-    assign wb_slave_spi_master_master_if_to_master_ifMISO = data_in;
-    assign data_out = wb_slave_spi_master_master_if_to_master_ifMOSI;
+    assign clk_out = wb_slave_spi_master_spi_master_to_spi_masterSCLK;
+    assign wb_slave_spi_master_spi_master_to_spi_masterMISO = data_in;
+    assign data_out = wb_slave_spi_master_spi_master_to_spi_masterMOSI;
     assign iaddr_o[7:0] = core_instructions_to_instructionsaddress[7:0];
     assign core_instructions_to_instructionsread_data[27:0] = instruction_feed[27:0];
     assign local_address_o[9:0] = core_local_data_to_local_dataaddress[9:0];
@@ -255,7 +255,7 @@ module cpu_example_0 #(
     assign local_write_o = core_local_data_to_local_datawrite;
     assign core_rst_i_to_rst_i = rst_i;
     assign wishbone_bridge_wb_system_to_wb_systemrst = rst_i;
-    assign slave_select_out = wb_slave_spi_master_master_if_to_master_ifSS;
+    assign slave_select_out = wb_slave_spi_master_spi_master_to_spi_masterSS;
 
     // core assignments:
     assign core_clk_i = core_clk_i_to_clk_i;
@@ -311,25 +311,19 @@ module cpu_example_0 #(
     assign wishbone_bus_slave_3_to_wb_slave_spi_master_wb_slaveack = wb_slave_spi_master_ack_o;
     assign wb_slave_spi_master_adr_i[9:0] = wishbone_bus_slave_3_to_wb_slave_spi_master_wb_slaveadr[9:0];
     assign wb_slave_spi_master_clk_i = wishbone_bridge_wb_system_to_wb_systemclk;
-    assign wb_slave_spi_master_master_if_to_master_ifSCLK = wb_slave_spi_master_clk_out;
+    assign wb_slave_spi_master_spi_master_to_spi_masterSCLK = wb_slave_spi_master_clk_out;
     assign wb_slave_spi_master_cyc_i = wishbone_bus_slave_3_to_wb_slave_spi_master_wb_slavecyc;
     assign wb_slave_spi_master_dat_i[15:0] = wishbone_bus_slave_3_to_wb_slave_spi_master_wb_slavedat_ms[15:0];
     assign wishbone_bus_slave_3_to_wb_slave_spi_master_wb_slavedat_sm[15:0] = wb_slave_spi_master_dat_o[15:0];
-    assign wb_slave_spi_master_data_in = wb_slave_spi_master_master_if_to_master_ifMISO;
-    assign wb_slave_spi_master_master_if_to_master_ifMOSI = wb_slave_spi_master_data_out;
+    assign wb_slave_spi_master_data_in = wb_slave_spi_master_spi_master_to_spi_masterMISO;
+    assign wb_slave_spi_master_spi_master_to_spi_masterMOSI = wb_slave_spi_master_data_out;
     assign wishbone_bus_slave_3_to_wb_slave_spi_master_wb_slaveerr = wb_slave_spi_master_err_o;
     assign wb_slave_spi_master_rst_i = wishbone_bridge_wb_system_to_wb_systemrst;
-    assign wb_slave_spi_master_master_if_to_master_ifSS = wb_slave_spi_master_slave_select_out;
+    assign wb_slave_spi_master_spi_master_to_spi_masterSS = wb_slave_spi_master_slave_select_out;
     assign wb_slave_spi_master_stb_i = wishbone_bus_slave_3_to_wb_slave_spi_master_wb_slavestb;
     assign wb_slave_spi_master_we_i = wishbone_bus_slave_3_to_wb_slave_spi_master_wb_slavewe;
     // wishbone_bridge assignments:
-    assign wishbone_bridge_ack_i = wishbone_bridge_wb_master_to_wishbone_bus_one_to_many_masterack;
-    assign wishbone_bridge_wb_master_to_wishbone_bus_one_to_many_masteradr[9:0] = wishbone_bridge_adr_o[9:0];
     assign wishbone_bridge_clk_i = wishbone_bridge_wb_system_to_wb_systemclk;
-    assign wishbone_bridge_wb_master_to_wishbone_bus_one_to_many_mastercyc = wishbone_bridge_cyc_o;
-    assign wishbone_bridge_dat_i[15:0] = wishbone_bridge_wb_master_to_wishbone_bus_one_to_many_masterdat_sm[15:0];
-    assign wishbone_bridge_wb_master_to_wishbone_bus_one_to_many_masterdat_ms[15:0] = wishbone_bridge_dat_o[15:0];
-    assign wishbone_bridge_err_i = wishbone_bridge_wb_master_to_wishbone_bus_one_to_many_mastererr;
     assign wishbone_bridge_mem_address_in[9:0] = core_peripheral_access_to_wishbone_bridge_contolleraddress[9:0];
     assign wishbone_bridge_mem_data_in[15:0] = core_peripheral_access_to_wishbone_bridge_contollerdata_ms[15:0];
     assign core_peripheral_access_to_wishbone_bridge_contollerdata_sm[15:0] = wishbone_bridge_mem_data_out[15:0];
@@ -337,8 +331,14 @@ module cpu_example_0 #(
     assign core_peripheral_access_to_wishbone_bridge_contollerslave_rdy = wishbone_bridge_mem_slave_rdy;
     assign wishbone_bridge_mem_we_in = core_peripheral_access_to_wishbone_bridge_contollerwe;
     assign wishbone_bridge_rst_i = wishbone_bridge_wb_system_to_wb_systemrst;
-    assign wishbone_bridge_wb_master_to_wishbone_bus_one_to_many_masterstb = wishbone_bridge_stb_o;
-    assign wishbone_bridge_wb_master_to_wishbone_bus_one_to_many_masterwe = wishbone_bridge_we_o;
+    assign wishbone_bridge_wb_ack_i = wishbone_bridge_wb_master_to_wishbone_bus_one_to_many_masterack;
+    assign wishbone_bridge_wb_master_to_wishbone_bus_one_to_many_masteradr[9:0] = wishbone_bridge_wb_adr_o[9:0];
+    assign wishbone_bridge_wb_master_to_wishbone_bus_one_to_many_mastercyc = wishbone_bridge_wb_cyc_o;
+    assign wishbone_bridge_wb_dat_i[15:0] = wishbone_bridge_wb_master_to_wishbone_bus_one_to_many_masterdat_sm[15:0];
+    assign wishbone_bridge_wb_master_to_wishbone_bus_one_to_many_masterdat_ms[15:0] = wishbone_bridge_wb_dat_o[15:0];
+    assign wishbone_bridge_wb_err_i = wishbone_bridge_wb_master_to_wishbone_bus_one_to_many_mastererr;
+    assign wishbone_bridge_wb_master_to_wishbone_bus_one_to_many_masterstb = wishbone_bridge_wb_stb_o;
+    assign wishbone_bridge_wb_master_to_wishbone_bus_one_to_many_masterwe = wishbone_bridge_wb_we_o;
     // wishbone_bus assignments:
     assign wishbone_bridge_wb_master_to_wishbone_bus_one_to_many_masterack = wishbone_bus_ack_master;
     assign wishbone_bus_ack_slave_0 = wishbone_bus_slave_0_to_external_mem_large_wb_slaveack;
@@ -479,7 +479,7 @@ module cpu_example_0 #(
         .BASE_ADDRESS        (416),
         .BUFFER_INDEX_WIDTH  (4))
     wb_slave_spi_master(
-        // Interface: master_if
+        // Interface: spi_master
         .data_in             (wb_slave_spi_master_data_in),
         .clk_out             (wb_slave_spi_master_clk_out),
         .data_out            (wb_slave_spi_master_data_out),
@@ -497,7 +497,7 @@ module cpu_example_0 #(
         .clk_i               (wb_slave_spi_master_clk_i),
         .rst_i               (wb_slave_spi_master_rst_i));
 
-    // IP-XACT VLNV: tut.fi:communication.bridge:wb_cpu:1.0
+    // IP-XACT VLNV: tut.fi:communication.bridge:wb_master_cpu_slave:1.0
     wb_master #(
         .ADDR_WIDTH          (10),
         .DATA_WIDTH          (16),
@@ -512,14 +512,14 @@ module cpu_example_0 #(
         .mem_data_out        (wishbone_bridge_mem_data_out),
         .mem_slave_rdy       (wishbone_bridge_mem_slave_rdy),
         // Interface: wb_master
-        .ack_i               (wishbone_bridge_ack_i),
-        .dat_i               (wishbone_bridge_dat_i),
-        .err_i               (wishbone_bridge_err_i),
-        .adr_o               (wishbone_bridge_adr_o),
-        .cyc_o               (wishbone_bridge_cyc_o),
-        .dat_o               (wishbone_bridge_dat_o),
-        .stb_o               (wishbone_bridge_stb_o),
-        .we_o                (wishbone_bridge_we_o),
+        .wb_ack_i            (wishbone_bridge_wb_ack_i),
+        .wb_dat_i            (wishbone_bridge_wb_dat_i),
+        .wb_err_i            (wishbone_bridge_wb_err_i),
+        .wb_adr_o            (wishbone_bridge_wb_adr_o),
+        .wb_cyc_o            (wishbone_bridge_wb_cyc_o),
+        .wb_dat_o            (wishbone_bridge_wb_dat_o),
+        .wb_stb_o            (wishbone_bridge_wb_stb_o),
+        .wb_we_o             (wishbone_bridge_wb_we_o),
         // Interface: wb_system
         .clk_i               (wishbone_bridge_clk_i),
         .rst_i               (wishbone_bridge_rst_i));

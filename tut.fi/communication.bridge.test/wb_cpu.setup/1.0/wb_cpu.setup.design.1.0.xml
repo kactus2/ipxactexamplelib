@@ -14,18 +14,6 @@
 			</ipxact:vendorExtensions>
 		</ipxact:componentInstance>
 		<ipxact:componentInstance>
-			<ipxact:instanceName>wb_cpu_0</ipxact:instanceName>
-			<ipxact:componentRef vendor="tut.fi" library="communication.bridge" name="wb_cpu" version="1.0"/>
-			<ipxact:vendorExtensions>
-				<kactus2:uuid>{55ff64e6-2cb5-4d57-85cb-6d5a06119651}</kactus2:uuid>
-				<kactus2:position x="160" y="180"/>
-				<kactus2:portPositions>
-					<kactus2:portPosition busRef="contoller" x="110" y="40"/>
-					<kactus2:portPosition busRef="wb_master" x="110" y="70"/>
-				</kactus2:portPositions>
-			</ipxact:vendorExtensions>
-		</ipxact:componentInstance>
-		<ipxact:componentInstance>
 			<ipxact:instanceName>clock_generator_0</ipxact:instanceName>
 			<ipxact:componentRef vendor="tut.fi" library="other.test" name="clock_generator" version="1.1"/>
 			<ipxact:vendorExtensions>
@@ -36,16 +24,29 @@
 				<kactus2:position x="160" y="300"/>
 			</ipxact:vendorExtensions>
 		</ipxact:componentInstance>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>wb_master_cpu_slave_0</ipxact:instanceName>
+			<ipxact:componentRef vendor="tut.fi" library="communication.bridge" name="wb_master_cpu_slave" version="1.0"/>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{5c3f8e87-f4d0-4952-b8cb-af844c40fbcc}</kactus2:uuid>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="wb_master" x="110" y="70"/>
+					<kactus2:portPosition busRef="wb_system" x="-110" y="40"/>
+					<kactus2:portPosition busRef="contoller" x="110" y="40"/>
+				</kactus2:portPositions>
+				<kactus2:position x="160" y="180"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
 	</ipxact:componentInstances>
 	<ipxact:interconnections>
 		<ipxact:interconnection>
-			<ipxact:name>wb_cpu_0_wb_master_to_wb_cpu.bench_0_wb_slave</ipxact:name>
-			<ipxact:activeInterface componentRef="wb_cpu_0" busRef="wb_master"/>
+			<ipxact:name>wb_master_cpu_slave_0_wb_master_to_wb_cpu.bench_0_wb_slave</ipxact:name>
+			<ipxact:activeInterface componentRef="wb_master_cpu_slave_0" busRef="wb_master"/>
 			<ipxact:activeInterface componentRef="wb_cpu.bench_0" busRef="wb_slave"/>
 		</ipxact:interconnection>
 		<ipxact:interconnection>
-			<ipxact:name>wb_cpu_0_wb_system_to_clock_generator_0_wb_system</ipxact:name>
-			<ipxact:activeInterface componentRef="wb_cpu_0" busRef="wb_system"/>
+			<ipxact:name>wb_master_cpu_slave_0_wb_system_to_clock_generator_0_wb_system</ipxact:name>
+			<ipxact:activeInterface componentRef="wb_master_cpu_slave_0" busRef="wb_system"/>
 			<ipxact:activeInterface componentRef="clock_generator_0" busRef="wb_system"/>
 		</ipxact:interconnection>
 		<ipxact:interconnection>
@@ -54,8 +55,8 @@
 			<ipxact:activeInterface componentRef="wb_cpu.bench_0" busRef="wb_system"/>
 		</ipxact:interconnection>
 		<ipxact:interconnection>
-			<ipxact:name>wb_cpu_0_contoller_to_wb_cpu.bench_0_memory_interface</ipxact:name>
-			<ipxact:activeInterface componentRef="wb_cpu_0" busRef="contoller"/>
+			<ipxact:name>wb_master_cpu_slave_0_contoller_to_wb_cpu.bench_0_memory_interface</ipxact:name>
+			<ipxact:activeInterface componentRef="wb_master_cpu_slave_0" busRef="contoller"/>
 			<ipxact:activeInterface componentRef="wb_cpu.bench_0" busRef="memory_interface"/>
 		</ipxact:interconnection>
 	</ipxact:interconnections>
@@ -67,15 +68,14 @@
 		<kactus2:columnLayout>
 			<kactus2:column name="Components" contentType="4" allowedItems="14" minWidth="319" width="319" x="0"/>
 		</kactus2:columnLayout>
-		<kactus2:adHocVisibilities/>
 		<kactus2:routes>
-			<kactus2:route kactus2:connRef="wb_cpu_0_wb_master_to_wb_cpu.bench_0_wb_slave" kactus2:offPage="false">
+			<kactus2:route kactus2:connRef="wb_master_cpu_slave_0_wb_master_to_wb_cpu.bench_0_wb_slave" kactus2:offPage="false">
 				<kactus2:position x="270" y="250"/>
 				<kactus2:position x="300" y="250"/>
 				<kactus2:position x="300" y="100"/>
 				<kactus2:position x="270" y="100"/>
 			</kactus2:route>
-			<kactus2:route kactus2:connRef="wb_cpu_0_wb_system_to_clock_generator_0_wb_system" kactus2:offPage="false">
+			<kactus2:route kactus2:connRef="wb_master_cpu_slave_0_wb_system_to_clock_generator_0_wb_system" kactus2:offPage="false">
 				<kactus2:position x="50" y="220"/>
 				<kactus2:position x="30" y="220"/>
 				<kactus2:position x="30" y="340"/>
@@ -87,12 +87,13 @@
 				<kactus2:position x="30" y="100"/>
 				<kactus2:position x="50" y="100"/>
 			</kactus2:route>
-			<kactus2:route kactus2:connRef="wb_cpu_0_contoller_to_wb_cpu.bench_0_memory_interface" kactus2:offPage="false">
+			<kactus2:route kactus2:connRef="wb_master_cpu_slave_0_contoller_to_wb_cpu.bench_0_memory_interface" kactus2:offPage="false">
 				<kactus2:position x="270" y="220"/>
 				<kactus2:position x="290" y="220"/>
 				<kactus2:position x="290" y="130"/>
 				<kactus2:position x="270" y="130"/>
 			</kactus2:route>
 		</kactus2:routes>
+		<kactus2:adHocVisibilities/>
 	</ipxact:vendorExtensions>
 </ipxact:design>

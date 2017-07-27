@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : wb_slave_mem_master.v
-// Creation date : 16.05.2017
-// Creation time : 13:49:38
+// Creation date : 27.07.2017
+// Creation time : 14:40:19
 // Description   : Used to test wishbone cpu wrapper from both master and slave side.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.106 32-bit
+// Tool : Kactus2 3.4.110 32-bit
 // Plugin : Verilog generator 2.0e
 // This file was generated based on IP-XACT component tut.fi:communication.bridge.test:wb_cpu.bench:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/communication.bridge.test/wb_cpu.bench/1.0/wb_cpu.bench.1.0.xml
@@ -12,29 +12,33 @@
 
 module wb_slave_mem_master #(
     parameter                              ADDR_WIDTH       = 16,    // The width of the address.
-    parameter                              DATA_WIDTH       = 32,    // The width of the both transferred and inputted data.
+    parameter                              DATA_WIDTH       = 32,    // The width of both input and output data.
     parameter                              DATA_COUNT       = 8,    // How many values there are in the register array.
     parameter                              BASE_ADDRESS     = 'h0F00    // The first referred address of the master.
 ) (
     // Interface: memory_interface
-    input          [DATA_WIDTH-1:0]     mem_data_i,
-    input                               mem_slave_rdy,
-    output reg     [ADDR_WIDTH-1:0]     mem_address_o,
-    output reg     [DATA_WIDTH-1:0]     mem_data_o,
-    output reg                          mem_master_rdy,
-    output reg                          mem_we_o,
+    // Used to test the bridge from controller side.
+    input          [DATA_WIDTH-1:0]     mem_data_i,    // Data to bridge.
+    input                               mem_slave_rdy,    // Bridge has executed the transfer.
+    output reg     [ADDR_WIDTH-1:0]     mem_address_o,    // Target address of a peripheral operation.
+    output reg     [DATA_WIDTH-1:0]     mem_data_o,    // Data from bridge.
+    output reg                          mem_master_rdy,    // Data is provided and transfer can be executed.
+    output reg                          mem_we_o,    // Controllers writes = 1, Controller reads = 0.
 
     // Interface: wb_slave
-    input          [ADDR_WIDTH-1:0]     adr_i,    // The address of the data.
-    input                               cyc_i,    // Asserted by master for transfer.
-    input          [DATA_WIDTH-1:0]     dat_i,    // Data from master to slave.
-    input                               stb_i,    // Asserted, when this specific slave is selected.
-    input                               we_i,    // Write = 1, Read = 0.
-    output reg                          ack_o,    // Slave asserts acknowledge.
-    output reg     [DATA_WIDTH-1:0]     dat_o,    // Data from slave to master.
-    output reg                          err_o,    // Indicates abnormal cycle termination.
+    // Used to test the bridge from the slave side.
+    input          [ADDR_WIDTH-1:0]     wb_adr_i,    // The address of the data.
+    input                               wb_cyc_i,    // Asserted by master for transfer.
+    input          [DATA_WIDTH-1:0]     wb_dat_i,    // Data from master to slave.
+    input                               wb_stb_i,    // Asserted, when this specific slave is selected.
+    input                               wb_we_i,    // Write = 1, Read = 0.
+    output reg                          wb_ack_o,    // Slave asserts acknowledge.
+    output reg     [DATA_WIDTH-1:0]     wb_dat_o,    // Data from slave to master.
+    output reg                          wb_err_o,    // Indicates abnormal cycle termination.
 
     // Interface: wb_system
+    // Grouping for wishbone system signals. The clock and reset are used for all logic
+    // in this module.
     input                               clk_i,    // The mandatory clock, as this is synchronous logic.
     input                               rst_i    // The mandatory reset, as this is synchronous logic.
 );
@@ -141,36 +145,36 @@ module wb_slave_mem_master #(
         
     always @(posedge clk_i or posedge rst_i) begin
         if(rst_i == 1'b1) begin
-            ack_o <= 0; // Obviously, there is nothing to acknowledge by default.
-            dat_o <= 0; // No output by default.
-            err_o <= 0; // No error by default.
+            wb_ack_o <= 0; // Obviously, there is nothing to acknowledge by default.
+            wb_dat_o <= 0; // No output by default.
+            wb_err_o <= 0; // No error by default.
             slave_state <= S_WAIT; // Wait signals from the masters at reset.
         end
         else begin
             if (slave_state == S_WAIT) begin
                 // Wait signal from the master.
-                if (cyc_i == 1 && stb_i == 1) begin
+                if (wb_cyc_i == 1 && wb_stb_i == 1) begin
                     // Master ok, check the address.
-                    if (adr_i < BASE_ADDRESS + MEMORY_SIZE && adr_i >= BASE_ADDRESS) begin
+                    if (wb_adr_i < BASE_ADDRESS + MEMORY_SIZE && wb_adr_i >= BASE_ADDRESS) begin
                         // The specified address in accessible -> proceed.
-                        ack_o <= 1;
+                        wb_ack_o <= 1;
 
-                        if ( we_i == 1 ) begin
+                        if (wb_we_i == 1) begin
                             // Writing: Pick every byte from the input and place them to correct addresses.
                             for (memory_index = 0; memory_index < AU_IN_DATA; memory_index = memory_index + 1) begin
-                                memory[adr_i - BASE_ADDRESS + memory_index] <= dat_i[(memory_index*AUB)+:AUB];
+                                memory[wb_adr_i - BASE_ADDRESS + memory_index] <= wb_dat_i[(memory_index*AUB)+:AUB];
                             end
                         end
                         else begin
                             // Reading: Pick every byte from correct addresses and place them to the output.
                             for (memory_index = 0; memory_index < AU_IN_DATA; memory_index = memory_index + 1) begin
-                                dat_o[(memory_index*AUB)+:AUB] <= memory[adr_i - BASE_ADDRESS + memory_index];
+                                wb_dat_o[(memory_index*AUB)+:AUB] <= memory[wb_adr_i - BASE_ADDRESS + memory_index];
                             end
                         end
                     end
                     else begin
                         // The specified address out-of-scope -> error!
-                        err_o <= 1;
+                        wb_err_o <= 1;
                     end
                 
                     // Next thing is to deassert.
@@ -179,8 +183,8 @@ module wb_slave_mem_master #(
             end
             else if (slave_state == S_DEASSERT) begin
                 // Deassert acknowlegement, get ready to receive next one.
-                ack_o <= 0;
-                err_o <= 0;
+                wb_ack_o <= 0;
+                wb_err_o <= 0;
                 slave_state <= S_WAIT;
             end
             else

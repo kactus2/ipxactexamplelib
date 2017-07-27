@@ -697,7 +697,7 @@
 			<ipxact:file>
 				<ipxact:name>memory_controller.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 11:39:35 on 16.05.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 15:08:08 on 27.07.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
 					<kactus2:hash>a00df7c8f2494bc20249786ca3ea2c8a3df34ebc</kactus2:hash>
 				</ipxact:vendorExtensions>

@@ -58,15 +58,16 @@ module instruction_decoder #(
         CMP         = 4'b1100, 
         END         = 4'b1111;
 
-    // The address of the currently executed instruction.
+    // The address of the currently decoded instruction.
     reg [INSTRUCTION_ADDRESS_WIDTH-1:0] instruction_pointer;
     
-    // Intermediate values that are result from combinational logic.
+    // Sliced operands of instruction decoded in combinational logic.
     integer next_reg1;
     integer next_reg2;
     reg [OP_CODE_WIDTH-1:0] operation;
     reg [DATA_WIDTH:0] literal;
     
+    // Intermediate values that are result from combinational logic.
     reg [INSTRUCTION_ADDRESS_WIDTH-1:0] next_instruction;
     reg next_mem_active;
     reg next_we;
@@ -80,24 +81,36 @@ module instruction_decoder #(
     // Combinational logic used for decoding, as well as for those outputs that needs to take effect within current cycle.
     always @* begin
         if (mem_active_o)begin
+            // If waiting for memory operation, the CPU is stalled.
+        
             if (mem_rdy_i) begin
+                // If ready, no longer waiting and the next instruction is fetched.
                 next_mem_active <= 0;
                 next_instruction <= instruction_pointer + 1;
             end
             else begin
+                // Else the stalling continues.
                 next_mem_active <= 1;
                 next_instruction <= instruction_pointer;
             end
             
+            // These remain zero.
             next_register_value <= 0;
             next_register_active <= 0;
             next_we <= we_o;
             next_alu_active <= 0;
         end
         else begin
+            // No stalling: process the next instruction.
+            
+            // Slice the instruction to parts:
+            
+            // Operation is the primary directive for what happens next.
             operation = instruction_feed[LITERAL_WIDTH+2*REGISTER_ID_WIDTH+OP_CODE_WIDTH-1:LITERAL_WIDTH+2*REGISTER_ID_WIDTH];
+            // Instructions may have two registers as operands.
             next_reg1 = instruction_feed[LITERAL_WIDTH+2*REGISTER_ID_WIDTH-1:LITERAL_WIDTH+REGISTER_ID_WIDTH];
             next_reg2 = instruction_feed[LITERAL_WIDTH+REGISTER_ID_WIDTH-1:LITERAL_WIDTH];
+            // Each instruction may come with a literal value.
             literal <= instruction_feed[LITERAL_WIDTH-1:0];
             
             // Activate ALU if arithmetic operation.
@@ -111,18 +124,21 @@ module instruction_decoder #(
             else begin
                 next_alu_active <= 0;
             end
-                    
+            
+            // Memory and instruction operations do some mutually exclusive stuff.
             if (operation == BRA ||
                 (operation == BNE && !alu_status_i[alu.ZERO]))
             begin
                 // Branch if branching, obviously excludes data memory operations.
                 next_mem_active <= 0;
+                // Moreover, the address of the next instruction comes from operation.
                 next_instruction = literal;
             end
             else if (operation == LOAD || operation == STORE)
             begin
                 // Activate memory controller if memory operation.
                 next_mem_active <= 1;
+                // Stalling the CPU: The instruction pointer stays the same.
                 next_instruction = instruction_pointer;
             end
             else begin
@@ -139,10 +155,9 @@ module instruction_decoder #(
                 next_we <= 0;
             end
             
-            // Signify if passing a literal.
             if (operation == SET) begin
+                // Activate register bank, pass the literal to it.
                 next_register_active <= 1;
-                // Pass literal.
                 next_register_value <= literal;
             end
             else begin
@@ -165,7 +180,7 @@ module instruction_decoder #(
             register_active_o <= 0;
         end
         else begin
-            // Pass the results of decoding as the operations and outpus of the next cycle.
+            // Pass the results of decoding as the operations and outputs of the next cycle.
             
             // Register bank:
             choose_reg1_o <= next_reg1;

@@ -6,7 +6,7 @@
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
-			<ipxact:name>master_if</ipxact:name>
+			<ipxact:name>spi_master</ipxact:name>
 			<ipxact:busType vendor="tut.fi" library="interface" name="spi" version="1.0"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -339,6 +339,7 @@
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
+	<ipxact:description>An example CPU with example core and a number of wishbone peripherals, one of which is SPI bridge.</ipxact:description>
 	<ipxact:parameters>
 		<ipxact:parameter parameterId="uuid_51264501_3c28_4520_85cf_509d0483d12d" resolve="immediate" usageCount="1">
 			<ipxact:name>ADDR_WIDTH</ipxact:name>

@@ -76,26 +76,6 @@
 			</ipxact:vendorExtensions>
 		</ipxact:componentInstance>
 		<ipxact:componentInstance>
-			<ipxact:instanceName>wishbone_bridge</ipxact:instanceName>
-			<ipxact:componentRef vendor="tut.fi" library="communication.bridge" name="wb_cpu" version="1.0">
-				<ipxact:configurableElementValues>
-					<ipxact:configurableElementValue referenceId="uuid_c58fd099_9dad_463d_bbe9_ff967befbfb0">uuid_f5c2f2c1_588b_45b2_a352_49e3d278c24d-uuid_34e837d0_846a_486c_84b3_a29e2f957b9f</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_97ac3e61_b280_4fa3_982a_78b110952f5b">uuid_34e837d0_846a_486c_84b3_a29e2f957b9f</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_fe30a511_9701_4142_b340_223777d1b857">uuid_1cedcd48_18d3_4ab1_8168_b840ffeef0c1</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_ed7d4652_1c14_4647_90dd_881ec00146f8">uuid_51264501_3c28_4520_85cf_509d0483d12d</ipxact:configurableElementValue>
-				</ipxact:configurableElementValues>
-			</ipxact:componentRef>
-			<ipxact:vendorExtensions>
-				<kactus2:uuid>{9a2d0f6f-3611-4af4-870c-ad6754bcb81d}</kactus2:uuid>
-				<kactus2:portPositions>
-					<kactus2:portPosition busRef="contoller" x="-110" y="60"/>
-					<kactus2:portPosition busRef="wb_master" x="-110" y="40"/>
-					<kactus2:portPosition busRef="wb_system" x="110" y="50"/>
-				</kactus2:portPositions>
-				<kactus2:position x="600" y="480"/>
-			</ipxact:vendorExtensions>
-		</ipxact:componentInstance>
-		<ipxact:componentInstance>
 			<ipxact:instanceName>sum_buffer</ipxact:instanceName>
 			<ipxact:componentRef vendor="tut.fi" library="peripheral.logic" name="sum_buffer" version="1.0">
 				<ipxact:configurableElementValues>
@@ -157,6 +137,26 @@
 				<kactus2:position x="920" y="60"/>
 			</ipxact:vendorExtensions>
 		</ipxact:componentInstance>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>wishbone_bridge</ipxact:instanceName>
+			<ipxact:componentRef vendor="tut.fi" library="communication.bridge" name="wb_master_cpu_slave" version="1.0">
+				<ipxact:configurableElementValues>
+					<ipxact:configurableElementValue referenceId="uuid_ed7d4652_1c14_4647_90dd_881ec00146f8">uuid_51264501_3c28_4520_85cf_509d0483d12d</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_fe30a511_9701_4142_b340_223777d1b857">uuid_1cedcd48_18d3_4ab1_8168_b840ffeef0c1</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_c58fd099_9dad_463d_bbe9_ff967befbfb0">uuid_f5c2f2c1_588b_45b2_a352_49e3d278c24d-uuid_34e837d0_846a_486c_84b3_a29e2f957b9f</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_97ac3e61_b280_4fa3_982a_78b110952f5b">uuid_34e837d0_846a_486c_84b3_a29e2f957b9f</ipxact:configurableElementValue>
+				</ipxact:configurableElementValues>
+			</ipxact:componentRef>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{4a653c1d-d295-4e0f-8bfc-4c409ffb0714}</kactus2:uuid>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="contoller" x="-110" y="60"/>
+					<kactus2:portPosition busRef="wb_master" x="-110" y="40"/>
+					<kactus2:portPosition busRef="wb_system" x="110" y="50"/>
+				</kactus2:portPositions>
+				<kactus2:position x="600" y="480"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
 	</ipxact:componentInstances>
 	<ipxact:interconnections>
 		<ipxact:interconnection>
@@ -215,11 +215,6 @@
 			<ipxact:activeInterface componentRef="wb_slave_spi_master" busRef="wb_slave"/>
 		</ipxact:interconnection>
 		<ipxact:interconnection>
-			<ipxact:name>wb_slave_spi_master_master_if_to_master_if</ipxact:name>
-			<ipxact:activeInterface componentRef="wb_slave_spi_master" busRef="master_if"/>
-			<ipxact:hierInterface busRef="master_if"/>
-		</ipxact:interconnection>
-		<ipxact:interconnection>
 			<ipxact:name>core_instructions_to_instructions</ipxact:name>
 			<ipxact:activeInterface componentRef="core" busRef="instructions"/>
 			<ipxact:hierInterface busRef="instructions"/>
@@ -228,6 +223,11 @@
 			<ipxact:name>core_local_data_to_local_data</ipxact:name>
 			<ipxact:activeInterface componentRef="core" busRef="local_data"/>
 			<ipxact:hierInterface busRef="local_data"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>wb_slave_spi_master_spi_master_to_spi_master</ipxact:name>
+			<ipxact:activeInterface componentRef="wb_slave_spi_master" busRef="spi_master"/>
+			<ipxact:hierInterface busRef="spi_master"/>
 		</ipxact:interconnection>
 	</ipxact:interconnections>
 	<ipxact:adHocConnections>
@@ -311,8 +311,8 @@
 			<kactus2:route kactus2:connRef="core_new_value_to_new_value" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="core_peripheral_access_to_wishbone_bridge_contoller" kactus2:offPage="false">
 				<kactus2:position x="390" y="100"/>
-				<kactus2:position x="460" y="100"/>
-				<kactus2:position x="460" y="540"/>
+				<kactus2:position x="470" y="100"/>
+				<kactus2:position x="470" y="540"/>
 				<kactus2:position x="490" y="540"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="wb_slave_spi_master_wb_system_to_wb_system" kactus2:offPage="true">
@@ -323,18 +323,20 @@
 				<kactus2:position x="710" y="430"/>
 				<kactus2:position x="810" y="430"/>
 			</kactus2:route>
-			<kactus2:route kactus2:connRef="wb_slave_spi_master_master_if_to_master_if" kactus2:offPage="false">
-				<kactus2:position x="1030" y="460"/>
-				<kactus2:position x="1140" y="460"/>
-			</kactus2:route>
 			<kactus2:route kactus2:connRef="core_instructions_to_instructions" kactus2:offPage="false">
 				<kactus2:position x="170" y="100"/>
-				<kactus2:position x="60" y="100"/>
+				<kactus2:position x="50" y="100"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="core_rst_i_to_rst_i" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="core_local_data_to_local_data" kactus2:offPage="false">
 				<kactus2:position x="170" y="130"/>
 				<kactus2:position x="60" y="130"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="wb_slave_spi_master_spi_master_to_spi_master" kactus2:offPage="false">
+				<kactus2:position x="1030" y="460"/>
+				<kactus2:position x="1090" y="460"/>
+				<kactus2:position x="1090" y="140"/>
+				<kactus2:position x="1140" y="140"/>
 			</kactus2:route>
 		</kactus2:routes>
 		<kactus2:adHocVisibilities>
@@ -360,6 +362,11 @@
 			<kactus2:name>local_data</kactus2:name>
 			<kactus2:position x="60" y="130"/>
 			<kactus2:direction x="1" y="0"/>
+		</kactus2:interfaceGraphics>
+		<kactus2:interfaceGraphics>
+			<kactus2:name>spi_master</kactus2:name>
+			<kactus2:position x="1140" y="140"/>
+			<kactus2:direction x="-1" y="0"/>
 		</kactus2:interfaceGraphics>
 	</ipxact:vendorExtensions>
 </ipxact:design>

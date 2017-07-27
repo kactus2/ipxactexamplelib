@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 // File          : core_example_0.v
-// Creation date : 16.05.2017
-// Creation time : 13:47:33
-// Description   : 
+// Creation date : 27.07.2017
+// Creation time : 15:50:23
+// Description   : Test arrangement for the example CPU with data memory, instuction memory, clock source, and SPI slave.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.106 32-bit
+// Tool : Kactus2 3.4.110 32-bit
 // Plugin : Verilog generator 2.0e
 // This file was generated based on IP-XACT component tut.fi:cpu.subsystem:core_example:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/cpu.subsystem/core_example/1.0/core_example.1.0.xml
@@ -112,25 +112,25 @@ module core_example_0 #(
     wire        instruction_decoder_rst_i;
     wire        instruction_decoder_we_o;
     // memory_controller port wires:
-    wire [9:0]  memory_controller_address_i;
     wire        memory_controller_clk_i;
-    wire [15:0] memory_controller_load_value_o;
     wire [9:0]  memory_controller_local_address_o;
     wire [15:0] memory_controller_local_read_data;
     wire [15:0] memory_controller_local_write_data;
     wire        memory_controller_local_write_o;
-    wire        memory_controller_mem_active_i;
-    wire [9:0]  memory_controller_mem_address_o;
-    wire [15:0] memory_controller_mem_data_i;
-    wire [15:0] memory_controller_mem_data_o;
-    wire        memory_controller_mem_master_rdy;
-    wire        memory_controller_mem_rdy_o;
-    wire        memory_controller_mem_read_rdy_o;
-    wire        memory_controller_mem_slave_rdy;
-    wire        memory_controller_mem_we_o;
-    wire [15:0] memory_controller_register_value_i;
+    wire [9:0]  memory_controller_periph_address_o;
+    wire [15:0] memory_controller_periph_data_i;
+    wire [15:0] memory_controller_periph_data_o;
+    wire        memory_controller_periph_master_rdy;
+    wire        memory_controller_periph_slave_rdy;
+    wire        memory_controller_periph_we_o;
     wire        memory_controller_rst_i;
-    wire        memory_controller_we_i;
+    wire        memory_controller_sys_active_i;
+    wire [9:0]  memory_controller_sys_address_i;
+    wire [15:0] memory_controller_sys_data_i;
+    wire [15:0] memory_controller_sys_data_o;
+    wire        memory_controller_sys_rdy_o;
+    wire        memory_controller_sys_read_rdy_o;
+    wire        memory_controller_sys_we_i;
     // register_bank port wires:
     wire        register_bank_alu_active_i;
     wire [15:0] register_bank_alu_result_i;
@@ -189,25 +189,25 @@ module core_example_0 #(
     assign instruction_decoder_rst_i = clock_cpu_clk_source_to_register_bank_cpu_clk_sinkrst;
     assign memory_controller_cpu_system_to_alu_cpu_systemmem_we = instruction_decoder_we_o;
     // memory_controller assignments:
-    assign memory_controller_address_i[9:0] = memory_controller_cpu_system_to_alu_cpu_systemaddress[9:0];
     assign memory_controller_clk_i = clock_cpu_clk_source_to_register_bank_cpu_clk_sinkclk;
-    assign memory_controller_cpu_system_to_alu_cpu_systemload_value[15:0] = memory_controller_load_value_o[15:0];
     assign memory_controller_local_data_to_local_dataaddress[9:0] = memory_controller_local_address_o[9:0];
     assign memory_controller_local_read_data[15:0] = memory_controller_local_data_to_local_dataread_data[15:0];
     assign memory_controller_local_data_to_local_datawrite_data[15:0] = memory_controller_local_write_data[15:0];
     assign memory_controller_local_data_to_local_datawrite = memory_controller_local_write_o;
-    assign memory_controller_mem_active_i = memory_controller_cpu_system_to_alu_cpu_systemmem_active;
-    assign memory_controller_peripheral_access_to_peripheral_accessaddress[9:0] = memory_controller_mem_address_o[9:0];
-    assign memory_controller_mem_data_i[15:0] = memory_controller_peripheral_access_to_peripheral_accessdata_sm[15:0];
-    assign memory_controller_peripheral_access_to_peripheral_accessdata_ms[15:0] = memory_controller_mem_data_o[15:0];
-    assign memory_controller_peripheral_access_to_peripheral_accessmaster_rdy = memory_controller_mem_master_rdy;
-    assign memory_controller_cpu_system_to_alu_cpu_systemmem_rdy = memory_controller_mem_rdy_o;
-    assign memory_controller_cpu_system_to_alu_cpu_systemmem_read_rdy = memory_controller_mem_read_rdy_o;
-    assign memory_controller_mem_slave_rdy = memory_controller_peripheral_access_to_peripheral_accessslave_rdy;
-    assign memory_controller_peripheral_access_to_peripheral_accesswe = memory_controller_mem_we_o;
-    assign memory_controller_register_value_i[15:0] = memory_controller_cpu_system_to_alu_cpu_systemregister_output_1[15:0];
+    assign memory_controller_peripheral_access_to_peripheral_accessaddress[9:0] = memory_controller_periph_address_o[9:0];
+    assign memory_controller_periph_data_i[15:0] = memory_controller_peripheral_access_to_peripheral_accessdata_sm[15:0];
+    assign memory_controller_peripheral_access_to_peripheral_accessdata_ms[15:0] = memory_controller_periph_data_o[15:0];
+    assign memory_controller_peripheral_access_to_peripheral_accessmaster_rdy = memory_controller_periph_master_rdy;
+    assign memory_controller_periph_slave_rdy = memory_controller_peripheral_access_to_peripheral_accessslave_rdy;
+    assign memory_controller_peripheral_access_to_peripheral_accesswe = memory_controller_periph_we_o;
     assign memory_controller_rst_i = clock_cpu_clk_source_to_register_bank_cpu_clk_sinkrst;
-    assign memory_controller_we_i = memory_controller_cpu_system_to_alu_cpu_systemmem_we;
+    assign memory_controller_sys_active_i = memory_controller_cpu_system_to_alu_cpu_systemmem_active;
+    assign memory_controller_sys_address_i[9:0] = memory_controller_cpu_system_to_alu_cpu_systemaddress[9:0];
+    assign memory_controller_sys_data_i[15:0] = memory_controller_cpu_system_to_alu_cpu_systemregister_output_1[15:0];
+    assign memory_controller_cpu_system_to_alu_cpu_systemload_value[15:0] = memory_controller_sys_data_o[15:0];
+    assign memory_controller_cpu_system_to_alu_cpu_systemmem_rdy = memory_controller_sys_rdy_o;
+    assign memory_controller_cpu_system_to_alu_cpu_systemmem_read_rdy = memory_controller_sys_read_rdy_o;
+    assign memory_controller_sys_we_i = memory_controller_cpu_system_to_alu_cpu_systemmem_we;
     // register_bank assignments:
     assign register_bank_alu_active_i = memory_controller_cpu_system_to_alu_cpu_systemalu_active;
     assign register_bank_alu_result_i[15:0] = memory_controller_cpu_system_to_alu_cpu_systemalu_result[15:0];
@@ -235,9 +235,7 @@ module core_example_0 #(
         .alu_status_o        (alu_alu_status_o));
 
     // IP-XACT VLNV: tut.fi:cpu.logic:clock:1.0
-    clock #(
-        .SCALE               (2))
-    clock(
+    clock clock(
         // Interface: cpu_clk_source
         .clk_o               (clock_clk_o),
         .rst_o               (clock_rst_o),
@@ -282,25 +280,25 @@ module core_example_0 #(
         .clk_i               (memory_controller_clk_i),
         .rst_i               (memory_controller_rst_i),
         // Interface: cpu_system
-        .address_i           (memory_controller_address_i),
-        .mem_active_i        (memory_controller_mem_active_i),
-        .register_value_i    (memory_controller_register_value_i),
-        .we_i                (memory_controller_we_i),
-        .load_value_o        (memory_controller_load_value_o),
-        .mem_rdy_o           (memory_controller_mem_rdy_o),
-        .mem_read_rdy_o      (memory_controller_mem_read_rdy_o),
+        .sys_active_i        (memory_controller_sys_active_i),
+        .sys_address_i       (memory_controller_sys_address_i),
+        .sys_data_i          (memory_controller_sys_data_i),
+        .sys_we_i            (memory_controller_sys_we_i),
+        .sys_data_o          (memory_controller_sys_data_o),
+        .sys_rdy_o           (memory_controller_sys_rdy_o),
+        .sys_read_rdy_o      (memory_controller_sys_read_rdy_o),
         // Interface: local_data
         .local_read_data     (memory_controller_local_read_data),
         .local_address_o     (memory_controller_local_address_o),
         .local_write_data    (memory_controller_local_write_data),
         .local_write_o       (memory_controller_local_write_o),
         // Interface: peripheral_access
-        .mem_data_i          (memory_controller_mem_data_i),
-        .mem_slave_rdy       (memory_controller_mem_slave_rdy),
-        .mem_address_o       (memory_controller_mem_address_o),
-        .mem_data_o          (memory_controller_mem_data_o),
-        .mem_master_rdy      (memory_controller_mem_master_rdy),
-        .mem_we_o            (memory_controller_mem_we_o));
+        .periph_data_i       (memory_controller_periph_data_i),
+        .periph_slave_rdy    (memory_controller_periph_slave_rdy),
+        .periph_address_o    (memory_controller_periph_address_o),
+        .periph_data_o       (memory_controller_periph_data_o),
+        .periph_master_rdy   (memory_controller_periph_master_rdy),
+        .periph_we_o         (memory_controller_periph_we_o));
 
     // IP-XACT VLNV: tut.fi:cpu.logic:register_bank:1.0
     register_bank #(
