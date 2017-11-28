@@ -1,11 +1,11 @@
 //-----------------------------------------------------------------------------
 // File          : test_setup.v
-// Creation date : 27.07.2017
-// Creation time : 14:44:51
+// Creation date : 28.11.2017
+// Creation time : 16:08:33
 // Description   : Test arrangement for verifying wishbone-to-CPU bridge.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.110 32-bit
-// Plugin : Verilog generator 2.0e
+// Tool : Kactus2 3.4.1184 32-bit
+// Plugin : Verilog generator 2.1
 // This file was generated based on IP-XACT component tut.fi:communication.bridge.test:wb_cpu.setup:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/communication.bridge.test/wb_cpu.setup/1.0/wb_cpu.setup.1.0.xml
 //-----------------------------------------------------------------------------

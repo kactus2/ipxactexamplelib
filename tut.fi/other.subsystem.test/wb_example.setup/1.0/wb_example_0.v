@@ -1,23 +1,23 @@
 //-----------------------------------------------------------------------------
 // File          : wb_example_0.v
-// Creation date : 15.05.2017
-// Creation time : 14:02:38
+// Creation date : 28.11.2017
+// Creation time : 16:51:22
 // Description   : A hardware component containing a hardware design, which has a master component, three slaves and a bus component.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.104 32-bit
-// Plugin : Verilog generator 2.0e
+// Tool : Kactus2 3.4.1176 32-bit
+// Plugin : Verilog generator 2.1
 // This file was generated based on IP-XACT component tut.fi:other.subsystem:wb_example:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/other.subsystem/wb_example/1.0/wb_example.1.0.xml
 //-----------------------------------------------------------------------------
 
 module wb_example_0 #(
     parameter                              ADDR_WIDTH       = 32,    // The width of the address.
-    parameter                              DATA_WIDTH       = 32,    // The width of the both transferred and inputted data.
-    parameter                              WORD_COUNT       = 16,    // How many words there are per master.
     parameter                              AUB              = 8,    // Addressable unit bits of the memory
+    parameter                              BUS_SLAVE_RANGE  = 32,    // How much address space is allotted to each bus slave in the design.
+    parameter                              DATA_WIDTH       = 32,    // The width of the both transferred and inputted data.
     parameter                              MEMORY_AUB_SIZE  = 64,    // Size of memory in AUBs, for each master.
     parameter                              SLAVE_BASE       = 128,    // The base address of the first slave in the design.
-    parameter                              BUS_SLAVE_RANGE  = 32    // How much address space is allotted to each bus slave in the design.
+    parameter                              WORD_COUNT       = 16    // How many words there are per master.
 ) (
     // Interface: wb_system
     input                               clk_i,    // The mandatory clock, as this is synchronous logic.
@@ -261,11 +261,10 @@ module wb_example_0 #(
     // IP-XACT VLNV: tut.fi:peripheral.logic:wb_dual_master:1.0
     master #(
         .ADDR_WIDTH          (32),
-        .MASTER_1_BASE_ADDRESS(144),
+        .MASTER_1_BASE_ADDRESS(136),
         .DATA_COUNT          (16),
         .DATA_WIDTH          (32),
-        .MASTER_0_BASE_ADDRESS(128),
-        .VERILOG_SPECIFIC    (238))
+        .MASTER_0_BASE_ADDRESS(128))
     wb_dual_master_0(
         // Interface: master_0
         .ack_i_0             (wb_dual_master_0_ack_i_0),
@@ -320,7 +319,7 @@ module wb_example_0 #(
         .ADDR_WIDTH          (16),
         .DATA_WIDTH          (32),
         .DATA_COUNT          (16),
-        .BASE_ADDRESS        (144))
+        .BASE_ADDRESS        (128))
     wb_slave_1(
         // Interface: wb_slave
         .adr_i               (wb_slave_1_adr_i),

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ipxact:design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+<ipxact:design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014 http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
 	<ipxact:library>communication.bridge.test</ipxact:library>
 	<ipxact:name>wb_cpu.setup.design</ipxact:name>
@@ -18,10 +18,10 @@
 			<ipxact:componentRef vendor="tut.fi" library="other.test" name="clock_generator" version="1.1"/>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{25915abb-c307-48fb-8c4d-69652d658e0a}</kactus2:uuid>
+				<kactus2:position x="160" y="300"/>
 				<kactus2:portPositions>
 					<kactus2:portPosition busRef="wb_system" x="-110" y="40"/>
 				</kactus2:portPositions>
-				<kactus2:position x="160" y="300"/>
 			</ipxact:vendorExtensions>
 		</ipxact:componentInstance>
 		<ipxact:componentInstance>
@@ -29,12 +29,12 @@
 			<ipxact:componentRef vendor="tut.fi" library="communication.bridge" name="wb_master_cpu_slave" version="1.0"/>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{5c3f8e87-f4d0-4952-b8cb-af844c40fbcc}</kactus2:uuid>
+				<kactus2:position x="160" y="180"/>
 				<kactus2:portPositions>
+					<kactus2:portPosition busRef="contoller" x="110" y="40"/>
 					<kactus2:portPosition busRef="wb_master" x="110" y="70"/>
 					<kactus2:portPosition busRef="wb_system" x="-110" y="40"/>
-					<kactus2:portPosition busRef="contoller" x="110" y="40"/>
 				</kactus2:portPositions>
-				<kactus2:position x="160" y="180"/>
 			</ipxact:vendorExtensions>
 		</ipxact:componentInstance>
 	</ipxact:componentInstances>

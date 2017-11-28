@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ipxact:design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+<ipxact:design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014 http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
 	<ipxact:library>cpu.structure.test</ipxact:library>
 	<ipxact:name>cpu_example.setup.design</ipxact:name>
@@ -62,11 +62,7 @@
 		</ipxact:componentInstance>
 		<ipxact:componentInstance>
 			<ipxact:instanceName>data_memory_0</ipxact:instanceName>
-			<ipxact:componentRef vendor="tut.fi" library="cpu.logic.test" name="data_memory" version="1.0">
-				<ipxact:configurableElementValues>
-					<ipxact:configurableElementValue referenceId="uuid_e8a51461_67cf_40dd_8517_7fbe90c1b038">16</ipxact:configurableElementValue>
-				</ipxact:configurableElementValues>
-			</ipxact:componentRef>
+			<ipxact:componentRef vendor="tut.fi" library="cpu.logic.test" name="data_memory" version="1.0"/>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{a70bb5a2-9092-4fad-ba6e-ddbfaf445951}</kactus2:uuid>
 				<kactus2:position x="160" y="590"/>

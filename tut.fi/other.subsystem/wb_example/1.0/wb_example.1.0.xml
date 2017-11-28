@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+<ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014 http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
 	<ipxact:library>other.subsystem</ipxact:library>
 	<ipxact:name>wb_example</ipxact:name>
@@ -120,43 +120,6 @@
 		</ipxact:fileSet>
 	</ipxact:fileSets>
 	<ipxact:description>A hardware component containing a hardware design, which has a master component, three slaves and a bus component.</ipxact:description>
-	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_22156e3a_cd6e_466e_b2df_e39e07351910" resolve="immediate">
-			<ipxact:name>ADDR_WIDTH</ipxact:name>
-			<ipxact:description>The width of the address.</ipxact:description>
-			<ipxact:value>32</ipxact:value>
-		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_bb96c047_ce50_4dbb_99c0_87a80a753f91" resolve="immediate" usageCount="1">
-			<ipxact:name>DATA_WIDTH</ipxact:name>
-			<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
-			<ipxact:value>32</ipxact:value>
-		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_971a9685_1ec7_4781_bd5d_3dfa2fcc51ae" resolve="immediate" usageCount="1">
-			<ipxact:name>WORD_COUNT</ipxact:name>
-			<ipxact:description>How many words there are per master.</ipxact:description>
-			<ipxact:value>16</ipxact:value>
-		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_3260e9d8_0b45_4d05_be91_63899a9b154a" resolve="immediate" usageCount="1">
-			<ipxact:name>AUB</ipxact:name>
-			<ipxact:description>Addressable unit bits of the memory</ipxact:description>
-			<ipxact:value>8</ipxact:value>
-		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_d2252a64_191f_4984_844f_6a1b4ce6c9c7" resolve="immediate" usageCount="1">
-			<ipxact:name>MEMORY_AUB_SIZE</ipxact:name>
-			<ipxact:description>Size of memory in AUBs, for each master.</ipxact:description>
-			<ipxact:value>uuid_971a9685_1ec7_4781_bd5d_3dfa2fcc51ae*uuid_bb96c047_ce50_4dbb_99c0_87a80a753f91/uuid_3260e9d8_0b45_4d05_be91_63899a9b154a</ipxact:value>
-		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_f8a35f35_318a_491e_a371_2bdd9d494790" resolve="immediate">
-			<ipxact:name>SLAVE_BASE</ipxact:name>
-			<ipxact:description>The base address of the first slave in the design.</ipxact:description>
-			<ipxact:value>'h80</ipxact:value>
-		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_926f09d4_6764_4ed5_9c96_3cca5fa4f833" resolve="immediate">
-			<ipxact:name>BUS_SLAVE_RANGE</ipxact:name>
-			<ipxact:description>How much address space is allotted to each bus slave in the design.</ipxact:description>
-			<ipxact:value>uuid_d2252a64_191f_4984_844f_6a1b4ce6c9c7/2</ipxact:value>
-		</ipxact:parameter>
-	</ipxact:parameters>
 	<ipxact:vendorExtensions>
 		<kactus2:fileDependencies>
 			<kactus2:fileDependency manual="false" bidirectional="false" locked="false">

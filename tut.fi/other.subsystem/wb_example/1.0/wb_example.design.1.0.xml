@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ipxact:design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+<ipxact:design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014 http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
 	<ipxact:library>other.subsystem</ipxact:library>
 	<ipxact:name>wb_example.design</ipxact:name>
@@ -11,11 +11,11 @@
 			<ipxact:description>The bus used in this design to connect a master to two slaves.</ipxact:description>
 			<ipxact:componentRef vendor="tut.fi" library="communication.bus" name="wishbone" version="1.0">
 				<ipxact:configurableElementValues>
-					<ipxact:configurableElementValue referenceId="uuid_27458201_6776_47b9_ba3a_9e290a22ff3b">uuid_926f09d4_6764_4ed5_9c96_3cca5fa4f833</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_bcba20bf_5f4d_4408_ab04_e9272e8a2a55">uuid_f8a35f35_318a_491e_a371_2bdd9d494790</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_5d21620a_24de_423a_bc89_d4669d9ba8c3">uuid_f8a35f35_318a_491e_a371_2bdd9d494790+uuid_926f09d4_6764_4ed5_9c96_3cca5fa4f833</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_5c8126ec_6b47_4c7e_9fbe_8ff0c16f7a5c">uuid_22156e3a_cd6e_466e_b2df_e39e07351910</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_f30c27b8_94fc_4cc9_b6c6_2e6299cb0242">uuid_bb96c047_ce50_4dbb_99c0_87a80a753f91</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_27458201_6776_47b9_ba3a_9e290a22ff3b">uuid_debe145f_f0c9_48bb_ac8d_70e8a9089466</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_bcba20bf_5f4d_4408_ab04_e9272e8a2a55">uuid_2cb33962_4361_4c2d_bbd1_4ba506a00247</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_5d21620a_24de_423a_bc89_d4669d9ba8c3">uuid_2cb33962_4361_4c2d_bbd1_4ba506a00247+uuid_debe145f_f0c9_48bb_ac8d_70e8a9089466</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_5c8126ec_6b47_4c7e_9fbe_8ff0c16f7a5c">uuid_3b50669c_c571_47d4_902e_3d6292498706</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_f30c27b8_94fc_4cc9_b6c6_2e6299cb0242">uuid_0bf2a5eb_c9ec_4991_8cb3_58d45137e196</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
 			</ipxact:componentRef>
 			<ipxact:vendorExtensions>
@@ -36,10 +36,10 @@
 			<ipxact:description>The first slave connected to bus. Has the same base address as the master.</ipxact:description>
 			<ipxact:componentRef vendor="tut.fi" library="peripheral.subsystem" name="hierarchical_wb_slave" version="1.0">
 				<ipxact:configurableElementValues>
-					<ipxact:configurableElementValue referenceId="uuid_223a95ba_e4b0_4773_9f25_14d3b85116f7">uuid_971a9685_1ec7_4781_bd5d_3dfa2fcc51ae/2</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_840dfc69_aac3_4021_828e_1650b9d38269">uuid_f8a35f35_318a_491e_a371_2bdd9d494790</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_08e3f0c7_e9a6_479b_9e70_b614f5d809fc">uuid_22156e3a_cd6e_466e_b2df_e39e07351910</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_9f8a68d3_a06c_447d_a93c_86c6f2df980b">uuid_bb96c047_ce50_4dbb_99c0_87a80a753f91</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_223a95ba_e4b0_4773_9f25_14d3b85116f7">uuid_03c45d98_5f9a_4a2e_9c81_a09ee987285c/2</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_840dfc69_aac3_4021_828e_1650b9d38269">uuid_2cb33962_4361_4c2d_bbd1_4ba506a00247</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_08e3f0c7_e9a6_479b_9e70_b614f5d809fc">uuid_3b50669c_c571_47d4_902e_3d6292498706</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_9f8a68d3_a06c_447d_a93c_86c6f2df980b">uuid_0bf2a5eb_c9ec_4991_8cb3_58d45137e196</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
 			</ipxact:componentRef>
 			<ipxact:vendorExtensions>
@@ -58,11 +58,11 @@
 			<ipxact:description>The chosen master in this design. The second interface has the same base address as the direct slave.</ipxact:description>
 			<ipxact:componentRef vendor="tut.fi" library="peripheral.logic" name="wb_dual_master" version="1.0">
 				<ipxact:configurableElementValues>
-					<ipxact:configurableElementValue referenceId="uuid_e2414448_9d04_40bd_af10_8061a5e4ae7c">uuid_f8a35f35_318a_491e_a371_2bdd9d494790</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_d0fe4fa7_e3eb_4fec_a7f9_9f3eac6b8c04">uuid_f8a35f35_318a_491e_a371_2bdd9d494790+uuid_971a9685_1ec7_4781_bd5d_3dfa2fcc51ae</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_fe30a511_9701_4142_b340_223777d1b857">uuid_bb96c047_ce50_4dbb_99c0_87a80a753f91</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_637f6d26_180c_487c_a7e9_688b55488841">uuid_971a9685_1ec7_4781_bd5d_3dfa2fcc51ae</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_ed7d4652_1c14_4647_90dd_881ec00146f8">uuid_22156e3a_cd6e_466e_b2df_e39e07351910</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_e2414448_9d04_40bd_af10_8061a5e4ae7c">uuid_2cb33962_4361_4c2d_bbd1_4ba506a00247</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_d0fe4fa7_e3eb_4fec_a7f9_9f3eac6b8c04">uuid_2cb33962_4361_4c2d_bbd1_4ba506a00247+uuid_03c45d98_5f9a_4a2e_9c81_a09ee987285c/2</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_fe30a511_9701_4142_b340_223777d1b857">uuid_0bf2a5eb_c9ec_4991_8cb3_58d45137e196</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_637f6d26_180c_487c_a7e9_688b55488841">uuid_03c45d98_5f9a_4a2e_9c81_a09ee987285c</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_ed7d4652_1c14_4647_90dd_881ec00146f8">uuid_3b50669c_c571_47d4_902e_3d6292498706</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
 			</ipxact:componentRef>
 			<ipxact:vendorExtensions>
@@ -84,10 +84,10 @@
 			<ipxact:description>The another slave connected to bus. This ones base address is master + half of the total memory.</ipxact:description>
 			<ipxact:componentRef vendor="tut.fi" library="communication.template" name="wb_slave" version="1.0">
 				<ipxact:configurableElementValues>
-					<ipxact:configurableElementValue referenceId="uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba">uuid_971a9685_1ec7_4781_bd5d_3dfa2fcc51ae/2</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_11833df7_86a0_48e2_8577_f3cc38000d57">uuid_f8a35f35_318a_491e_a371_2bdd9d494790+uuid_926f09d4_6764_4ed5_9c96_3cca5fa4f833</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_3452fcca_4cd2_458f_a644_4c6530ea74ed">uuid_22156e3a_cd6e_466e_b2df_e39e07351910</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd">uuid_bb96c047_ce50_4dbb_99c0_87a80a753f91</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba">uuid_03c45d98_5f9a_4a2e_9c81_a09ee987285c/2</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_11833df7_86a0_48e2_8577_f3cc38000d57">uuid_2cb33962_4361_4c2d_bbd1_4ba506a00247+uuid_debe145f_f0c9_48bb_ac8d_70e8a9089466</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_3452fcca_4cd2_458f_a644_4c6530ea74ed">uuid_3b50669c_c571_47d4_902e_3d6292498706</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd">uuid_0bf2a5eb_c9ec_4991_8cb3_58d45137e196</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
 			</ipxact:componentRef>
 			<ipxact:vendorExtensions>
@@ -105,9 +105,9 @@
 			<ipxact:description>The slave in the design which is directly connected to the master.</ipxact:description>
 			<ipxact:componentRef vendor="tut.fi" library="communication.template" name="wb_slave" version="1.0">
 				<ipxact:configurableElementValues>
-					<ipxact:configurableElementValue referenceId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd">uuid_bb96c047_ce50_4dbb_99c0_87a80a753f91</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba">uuid_971a9685_1ec7_4781_bd5d_3dfa2fcc51ae</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_11833df7_86a0_48e2_8577_f3cc38000d57">uuid_f8a35f35_318a_491e_a371_2bdd9d494790+uuid_971a9685_1ec7_4781_bd5d_3dfa2fcc51ae</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd">uuid_0bf2a5eb_c9ec_4991_8cb3_58d45137e196</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_8765f299_7c9a_41f4_bf6c_35a2b31cd1ba">uuid_03c45d98_5f9a_4a2e_9c81_a09ee987285c</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_11833df7_86a0_48e2_8577_f3cc38000d57">uuid_2cb33962_4361_4c2d_bbd1_4ba506a00247</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
 			</ipxact:componentRef>
 			<ipxact:vendorExtensions>
@@ -178,6 +178,43 @@
 			</ipxact:portReferences>
 		</ipxact:adHocConnection>
 	</ipxact:adHocConnections>
+	<ipxact:parameters>
+		<ipxact:parameter parameterId="uuid_3b50669c_c571_47d4_902e_3d6292498706" resolve="immediate" usageCount="4">
+			<ipxact:name>ADDR_WIDTH</ipxact:name>
+			<ipxact:description>The width of the address.</ipxact:description>
+			<ipxact:value>32</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_cd29701c_864f_4d53_bd2a_eb6bdd1d962a" resolve="immediate" usageCount="1">
+			<ipxact:name>AUB</ipxact:name>
+			<ipxact:description>Addressable unit bits of the memory</ipxact:description>
+			<ipxact:value>8</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_debe145f_f0c9_48bb_ac8d_70e8a9089466" resolve="immediate" usageCount="3">
+			<ipxact:name>BUS_SLAVE_RANGE</ipxact:name>
+			<ipxact:description>How much address space is allotted to each bus slave in the design.</ipxact:description>
+			<ipxact:value>uuid_d35e1235_2ff5_46d2_b53d_17604245c818/2</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_0bf2a5eb_c9ec_4991_8cb3_58d45137e196" resolve="immediate" usageCount="6">
+			<ipxact:name>DATA_WIDTH</ipxact:name>
+			<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
+			<ipxact:value>32</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_d35e1235_2ff5_46d2_b53d_17604245c818" resolve="immediate" usageCount="1">
+			<ipxact:name>MEMORY_AUB_SIZE</ipxact:name>
+			<ipxact:description>Size of memory in AUBs, for each master.</ipxact:description>
+			<ipxact:value>uuid_03c45d98_5f9a_4a2e_9c81_a09ee987285c*uuid_0bf2a5eb_c9ec_4991_8cb3_58d45137e196/uuid_cd29701c_864f_4d53_bd2a_eb6bdd1d962a</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_2cb33962_4361_4c2d_bbd1_4ba506a00247" resolve="immediate" usageCount="7">
+			<ipxact:name>SLAVE_BASE</ipxact:name>
+			<ipxact:description>The base address of the first slave in the design.</ipxact:description>
+			<ipxact:value>'h80</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_03c45d98_5f9a_4a2e_9c81_a09ee987285c" resolve="immediate" usageCount="6">
+			<ipxact:name>WORD_COUNT</ipxact:name>
+			<ipxact:description>How many words there are per master.</ipxact:description>
+			<ipxact:value>16</ipxact:value>
+		</ipxact:parameter>
+	</ipxact:parameters>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,4,104,0</kactus2:version>
 		<kactus2:kts_attributes>
@@ -193,9 +230,7 @@
 		<kactus2:routes>
 			<kactus2:route kactus2:connRef="hierarchical_wb_slave_0_wb_slave_to_wishbone_0_slave_0" kactus2:offPage="false">
 				<kactus2:position x="810" y="100"/>
-				<kactus2:position x="740" y="100"/>
-				<kactus2:position x="740" y="160"/>
-				<kactus2:position x="720" y="160"/>
+				<kactus2:position x="710" y="100"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="hierarchical_wb_slave_0_wb_system_to_wb_system" kactus2:offPage="true">
 				<kactus2:position x="1060" y="100"/>

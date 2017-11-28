@@ -106,10 +106,10 @@ module instruction_decoder #(
             // Slice the instruction to parts:
             
             // Operation is the primary directive for what happens next.
-            operation = instruction_feed[LITERAL_WIDTH+2*REGISTER_ID_WIDTH+OP_CODE_WIDTH-1:LITERAL_WIDTH+2*REGISTER_ID_WIDTH];
+            operation = instruction_feed[INSTRUCTION_WIDTH-1:INSTRUCTION_WIDTH-4];
             // Instructions may have two registers as operands.
-            next_reg1 = instruction_feed[LITERAL_WIDTH+2*REGISTER_ID_WIDTH-1:LITERAL_WIDTH+REGISTER_ID_WIDTH];
-            next_reg2 = instruction_feed[LITERAL_WIDTH+REGISTER_ID_WIDTH-1:LITERAL_WIDTH];
+            next_reg1 = instruction_feed[INSTRUCTION_WIDTH-5:INSTRUCTION_WIDTH-8];
+            next_reg2 = instruction_feed[INSTRUCTION_WIDTH-9:INSTRUCTION_WIDTH-12];
             // Each instruction may come with a literal value.
             literal <= instruction_feed[LITERAL_WIDTH-1:0];
             

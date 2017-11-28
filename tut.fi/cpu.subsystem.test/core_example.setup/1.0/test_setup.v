@@ -1,11 +1,11 @@
 //-----------------------------------------------------------------------------
 // File          : test_setup.v
-// Creation date : 27.07.2017
-// Creation time : 15:03:15
+// Creation date : 28.11.2017
+// Creation time : 12:45:33
 // Description   : Test arrangement for the example core with data memory, instuction memory and clock source. Peripheral access is unused, as it is tested in other setups.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.110 32-bit
-// Plugin : Verilog generator 2.0e
+// Tool : Kactus2 3.4.1184 32-bit
+// Plugin : Verilog generator 2.1
 // This file was generated based on IP-XACT component tut.fi:cpu.subsystem.test:core_example.setup:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/cpu.subsystem.test/core_example.setup/1.0/core_example.setup.1.0.xml
 //-----------------------------------------------------------------------------
@@ -50,7 +50,7 @@ module test_setup();
     wire [31:0] data_memory_0_write_data;
     // instruction_memory_0 port wires:
     wire        instruction_memory_0_clk_i;
-    wire [7:0]  instruction_memory_0_iaddr_o;
+    wire [7:0]  instruction_memory_0_iaddr_i;
     wire [27:0] instruction_memory_0_instruction_feed;
     wire        instruction_memory_0_rst_i;
 
@@ -79,7 +79,7 @@ module test_setup();
     assign data_memory_0_write_data[31:0] = data_memory_0_slave_to_core_example_0_local_datawrite_data[31:0];
     // instruction_memory_0 assignments:
     assign instruction_memory_0_clk_i = clock_generator_0_clk_o_to_instruction_memory_0_clk_i;
-    assign instruction_memory_0_iaddr_o[7:0] = core_example_0_instructions_to_instruction_memory_0_slaveaddress[7:0];
+    assign instruction_memory_0_iaddr_i[7:0] = core_example_0_instructions_to_instruction_memory_0_slaveaddress[7:0];
     assign core_example_0_instructions_to_instruction_memory_0_slaveread_data[27:0] = instruction_memory_0_instruction_feed[27:0];
     assign instruction_memory_0_rst_i = clock_generator_0_rst_o_to_instruction_memory_0_rst_i;
 
@@ -139,7 +139,7 @@ module test_setup();
         .INSTRUCTION_ADDRESS_WIDTH(8))
     instruction_memory_0(
         // Interface: slave
-        .iaddr_o             (instruction_memory_0_iaddr_o),
+        .iaddr_i             (instruction_memory_0_iaddr_i),
         .instruction_feed    (instruction_memory_0_instruction_feed),
         // These ports are not in any interface
         .clk_i               (instruction_memory_0_clk_i),

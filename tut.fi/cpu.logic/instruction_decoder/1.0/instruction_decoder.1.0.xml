@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+<ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014 http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
 	<ipxact:library>cpu.logic</ipxact:library>
 	<ipxact:name>instruction_decoder</ipxact:name>
@@ -478,15 +478,15 @@
 	</ipxact:fileSets>
 	<ipxact:description>Decodes instructions for core_example, contains the bulk of the control logic. NOTICE: Most of the ports are described in intra_cpu.absdef.</ipxact:description>
 	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_762fbf84_805d_4c16_bb3b_39c8d2b431a2" resolve="user" usageCount="5">
+		<ipxact:parameter parameterId="uuid_762fbf84_805d_4c16_bb3b_39c8d2b431a2" resolve="user" usageCount="4">
 			<ipxact:name>REGISTER_ID_WIDTH</ipxact:name>
 			<ipxact:description>Bits reserved for identification a single register.</ipxact:description>
 			<ipxact:value>4</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_1ee25c55_7b66_4be1_bb94_c97e8779396d" resolve="immediate" usageCount="1">
+		<ipxact:parameter parameterId="uuid_1ee25c55_7b66_4be1_bb94_c97e8779396d" resolve="user" usageCount="1">
 			<ipxact:name>INSTRUCTION_WIDTH</ipxact:name>
 			<ipxact:description>Total width of an instruction</ipxact:description>
-			<ipxact:value>uuid_bb614608_50c6_4da1_b086_0955cda25e4f+2*uuid_762fbf84_805d_4c16_bb3b_39c8d2b431a2+uuid_e3d80a2e_9de3_41be_96a1_724ac21600b8</ipxact:value>
+			<ipxact:value>28</ipxact:value>
 		</ipxact:parameter>
 		<ipxact:parameter parameterId="uuid_9641f7b1_19d4_49d4_95c8_cae15e0c612d" resolve="user" usageCount="4">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
@@ -498,12 +498,12 @@
 			<ipxact:description>Bits reserved for identification of alu operation</ipxact:description>
 			<ipxact:value>3</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_e3d80a2e_9de3_41be_96a1_724ac21600b8" resolve="immediate" usageCount="1">
+		<ipxact:parameter parameterId="uuid_e3d80a2e_9de3_41be_96a1_724ac21600b8" resolve="immediate">
 			<ipxact:name>LITERAL_WIDTH</ipxact:name>
 			<ipxact:description>How long literals the instructions may have.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_bb614608_50c6_4da1_b086_0955cda25e4f" resolve="immediate" usageCount="2">
+		<ipxact:parameter parameterId="uuid_bb614608_50c6_4da1_b086_0955cda25e4f" resolve="immediate" usageCount="1">
 			<ipxact:name>OP_CODE_WIDTH</ipxact:name>
 			<ipxact:description>Bits reserved for operation identifiers.</ipxact:description>
 			<ipxact:value>4</ipxact:value>

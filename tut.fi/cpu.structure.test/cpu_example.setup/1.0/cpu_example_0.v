@@ -1,11 +1,11 @@
 //-----------------------------------------------------------------------------
 // File          : cpu_example_0.v
-// Creation date : 27.07.2017
-// Creation time : 15:50:23
+// Creation date : 28.11.2017
+// Creation time : 16:31:16
 // Description   : An example CPU with example core and a number of wishbone peripherals, one of which is SPI bridge.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.110 32-bit
-// Plugin : Verilog generator 2.0e
+// Tool : Kactus2 3.4.1184 32-bit
+// Plugin : Verilog generator 2.1
 // This file was generated based on IP-XACT component tut.fi:cpu.structure:cpu_example:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/cpu.structure/cpu_example/1.0/cpu_example.1.0.xml
 //-----------------------------------------------------------------------------
@@ -13,15 +13,15 @@
 module cpu_example_0 #(
     parameter                              ADDR_WIDTH       = 10,    // Width of the addresses.
     parameter                              DATA_WIDTH       = 16,    // Width for data in registers and instructions.
+    parameter                              INSTRUCTION_ADDRESS_WIDTH = 8,    // Width of an instruction address.
+    parameter                              INSTRUCTION_WIDTH = 28,    // Total width of an instruction
     parameter                              SUPPORTED_MEMORY = 1024,    // How much the system supports memory in total.
+    parameter                              WB_ADDRESS_BASE  = 256,    // Base address for wishbone in the system memory.
     parameter                              WB_SLAVE0_BASE   = 32,    // Base address for wishbone slave 0.
-    parameter                              WB_SLAVE_RANGE   = 128,    // How much space is allocated for each slave.
     parameter                              WB_SLAVE1_BASE   = 160,    // Base address for wishbone slave 1.
     parameter                              WB_SLAVE2_BASE   = 288,    // Base address for wishbone slave 2.
     parameter                              WB_SLAVE3_BASE   = 416,    // Base address for wishbone slave 3.
-    parameter                              WB_ADDRESS_BASE  = 256,    // Base address for wishbone in the system memory.
-    parameter                              INSTRUCTION_WIDTH = 28,    // Total width of an instruction
-    parameter                              INSTRUCTION_ADDRESS_WIDTH = 8    // Width of an instruction address.
+    parameter                              WB_SLAVE_RANGE   = 128    // How much space is allocated for each slave.
 ) (
     // Interface: instructions
     input          [27:0]               instruction_feed,

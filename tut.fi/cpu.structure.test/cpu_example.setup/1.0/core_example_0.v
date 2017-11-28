@@ -1,25 +1,25 @@
 //-----------------------------------------------------------------------------
 // File          : core_example_0.v
-// Creation date : 27.07.2017
-// Creation time : 15:50:23
+// Creation date : 28.11.2017
+// Creation time : 16:31:16
 // Description   : Test arrangement for the example CPU with data memory, instuction memory, clock source, and SPI slave.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.110 32-bit
-// Plugin : Verilog generator 2.0e
+// Tool : Kactus2 3.4.1184 32-bit
+// Plugin : Verilog generator 2.1
 // This file was generated based on IP-XACT component tut.fi:cpu.subsystem:core_example:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/cpu.subsystem/core_example/1.0/core_example.1.0.xml
 //-----------------------------------------------------------------------------
 
 module core_example_0 #(
-    parameter                              DATA_WIDTH       = 16,    // Width for data in registers and instructions.
-    parameter                              REGISTER_ID_WIDTH = 3,    // Bits reserved for identification a single register.
     parameter                              ADDR_WIDTH       = 10,    // Width of the addresses.
-    parameter                              SUPPORTED_MEMORY = 1024,    // How much the system supports memory in total.
-    parameter                              REGISTER_COUNT   = 8,    // How many registers are supported in the core.
-    parameter                              PERIPHERAL_BASE  = 256,    // The first address for peripherals.
-    parameter                              OP_CODE_WIDTH    = 4,    // Bits reserved for operation identifiers.
+    parameter                              DATA_WIDTH       = 16,    // Width for data in registers and instructions.
+    parameter                              INSTRUCTION_ADDRESS_WIDTH = 8,    // Width of an instruction address.
     parameter                              INSTRUCTION_WIDTH = 28,    // Total width of an instruction
-    parameter                              INSTRUCTION_ADDRESS_WIDTH = 8    // Width of an instruction address.
+    parameter                              OP_CODE_WIDTH    = 4,    // Bits reserved for operation identifiers.
+    parameter                              PERIPHERAL_BASE  = 256,    // The first address for peripherals.
+    parameter                              REGISTER_COUNT   = 8,    // How many registers are supported in the core.
+    parameter                              REGISTER_ID_WIDTH = 3,    // Bits reserved for identification a single register.
+    parameter                              SUPPORTED_MEMORY = 1024    // How much the system supports memory in total.
 ) (
     // Interface: instructions
     input          [27:0]               instruction_feed,
@@ -50,8 +50,8 @@ module core_example_0 #(
     wire [2:0]  memory_controller_cpu_system_to_alu_cpu_systemalu_operation;
     wire [15:0] memory_controller_cpu_system_to_alu_cpu_systemalu_result;
     wire [15:0] memory_controller_cpu_system_to_alu_cpu_systemalu_status;
-    wire [3:0]  memory_controller_cpu_system_to_alu_cpu_systemchoose_register_1;
-    wire [3:0]  memory_controller_cpu_system_to_alu_cpu_systemchoose_register_2;
+    wire [2:0]  memory_controller_cpu_system_to_alu_cpu_systemchoose_register_1;
+    wire [2:0]  memory_controller_cpu_system_to_alu_cpu_systemchoose_register_2;
     wire [15:0] memory_controller_cpu_system_to_alu_cpu_systemload_value;
     wire        memory_controller_cpu_system_to_alu_cpu_systemmem_active;
     wire        memory_controller_cpu_system_to_alu_cpu_systemmem_rdy;
@@ -99,8 +99,8 @@ module core_example_0 #(
     wire        instruction_decoder_alu_active_o;
     wire [2:0]  instruction_decoder_alu_op_o;
     wire [15:0] instruction_decoder_alu_status_i;
-    wire [3:0]  instruction_decoder_choose_reg1_o;
-    wire [3:0]  instruction_decoder_choose_reg2_o;
+    wire [2:0]  instruction_decoder_choose_reg1_o;
+    wire [2:0]  instruction_decoder_choose_reg2_o;
     wire        instruction_decoder_clk_i;
     wire [7:0]  instruction_decoder_iaddr_o;
     wire [27:0] instruction_decoder_instruction_feed;
@@ -176,8 +176,8 @@ module core_example_0 #(
     assign memory_controller_cpu_system_to_alu_cpu_systemalu_active = instruction_decoder_alu_active_o;
     assign memory_controller_cpu_system_to_alu_cpu_systemalu_operation[2:0] = instruction_decoder_alu_op_o[2:0];
     assign instruction_decoder_alu_status_i[15:0] = memory_controller_cpu_system_to_alu_cpu_systemalu_status[15:0];
-    assign memory_controller_cpu_system_to_alu_cpu_systemchoose_register_1[3:0] = instruction_decoder_choose_reg1_o[3:0];
-    assign memory_controller_cpu_system_to_alu_cpu_systemchoose_register_2[3:0] = instruction_decoder_choose_reg2_o[3:0];
+    assign memory_controller_cpu_system_to_alu_cpu_systemchoose_register_1[2:0] = instruction_decoder_choose_reg1_o[2:0];
+    assign memory_controller_cpu_system_to_alu_cpu_systemchoose_register_2[2:0] = instruction_decoder_choose_reg2_o[2:0];
     assign instruction_decoder_clk_i = clock_cpu_clk_source_to_register_bank_cpu_clk_sinkclk;
     assign instruction_decoder_instruction_feed_to_instructionsaddress[7:0] = instruction_decoder_iaddr_o[7:0];
     assign instruction_decoder_instruction_feed[27:0] = instruction_decoder_instruction_feed_to_instructionsread_data[27:0];
@@ -245,7 +245,8 @@ module core_example_0 #(
 
     // IP-XACT VLNV: tut.fi:cpu.logic:instruction_decoder:1.0
     instruction_decoder #(
-        .REGISTER_ID_WIDTH   (4),
+        .REGISTER_ID_WIDTH   (3),
+        .INSTRUCTION_WIDTH   (28),
         .DATA_WIDTH          (16),
         .INSTRUCTION_ADDRESS_WIDTH(8))
     instruction_decoder(

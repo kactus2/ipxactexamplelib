@@ -1,11 +1,11 @@
 //-----------------------------------------------------------------------------
 // File          : test_setup.v
-// Creation date : 27.07.2017
-// Creation time : 14:29:21
+// Creation date : 28.11.2017
+// Creation time : 15:57:44
 // Description   : Test arrangement for verifying the SPI examples.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.110 32-bit
-// Plugin : Verilog generator 2.0e
+// Tool : Kactus2 3.4.1184 32-bit
+// Plugin : Verilog generator 2.1
 // This file was generated based on IP-XACT component tut.fi:communication.template.test:spi.setup:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/communication.template.test/spi.setup/1.0/spi.setup.1.0.xml
 //-----------------------------------------------------------------------------

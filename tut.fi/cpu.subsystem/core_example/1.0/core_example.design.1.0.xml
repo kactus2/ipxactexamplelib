@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ipxact:design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+<ipxact:design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014 http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
 	<ipxact:library>cpu.subsystem</ipxact:library>
 	<ipxact:name>core_example.design</ipxact:name>
@@ -9,7 +9,7 @@
 			<ipxact:instanceName>alu</ipxact:instanceName>
 			<ipxact:componentRef vendor="tut.fi" library="cpu.logic" name="alu" version="1.0">
 				<ipxact:configurableElementValues>
-					<ipxact:configurableElementValue referenceId="uuid_f0339227_14b3_43a1_81d2_5e1c989aa537">uuid_240da555_796c_42e9_b09d_9769b11e8ac7</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_f0339227_14b3_43a1_81d2_5e1c989aa537">uuid_c9e87023_cbe0_4790_8754_d38e8e83e2fe</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
 			</ipxact:componentRef>
 			<ipxact:vendorExtensions>
@@ -39,8 +39,10 @@
 			<ipxact:instanceName>instruction_decoder</ipxact:instanceName>
 			<ipxact:componentRef vendor="tut.fi" library="cpu.logic" name="instruction_decoder" version="1.0">
 				<ipxact:configurableElementValues>
-					<ipxact:configurableElementValue referenceId="uuid_9641f7b1_19d4_49d4_95c8_cae15e0c612d">uuid_240da555_796c_42e9_b09d_9769b11e8ac7</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_9740ce67_db99_462e_9734_39ecbe404446">uuid_3795f09f_a36f_477f_a331_5e2aaca9fb60</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_9641f7b1_19d4_49d4_95c8_cae15e0c612d">uuid_c9e87023_cbe0_4790_8754_d38e8e83e2fe</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_9740ce67_db99_462e_9734_39ecbe404446">uuid_bf948d2f_e2d7_497a_b33c_5e35aad3f1c3</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_762fbf84_805d_4c16_bb3b_39c8d2b431a2">uuid_115109b3_75d9_4a62_8201_5c4e068ac352</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_1ee25c55_7b66_4be1_bb94_c97e8779396d">uuid_32a4e121_f983_437b_9ff4_b512d71f8267</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
 			</ipxact:componentRef>
 			<ipxact:vendorExtensions>
@@ -57,11 +59,11 @@
 			<ipxact:instanceName>memory_controller</ipxact:instanceName>
 			<ipxact:componentRef vendor="tut.fi" library="cpu.logic" name="memory_controller" version="1.0">
 				<ipxact:configurableElementValues>
-					<ipxact:configurableElementValue referenceId="uuid_2ffce492_7d27_445c_b34f_0e1165008ece">uuid_ffabd536_0c3b_4a57_a403_90dce6fb42b5</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_e3b353a9_9c84_4f26_a9bf_8271de5b015c">uuid_ad551e0e_7aa5_4972_bb1d_ec97505a773e</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_e835eae8_6310_47c7_a791_8ee2df766ed3">uuid_9d887d27_b1b6_4b29_b7c1_b9916038a6b4</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_11795f77_041d_4548_bcf3_cd41b67482a1">uuid_240da555_796c_42e9_b09d_9769b11e8ac7</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_b6bb8c34_3d40_4189_b91d_6cdce56c33f1">uuid_6e1d17f1_eadc_4bdc_886b_00a3c4016028</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_2ffce492_7d27_445c_b34f_0e1165008ece">uuid_01325d18_5984_41cd_b542_a292f0312d73</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_e3b353a9_9c84_4f26_a9bf_8271de5b015c">uuid_11e311ec_728c_41e5_a8bd_5a5c19862e23</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_e835eae8_6310_47c7_a791_8ee2df766ed3">uuid_6252a87b_fe78_4b09_9381_e67cf5d578f1</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_11795f77_041d_4548_bcf3_cd41b67482a1">uuid_c9e87023_cbe0_4790_8754_d38e8e83e2fe</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_b6bb8c34_3d40_4189_b91d_6cdce56c33f1">uuid_5c010f8b_47c3_4bfd_9e82_0253bc69ef28</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
 			</ipxact:componentRef>
 			<ipxact:vendorExtensions>
@@ -79,9 +81,9 @@
 			<ipxact:instanceName>register_bank</ipxact:instanceName>
 			<ipxact:componentRef vendor="tut.fi" library="cpu.logic" name="register_bank" version="1.0">
 				<ipxact:configurableElementValues>
-					<ipxact:configurableElementValue referenceId="uuid_8cf9f778_bf4e_4da5_9647_baa7ec8c8ddf">uuid_240da555_796c_42e9_b09d_9769b11e8ac7</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_65a04e84_85d1_4de3_93bf_fa3c61a6e01b">uuid_ffabd536_0c3b_4a57_a403_90dce6fb42b5</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_1d5eec35_c148_4fff_b0be_119fe9627877">uuid_8c69d7e2_8840_4623_b3a1_be6efaa4db1b</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_8cf9f778_bf4e_4da5_9647_baa7ec8c8ddf">uuid_c9e87023_cbe0_4790_8754_d38e8e83e2fe</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_65a04e84_85d1_4de3_93bf_fa3c61a6e01b">uuid_01325d18_5984_41cd_b542_a292f0312d73</ipxact:configurableElementValue>
+					<ipxact:configurableElementValue referenceId="uuid_1d5eec35_c148_4fff_b0be_119fe9627877">uuid_115109b3_75d9_4a62_8201_5c4e068ac352</ipxact:configurableElementValue>
 				</ipxact:configurableElementValues>
 			</ipxact:componentRef>
 			<ipxact:vendorExtensions>
@@ -157,6 +159,53 @@
 			</ipxact:portReferences>
 		</ipxact:adHocConnection>
 	</ipxact:adHocConnections>
+	<ipxact:parameters>
+		<ipxact:parameter parameterId="uuid_5c010f8b_47c3_4bfd_9e82_0253bc69ef28" resolve="user" usageCount="1">
+			<ipxact:name>ADDR_WIDTH</ipxact:name>
+			<ipxact:description>Width of the addresses.</ipxact:description>
+			<ipxact:value>16</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_c9e87023_cbe0_4790_8754_d38e8e83e2fe" resolve="user" usageCount="4">
+			<ipxact:name>DATA_WIDTH</ipxact:name>
+			<ipxact:description>Width for data in registers and instructions.</ipxact:description>
+			<ipxact:value>32</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_bf948d2f_e2d7_497a_b33c_5e35aad3f1c3" resolve="user" usageCount="1">
+			<ipxact:name>INSTRUCTION_ADDRESS_WIDTH</ipxact:name>
+			<ipxact:description>Width of an instruction address.</ipxact:description>
+			<ipxact:value>8</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_32a4e121_f983_437b_9ff4_b512d71f8267" resolve="user" usageCount="1">
+			<ipxact:name>INSTRUCTION_WIDTH</ipxact:name>
+			<ipxact:description>Total width of an instruction</ipxact:description>
+			<ipxact:value>28</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_632c8042_cfdf_4a17_974d_e8b4a104cba2" resolve="immediate">
+			<ipxact:name>OP_CODE_WIDTH</ipxact:name>
+			<ipxact:description>Bits reserved for operation identifiers.</ipxact:description>
+			<ipxact:value>4</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_11e311ec_728c_41e5_a8bd_5a5c19862e23" resolve="user" usageCount="1">
+			<ipxact:name>PERIPHERAL_BASE</ipxact:name>
+			<ipxact:description>The first address for peripherals.</ipxact:description>
+			<ipxact:value>128</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_01325d18_5984_41cd_b542_a292f0312d73" resolve="immediate" usageCount="3">
+			<ipxact:name>REGISTER_COUNT</ipxact:name>
+			<ipxact:description>How many registers are supported in the core.</ipxact:description>
+			<ipxact:value>8</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_115109b3_75d9_4a62_8201_5c4e068ac352" resolve="immediate" usageCount="2">
+			<ipxact:name>REGISTER_ID_WIDTH</ipxact:name>
+			<ipxact:description>Bits reserved for identification a single register.</ipxact:description>
+			<ipxact:value>$clog2(uuid_01325d18_5984_41cd_b542_a292f0312d73)</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_6252a87b_fe78_4b09_9381_e67cf5d578f1" resolve="user" usageCount="1">
+			<ipxact:name>SUPPORTED_MEMORY</ipxact:name>
+			<ipxact:description>How much the system supports memory in total.</ipxact:description>
+			<ipxact:value>512</ipxact:value>
+		</ipxact:parameter>
+	</ipxact:parameters>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,4,4,0</kactus2:version>
 		<kactus2:kts_attributes>

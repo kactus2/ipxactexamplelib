@@ -1,11 +1,11 @@
 //-----------------------------------------------------------------------------
 // File          : test_setup.v
-// Creation date : 15.05.2017
-// Creation time : 14:02:38
-// Description   : 
+// Creation date : 28.11.2017
+// Creation time : 16:51:22
+// Description   : Test arrangement for verifying the wishbone example design.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.104 32-bit
-// Plugin : Verilog generator 2.0e
+// Tool : Kactus2 3.4.1176 32-bit
+// Plugin : Verilog generator 2.1
 // This file was generated based on IP-XACT component tut.fi:other.subsystem.test:wb_example.setup:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/other.subsystem.test/wb_example.setup/1.0/wb_example.setup.1.0.xml
 //-----------------------------------------------------------------------------
@@ -69,7 +69,7 @@ module test_setup();
         .start               (wb_example_bench_0_start));
 
     // IP-XACT VLNV: tut.fi:other.subsystem:wb_example:1.0
-    wb_example_0     wb_example_0(
+    wb_example_0 wb_example_0(
         // Interface: wb_system
         .clk_i               (wb_example_0_clk_i),
         .rst_i               (wb_example_0_rst_i),

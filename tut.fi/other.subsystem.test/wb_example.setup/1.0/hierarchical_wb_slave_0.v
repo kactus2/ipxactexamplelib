@@ -1,20 +1,20 @@
 //-----------------------------------------------------------------------------
 // File          : hierarchical_wb_slave_0.v
-// Creation date : 15.05.2017
-// Creation time : 14:02:38
+// Creation date : 28.11.2017
+// Creation time : 16:51:22
 // Description   : A wishbone slave containing another wishbone slave, so now you can use a wishbone slave while using a wishbone slave.
 // Created by    : TermosPullo
-// Tool : Kactus2 3.4.104 32-bit
-// Plugin : Verilog generator 2.0e
+// Tool : Kactus2 3.4.1176 32-bit
+// Plugin : Verilog generator 2.1
 // This file was generated based on IP-XACT component tut.fi:peripheral.subsystem:hierarchical_wb_slave:1.0
 // whose XML file is D:/kactus2Repos/ipxactexamplelib/tut.fi/peripheral.subsystem/hierarchical_wb_slave/1.0/hierarchical_wb_slave.1.0.xml
 //-----------------------------------------------------------------------------
 
 module hierarchical_wb_slave_0 #(
     parameter                              ADDR_WIDTH       = 32,    // The width of the address.
+    parameter                              BASE_ADDRESS     = 128,    // The first referred address of the master.
     parameter                              DATA_COUNT       = 8,    // How many values there are in the register array.
-    parameter                              DATA_WIDTH       = 32,    // The width of the both transferred and inputted data.
-    parameter                              BASE_ADDRESS     = 128    // The first referred address of the master.
+    parameter                              DATA_WIDTH       = 32    // The width of the both transferred and inputted data.
 ) (
     // Interface: wb_slave
     input          [31:0]               adr_i,    // The address of the data.

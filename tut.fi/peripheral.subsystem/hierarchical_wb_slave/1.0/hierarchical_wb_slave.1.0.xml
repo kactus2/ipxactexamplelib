@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+<ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014 http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
 	<ipxact:library>peripheral.subsystem</ipxact:library>
 	<ipxact:name>hierarchical_wb_slave</ipxact:name>
@@ -152,6 +152,7 @@
 		<ipxact:views>
 			<ipxact:view>
 				<ipxact:name>hierarchical_verilog</ipxact:name>
+				<ipxact:designInstantiationRef>design</ipxact:designInstantiationRef>
 				<ipxact:designConfigurationInstantiationRef>verilog_design_configuration</ipxact:designConfigurationInstantiationRef>
 			</ipxact:view>
 			<ipxact:view>
@@ -168,6 +169,17 @@
 					<ipxact:localName>systemc_source</ipxact:localName>
 				</ipxact:fileSetRef>
 			</ipxact:componentInstantiation>
+			<ipxact:designInstantiation>
+				<ipxact:name>design</ipxact:name>
+				<ipxact:designRef vendor="tut.fi" library="peripheral.subsystem" name="hierarchical_wb_slave.design" version="1.0">
+					<ipxact:configurableElementValues>
+						<ipxact:configurableElementValue referenceId="uuid_b2a4a188_8e2a_41a0_92e6_9f68cbc52754">uuid_9f8a68d3_a06c_447d_a93c_86c6f2df980b</ipxact:configurableElementValue>
+						<ipxact:configurableElementValue referenceId="uuid_94aa5f42_98a7_4d9a_a31b_6a3420978709">uuid_223a95ba_e4b0_4773_9f25_14d3b85116f7</ipxact:configurableElementValue>
+						<ipxact:configurableElementValue referenceId="uuid_0bf6bb47_d25d_475a_a71a_1e9428663443">uuid_840dfc69_aac3_4021_828e_1650b9d38269</ipxact:configurableElementValue>
+						<ipxact:configurableElementValue referenceId="uuid_c42a49ae_903e_4ac6_8421_1c89bc724d4e">uuid_08e3f0c7_e9a6_479b_9e70_b614f5d809fc</ipxact:configurableElementValue>
+					</ipxact:configurableElementValues>
+				</ipxact:designRef>
+			</ipxact:designInstantiation>
 			<ipxact:designConfigurationInstantiation>
 				<ipxact:name>verilog_design_configuration</ipxact:name>
 				<ipxact:designConfigurationRef vendor="tut.fi" library="peripheral.subsystem" name="hierarchical_wb_slave.systemc.designcfg" version="1.0"/>
@@ -300,22 +312,22 @@
 	</ipxact:fileSets>
 	<ipxact:description>A wishbone slave containing another wishbone slave, so now you can use a wishbone slave while using a wishbone slave.</ipxact:description>
 	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_08e3f0c7_e9a6_479b_9e70_b614f5d809fc" resolve="user" usageCount="1">
+		<ipxact:parameter parameterId="uuid_08e3f0c7_e9a6_479b_9e70_b614f5d809fc" resolve="user" usageCount="2">
 			<ipxact:name>ADDR_WIDTH</ipxact:name>
 			<ipxact:description>The width of the address.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_223a95ba_e4b0_4773_9f25_14d3b85116f7" resolve="user">
+		<ipxact:parameter parameterId="uuid_223a95ba_e4b0_4773_9f25_14d3b85116f7" resolve="user" usageCount="1">
 			<ipxact:name>DATA_COUNT</ipxact:name>
 			<ipxact:description>How many values there are in the register array.</ipxact:description>
 			<ipxact:value>8</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_9f8a68d3_a06c_447d_a93c_86c6f2df980b" resolve="user" usageCount="2">
+		<ipxact:parameter parameterId="uuid_9f8a68d3_a06c_447d_a93c_86c6f2df980b" resolve="user" usageCount="3">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_840dfc69_aac3_4021_828e_1650b9d38269" resolve="user">
+		<ipxact:parameter parameterId="uuid_840dfc69_aac3_4021_828e_1650b9d38269" resolve="user" usageCount="1">
 			<ipxact:name>BASE_ADDRESS</ipxact:name>
 			<ipxact:description>The first referred address of the master.</ipxact:description>
 			<ipxact:value>'h0F00</ipxact:value>

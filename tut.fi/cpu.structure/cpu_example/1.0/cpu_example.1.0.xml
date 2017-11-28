@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+<ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014 http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
 	<ipxact:library>cpu.structure</ipxact:library>
 	<ipxact:name>cpu_example</ipxact:name>
@@ -156,10 +156,23 @@
 		<ipxact:views>
 			<ipxact:view>
 				<ipxact:name>hierarchical_verilog</ipxact:name>
+				<ipxact:designInstantiationRef>design</ipxact:designInstantiationRef>
 				<ipxact:designConfigurationInstantiationRef>verilog_configuration</ipxact:designConfigurationInstantiationRef>
 			</ipxact:view>
 		</ipxact:views>
 		<ipxact:instantiations>
+			<ipxact:designInstantiation>
+				<ipxact:name>design</ipxact:name>
+				<ipxact:designRef vendor="tut.fi" library="cpu.structure" name="cpu_example.design" version="1.0">
+					<ipxact:configurableElementValues>
+						<ipxact:configurableElementValue referenceId="uuid_c883d789_bd86_4880_8b29_806ef3471005">uuid_f5c2f2c1_588b_45b2_a352_49e3d278c24d</ipxact:configurableElementValue>
+						<ipxact:configurableElementValue referenceId="uuid_c3d343d3_0de6_4b26_8a09_fafadcfba2a2">uuid_172925b5_3a46_4dee_bd29_343828ea26bc</ipxact:configurableElementValue>
+						<ipxact:configurableElementValue referenceId="uuid_7d0802b0_0d24_436d_bc40_d60a25113b25">uuid_086362f4_6935_47d0_8be7_c67ab3ae7d56</ipxact:configurableElementValue>
+						<ipxact:configurableElementValue referenceId="uuid_50061985_7db5_402e_97fd_5ff3029ad0b4">uuid_1cedcd48_18d3_4ab1_8168_b840ffeef0c1</ipxact:configurableElementValue>
+						<ipxact:configurableElementValue referenceId="uuid_a81b9153_fc6c_4c53_826f_2eee82790cb7">uuid_51264501_3c28_4520_85cf_509d0483d12d</ipxact:configurableElementValue>
+					</ipxact:configurableElementValues>
+				</ipxact:designRef>
+			</ipxact:designInstantiation>
 			<ipxact:designConfigurationInstantiation>
 				<ipxact:name>verilog_configuration</ipxact:name>
 				<ipxact:designConfigurationRef vendor="tut.fi" library="cpu.structure" name="cpu_example.verilog.designcfg" version="1.0"/>
@@ -325,57 +338,27 @@
 	</ipxact:model>
 	<ipxact:description>An example CPU with example core and a number of wishbone peripherals, one of which is SPI bridge.</ipxact:description>
 	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_51264501_3c28_4520_85cf_509d0483d12d" resolve="immediate" usageCount="1">
+		<ipxact:parameter parameterId="uuid_51264501_3c28_4520_85cf_509d0483d12d" resolve="immediate" usageCount="2">
 			<ipxact:name>ADDR_WIDTH</ipxact:name>
 			<ipxact:description>Width of the addresses.</ipxact:description>
 			<ipxact:value>$clog2(uuid_f5c2f2c1_588b_45b2_a352_49e3d278c24d)</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_1cedcd48_18d3_4ab1_8168_b840ffeef0c1" resolve="immediate" usageCount="2">
+		<ipxact:parameter parameterId="uuid_1cedcd48_18d3_4ab1_8168_b840ffeef0c1" resolve="immediate" usageCount="3">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>Width for data in registers and instructions.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_f5c2f2c1_588b_45b2_a352_49e3d278c24d" resolve="immediate" usageCount="1">
+		<ipxact:parameter parameterId="uuid_f5c2f2c1_588b_45b2_a352_49e3d278c24d" resolve="immediate" usageCount="2">
 			<ipxact:name>SUPPORTED_MEMORY</ipxact:name>
 			<ipxact:description>How much the system supports memory in total.</ipxact:description>
 			<ipxact:value>'h400</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_bf25fb78_f9e5_464e_ac38_8da3fda16d60" resolve="immediate" usageCount="1">
-			<ipxact:name>WB_SLAVE0_BASE</ipxact:name>
-			<ipxact:description>Base address for wishbone slave 0.</ipxact:description>
-			<ipxact:value>'h0020</ipxact:value>
-		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_7098bf49_6fc4_4971_b79c_dbf456e8fa22" resolve="immediate" usageCount="3">
-			<ipxact:name>WB_SLAVE_RANGE</ipxact:name>
-			<ipxact:description>How much space is allocated for each slave.</ipxact:description>
-			<ipxact:value>'h080</ipxact:value>
-		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_60efb6b8_d845_4ed7_92c5_ab0aeda62fc2" resolve="immediate" usageCount="1">
-			<ipxact:name>WB_SLAVE1_BASE</ipxact:name>
-			<ipxact:description>Base address for wishbone slave 1.</ipxact:description>
-			<ipxact:value>uuid_bf25fb78_f9e5_464e_ac38_8da3fda16d60+uuid_7098bf49_6fc4_4971_b79c_dbf456e8fa22</ipxact:value>
-		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_96d9f335_6814_4ab6_8c68_3fef0c331938" resolve="immediate" usageCount="1">
-			<ipxact:name>WB_SLAVE2_BASE</ipxact:name>
-			<ipxact:description>Base address for wishbone slave 2.</ipxact:description>
-			<ipxact:value>uuid_60efb6b8_d845_4ed7_92c5_ab0aeda62fc2+uuid_7098bf49_6fc4_4971_b79c_dbf456e8fa22</ipxact:value>
-		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_f700130c_5c67_4b2c_a33f_91a6e2f5239c" resolve="immediate">
-			<ipxact:name>WB_SLAVE3_BASE</ipxact:name>
-			<ipxact:description>Base address for wishbone slave 3.</ipxact:description>
-			<ipxact:value>uuid_96d9f335_6814_4ab6_8c68_3fef0c331938+uuid_7098bf49_6fc4_4971_b79c_dbf456e8fa22</ipxact:value>
-		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_34e837d0_846a_486c_84b3_a29e2f957b9f" resolve="immediate">
-			<ipxact:name>WB_ADDRESS_BASE</ipxact:name>
-			<ipxact:description>Base address for wishbone in the system memory.</ipxact:description>
-			<ipxact:value>'h0100</ipxact:value>
-		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_172925b5_3a46_4dee_bd29_343828ea26bc" resolve="immediate" usageCount="1">
+		<ipxact:parameter parameterId="uuid_172925b5_3a46_4dee_bd29_343828ea26bc" resolve="immediate" usageCount="2">
 			<ipxact:name>INSTRUCTION_WIDTH</ipxact:name>
 			<ipxact:description>Total width of an instruction</ipxact:description>
 			<ipxact:value>28</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_086362f4_6935_47d0_8be7_c67ab3ae7d56" resolve="immediate" usageCount="1">
+		<ipxact:parameter parameterId="uuid_086362f4_6935_47d0_8be7_c67ab3ae7d56" resolve="immediate" usageCount="2">
 			<ipxact:name>INSTRUCTION_ADDRESS_WIDTH</ipxact:name>
 			<ipxact:description>Width of an instruction address.</ipxact:description>
 			<ipxact:value>8</ipxact:value>
