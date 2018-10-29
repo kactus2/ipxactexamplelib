@@ -4,178 +4,23 @@
 	<ipxact:library>cpu.subsystem</ipxact:library>
 	<ipxact:name>core_example.design</ipxact:name>
 	<ipxact:version>1.0</ipxact:version>
-	<ipxact:componentInstances>
-		<ipxact:componentInstance>
-			<ipxact:instanceName>alu</ipxact:instanceName>
-			<ipxact:componentRef vendor="tut.fi" library="cpu.logic" name="alu" version="1.0">
-				<ipxact:configurableElementValues>
-					<ipxact:configurableElementValue referenceId="uuid_f0339227_14b3_43a1_81d2_5e1c989aa537">uuid_c9e87023_cbe0_4790_8754_d38e8e83e2fe</ipxact:configurableElementValue>
-				</ipxact:configurableElementValues>
-			</ipxact:componentRef>
-			<ipxact:vendorExtensions>
-				<kactus2:uuid>{141d2546-dcbd-40d2-a948-b4998cdff6d1}</kactus2:uuid>
-				<kactus2:portPositions>
-					<kactus2:portPosition busRef="cpu_system" x="-110" y="40"/>
-				</kactus2:portPositions>
-				<kactus2:position x="280" y="420"/>
-			</ipxact:vendorExtensions>
-		</ipxact:componentInstance>
-		<ipxact:componentInstance>
-			<ipxact:instanceName>clock</ipxact:instanceName>
-			<ipxact:componentRef vendor="tut.fi" library="cpu.logic" name="clock" version="1.0"/>
-			<ipxact:vendorExtensions>
-				<kactus2:uuid>{e074fc1f-0c45-4008-847b-4ef12bf0bd2e}</kactus2:uuid>
-				<kactus2:portPositions>
-					<kactus2:portPosition busRef="cpu_clk_source" x="-110" y="40"/>
-				</kactus2:portPositions>
-				<kactus2:adHocVisibilities>
-					<kactus2:adHocVisible portName="clk_i" x="110" y="40"/>
-					<kactus2:adHocVisible portName="rst_i" x="110" y="70"/>
-				</kactus2:adHocVisibilities>
-				<kactus2:position x="600" y="60"/>
-			</ipxact:vendorExtensions>
-		</ipxact:componentInstance>
-		<ipxact:componentInstance>
-			<ipxact:instanceName>instruction_decoder</ipxact:instanceName>
-			<ipxact:componentRef vendor="tut.fi" library="cpu.logic" name="instruction_decoder" version="1.0">
-				<ipxact:configurableElementValues>
-					<ipxact:configurableElementValue referenceId="uuid_9641f7b1_19d4_49d4_95c8_cae15e0c612d">uuid_c9e87023_cbe0_4790_8754_d38e8e83e2fe</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_9740ce67_db99_462e_9734_39ecbe404446">uuid_bf948d2f_e2d7_497a_b33c_5e35aad3f1c3</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_762fbf84_805d_4c16_bb3b_39c8d2b431a2">uuid_115109b3_75d9_4a62_8201_5c4e068ac352</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_1ee25c55_7b66_4be1_bb94_c97e8779396d">uuid_32a4e121_f983_437b_9ff4_b512d71f8267</ipxact:configurableElementValue>
-				</ipxact:configurableElementValues>
-			</ipxact:componentRef>
-			<ipxact:vendorExtensions>
-				<kactus2:uuid>{4c11c391-dbab-4881-869a-7626cd430c6d}</kactus2:uuid>
-				<kactus2:portPositions>
-					<kactus2:portPosition busRef="cpu_clk_sink" x="110" y="40"/>
-					<kactus2:portPosition busRef="cpu_system" x="-110" y="70"/>
-					<kactus2:portPosition busRef="instructions" x="-110" y="40"/>
-				</kactus2:portPositions>
-				<kactus2:position x="280" y="210"/>
-			</ipxact:vendorExtensions>
-		</ipxact:componentInstance>
-		<ipxact:componentInstance>
-			<ipxact:instanceName>memory_controller</ipxact:instanceName>
-			<ipxact:componentRef vendor="tut.fi" library="cpu.logic" name="memory_controller" version="1.0">
-				<ipxact:configurableElementValues>
-					<ipxact:configurableElementValue referenceId="uuid_2ffce492_7d27_445c_b34f_0e1165008ece">uuid_01325d18_5984_41cd_b542_a292f0312d73</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_e3b353a9_9c84_4f26_a9bf_8271de5b015c">uuid_11e311ec_728c_41e5_a8bd_5a5c19862e23</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_e835eae8_6310_47c7_a791_8ee2df766ed3">uuid_6252a87b_fe78_4b09_9381_e67cf5d578f1</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_11795f77_041d_4548_bcf3_cd41b67482a1">uuid_c9e87023_cbe0_4790_8754_d38e8e83e2fe</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_b6bb8c34_3d40_4189_b91d_6cdce56c33f1">uuid_5c010f8b_47c3_4bfd_9e82_0253bc69ef28</ipxact:configurableElementValue>
-				</ipxact:configurableElementValues>
-			</ipxact:componentRef>
-			<ipxact:vendorExtensions>
-				<kactus2:uuid>{cea3708d-c032-4975-b512-fb853d5c4f13}</kactus2:uuid>
-				<kactus2:portPositions>
-					<kactus2:portPosition busRef="cpu_clk_sink" x="110" y="40"/>
-					<kactus2:portPosition busRef="cpu_system" x="-110" y="100"/>
-					<kactus2:portPosition busRef="local_data" x="-110" y="70"/>
-					<kactus2:portPosition busRef="peripheral_access" x="-110" y="40"/>
-				</kactus2:portPositions>
-				<kactus2:position x="280" y="60"/>
-			</ipxact:vendorExtensions>
-		</ipxact:componentInstance>
-		<ipxact:componentInstance>
-			<ipxact:instanceName>register_bank</ipxact:instanceName>
-			<ipxact:componentRef vendor="tut.fi" library="cpu.logic" name="register_bank" version="1.0">
-				<ipxact:configurableElementValues>
-					<ipxact:configurableElementValue referenceId="uuid_8cf9f778_bf4e_4da5_9647_baa7ec8c8ddf">uuid_c9e87023_cbe0_4790_8754_d38e8e83e2fe</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_65a04e84_85d1_4de3_93bf_fa3c61a6e01b">uuid_01325d18_5984_41cd_b542_a292f0312d73</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_1d5eec35_c148_4fff_b0be_119fe9627877">uuid_115109b3_75d9_4a62_8201_5c4e068ac352</ipxact:configurableElementValue>
-				</ipxact:configurableElementValues>
-			</ipxact:componentRef>
-			<ipxact:vendorExtensions>
-				<kactus2:uuid>{ba6e06b5-5727-4a27-b661-09ce13d1df65}</kactus2:uuid>
-				<kactus2:portPositions>
-					<kactus2:portPosition busRef="cpu_clk_sink" x="110" y="40"/>
-					<kactus2:portPosition busRef="cpu_system" x="-110" y="40"/>
-				</kactus2:portPositions>
-				<kactus2:position x="280" y="330"/>
-			</ipxact:vendorExtensions>
-		</ipxact:componentInstance>
-	</ipxact:componentInstances>
-	<ipxact:interconnections>
-		<ipxact:interconnection>
-			<ipxact:name>memory_controller_cpu_system_to_alu_cpu_system</ipxact:name>
-			<ipxact:activeInterface componentRef="memory_controller" busRef="cpu_system"/>
-			<ipxact:activeInterface componentRef="alu" busRef="cpu_system"/>
-		</ipxact:interconnection>
-		<ipxact:interconnection>
-			<ipxact:name>clock_cpu_clk_source_to_register_bank_cpu_clk_sink</ipxact:name>
-			<ipxact:activeInterface componentRef="clock" busRef="cpu_clk_source"/>
-			<ipxact:activeInterface componentRef="register_bank" busRef="cpu_clk_sink"/>
-		</ipxact:interconnection>
-		<ipxact:interconnection>
-			<ipxact:name>clock_cpu_clk_source_to_memory_controller_cpu_clk_sink</ipxact:name>
-			<ipxact:activeInterface componentRef="clock" busRef="cpu_clk_source"/>
-			<ipxact:activeInterface componentRef="memory_controller" busRef="cpu_clk_sink"/>
-		</ipxact:interconnection>
-		<ipxact:interconnection>
-			<ipxact:name>instruction_decoder_cpu_clk_sink_to_clock_cpu_clk_source</ipxact:name>
-			<ipxact:activeInterface componentRef="instruction_decoder" busRef="cpu_clk_sink"/>
-			<ipxact:activeInterface componentRef="clock" busRef="cpu_clk_source"/>
-		</ipxact:interconnection>
-		<ipxact:interconnection>
-			<ipxact:name>register_bank_cpu_system_to_alu_cpu_system</ipxact:name>
-			<ipxact:activeInterface componentRef="register_bank" busRef="cpu_system"/>
-			<ipxact:activeInterface componentRef="alu" busRef="cpu_system"/>
-		</ipxact:interconnection>
-		<ipxact:interconnection>
-			<ipxact:name>instruction_decoder_cpu_system_to_alu_cpu_system</ipxact:name>
-			<ipxact:activeInterface componentRef="instruction_decoder" busRef="cpu_system"/>
-			<ipxact:activeInterface componentRef="alu" busRef="cpu_system"/>
-		</ipxact:interconnection>
-		<ipxact:interconnection>
-			<ipxact:name>memory_controller_peripheral_access_to_peripheral_access</ipxact:name>
-			<ipxact:activeInterface componentRef="memory_controller" busRef="peripheral_access"/>
-			<ipxact:hierInterface busRef="peripheral_access"/>
-		</ipxact:interconnection>
-		<ipxact:interconnection>
-			<ipxact:name>instruction_decoder_instruction_feed_to_instructions</ipxact:name>
-			<ipxact:activeInterface componentRef="instruction_decoder" busRef="instructions"/>
-			<ipxact:hierInterface busRef="instructions"/>
-		</ipxact:interconnection>
-		<ipxact:interconnection>
-			<ipxact:name>memory_controller_local_data_to_local_data</ipxact:name>
-			<ipxact:activeInterface componentRef="memory_controller" busRef="local_data"/>
-			<ipxact:hierInterface busRef="local_data"/>
-		</ipxact:interconnection>
-	</ipxact:interconnections>
-	<ipxact:adHocConnections>
-		<ipxact:adHocConnection>
-			<ipxact:name>clock_clk_i_to_clk_i</ipxact:name>
-			<ipxact:portReferences>
-				<ipxact:internalPortReference componentRef="clock" portRef="clk_i"/>
-				<ipxact:externalPortReference portRef="clk_i"/>
-			</ipxact:portReferences>
-		</ipxact:adHocConnection>
-		<ipxact:adHocConnection>
-			<ipxact:name>clock_rst_i_to_rst_i</ipxact:name>
-			<ipxact:portReferences>
-				<ipxact:internalPortReference componentRef="clock" portRef="rst_i"/>
-				<ipxact:externalPortReference portRef="rst_i"/>
-			</ipxact:portReferences>
-		</ipxact:adHocConnection>
-	</ipxact:adHocConnections>
 	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_5c010f8b_47c3_4bfd_9e82_0253bc69ef28" resolve="user" usageCount="1">
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_5c010f8b_47c3_4bfd_9e82_0253bc69ef28" resolve="user">
 			<ipxact:name>ADDR_WIDTH</ipxact:name>
 			<ipxact:description>Width of the addresses.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_c9e87023_cbe0_4790_8754_d38e8e83e2fe" resolve="user" usageCount="4">
+		<ipxact:parameter kactus2:usageCount="4" parameterId="uuid_c9e87023_cbe0_4790_8754_d38e8e83e2fe" resolve="user">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>Width for data in registers and instructions.</ipxact:description>
 			<ipxact:value>32</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_bf948d2f_e2d7_497a_b33c_5e35aad3f1c3" resolve="user" usageCount="1">
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_bf948d2f_e2d7_497a_b33c_5e35aad3f1c3" resolve="user">
 			<ipxact:name>INSTRUCTION_ADDRESS_WIDTH</ipxact:name>
 			<ipxact:description>Width of an instruction address.</ipxact:description>
 			<ipxact:value>8</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_32a4e121_f983_437b_9ff4_b512d71f8267" resolve="user" usageCount="1">
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_32a4e121_f983_437b_9ff4_b512d71f8267" resolve="user">
 			<ipxact:name>INSTRUCTION_WIDTH</ipxact:name>
 			<ipxact:description>Total width of an instruction</ipxact:description>
 			<ipxact:value>28</ipxact:value>
@@ -185,22 +30,22 @@
 			<ipxact:description>Bits reserved for operation identifiers.</ipxact:description>
 			<ipxact:value>4</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_11e311ec_728c_41e5_a8bd_5a5c19862e23" resolve="user" usageCount="1">
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_11e311ec_728c_41e5_a8bd_5a5c19862e23" resolve="user">
 			<ipxact:name>PERIPHERAL_BASE</ipxact:name>
 			<ipxact:description>The first address for peripherals.</ipxact:description>
 			<ipxact:value>128</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_01325d18_5984_41cd_b542_a292f0312d73" resolve="immediate" usageCount="3">
+		<ipxact:parameter kactus2:usageCount="3" parameterId="uuid_01325d18_5984_41cd_b542_a292f0312d73" resolve="immediate">
 			<ipxact:name>REGISTER_COUNT</ipxact:name>
 			<ipxact:description>How many registers are supported in the core.</ipxact:description>
 			<ipxact:value>8</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_115109b3_75d9_4a62_8201_5c4e068ac352" resolve="immediate" usageCount="2">
+		<ipxact:parameter kactus2:usageCount="2" parameterId="uuid_115109b3_75d9_4a62_8201_5c4e068ac352" resolve="immediate">
 			<ipxact:name>REGISTER_ID_WIDTH</ipxact:name>
 			<ipxact:description>Bits reserved for identification a single register.</ipxact:description>
 			<ipxact:value>$clog2(uuid_01325d18_5984_41cd_b542_a292f0312d73)</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_6252a87b_fe78_4b09_9381_e67cf5d578f1" resolve="user" usageCount="1">
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_6252a87b_fe78_4b09_9381_e67cf5d578f1" resolve="user">
 			<ipxact:name>SUPPORTED_MEMORY</ipxact:name>
 			<ipxact:description>How much the system supports memory in total.</ipxact:description>
 			<ipxact:value>512</ipxact:value>
@@ -217,56 +62,6 @@
 			<kactus2:column name="Clock Source" contentType="2" allowedItems="2" minWidth="319" width="319" x="440"/>
 			<kactus2:column name="Reference Clock" contentType="0" allowedItems="1" minWidth="119" width="119" x="760"/>
 		</kactus2:columnLayout>
-		<kactus2:routes>
-			<kactus2:route kactus2:connRef="memory_controller_cpu_system_to_alu_cpu_system" kactus2:offPage="false">
-				<kactus2:position x="170" y="160"/>
-				<kactus2:position x="150" y="160"/>
-				<kactus2:position x="150" y="460"/>
-				<kactus2:position x="170" y="460"/>
-			</kactus2:route>
-			<kactus2:route kactus2:connRef="clock_cpu_clk_source_to_register_bank_cpu_clk_sink" kactus2:offPage="false">
-				<kactus2:position x="490" y="100"/>
-				<kactus2:position x="430" y="100"/>
-				<kactus2:position x="430" y="370"/>
-				<kactus2:position x="390" y="370"/>
-			</kactus2:route>
-			<kactus2:route kactus2:connRef="clock_cpu_clk_source_to_memory_controller_cpu_clk_sink" kactus2:offPage="false">
-				<kactus2:position x="490" y="100"/>
-				<kactus2:position x="390" y="100"/>
-			</kactus2:route>
-			<kactus2:route kactus2:connRef="instruction_decoder_cpu_clk_sink_to_clock_cpu_clk_source" kactus2:offPage="false">
-				<kactus2:position x="390" y="250"/>
-				<kactus2:position x="430" y="250"/>
-				<kactus2:position x="430" y="100"/>
-				<kactus2:position x="490" y="100"/>
-			</kactus2:route>
-			<kactus2:route kactus2:connRef="clock_clk_i_to_clk_i" kactus2:offPage="false"/>
-			<kactus2:route kactus2:connRef="clock_rst_i_to_rst_i" kactus2:offPage="false"/>
-			<kactus2:route kactus2:connRef="register_bank_cpu_system_to_alu_cpu_system" kactus2:offPage="false">
-				<kactus2:position x="170" y="370"/>
-				<kactus2:position x="150" y="370"/>
-				<kactus2:position x="150" y="460"/>
-				<kactus2:position x="170" y="460"/>
-			</kactus2:route>
-			<kactus2:route kactus2:connRef="instruction_decoder_cpu_system_to_alu_cpu_system" kactus2:offPage="false">
-				<kactus2:position x="170" y="280"/>
-				<kactus2:position x="150" y="280"/>
-				<kactus2:position x="150" y="460"/>
-				<kactus2:position x="170" y="460"/>
-			</kactus2:route>
-			<kactus2:route kactus2:connRef="memory_controller_peripheral_access_to_peripheral_access" kactus2:offPage="false">
-				<kactus2:position x="170" y="100"/>
-				<kactus2:position x="60" y="100"/>
-			</kactus2:route>
-			<kactus2:route kactus2:connRef="instruction_decoder_instruction_feed_to_instructions" kactus2:offPage="false">
-				<kactus2:position x="170" y="250"/>
-				<kactus2:position x="60" y="250"/>
-			</kactus2:route>
-			<kactus2:route kactus2:connRef="memory_controller_local_data_to_local_data" kactus2:offPage="false">
-				<kactus2:position x="170" y="130"/>
-				<kactus2:position x="60" y="130"/>
-			</kactus2:route>
-		</kactus2:routes>
 		<kactus2:adHocVisibilities>
 			<kactus2:adHocVisible portName="clk_i" x="820" y="100"/>
 			<kactus2:adHocVisible portName="rst_i" x="820" y="130"/>
@@ -323,7 +118,7 @@
 		</kactus2:interfaceGraphics>
 		<kactus2:interfaceGraphics>
 			<kactus2:name>local_data</kactus2:name>
-			<kactus2:position x="60" y="130"/>
+			<kactus2:position x="60" y="140"/>
 			<kactus2:direction x="1" y="0"/>
 		</kactus2:interfaceGraphics>
 	</ipxact:vendorExtensions>

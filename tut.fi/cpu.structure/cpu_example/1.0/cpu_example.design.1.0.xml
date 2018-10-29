@@ -6,25 +6,6 @@
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:componentInstances>
 		<ipxact:componentInstance>
-			<ipxact:instanceName>wb_slave_spi_master</ipxact:instanceName>
-			<ipxact:componentRef vendor="tut.fi" library="communication.bridge" name="wb_slave_spi_master" version="1.0">
-				<ipxact:configurableElementValues>
-					<ipxact:configurableElementValue referenceId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd">uuid_50061985_7db5_402e_97fd_5ff3029ad0b4</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_11833df7_86a0_48e2_8577_f3cc38000d57">uuid_0d28c0eb_8ccd_4660_a5df_98ee71d5d964</ipxact:configurableElementValue>
-					<ipxact:configurableElementValue referenceId="uuid_3452fcca_4cd2_458f_a644_4c6530ea74ed">uuid_a81b9153_fc6c_4c53_826f_2eee82790cb7</ipxact:configurableElementValue>
-				</ipxact:configurableElementValues>
-			</ipxact:componentRef>
-			<ipxact:vendorExtensions>
-				<kactus2:uuid>{31b83631-5237-4872-b181-e6f5919e7e1b}</kactus2:uuid>
-				<kactus2:portPositions>
-					<kactus2:portPosition busRef="master_if" x="110" y="70"/>
-					<kactus2:portPosition busRef="wb_slave" x="-110" y="40"/>
-					<kactus2:portPosition busRef="wb_system" x="110" y="40"/>
-				</kactus2:portPositions>
-				<kactus2:position x="920" y="390"/>
-			</ipxact:vendorExtensions>
-		</ipxact:componentInstance>
-		<ipxact:componentInstance>
 			<ipxact:instanceName>core</ipxact:instanceName>
 			<ipxact:componentRef vendor="tut.fi" library="cpu.subsystem" name="core_example" version="1.0">
 				<ipxact:configurableElementValues>
@@ -40,12 +21,12 @@
 				<kactus2:uuid>{83013d12-9d73-405c-ac28-25c207ef3efc}</kactus2:uuid>
 				<kactus2:portPositions>
 					<kactus2:portPosition busRef="instructions" x="-110" y="40"/>
-					<kactus2:portPosition busRef="local_data" x="-110" y="70"/>
+					<kactus2:portPosition busRef="local_data" x="-110" y="80"/>
 					<kactus2:portPosition busRef="peripheral_access" x="110" y="40"/>
 				</kactus2:portPositions>
 				<kactus2:adHocVisibilities>
-					<kactus2:adHocVisible portName="clk_i" x="-110" y="100"/>
-					<kactus2:adHocVisible portName="rst_i" x="-110" y="130"/>
+					<kactus2:adHocVisible portName="clk_i" x="-110" y="120"/>
+					<kactus2:adHocVisible portName="rst_i" x="-110" y="170"/>
 				</kactus2:adHocVisibilities>
 				<kactus2:position x="280" y="60"/>
 			</ipxact:vendorExtensions>
@@ -160,11 +141,6 @@
 	</ipxact:componentInstances>
 	<ipxact:interconnections>
 		<ipxact:interconnection>
-			<ipxact:name>wishbone_bridge_wb_master_to_wishbone_bus_one_to_many_master</ipxact:name>
-			<ipxact:activeInterface componentRef="wishbone_bridge" busRef="wb_master"/>
-			<ipxact:activeInterface componentRef="wishbone_bus" busRef="one_to_many_master"/>
-		</ipxact:interconnection>
-		<ipxact:interconnection>
 			<ipxact:name>wishbone_bridge_wb_system_to_wb_system</ipxact:name>
 			<ipxact:activeInterface componentRef="wishbone_bridge" busRef="wb_system"/>
 			<ipxact:hierInterface busRef="wb_system"/>
@@ -199,45 +175,8 @@
 			<ipxact:activeInterface componentRef="sum_buffer" busRef="wb_system"/>
 			<ipxact:hierInterface busRef="wb_system"/>
 		</ipxact:interconnection>
-		<ipxact:interconnection>
-			<ipxact:name>core_peripheral_access_to_wishbone_bridge_contoller</ipxact:name>
-			<ipxact:activeInterface componentRef="core" busRef="peripheral_access"/>
-			<ipxact:activeInterface componentRef="wishbone_bridge" busRef="contoller"/>
-		</ipxact:interconnection>
-		<ipxact:interconnection>
-			<ipxact:name>wb_slave_spi_master_wb_system_to_wb_system</ipxact:name>
-			<ipxact:activeInterface componentRef="wb_slave_spi_master" busRef="wb_system"/>
-			<ipxact:hierInterface busRef="wb_system"/>
-		</ipxact:interconnection>
-		<ipxact:interconnection>
-			<ipxact:name>wishbone_bus_slave_3_to_wb_slave_spi_master_wb_slave</ipxact:name>
-			<ipxact:activeInterface componentRef="wishbone_bus" busRef="slave_3"/>
-			<ipxact:activeInterface componentRef="wb_slave_spi_master" busRef="wb_slave"/>
-		</ipxact:interconnection>
-		<ipxact:interconnection>
-			<ipxact:name>core_instructions_to_instructions</ipxact:name>
-			<ipxact:activeInterface componentRef="core" busRef="instructions"/>
-			<ipxact:hierInterface busRef="instructions"/>
-		</ipxact:interconnection>
-		<ipxact:interconnection>
-			<ipxact:name>core_local_data_to_local_data</ipxact:name>
-			<ipxact:activeInterface componentRef="core" busRef="local_data"/>
-			<ipxact:hierInterface busRef="local_data"/>
-		</ipxact:interconnection>
-		<ipxact:interconnection>
-			<ipxact:name>wb_slave_spi_master_spi_master_to_spi_master</ipxact:name>
-			<ipxact:activeInterface componentRef="wb_slave_spi_master" busRef="spi_master"/>
-			<ipxact:hierInterface busRef="spi_master"/>
-		</ipxact:interconnection>
 	</ipxact:interconnections>
 	<ipxact:adHocConnections>
-		<ipxact:adHocConnection>
-			<ipxact:name>core_clk_i_to_clk_i</ipxact:name>
-			<ipxact:portReferences>
-				<ipxact:internalPortReference componentRef="core" portRef="clk_i"/>
-				<ipxact:externalPortReference portRef="clk_i"/>
-			</ipxact:portReferences>
-		</ipxact:adHocConnection>
 		<ipxact:adHocConnection>
 			<ipxact:name>external_mem_large_store_hash_i_to_tiedValue</ipxact:name>
 			<ipxact:tiedValue>0</ipxact:tiedValue>
@@ -252,66 +191,59 @@
 				<ipxact:internalPortReference componentRef="external_mem_hash" portRef="store_hash_i"/>
 			</ipxact:portReferences>
 		</ipxact:adHocConnection>
-		<ipxact:adHocConnection>
-			<ipxact:name>core_rst_i_to_rst_i</ipxact:name>
-			<ipxact:portReferences>
-				<ipxact:internalPortReference componentRef="core" portRef="rst_i"/>
-				<ipxact:externalPortReference portRef="rst_i"/>
-			</ipxact:portReferences>
-		</ipxact:adHocConnection>
 	</ipxact:adHocConnections>
 	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_6c4e67dd_7978_43d1_a7b6_f48cabf967cc" resolve="immediate" usageCount="3">
+		<ipxact:parameter kactus2:usageCount="3" parameterId="uuid_6c4e67dd_7978_43d1_a7b6_f48cabf967cc" resolve="immediate">
 			<ipxact:name>WB_ADDRESS_BASE</ipxact:name>
 			<ipxact:description>Base address for wishbone in the system memory.</ipxact:description>
 			<ipxact:value>'h0100</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_62b1d4a1_e33b_4aca_ac75_86c86d249e48" resolve="immediate" usageCount="3">
+		<ipxact:parameter kactus2:usageCount="3" parameterId="uuid_62b1d4a1_e33b_4aca_ac75_86c86d249e48" resolve="immediate">
 			<ipxact:name>WB_SLAVE0_BASE</ipxact:name>
 			<ipxact:description>Base address for wishbone slave 0.</ipxact:description>
 			<ipxact:value>'h0020</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_b94379c4_27fe_416e_96a9_6764f62384e8" resolve="immediate" usageCount="3">
+		<ipxact:parameter kactus2:usageCount="3" parameterId="uuid_b94379c4_27fe_416e_96a9_6764f62384e8" resolve="immediate">
 			<ipxact:name>WB_SLAVE1_BASE</ipxact:name>
 			<ipxact:description>Base address for wishbone slave 1.</ipxact:description>
 			<ipxact:value>uuid_62b1d4a1_e33b_4aca_ac75_86c86d249e48+uuid_f9d36822_e2bf_4d65_8e14_bace9ef3b39a</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_9ddc21f9_4712_47f3_992f_2571b6c33b4b" resolve="immediate" usageCount="3">
+		<ipxact:parameter kactus2:usageCount="3" parameterId="uuid_9ddc21f9_4712_47f3_992f_2571b6c33b4b" resolve="immediate">
 			<ipxact:name>WB_SLAVE2_BASE</ipxact:name>
 			<ipxact:description>Base address for wishbone slave 2.</ipxact:description>
 			<ipxact:value>uuid_b94379c4_27fe_416e_96a9_6764f62384e8+uuid_f9d36822_e2bf_4d65_8e14_bace9ef3b39a</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_0d28c0eb_8ccd_4660_a5df_98ee71d5d964" resolve="immediate" usageCount="2">
+		<ipxact:parameter kactus2:usageCount="2" parameterId="uuid_0d28c0eb_8ccd_4660_a5df_98ee71d5d964" resolve="immediate">
 			<ipxact:name>WB_SLAVE3_BASE</ipxact:name>
 			<ipxact:description>Base address for wishbone slave 3.</ipxact:description>
 			<ipxact:value>uuid_9ddc21f9_4712_47f3_992f_2571b6c33b4b+uuid_f9d36822_e2bf_4d65_8e14_bace9ef3b39a</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_f9d36822_e2bf_4d65_8e14_bace9ef3b39a" resolve="immediate" usageCount="6">
+		<ipxact:parameter kactus2:usageCount="6" parameterId="uuid_f9d36822_e2bf_4d65_8e14_bace9ef3b39a" resolve="immediate">
 			<ipxact:name>WB_SLAVE_RANGE</ipxact:name>
 			<ipxact:description>How much space is allocated for each slave.</ipxact:description>
 			<ipxact:value>'h080</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_50061985_7db5_402e_97fd_5ff3029ad0b4" resolve="user" usageCount="7">
+		<ipxact:parameter kactus2:usageCount="7" parameterId="uuid_50061985_7db5_402e_97fd_5ff3029ad0b4" resolve="user">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>Width for data in registers and instructions.</ipxact:description>
 			<ipxact:value>32</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_a81b9153_fc6c_4c53_826f_2eee82790cb7" resolve="user" usageCount="7">
+		<ipxact:parameter kactus2:usageCount="7" parameterId="uuid_a81b9153_fc6c_4c53_826f_2eee82790cb7" resolve="user">
 			<ipxact:name>ADDR_WIDTH</ipxact:name>
 			<ipxact:description>Width of the addresses.</ipxact:description>
 			<ipxact:value>32</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_c883d789_bd86_4880_8b29_806ef3471005" resolve="user" usageCount="2">
+		<ipxact:parameter kactus2:usageCount="2" parameterId="uuid_c883d789_bd86_4880_8b29_806ef3471005" resolve="user">
 			<ipxact:name>SUPPORTED_MEMORY</ipxact:name>
 			<ipxact:description>How much the system supports memory in total.</ipxact:description>
 			<ipxact:value>'h400</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_7d0802b0_0d24_436d_bc40_d60a25113b25" resolve="user" usageCount="1">
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_7d0802b0_0d24_436d_bc40_d60a25113b25" resolve="user">
 			<ipxact:name>INSTRUCTION_ADDRESS_WIDTH</ipxact:name>
 			<ipxact:description>Width of an instruction address.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_c3d343d3_0de6_4b26_8a09_fafadcfba2a2" resolve="user" usageCount="1">
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_c3d343d3_0de6_4b26_8a09_fafadcfba2a2" resolve="user">
 			<ipxact:name>INSTRUCTION_WIDTH</ipxact:name>
 			<ipxact:description>Total width of an instruction</ipxact:description>
 			<ipxact:value>32</ipxact:value>
@@ -330,12 +262,6 @@
 			<kactus2:column name="Peripherals" contentType="2" allowedItems="2" minWidth="319" width="319" x="760"/>
 		</kactus2:columnLayout>
 		<kactus2:routes>
-			<kactus2:route kactus2:connRef="wishbone_bridge_wb_master_to_wishbone_bus_one_to_many_master" kactus2:offPage="false">
-				<kactus2:position x="490" y="520"/>
-				<kactus2:position x="470" y="520"/>
-				<kactus2:position x="470" y="430"/>
-				<kactus2:position x="490" y="430"/>
-			</kactus2:route>
 			<kactus2:route kactus2:connRef="wishbone_bridge_wb_system_to_wb_system" kactus2:offPage="true">
 				<kactus2:position x="740" y="530"/>
 				<kactus2:position x="1110" y="100"/>
@@ -356,7 +282,6 @@
 				<kactus2:position x="1060" y="220"/>
 				<kactus2:position x="1110" y="100"/>
 			</kactus2:route>
-			<kactus2:route kactus2:connRef="core_clk_i_to_clk_i" kactus2:offPage="false"/>
 			<kactus2:route kactus2:connRef="sum_buffer_wb_slave_to_wishbone_bus_slave_2" kactus2:offPage="false">
 				<kactus2:position x="810" y="340"/>
 				<kactus2:position x="710" y="340"/>
@@ -366,39 +291,10 @@
 				<kactus2:position x="1110" y="100"/>
 			</kactus2:route>
 			<kactus2:route kactus2:connRef="core_new_value_to_new_value" kactus2:offPage="false"/>
-			<kactus2:route kactus2:connRef="core_peripheral_access_to_wishbone_bridge_contoller" kactus2:offPage="false">
-				<kactus2:position x="390" y="100"/>
-				<kactus2:position x="460" y="100"/>
-				<kactus2:position x="460" y="540"/>
-				<kactus2:position x="490" y="540"/>
-			</kactus2:route>
-			<kactus2:route kactus2:connRef="wb_slave_spi_master_wb_system_to_wb_system" kactus2:offPage="true">
-				<kactus2:position x="1060" y="430"/>
-				<kactus2:position x="1110" y="100"/>
-			</kactus2:route>
-			<kactus2:route kactus2:connRef="wishbone_bus_slave_3_to_wb_slave_spi_master_wb_slave" kactus2:offPage="false">
-				<kactus2:position x="710" y="430"/>
-				<kactus2:position x="810" y="430"/>
-			</kactus2:route>
-			<kactus2:route kactus2:connRef="core_instructions_to_instructions" kactus2:offPage="false">
-				<kactus2:position x="170" y="100"/>
-				<kactus2:position x="60" y="100"/>
-			</kactus2:route>
-			<kactus2:route kactus2:connRef="core_rst_i_to_rst_i" kactus2:offPage="false"/>
-			<kactus2:route kactus2:connRef="core_local_data_to_local_data" kactus2:offPage="false">
-				<kactus2:position x="170" y="130"/>
-				<kactus2:position x="60" y="130"/>
-			</kactus2:route>
-			<kactus2:route kactus2:connRef="wb_slave_spi_master_spi_master_to_spi_master" kactus2:offPage="false">
-				<kactus2:position x="1030" y="460"/>
-				<kactus2:position x="1090" y="460"/>
-				<kactus2:position x="1090" y="140"/>
-				<kactus2:position x="1140" y="140"/>
-			</kactus2:route>
 		</kactus2:routes>
 		<kactus2:adHocVisibilities>
-			<kactus2:adHocVisible portName="clk_i" x="60" y="160"/>
-			<kactus2:adHocVisible portName="rst_i" x="60" y="190"/>
+			<kactus2:adHocVisible portName="clk_i" x="60" y="180"/>
+			<kactus2:adHocVisible portName="rst_i" x="60" y="230"/>
 		</kactus2:adHocVisibilities>
 		<kactus2:interfaceGraphics>
 			<kactus2:name>wb_system</kactus2:name>
@@ -417,12 +313,12 @@
 		</kactus2:interfaceGraphics>
 		<kactus2:interfaceGraphics>
 			<kactus2:name>local_data</kactus2:name>
-			<kactus2:position x="60" y="130"/>
+			<kactus2:position x="60" y="140"/>
 			<kactus2:direction x="1" y="0"/>
 		</kactus2:interfaceGraphics>
 		<kactus2:interfaceGraphics>
 			<kactus2:name>spi_master</kactus2:name>
-			<kactus2:position x="1140" y="140"/>
+			<kactus2:position x="1140" y="450"/>
 			<kactus2:direction x="-1" y="0"/>
 		</kactus2:interfaceGraphics>
 	</ipxact:vendorExtensions>
