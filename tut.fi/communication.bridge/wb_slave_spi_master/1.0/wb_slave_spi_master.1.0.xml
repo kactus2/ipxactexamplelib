@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+<ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014 http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
 	<ipxact:library>communication.bridge</ipxact:library>
-	<ipxact:name>wb_master_cpu_slave</ipxact:name>
+	<ipxact:name>wb_slave_spi_master</ipxact:name>
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
-			<ipxact:name>wb_master</ipxact:name>
-			<ipxact:description>Connects to wishbone slave or mirrored master accessible through this bridge.</ipxact:description>
+			<ipxact:name>wb_slave</ipxact:name>
+			<ipxact:description>Is used by a wishbone master to initiate transfers through the bridge.</ipxact:description>
 			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -22,7 +22,7 @@
 								</ipxact:range>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>wb_ack_i</ipxact:name>
+								<ipxact:name>ack_o</ipxact:name>
 								<ipxact:partSelect>
 									<ipxact:range>
 										<ipxact:left>0</ipxact:left>
@@ -36,7 +36,7 @@
 								<ipxact:name>adr</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>wb_adr_o</ipxact:name>
+								<ipxact:name>adr_i</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 						<ipxact:portMap>
@@ -48,7 +48,59 @@
 								</ipxact:range>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>wb_cyc_o</ipxact:name>
+								<ipxact:name>cyc_i</ipxact:name>
+								<ipxact:partSelect>
+									<ipxact:range>
+										<ipxact:left>0</ipxact:left>
+										<ipxact:right>0</ipxact:right>
+									</ipxact:range>
+								</ipxact:partSelect>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>dat_sm</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>dat_o</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>dat_ms</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>dat_i</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>stb</ipxact:name>
+								<ipxact:range>
+									<ipxact:left>0</ipxact:left>
+									<ipxact:right>0</ipxact:right>
+								</ipxact:range>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>stb_i</ipxact:name>
+								<ipxact:partSelect>
+									<ipxact:range>
+										<ipxact:left>0</ipxact:left>
+										<ipxact:right>0</ipxact:right>
+									</ipxact:range>
+								</ipxact:partSelect>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>we</ipxact:name>
+								<ipxact:range>
+									<ipxact:left>0</ipxact:left>
+									<ipxact:right>0</ipxact:right>
+								</ipxact:range>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>we_i</ipxact:name>
 								<ipxact:partSelect>
 									<ipxact:range>
 										<ipxact:left>0</ipxact:left>
@@ -66,7 +118,7 @@
 								</ipxact:range>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>wb_err_i</ipxact:name>
+								<ipxact:name>err_o</ipxact:name>
 								<ipxact:partSelect>
 									<ipxact:range>
 										<ipxact:left>0</ipxact:left>
@@ -75,46 +127,12 @@
 								</ipxact:partSelect>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>dat_ms</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>wb_dat_o</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>dat_sm</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>wb_dat_i</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>stb</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>wb_stb_o</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>we</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>wb_we_o</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
 					</ipxact:portMaps>
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
-			<ipxact:master>
-				<ipxact:addressSpaceRef ipxact:addressSpaceRef="wb_bus_space">
-					<ipxact:baseAddress ipxact:addressSpaceRef="wb_bus_space">0</ipxact:baseAddress>
-				</ipxact:addressSpaceRef>
-			</ipxact:master>
+			<ipxact:slave>
+				<ipxact:memoryMapRef memoryMapRef="default"/>
+			</ipxact:slave>
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>wb_system</ipxact:name>
@@ -148,77 +166,80 @@
 			</ipxact:system>
 		</ipxact:busInterface>
 		<ipxact:busInterface>
-			<ipxact:name>contoller</ipxact:name>
-			<ipxact:description>Is used by a controller to initiate transfers through the bridge.</ipxact:description>
-			<ipxact:busType vendor="tut.fi" library="interface" name="peripheral_control" version="1.0"/>
-			<ipxact:abstractionTypes>
-				<ipxact:abstractionType>
-					<ipxact:abstractionRef vendor="tut.fi" library="interface" name="peripheral_control.absDef" version="1.0"/>
-					<ipxact:portMaps>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>address</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>mem_address_in</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>data_sm</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>mem_data_out</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>data_ms</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>mem_data_in</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>slave_rdy</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>mem_slave_rdy</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>we</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>mem_we_in</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>master_rdy</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>mem_master_rdy</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-					</ipxact:portMaps>
-				</ipxact:abstractionType>
-			</ipxact:abstractionTypes>
-			<ipxact:slave>
-				<ipxact:transparentBridge masterRef="wb_master"/>
-			</ipxact:slave>
+			<ipxact:name>spi_master</ipxact:name>
+			<ipxact:description>Connects to the SPI slave that is controllable through this bridge.</ipxact:description>
+			<ipxact:busType vendor="tut.fi" library="interface" name="" version=""/>
+			<ipxact:master/>
 		</ipxact:busInterface>
 	</ipxact:busInterfaces>
-	<ipxact:addressSpaces>
-		<ipxact:addressSpace>
-			<ipxact:name>wb_bus_space</ipxact:name>
-			<ipxact:range>uuid_c58fd099_9dad_463d_bbe9_ff967befbfb0</ipxact:range>
-			<ipxact:width>uuid_fe30a511_9701_4142_b340_223777d1b857</ipxact:width>
+	<ipxact:memoryMaps>
+		<ipxact:memoryMap>
+			<ipxact:name>default</ipxact:name>
+			<ipxact:addressBlock>
+				<ipxact:name>recv_buffer</ipxact:name>
+				<ipxact:baseAddress>0</ipxact:baseAddress>
+				<ipxact:range>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920</ipxact:range>
+				<ipxact:width>8</ipxact:width>
+				<ipxact:usage>register</ipxact:usage>
+				<ipxact:volatile>true</ipxact:volatile>
+				<ipxact:access>write-only</ipxact:access>
+			</ipxact:addressBlock>
+			<ipxact:addressBlock>
+				<ipxact:name>control</ipxact:name>
+				<ipxact:baseAddress>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920*2+uuid_1789a5ec_4856_4dfc_99e3_91a0777df0cc</ipxact:baseAddress>
+				<ipxact:range>uuid_800a337a_29d2_423a_b1ca_fd57f6c75983</ipxact:range>
+				<ipxact:width>8</ipxact:width>
+				<ipxact:usage>register</ipxact:usage>
+				<ipxact:volatile>true</ipxact:volatile>
+				<ipxact:access>write-only</ipxact:access>
+				<ipxact:register>
+					<ipxact:name>control</ipxact:name>
+					<ipxact:dim>0</ipxact:dim>
+					<ipxact:addressOffset>0</ipxact:addressOffset>
+					<ipxact:size>8</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>write-only</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>start_transfer</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:bitWidth>1</ipxact:bitWidth>
+					</ipxact:field>
+				</ipxact:register>
+			</ipxact:addressBlock>
+			<ipxact:addressBlock>
+				<ipxact:name>send_buffer</ipxact:name>
+				<ipxact:baseAddress>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920+uuid_1789a5ec_4856_4dfc_99e3_91a0777df0cc</ipxact:baseAddress>
+				<ipxact:range>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920</ipxact:range>
+				<ipxact:width>8</ipxact:width>
+				<ipxact:usage>register</ipxact:usage>
+				<ipxact:volatile>true</ipxact:volatile>
+				<ipxact:access>read-only</ipxact:access>
+			</ipxact:addressBlock>
+			<ipxact:addressBlock>
+				<ipxact:name>status</ipxact:name>
+				<ipxact:baseAddress>uuid_3928a897_9f75_4ed7_a9be_c68cadf66920</ipxact:baseAddress>
+				<ipxact:range>uuid_1789a5ec_4856_4dfc_99e3_91a0777df0cc</ipxact:range>
+				<ipxact:width>8</ipxact:width>
+				<ipxact:usage>register</ipxact:usage>
+				<ipxact:volatile>true</ipxact:volatile>
+				<ipxact:access>read-only</ipxact:access>
+				<ipxact:register>
+					<ipxact:name>status</ipxact:name>
+					<ipxact:dim>0</ipxact:dim>
+					<ipxact:addressOffset>'h0</ipxact:addressOffset>
+					<ipxact:size>8</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-only</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>transfer_complete</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:bitWidth>1</ipxact:bitWidth>
+					</ipxact:field>
+				</ipxact:register>
+			</ipxact:addressBlock>
 			<ipxact:addressUnitBits>8</ipxact:addressUnitBits>
-		</ipxact:addressSpace>
-	</ipxact:addressSpaces>
+		</ipxact:memoryMap>
+	</ipxact:memoryMaps>
 	<ipxact:model>
 		<ipxact:views>
 			<ipxact:view>
@@ -230,8 +251,8 @@
 		<ipxact:instantiations>
 			<ipxact:componentInstantiation>
 				<ipxact:name>verilog_implementation</ipxact:name>
-				<ipxact:language>verilog</ipxact:language>
-				<ipxact:moduleName>wb_master</ipxact:moduleName>
+				<ipxact:language>Verilog</ipxact:language>
+				<ipxact:moduleName>wb_slave_spi_master</ipxact:moduleName>
 				<ipxact:fileSetRef>
 					<ipxact:localName>verilogSource</ipxact:localName>
 				</ipxact:fileSetRef>
@@ -239,71 +260,50 @@
 		</ipxact:instantiations>
 		<ipxact:ports>
 			<ipxact:port>
-				<ipxact:name>wb_ack_i</ipxact:name>
+				<ipxact:name>ack_o</ipxact:name>
 				<ipxact:description>Slave asserts acknowledge.</ipxact:description>
 				<ipxact:wire>
-					<ipxact:direction>in</ipxact:direction>
+					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
 							<ipxact:left>0</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
+					<ipxact:wireTypeDefs>
+						<ipxact:wireTypeDef>
+							<ipxact:typeName>reg</ipxact:typeName>
+						</ipxact:wireTypeDef>
+					</ipxact:wireTypeDefs>
 				</ipxact:wire>
 				<ipxact:vendorExtensions>
 					<kactus2:portTags></kactus2:portTags>
 				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>wb_adr_o</ipxact:name>
+				<ipxact:name>adr_i</ipxact:name>
 				<ipxact:description>The address of the data.</ipxact:description>
 				<ipxact:wire>
-					<ipxact:direction>out</ipxact:direction>
+					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>uuid_ed7d4652_1c14_4647_90dd_881ec00146f8-1</ipxact:left>
+							<ipxact:left>uuid_3452fcca_4cd2_458f_a644_4c6530ea74ed-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
-					<ipxact:wireTypeDefs>
-						<ipxact:wireTypeDef>
-							<ipxact:typeName>reg</ipxact:typeName>
-						</ipxact:wireTypeDef>
-					</ipxact:wireTypeDefs>
 				</ipxact:wire>
 				<ipxact:vendorExtensions>
 					<kactus2:portTags></kactus2:portTags>
 				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>wb_cyc_o</ipxact:name>
+				<ipxact:name>cyc_i</ipxact:name>
 				<ipxact:description>Asserted by master for transfer.</ipxact:description>
-				<ipxact:wire>
-					<ipxact:direction>out</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left>0</ipxact:left>
-							<ipxact:right>0</ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
-					<ipxact:wireTypeDefs>
-						<ipxact:wireTypeDef>
-							<ipxact:typeName>reg</ipxact:typeName>
-						</ipxact:wireTypeDef>
-					</ipxact:wireTypeDefs>
-				</ipxact:wire>
-				<ipxact:vendorExtensions>
-					<kactus2:portTags></kactus2:portTags>
-				</ipxact:vendorExtensions>
-			</ipxact:port>
-			<ipxact:port>
-				<ipxact:name>wb_dat_i</ipxact:name>
-				<ipxact:description>Data from slave to master.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>uuid_fe30a511_9701_4142_b340_223777d1b857-1</ipxact:left>
+							<ipxact:left>0</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
@@ -313,63 +313,69 @@
 				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>wb_dat_o</ipxact:name>
+				<ipxact:name>dat_o</ipxact:name>
+				<ipxact:description>Data from slave to master.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+					<ipxact:wireTypeDefs>
+						<ipxact:wireTypeDef>
+							<ipxact:typeName>reg</ipxact:typeName>
+						</ipxact:wireTypeDef>
+					</ipxact:wireTypeDefs>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags></kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>dat_i</ipxact:name>
 				<ipxact:description>Data from master to slave.</ipxact:description>
 				<ipxact:wire>
-					<ipxact:direction>out</ipxact:direction>
+					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
-							<ipxact:left>uuid_fe30a511_9701_4142_b340_223777d1b857-1</ipxact:left>
+							<ipxact:left>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd-1</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
-					<ipxact:wireTypeDefs>
-						<ipxact:wireTypeDef>
-							<ipxact:typeName>reg</ipxact:typeName>
-						</ipxact:wireTypeDef>
-					</ipxact:wireTypeDefs>
 				</ipxact:wire>
 				<ipxact:vendorExtensions>
 					<kactus2:portTags></kactus2:portTags>
 				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>wb_stb_o</ipxact:name>
-				<ipxact:description>Asserted by master for transfer.</ipxact:description>
+				<ipxact:name>stb_i</ipxact:name>
+				<ipxact:description>Asserted, when this specific slave is selected.</ipxact:description>
 				<ipxact:wire>
-					<ipxact:direction>out</ipxact:direction>
+					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
 							<ipxact:left>0</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
-					<ipxact:wireTypeDefs>
-						<ipxact:wireTypeDef>
-							<ipxact:typeName>reg</ipxact:typeName>
-						</ipxact:wireTypeDef>
-					</ipxact:wireTypeDefs>
 				</ipxact:wire>
 				<ipxact:vendorExtensions>
 					<kactus2:portTags></kactus2:portTags>
 				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>wb_we_o</ipxact:name>
+				<ipxact:name>we_i</ipxact:name>
 				<ipxact:description>Write = 1, Read = 0.</ipxact:description>
 				<ipxact:wire>
-					<ipxact:direction>out</ipxact:direction>
+					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
 							<ipxact:left>0</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
-					<ipxact:wireTypeDefs>
-						<ipxact:wireTypeDef>
-							<ipxact:typeName>reg</ipxact:typeName>
-						</ipxact:wireTypeDef>
-					</ipxact:wireTypeDefs>
 				</ipxact:wire>
 				<ipxact:vendorExtensions>
 					<kactus2:portTags></kactus2:portTags>
@@ -402,70 +408,31 @@
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>wb_err_i</ipxact:name>
+				<ipxact:name>err_o</ipxact:name>
 				<ipxact:description>Indicates abnormal cycle termination.</ipxact:description>
 				<ipxact:wire>
-					<ipxact:direction>in</ipxact:direction>
+					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
 							<ipxact:left>0</ipxact:left>
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
+					<ipxact:wireTypeDefs>
+						<ipxact:wireTypeDef>
+							<ipxact:typeName>reg</ipxact:typeName>
+						</ipxact:wireTypeDef>
+					</ipxact:wireTypeDefs>
 				</ipxact:wire>
 				<ipxact:vendorExtensions>
 					<kactus2:portTags></kactus2:portTags>
 				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>mem_address_in</ipxact:name>
-				<ipxact:description>Target address of a peripheral operation.</ipxact:description>
-				<ipxact:wire>
-					<ipxact:direction>in</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left>uuid_ed7d4652_1c14_4647_90dd_881ec00146f8-1</ipxact:left>
-							<ipxact:right>0</ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
-				</ipxact:wire>
-			</ipxact:port>
-			<ipxact:port>
-				<ipxact:name>mem_data_in</ipxact:name>
-				<ipxact:description>Data from controller.</ipxact:description>
-				<ipxact:wire>
-					<ipxact:direction>in</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left>uuid_fe30a511_9701_4142_b340_223777d1b857-1</ipxact:left>
-							<ipxact:right>0</ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
-				</ipxact:wire>
-			</ipxact:port>
-			<ipxact:port>
-				<ipxact:name>mem_data_out</ipxact:name>
-				<ipxact:description>Data to controller.</ipxact:description>
+				<ipxact:name>clk_out</ipxact:name>
+				<ipxact:description>SPI master clock.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left>uuid_fe30a511_9701_4142_b340_223777d1b857-1</ipxact:left>
-							<ipxact:right>0</ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
-					<ipxact:wireTypeDefs>
-						<ipxact:wireTypeDef>
-							<ipxact:typeName>reg</ipxact:typeName>
-						</ipxact:wireTypeDef>
-					</ipxact:wireTypeDefs>
-				</ipxact:wire>
-			</ipxact:port>
-			<ipxact:port>
-				<ipxact:name>mem_we_in</ipxact:name>
-				<ipxact:description>Controllers writes = 1, Controller reads = 0.</ipxact:description>
-				<ipxact:wire>
-					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
 						<ipxact:vector>
 							<ipxact:left>0</ipxact:left>
@@ -475,8 +442,8 @@
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>mem_slave_rdy</ipxact:name>
-				<ipxact:description>Bridge has executed the transfer.</ipxact:description>
+				<ipxact:name>data_out</ipxact:name>
+				<ipxact:description>SPI master output.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>out</ipxact:direction>
 					<ipxact:vectors>
@@ -493,8 +460,8 @@
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
-				<ipxact:name>mem_master_rdy</ipxact:name>
-				<ipxact:description>Data is provided and transfer can be executed.</ipxact:description>
+				<ipxact:name>data_in</ipxact:name>
+				<ipxact:description>SPI master input.</ipxact:description>
 				<ipxact:wire>
 					<ipxact:direction>in</ipxact:direction>
 					<ipxact:vectors>
@@ -503,6 +470,24 @@
 							<ipxact:right>0</ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>slave_select_out</ipxact:name>
+				<ipxact:description>SPI slave selection.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+					<ipxact:wireTypeDefs>
+						<ipxact:wireTypeDef>
+							<ipxact:typeName>reg</ipxact:typeName>
+						</ipxact:wireTypeDef>
+					</ipxact:wireTypeDefs>
 				</ipxact:wire>
 			</ipxact:port>
 		</ipxact:ports>
@@ -510,70 +495,70 @@
 	<ipxact:fileSets>
 		<ipxact:fileSet>
 			<ipxact:name>verilogSource</ipxact:name>
-			<ipxact:group>generatedFiles</ipxact:group>
+			<ipxact:description>The implementation files of the module.</ipxact:description>
 			<ipxact:file>
-				<ipxact:name>wb_master.v</ipxact:name>
+				<ipxact:name>wb_slave_spi_master.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:description>Generated at 14:33:24 on 27.07.2017 by Kactus2. </ipxact:description>
+				<ipxact:description>Generated at 13:45:47 on 18.04.2017 by Kactus2. </ipxact:description>
 				<ipxact:vendorExtensions>
-					<kactus2:hash>ca13dc1f370c4fcca49eb86e9eb2de369f07dc91</kactus2:hash>
+					<kactus2:hash>d4b2efc6012dda315886a7c0111bb4c538aca859</kactus2:hash>
 				</ipxact:vendorExtensions>
 			</ipxact:file>
 		</ipxact:fileSet>
 	</ipxact:fileSets>
-	<ipxact:description>A bridge between a CPU and wishbone bus.</ipxact:description>
+	<ipxact:description>A bridge between an SPI slave and a Wishbone master.</ipxact:description>
 	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_ed7d4652_1c14_4647_90dd_881ec00146f8" resolve="user" usageCount="4">
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_3452fcca_4cd2_458f_a644_4c6530ea74ed" resolve="user">
 			<ipxact:name>ADDR_WIDTH</ipxact:name>
 			<ipxact:description>The width of the address.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_fe30a511_9701_4142_b340_223777d1b857" resolve="user" usageCount="9">
+		<ipxact:parameter kactus2:usageCount="3" parameterId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd" resolve="user">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>The width of both input and output data.</ipxact:description>
 			<ipxact:value>32</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_97ac3e61_b280_4fa3_982a_78b110952f5b" resolve="user">
+		<ipxact:parameter parameterId="uuid_11833df7_86a0_48e2_8577_f3cc38000d57" resolve="user">
 			<ipxact:name>BASE_ADDRESS</ipxact:name>
-			<ipxact:description>The location of the bus in the system memory.</ipxact:description>
+			<ipxact:description>The first referred address of the master.</ipxact:description>
 			<ipxact:value>'h0F00</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_c58fd099_9dad_463d_bbe9_ff967befbfb0" resolve="user" usageCount="1">
-			<ipxact:name>RANGE</ipxact:name>
-			<ipxact:description>Number of addresses accesible by the component.</ipxact:description>
-			<ipxact:value>'h0200</ipxact:value>
+		<ipxact:parameter kactus2:usageCount="8" parameterId="uuid_3928a897_9f75_4ed7_a9be_c68cadf66920" resolve="immediate">
+			<ipxact:name>BUFFER_SIZE</ipxact:name>
+			<ipxact:description>How many bytes is allocated for a buffer.</ipxact:description>
+			<ipxact:value>16</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter parameterId="uuid_64739040_c366_4d13_b648_17fcd0cd58c7" resolve="generated">
+			<ipxact:name>BUFFER_INDEX_WIDTH</ipxact:name>
+			<ipxact:description>How many bits are needed to index the buffer.</ipxact:description>
+			<ipxact:value>$clog2(uuid_3928a897_9f75_4ed7_a9be_c68cadf66920)</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_800a337a_29d2_423a_b1ca_fd57f6c75983" resolve="immediate">
+			<ipxact:name>CONTROL_SIZE</ipxact:name>
+			<ipxact:description>How many bytes asre reserved for the control data.</ipxact:description>
+			<ipxact:value>1</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="3" parameterId="uuid_1789a5ec_4856_4dfc_99e3_91a0777df0cc" resolve="immediate">
+			<ipxact:name>STATUS_SIZE</ipxact:name>
+			<ipxact:description>How many bytes asre reserved for the status data.</ipxact:description>
+			<ipxact:value>1</ipxact:value>
 		</ipxact:parameter>
 	</ipxact:parameters>
 	<ipxact:vendorExtensions>
 		<kactus2:fileDependencies>
 			<kactus2:fileDependency manual="false" bidirectional="false" locked="false">
-				<kactus2:fileRef1>wb_master.cpp</kactus2:fileRef1>
-				<kactus2:fileRef2>wb_master.hh</kactus2:fileRef2>
+				<kactus2:fileRef1>wb_slave.cpp</kactus2:fileRef1>
+				<kactus2:fileRef2>wb_slave.hh</kactus2:fileRef2>
 				<ipxact:description></ipxact:description>
 			</kactus2:fileDependency>
 			<kactus2:fileDependency manual="false" bidirectional="false" locked="false">
-				<kactus2:fileRef1>wb_master.hh</kactus2:fileRef1>
+				<kactus2:fileRef1>wb_slave.hh</kactus2:fileRef1>
 				<kactus2:fileRef2>$External$/header.hh</kactus2:fileRef2>
 				<ipxact:description></ipxact:description>
 			</kactus2:fileDependency>
 			<kactus2:fileDependency manual="false" bidirectional="false" locked="false">
-				<kactus2:fileRef1>wb_master.hh</kactus2:fileRef1>
+				<kactus2:fileRef1>wb_slave.hh</kactus2:fileRef1>
 				<kactus2:fileRef2>$External$/systemc.h</kactus2:fileRef2>
-				<ipxact:description></ipxact:description>
-			</kactus2:fileDependency>
-			<kactus2:fileDependency manual="false" bidirectional="false" locked="false">
-				<kactus2:fileRef1>master.hh</kactus2:fileRef1>
-				<kactus2:fileRef2>$External$/header.hh</kactus2:fileRef2>
-				<ipxact:description></ipxact:description>
-			</kactus2:fileDependency>
-			<kactus2:fileDependency manual="false" bidirectional="false" locked="false">
-				<kactus2:fileRef1>master.hh</kactus2:fileRef1>
-				<kactus2:fileRef2>$External$/systemc.h</kactus2:fileRef2>
-				<ipxact:description></ipxact:description>
-			</kactus2:fileDependency>
-			<kactus2:fileDependency manual="false" bidirectional="false" locked="false">
-				<kactus2:fileRef1>master.hh</kactus2:fileRef1>
-				<kactus2:fileRef2>wb_master.hh</kactus2:fileRef2>
 				<ipxact:description></ipxact:description>
 			</kactus2:fileDependency>
 		</kactus2:fileDependencies>

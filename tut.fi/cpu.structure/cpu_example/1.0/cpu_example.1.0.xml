@@ -6,6 +6,11 @@
 	<ipxact:version>1.0</ipxact:version>
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
+			<ipxact:name>spi_master</ipxact:name>
+			<ipxact:busType vendor="tut.fi" library="interface" name="" version=""/>
+			<ipxact:master/>
+		</ipxact:busInterface>
+		<ipxact:busInterface>
 			<ipxact:name>wb_system</ipxact:name>
 			<ipxact:busType vendor="opencores.org" library="interface" name="wishbone" version="b4"/>
 			<ipxact:abstractionTypes>
@@ -36,8 +41,31 @@
 			</ipxact:system>
 		</ipxact:busInterface>
 		<ipxact:busInterface>
-			<ipxact:name>spi_master</ipxact:name>
-			<ipxact:busType vendor="tut.fi" library="interface" name="" version=""/>
+			<ipxact:name>instructions</ipxact:name>
+			<ipxact:busType vendor="tut.fi" library="interface" name="local_memory" version="1.1"/>
+			<ipxact:abstractionTypes>
+				<ipxact:abstractionType>
+					<ipxact:abstractionRef vendor="tut.fi" library="interface" name="local_memory.absDef" version="1.1"/>
+					<ipxact:portMaps>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>read_data</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>instruction_feed</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>address</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>iaddr_o</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+					</ipxact:portMaps>
+				</ipxact:abstractionType>
+			</ipxact:abstractionTypes>
 			<ipxact:master/>
 		</ipxact:busInterface>
 		<ipxact:busInterface>
@@ -77,34 +105,6 @@
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
 								<ipxact:name>local_write_o</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-					</ipxact:portMaps>
-				</ipxact:abstractionType>
-			</ipxact:abstractionTypes>
-			<ipxact:master/>
-		</ipxact:busInterface>
-		<ipxact:busInterface>
-			<ipxact:name>instructions</ipxact:name>
-			<ipxact:busType vendor="tut.fi" library="interface" name="local_memory" version="1.1"/>
-			<ipxact:abstractionTypes>
-				<ipxact:abstractionType>
-					<ipxact:abstractionRef vendor="tut.fi" library="interface" name="local_memory.absDef" version="1.1"/>
-					<ipxact:portMaps>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>read_data</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>instruction_feed</ipxact:name>
-							</ipxact:physicalPort>
-						</ipxact:portMap>
-						<ipxact:portMap>
-							<ipxact:logicalPort>
-								<ipxact:name>address</ipxact:name>
-							</ipxact:logicalPort>
-							<ipxact:physicalPort>
-								<ipxact:name>iaddr_o</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 					</ipxact:portMaps>
