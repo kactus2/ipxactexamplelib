@@ -1,4 +1,4 @@
-﻿#System memory map
+#System memory map
 Byte-addressable
 
 |Register|Start address|End address|Notes|
