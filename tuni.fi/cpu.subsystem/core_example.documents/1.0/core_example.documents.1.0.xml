@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipxact:catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+	<ipxact:vendor>tuni.fi</ipxact:vendor>
+	<ipxact:library>cpu.subsystem</ipxact:library>
+	<ipxact:name>core_example.documents</ipxact:name>
+	<ipxact:version>1.0</ipxact:version>
+	<ipxact:description>List of IP-XACT documents in the example cpu core. The top-level component is tuni.fi:cpu.subsystem:core_example:1.0.
+</ipxact:description>
+	<ipxact:busDefinitions>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tuni.fi" library="interface" name="local_memory" version="1.1"/>
+			<ipxact:name>../../../interface/local_memory/1.1/local_memory.1.1.xml</ipxact:name>
+		</ipxact:ipxactFile>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tuni.fi" library="interface" name="peripheral_control" version="1.0"/>
+			<ipxact:name>../../../interface/peripheral_control/1.0/peripheral_control.1.0.xml</ipxact:name>
+		</ipxact:ipxactFile>
+	</ipxact:busDefinitions>
+	<ipxact:abstractionDefinitions>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tuni.fi" library="interface" name="local_memory.absDef" version="1.1"/>
+			<ipxact:name>../../../interface/local_memory/1.1/local_memory.absDef.1.1.xml</ipxact:name>
+		</ipxact:ipxactFile>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tuni.fi" library="interface" name="peripheral_control.absDef" version="1.0"/>
+			<ipxact:name>../../../interface/peripheral_control/1.0/peripheral_control.absDef.1.0.xml</ipxact:name>
+		</ipxact:ipxactFile>
+	</ipxact:abstractionDefinitions>
+	<ipxact:components>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tuni.fi" library="cpu.subsystem" name="core_example" version="1.0"/>
+			<ipxact:name>../../core_example/1.0/core_example.1.0.xml</ipxact:name>
+		</ipxact:ipxactFile>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tuni.fi" library="cpu.logic" name="alu" version="1.0"/>
+			<ipxact:name>../../../cpu.logic/alu/1.0/alu.1.0.xml</ipxact:name>
+		</ipxact:ipxactFile>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tuni.fi" library="cpu.logic" name="clock" version="1.0"/>
+			<ipxact:name>../../../cpu.logic/clock/1.0/clock.1.0.xml</ipxact:name>
+		</ipxact:ipxactFile>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tuni.fi" library="cpu.logic" name="instruction_decoder" version="1.0"/>
+			<ipxact:name>../../../cpu.logic/instruction_decoder/1.0/instruction_decoder.1.0.xml</ipxact:name>
+		</ipxact:ipxactFile>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tuni.fi" library="cpu.logic" name="memory_controller" version="1.0"/>
+			<ipxact:name>../../../cpu.logic/memory_controller/1.0/memory_controller.1.0.xml</ipxact:name>
+		</ipxact:ipxactFile>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tuni.fi" library="cpu.logic" name="register_bank" version="1.0"/>
+			<ipxact:name>../../../cpu.logic/register_bank/1.0/register_bank.1.0.xml</ipxact:name>
+		</ipxact:ipxactFile>
+	</ipxact:components>
+	<ipxact:designs>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tuni.fi" library="cpu.subsystem" name="core_example.design" version="1.0"/>
+			<ipxact:name>../../core_example/1.0/core_example.design.1.0.xml</ipxact:name>
+		</ipxact:ipxactFile>
+	</ipxact:designs>
+	<ipxact:designConfigurations>
+		<ipxact:ipxactFile>
+			<ipxact:vlnv vendor="tuni.fi" library="cpu.subsystem" name="core_example.verilog.designcfg" version="1.0"/>
+			<ipxact:name>../../core_example/1.0/core_example.verilog.designcfg.1.0.xml</ipxact:name>
+		</ipxact:ipxactFile>
+	</ipxact:designConfigurations>
+	<ipxact:vendorExtensions>
+		<kactus2:version>3,4,108,0</kactus2:version>
+	</ipxact:vendorExtensions>
+</ipxact:catalog>

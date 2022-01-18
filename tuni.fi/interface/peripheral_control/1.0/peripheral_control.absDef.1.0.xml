@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipxact:abstractionDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+	<ipxact:vendor>tuni.fi</ipxact:vendor>
+	<ipxact:library>interface</ipxact:library>
+	<ipxact:name>peripheral_control.absDef</ipxact:name>
+	<ipxact:version>1.0</ipxact:version>
+	<ipxact:busType vendor="tuni.fi" library="interface" name="peripheral_control" version="1.0"/>
+	<ipxact:ports>
+		<ipxact:port>
+			<ipxact:logicalName>address</ipxact:logicalName>
+			<ipxact:description>Target address of the transfer.</ipxact:description>
+			<ipxact:wire>
+				<ipxact:qualifier>
+					<ipxact:isAddress>true</ipxact:isAddress>
+				</ipxact:qualifier>
+				<ipxact:onMaster>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onMaster>
+				<ipxact:onSlave>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onSlave>
+			</ipxact:wire>
+		</ipxact:port>
+		<ipxact:port>
+			<ipxact:logicalName>data_ms</ipxact:logicalName>
+			<ipxact:description>Data from controller to slave module.</ipxact:description>
+			<ipxact:wire>
+				<ipxact:qualifier>
+					<ipxact:isData>true</ipxact:isData>
+				</ipxact:qualifier>
+				<ipxact:onMaster>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onMaster>
+				<ipxact:onSlave>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onSlave>
+			</ipxact:wire>
+		</ipxact:port>
+		<ipxact:port>
+			<ipxact:logicalName>data_sm</ipxact:logicalName>
+			<ipxact:description>Data from slave module to controller.</ipxact:description>
+			<ipxact:wire>
+				<ipxact:qualifier>
+					<ipxact:isData>true</ipxact:isData>
+				</ipxact:qualifier>
+				<ipxact:onMaster>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onMaster>
+				<ipxact:onSlave>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onSlave>
+			</ipxact:wire>
+		</ipxact:port>
+		<ipxact:port>
+			<ipxact:logicalName>we</ipxact:logicalName>
+			<ipxact:description>1 = Controller writes to the address. 0 = Controller reads from the address.</ipxact:description>
+			<ipxact:wire>
+				<ipxact:onMaster>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onMaster>
+				<ipxact:onSlave>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onSlave>
+			</ipxact:wire>
+		</ipxact:port>
+		<ipxact:port>
+			<ipxact:logicalName>slave_rdy</ipxact:logicalName>
+			<ipxact:description>Signifies that the slave has executed the transfer.</ipxact:description>
+			<ipxact:wire>
+				<ipxact:onMaster>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onMaster>
+				<ipxact:onSlave>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onSlave>
+			</ipxact:wire>
+		</ipxact:port>
+		<ipxact:port>
+			<ipxact:logicalName>master_rdy</ipxact:logicalName>
+			<ipxact:description>Signifies that master has provided data needed to execute the transfer.</ipxact:description>
+			<ipxact:wire>
+				<ipxact:onMaster>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onMaster>
+				<ipxact:onSlave>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onSlave>
+			</ipxact:wire>
+		</ipxact:port>
+	</ipxact:ports>
+	<ipxact:vendorExtensions>
+		<kactus2:version>3,4,4,0</kactus2:version>
+	</ipxact:vendorExtensions>
+</ipxact:abstractionDefinition>

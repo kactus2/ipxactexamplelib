@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipxact:busDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+	<ipxact:vendor>tuni.fi</ipxact:vendor>
+	<ipxact:library>interface</ipxact:library>
+	<ipxact:name>peripheral_control</ipxact:name>
+	<ipxact:version>1.0</ipxact:version>
+	<ipxact:directConnection>true</ipxact:directConnection>
+	<ipxact:isAddressable>true</ipxact:isAddressable>
+	<ipxact:maxMasters>1</ipxact:maxMasters>
+	<ipxact:maxSlaves>1</ipxact:maxSlaves>
+	<ipxact:description>Defines a one-to-one access from memory controller to more dedicated peripherals controllers, i.e a bridge between CPU core and peripheral bus.</ipxact:description>
+	<ipxact:vendorExtensions>
+		<kactus2:version>3,4,4,0</kactus2:version>
+	</ipxact:vendorExtensions>
+</ipxact:busDefinition>

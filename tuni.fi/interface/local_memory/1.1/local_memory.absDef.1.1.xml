@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipxact:abstractionDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+	<ipxact:vendor>tuni.fi</ipxact:vendor>
+	<ipxact:library>interface</ipxact:library>
+	<ipxact:name>local_memory.absDef</ipxact:name>
+	<ipxact:version>1.1</ipxact:version>
+	<ipxact:busType vendor="tuni.fi" library="interface" name="local_memory" version="1.1"/>
+	<ipxact:ports>
+		<ipxact:port>
+			<ipxact:logicalName>address</ipxact:logicalName>
+			<ipxact:description>The address of write_data of the current clock cycle and read_data in the next clock cycle.</ipxact:description>
+			<ipxact:wire>
+				<ipxact:onMaster>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onMaster>
+				<ipxact:onSlave>
+					<ipxact:presence>required</ipxact:presence>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onSlave>
+			</ipxact:wire>
+		</ipxact:port>
+		<ipxact:port>
+			<ipxact:logicalName>read_data</ipxact:logicalName>
+			<ipxact:description>The contents of memory in the address of the previous cycle.</ipxact:description>
+			<ipxact:wire>
+				<ipxact:onMaster>
+					<ipxact:presence>optional</ipxact:presence>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onMaster>
+				<ipxact:onSlave>
+					<ipxact:presence>optional</ipxact:presence>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onSlave>
+			</ipxact:wire>
+		</ipxact:port>
+		<ipxact:port>
+			<ipxact:logicalName>write</ipxact:logicalName>
+			<ipxact:description>1 = Write write_data, 0 = Do not write</ipxact:description>
+			<ipxact:wire>
+				<ipxact:onMaster>
+					<ipxact:presence>optional</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onMaster>
+				<ipxact:onSlave>
+					<ipxact:presence>optional</ipxact:presence>
+					<ipxact:width>1</ipxact:width>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onSlave>
+				<ipxact:defaultValue>0</ipxact:defaultValue>
+			</ipxact:wire>
+		</ipxact:port>
+		<ipxact:port>
+			<ipxact:logicalName>write_data</ipxact:logicalName>
+			<ipxact:description>The data that will be written, if enabled.</ipxact:description>
+			<ipxact:wire>
+				<ipxact:onMaster>
+					<ipxact:presence>optional</ipxact:presence>
+					<ipxact:direction>out</ipxact:direction>
+				</ipxact:onMaster>
+				<ipxact:onSlave>
+					<ipxact:presence>optional</ipxact:presence>
+					<ipxact:direction>in</ipxact:direction>
+				</ipxact:onSlave>
+				<ipxact:defaultValue>0</ipxact:defaultValue>
+			</ipxact:wire>
+		</ipxact:port>
+	</ipxact:ports>
+</ipxact:abstractionDefinition>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipxact:busDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+	<ipxact:vendor>tuni.fi</ipxact:vendor>
+	<ipxact:library>interface</ipxact:library>
+	<ipxact:name>local_memory</ipxact:name>
+	<ipxact:version>1.1</ipxact:version>
+	<ipxact:directConnection>true</ipxact:directConnection>
+	<ipxact:broadcast>false</ipxact:broadcast>
+	<ipxact:isAddressable>true</ipxact:isAddressable>
+	<ipxact:maxMasters>1</ipxact:maxMasters>
+	<ipxact:maxSlaves>1</ipxact:maxSlaves>
+	<ipxact:description>A one-to-one memory access, which is assumed to work without missing cycles: The data in the current address is available at the next clock cycle.
+
+The clock and reset are ommitted from this interface: It is assumed that both slave and master are on the same clock domain.</ipxact:description>
+</ipxact:busDefinition>

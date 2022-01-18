@@ -1,18 +1,24 @@
-# ipxactexamplelib
-Contains examples to get started with Kactus2.
-VLNV naming recommendation: http://funbase.cs.tut.fi/doc/Kactus2_vlnv.pdf
-See video tutorials at: https://www.youtube.com/user/Kactus2Tutorial
+# Training material
 
-## The IP-XACT documents for the plugin templates are listed in the following catalogs:
-* Sample Generator: tut.fi:examples:SampleGenerator:1.0
-* Sample Importer: tut.fi:examples:SampleImporter:1.0
-* Sample Source Analyzer: tut.fi:examples:SampleSourceAnalyzer:1.0
+This branch of the repository contains training material for the SoC Hub webinar on 26th January 2022.
+It has been heavily modified from the master branch and does not function as an example library on its own.
 
-## The IP-XACT documents for the video tutorials are listed in the following catalogs:
-* Getting Started: tut.fi:examples:GettingStarted:1.0
-* Component Editor: tut.fi:examples:ComponentEditor:1.0
-* Design Editor: tut.fi:examples:DesignEditor:1.0
-* Verilog Generation: tut.fi:examples:VerilogGeneration:1.0
-* Simulation Support: tut.fi:examples:SimulationSupport:1.0
-* Bus Definition: tut.fi:examples:BusDefinition:1.0
-* Memory Design: tut.fi:examples:MemoryDesign:1.0
+## Instructions for the webinar tasks
+
+The instructions in the following sections are for two common IP-XACT tasks: IP packaging and design creation. 
+The task descriptions are deliberately on a high level. You can use the Help in Kactus2 toolbar for more information 
+on basic usage and IP-XACT element descriptions.
+
+Tip: If you cannot edit any of the component fields or the design, check the toolbar for a lock symbol. Unlocking 
+(clicking on the lock symbol) the document allows editing.
+
+## Task 1: IP packaging
+Package IP defined in src/spi_controller.v in Kactus2. The IP should have at least parameters, file set(s), 
+ports, bus interface(s) and registers. The full system memory map is given in doc/memory_map.md.
+
+
+## Task 2: Design creation
+Design a system with the following components: core_example, wb_master_cpu_slave, wishbone, wb_external_mem,
+sum_buffer, and spi_controller (see Task 1). Component core_example functions as a CPU connected to
+peripherals sum_buffer, and spi_controller, and memory component in wb_external_mem.
+Check the system memory map (see Task 1) and generate Verilog file(s) for the design.
