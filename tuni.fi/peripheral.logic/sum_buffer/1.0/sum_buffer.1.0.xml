@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+<ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014 http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tuni.fi</ipxact:vendor>
 	<ipxact:library>peripheral.logic</ipxact:library>
 	<ipxact:name>sum_buffer</ipxact:name>
@@ -169,7 +169,7 @@
 			<ipxact:name>default</ipxact:name>
 			<ipxact:addressBlock>
 				<ipxact:name>registers</ipxact:name>
-				<ipxact:baseAddress>uuid_a1a11cf0_8317_4c75_b719_c55f8b393ddc</ipxact:baseAddress>
+				<ipxact:baseAddress>0</ipxact:baseAddress>
 				<ipxact:range>2*uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd/8</ipxact:range>
 				<ipxact:width>uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd</ipxact:width>
 				<ipxact:usage>register</ipxact:usage>
@@ -410,12 +410,12 @@
 	</ipxact:fileSets>
 	<ipxact:description>Maintains calculated sum of input values. The output value is the latest result. When new input value is set, the oldest is discarded and deducted from the result.</ipxact:description>
 	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_3452fcca_4cd2_458f_a644_4c6530ea74ed" resolve="user" usageCount="1">
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_3452fcca_4cd2_458f_a644_4c6530ea74ed" resolve="user">
 			<ipxact:name>ADDR_WIDTH</ipxact:name>
 			<ipxact:description>The width of the address.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd" resolve="user" usageCount="10">
+		<ipxact:parameter kactus2:usageCount="10" parameterId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd" resolve="user">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>The width of the both transferred and inputted data.</ipxact:description>
 			<ipxact:value>32</ipxact:value>
@@ -425,7 +425,7 @@
 			<ipxact:description>The first referred address of the master.</ipxact:description>
 			<ipxact:value>'h0F00</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_a1a11cf0_8317_4c75_b719_c55f8b393ddc" resolve="immediate" usageCount="3">
+		<ipxact:parameter kactus2:usageCount="2" parameterId="uuid_a1a11cf0_8317_4c75_b719_c55f8b393ddc" resolve="immediate">
 			<ipxact:name>BUFFER_SIZE</ipxact:name>
 			<ipxact:description>How much buffer is allocated for both directions.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
