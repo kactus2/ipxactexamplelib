@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+<ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014 http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
 	<ipxact:library>cpu.logic</ipxact:library>
 	<ipxact:name>memory_controller</ipxact:name>
@@ -65,8 +65,8 @@
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
 			<ipxact:master>
-				<ipxact:addressSpaceRef ipxact:addressSpaceRef="default">
-					<ipxact:baseAddress ipxact:addressSpaceRef="default">uuid_e3b353a9_9c84_4f26_a9bf_8271de5b015c</ipxact:baseAddress>
+				<ipxact:addressSpaceRef addressSpaceRef="default">
+					<ipxact:baseAddress>uuid_e3b353a9_9c84_4f26_a9bf_8271de5b015c</ipxact:baseAddress>
 				</ipxact:addressSpaceRef>
 			</ipxact:master>
 		</ipxact:busInterface>
@@ -296,7 +296,6 @@
 					<ipxact:register>
 						<ipxact:name>modstart</ipxact:name>
 						<ipxact:description>Start address for modulo operation</ipxact:description>
-						<ipxact:dim>0</ipxact:dim>
 						<ipxact:addressOffset>uuid_86d03535_d756_4fc9_8d59_ba85e57b94ab*1</ipxact:addressOffset>
 						<ipxact:size>uuid_11795f77_041d_4548_bcf3_cd41b67482a1</ipxact:size>
 						<ipxact:field>
@@ -308,7 +307,6 @@
 					<ipxact:register>
 						<ipxact:name>modend</ipxact:name>
 						<ipxact:description>End address for modulo operation</ipxact:description>
-						<ipxact:dim>0</ipxact:dim>
 						<ipxact:addressOffset>uuid_86d03535_d756_4fc9_8d59_ba85e57b94ab*2</ipxact:addressOffset>
 						<ipxact:size>uuid_11795f77_041d_4548_bcf3_cd41b67482a1</ipxact:size>
 						<ipxact:field>
@@ -320,7 +318,6 @@
 					<ipxact:register>
 						<ipxact:name>alu_status</ipxact:name>
 						<ipxact:description>ALU status bits</ipxact:description>
-						<ipxact:dim>0</ipxact:dim>
 						<ipxact:addressOffset>0</ipxact:addressOffset>
 						<ipxact:size>uuid_11795f77_041d_4548_bcf3_cd41b67482a1</ipxact:size>
 						<ipxact:access>read-only</ipxact:access>
@@ -352,7 +349,6 @@
 					<ipxact:register>
 						<ipxact:name>periph_status</ipxact:name>
 						<ipxact:description>Status of the peripheral control.</ipxact:description>
-						<ipxact:dim>0</ipxact:dim>
 						<ipxact:addressOffset>uuid_86d03535_d756_4fc9_8d59_ba85e57b94ab*3</ipxact:addressOffset>
 						<ipxact:size>uuid_11795f77_041d_4548_bcf3_cd41b67482a1</ipxact:size>
 						<ipxact:field>
@@ -378,7 +374,6 @@
 					<ipxact:register>
 						<ipxact:name>periph_write</ipxact:name>
 						<ipxact:description>The last value being written to perhiphreals.</ipxact:description>
-						<ipxact:dim>0</ipxact:dim>
 						<ipxact:addressOffset>uuid_86d03535_d756_4fc9_8d59_ba85e57b94ab*5</ipxact:addressOffset>
 						<ipxact:size>uuid_11795f77_041d_4548_bcf3_cd41b67482a1</ipxact:size>
 						<ipxact:field>
@@ -390,7 +385,6 @@
 					<ipxact:register>
 						<ipxact:name>periph_read</ipxact:name>
 						<ipxact:description>The last value that is read from peripherals.</ipxact:description>
-						<ipxact:dim>0</ipxact:dim>
 						<ipxact:addressOffset>uuid_86d03535_d756_4fc9_8d59_ba85e57b94ab*4</ipxact:addressOffset>
 						<ipxact:size>uuid_11795f77_041d_4548_bcf3_cd41b67482a1</ipxact:size>
 						<ipxact:field>
@@ -402,7 +396,6 @@
 					<ipxact:register>
 						<ipxact:name>periph_addr</ipxact:name>
 						<ipxact:description>The last accessed peripheral address.</ipxact:description>
-						<ipxact:dim>0</ipxact:dim>
 						<ipxact:addressOffset>uuid_86d03535_d756_4fc9_8d59_ba85e57b94ab*6</ipxact:addressOffset>
 						<ipxact:size>uuid_11795f77_041d_4548_bcf3_cd41b67482a1</ipxact:size>
 						<ipxact:field>
@@ -555,9 +548,6 @@
 						</ipxact:vector>
 					</ipxact:vectors>
 				</ipxact:wire>
-				<ipxact:vendorExtensions>
-					<kactus2:portTags></kactus2:portTags>
-				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>rst_i</ipxact:name>
@@ -571,9 +561,6 @@
 						</ipxact:vector>
 					</ipxact:vectors>
 				</ipxact:wire>
-				<ipxact:vendorExtensions>
-					<kactus2:portTags></kactus2:portTags>
-				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>sys_data_i</ipxact:name>
@@ -711,27 +698,27 @@ Ports prefixes:
 -periph denotes peripheral access, explained in interface.peripheral_control
 -sys denotes CPU system bus, explained in interface.intra_cpu</ipxact:description>
 	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_11795f77_041d_4548_bcf3_cd41b67482a1" resolve="user" usageCount="24">
+		<ipxact:parameter kactus2:usageCount="24" parameterId="uuid_11795f77_041d_4548_bcf3_cd41b67482a1" resolve="user">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>Width for data in registers and instructions.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_b6bb8c34_3d40_4189_b91d_6cdce56c33f1" resolve="user" usageCount="4">
+		<ipxact:parameter kactus2:usageCount="4" parameterId="uuid_b6bb8c34_3d40_4189_b91d_6cdce56c33f1" resolve="user">
 			<ipxact:name>ADDR_WIDTH</ipxact:name>
 			<ipxact:description>Width of the addresses.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_e835eae8_6310_47c7_a791_8ee2df766ed3" resolve="user" usageCount="2">
+		<ipxact:parameter kactus2:usageCount="2" parameterId="uuid_e835eae8_6310_47c7_a791_8ee2df766ed3" resolve="user">
 			<ipxact:name>MEMORY_SIZE</ipxact:name>
 			<ipxact:description>How many bytes are in memory at total.</ipxact:description>
 			<ipxact:value>256</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_e3b353a9_9c84_4f26_a9bf_8271de5b015c" resolve="user" usageCount="5">
+		<ipxact:parameter kactus2:usageCount="5" parameterId="uuid_e3b353a9_9c84_4f26_a9bf_8271de5b015c" resolve="user">
 			<ipxact:name>PERIPHERAL_BASE</ipxact:name>
 			<ipxact:description>The first address for peripherals.</ipxact:description>
 			<ipxact:value>128</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_13bb2f35_a7cd_4792_ba5d_7b91ffe4e882" resolve="immediate" usageCount="2">
+		<ipxact:parameter kactus2:usageCount="2" parameterId="uuid_13bb2f35_a7cd_4792_ba5d_7b91ffe4e882" resolve="immediate">
 			<ipxact:name>AUB</ipxact:name>
 			<ipxact:description>Addressable unit bits, size of byte.</ipxact:description>
 			<ipxact:value>8</ipxact:value>
@@ -741,12 +728,12 @@ Ports prefixes:
 			<ipxact:description>How many registers are supported in the core.</ipxact:description>
 			<ipxact:value>8</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_86d03535_d756_4fc9_8d59_ba85e57b94ab" resolve="immediate" usageCount="8">
+		<ipxact:parameter kactus2:usageCount="8" parameterId="uuid_86d03535_d756_4fc9_8d59_ba85e57b94ab" resolve="immediate">
 			<ipxact:name>DATA_BYTES</ipxact:name>
 			<ipxact:description>How many bytes in data width.</ipxact:description>
 			<ipxact:value>uuid_11795f77_041d_4548_bcf3_cd41b67482a1/uuid_13bb2f35_a7cd_4792_ba5d_7b91ffe4e882</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_5e8681b9_de2f_4521_b331_a3db91c4b49b" resolve="immediate" usageCount="4">
+		<ipxact:parameter kactus2:usageCount="4" parameterId="uuid_5e8681b9_de2f_4521_b331_a3db91c4b49b" resolve="immediate">
 			<ipxact:name>CONTROL_RANGE</ipxact:name>
 			<ipxact:description>How many AUBs are reserved for control data.</ipxact:description>
 			<ipxact:value>'h40</ipxact:value>

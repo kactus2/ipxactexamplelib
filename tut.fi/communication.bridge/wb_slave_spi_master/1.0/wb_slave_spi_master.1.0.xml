@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+<ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014 http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>tut.fi</ipxact:vendor>
 	<ipxact:library>communication.bridge</ipxact:library>
 	<ipxact:name>wb_slave_spi_master</ipxact:name>
@@ -233,7 +233,6 @@
 				<ipxact:access>write-only</ipxact:access>
 				<ipxact:register>
 					<ipxact:name>control</ipxact:name>
-					<ipxact:dim>0</ipxact:dim>
 					<ipxact:addressOffset>0</ipxact:addressOffset>
 					<ipxact:size>8</ipxact:size>
 					<ipxact:volatile>true</ipxact:volatile>
@@ -264,7 +263,6 @@
 				<ipxact:access>read-only</ipxact:access>
 				<ipxact:register>
 					<ipxact:name>status</ipxact:name>
-					<ipxact:dim>0</ipxact:dim>
 					<ipxact:addressOffset>'h0</ipxact:addressOffset>
 					<ipxact:size>8</ipxact:size>
 					<ipxact:volatile>true</ipxact:volatile>
@@ -315,9 +313,6 @@
 						</ipxact:wireTypeDef>
 					</ipxact:wireTypeDefs>
 				</ipxact:wire>
-				<ipxact:vendorExtensions>
-					<kactus2:portTags></kactus2:portTags>
-				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>adr_i</ipxact:name>
@@ -331,9 +326,6 @@
 						</ipxact:vector>
 					</ipxact:vectors>
 				</ipxact:wire>
-				<ipxact:vendorExtensions>
-					<kactus2:portTags></kactus2:portTags>
-				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>cyc_i</ipxact:name>
@@ -347,9 +339,6 @@
 						</ipxact:vector>
 					</ipxact:vectors>
 				</ipxact:wire>
-				<ipxact:vendorExtensions>
-					<kactus2:portTags></kactus2:portTags>
-				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>dat_o</ipxact:name>
@@ -368,9 +357,6 @@
 						</ipxact:wireTypeDef>
 					</ipxact:wireTypeDefs>
 				</ipxact:wire>
-				<ipxact:vendorExtensions>
-					<kactus2:portTags></kactus2:portTags>
-				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>dat_i</ipxact:name>
@@ -384,9 +370,6 @@
 						</ipxact:vector>
 					</ipxact:vectors>
 				</ipxact:wire>
-				<ipxact:vendorExtensions>
-					<kactus2:portTags></kactus2:portTags>
-				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>stb_i</ipxact:name>
@@ -400,9 +383,6 @@
 						</ipxact:vector>
 					</ipxact:vectors>
 				</ipxact:wire>
-				<ipxact:vendorExtensions>
-					<kactus2:portTags></kactus2:portTags>
-				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>we_i</ipxact:name>
@@ -416,9 +396,6 @@
 						</ipxact:vector>
 					</ipxact:vectors>
 				</ipxact:wire>
-				<ipxact:vendorExtensions>
-					<kactus2:portTags></kactus2:portTags>
-				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>clk_i</ipxact:name>
@@ -463,9 +440,6 @@
 						</ipxact:wireTypeDef>
 					</ipxact:wireTypeDefs>
 				</ipxact:wire>
-				<ipxact:vendorExtensions>
-					<kactus2:portTags></kactus2:portTags>
-				</ipxact:vendorExtensions>
 			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>clk_out</ipxact:name>
@@ -547,12 +521,12 @@
 	</ipxact:fileSets>
 	<ipxact:description>A bridge between an SPI slave and a Wishbone master.</ipxact:description>
 	<ipxact:parameters>
-		<ipxact:parameter parameterId="uuid_3452fcca_4cd2_458f_a644_4c6530ea74ed" resolve="user" usageCount="1">
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_3452fcca_4cd2_458f_a644_4c6530ea74ed" resolve="user">
 			<ipxact:name>ADDR_WIDTH</ipxact:name>
 			<ipxact:description>The width of the address.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd" resolve="user" usageCount="3">
+		<ipxact:parameter kactus2:usageCount="3" parameterId="uuid_981f1b40_673e_44dc_a9c1_881b812f8ddd" resolve="user">
 			<ipxact:name>DATA_WIDTH</ipxact:name>
 			<ipxact:description>The width of both input and output data.</ipxact:description>
 			<ipxact:value>32</ipxact:value>
@@ -562,7 +536,7 @@
 			<ipxact:description>The first referred address of the master.</ipxact:description>
 			<ipxact:value>'h0F00</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_3928a897_9f75_4ed7_a9be_c68cadf66920" resolve="immediate" usageCount="8">
+		<ipxact:parameter kactus2:usageCount="8" parameterId="uuid_3928a897_9f75_4ed7_a9be_c68cadf66920" resolve="immediate">
 			<ipxact:name>BUFFER_SIZE</ipxact:name>
 			<ipxact:description>How many bytes is allocated for a buffer.</ipxact:description>
 			<ipxact:value>16</ipxact:value>
@@ -572,12 +546,12 @@
 			<ipxact:description>How many bits are needed to index the buffer.</ipxact:description>
 			<ipxact:value>$clog2(uuid_3928a897_9f75_4ed7_a9be_c68cadf66920)</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_800a337a_29d2_423a_b1ca_fd57f6c75983" resolve="immediate" usageCount="1">
+		<ipxact:parameter kactus2:usageCount="1" parameterId="uuid_800a337a_29d2_423a_b1ca_fd57f6c75983" resolve="immediate">
 			<ipxact:name>CONTROL_SIZE</ipxact:name>
 			<ipxact:description>How many bytes asre reserved for the control data.</ipxact:description>
 			<ipxact:value>1</ipxact:value>
 		</ipxact:parameter>
-		<ipxact:parameter parameterId="uuid_1789a5ec_4856_4dfc_99e3_91a0777df0cc" resolve="immediate" usageCount="3">
+		<ipxact:parameter kactus2:usageCount="3" parameterId="uuid_1789a5ec_4856_4dfc_99e3_91a0777df0cc" resolve="immediate">
 			<ipxact:name>STATUS_SIZE</ipxact:name>
 			<ipxact:description>How many bytes asre reserved for the status data.</ipxact:description>
 			<ipxact:value>1</ipxact:value>

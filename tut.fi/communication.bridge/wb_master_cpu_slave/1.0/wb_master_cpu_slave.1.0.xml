@@ -111,8 +111,8 @@
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
 			<ipxact:master>
-				<ipxact:addressSpaceRef ipxact:addressSpaceRef="wb_bus_space">
-					<ipxact:baseAddress ipxact:addressSpaceRef="wb_bus_space">0</ipxact:baseAddress>
+				<ipxact:addressSpaceRef addressSpaceRef="wb_bus_space">
+					<ipxact:baseAddress>0</ipxact:baseAddress>
 				</ipxact:addressSpaceRef>
 			</ipxact:master>
 		</ipxact:busInterface>

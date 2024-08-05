@@ -121,8 +121,8 @@
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
 			<ipxact:master>
-				<ipxact:addressSpaceRef ipxact:addressSpaceRef="bus_space">
-					<ipxact:baseAddress ipxact:addressSpaceRef="bus_space">uuid_e2414448_9d04_40bd_af10_8061a5e4ae7c</ipxact:baseAddress>
+				<ipxact:addressSpaceRef addressSpaceRef="bus_space">
+					<ipxact:baseAddress>uuid_e2414448_9d04_40bd_af10_8061a5e4ae7c</ipxact:baseAddress>
 				</ipxact:addressSpaceRef>
 			</ipxact:master>
 		</ipxact:busInterface>
@@ -232,8 +232,8 @@
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
 			<ipxact:master>
-				<ipxact:addressSpaceRef ipxact:addressSpaceRef="direct_space">
-					<ipxact:baseAddress ipxact:addressSpaceRef="direct_space">uuid_d0fe4fa7_e3eb_4fec_a7f9_9f3eac6b8c04</ipxact:baseAddress>
+				<ipxact:addressSpaceRef addressSpaceRef="direct_space">
+					<ipxact:baseAddress>uuid_d0fe4fa7_e3eb_4fec_a7f9_9f3eac6b8c04</ipxact:baseAddress>
 				</ipxact:addressSpaceRef>
 			</ipxact:master>
 		</ipxact:busInterface>
